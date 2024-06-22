@@ -1,0 +1,476 @@
+[
+  {
+    "name": "Abalone,Raw",
+    "calories": 98,
+    "carbs": 1.4,
+    "sugar": 0.9
+  },
+  {
+    "name": "AlfalfaSprout,Raw",
+    "calories": 18,
+    "carbs": 0.5,
+    "sugar": 0.5
+  },
+  {
+    "name": "AlmondMeal",
+    "calories": 586,
+    "carbs": 4.4,
+    "sugar": 4.4
+  },
+  {
+    "name": "AlmondPaste",
+    "calories": 401,
+    "carbs": 55.1,
+    "sugar": 54.1
+  },
+  {
+    "name": "Almond,Chocolate-Coated",
+    "calories": 527,
+    "carbs": 50.6,
+    "sugar": 45.4
+  },
+  {
+    "name": "Almond,DryRoasted",
+    "calories": 580,
+    "carbs": 4.4,
+    "sugar": 4.4
+  },
+  {
+    "name": "Almond,DryRoasted,Unsalted",
+    "calories": 592,
+    "carbs": 4.5,
+    "sugar": 4.5
+  },
+  {
+    "name": "Almond,Raw",
+    "calories": 586,
+    "carbs": 4.4,
+    "sugar": 4.4
+  },
+  {
+    "name": "Almond,Roasted",
+    "calories": 625,
+    "carbs": 4,
+    "sugar": 4
+  },
+  {
+    "name": "Almond,Sugar-Coated",
+    "calories": 514,
+    "carbs": 36.5,
+    "sugar": 36.5
+  },
+  {
+    "name": "Almond,Yoghurt-Coated",
+    "calories": 489,
+    "carbs": 36.9,
+    "sugar": 36.9
+  },
+  {
+    "name": "Anchovy,CannedInBrine,Drained",
+    "calories": 146,
+    "carbs": 0,
+    "sugar": 0
+  },
+  {
+    "name": "Anchovy,Canned,InOil,Drained",
+    "calories": 182,
+    "carbs": 0,
+    "sugar": 0
+  },
+  {
+    "name": "AppleJuiceSuperConcentrate,UsedInCooking",
+    "calories": 192,
+    "carbs": 50.1,
+    "sugar": 50.1
+  },
+  {
+    "name": "AppleSponge,Homemade",
+    "calories": 163,
+    "carbs": 24.6,
+    "sugar": 13.5
+  },
+  {
+    "name": "Apple,Baked,NotStuffed,Sweetened",
+    "calories": 63,
+    "carbs": 15.6,
+    "sugar": 15
+  },
+  {
+    "name": "Apple,Baked,NotStuffed,Unsweetened",
+    "calories": 46,
+    "carbs": 10.3,
+    "sugar": 9.8
+  },
+  {
+    "name": "Apple,Baked,StuffedWithDriedFruit",
+    "calories": 104,
+    "carbs": 21.1,
+    "sugar": 20.3
+  },
+  {
+    "name": "Apple,Battered,Fried",
+    "calories": 227,
+    "carbs": 23.1,
+    "sugar": 9.2
+  },
+  {
+    "name": "Apple,Canned,PieFruit",
+    "calories": 44,
+    "carbs": 11.1,
+    "sugar": 10.8
+  },
+  {
+    "name": "Apple,Dried,Raw",
+    "calories": 246,
+    "carbs": 61.7,
+    "sugar": 60.5
+  },
+  {
+    "name": "Apple,Dried,Stewed,Sugar-Sweetened",
+    "calories": 84,
+    "carbs": 21.4,
+    "sugar": 21.2
+  },
+  {
+    "name": "Apple,Green,Raw,Peeled",
+    "calories": 42,
+    "carbs": 10.5,
+    "sugar": 10
+  },
+  {
+    "name": "Apple,Green,Raw,Unpeeled",
+    "calories": 44,
+    "carbs": 10.8,
+    "sugar": 10.3
+  },
+  {
+    "name": "Apple,NsAsToType,Raw,Peeled",
+    "calories": 48,
+    "carbs": 11.9,
+    "sugar": 11.4
+  },
+  {
+    "name": "Apple,NsAsToType,Raw,Unpeeled",
+    "calories": 49,
+    "carbs": 12.3,
+    "sugar": 11.7
+  },
+  {
+    "name": "Apple,Red,Raw,Peeled",
+    "calories": 48,
+    "carbs": 12.2,
+    "sugar": 11.7
+  },
+  {
+    "name": "Apple,Red,Raw,Unpeeled",
+    "calories": 50,
+    "carbs": 12.5,
+    "sugar": 12
+  },
+  {
+    "name": "Apple,Stewed,FromRaw,ArtificiallySweetened",
+    "calories": 31,
+    "carbs": 7.8,
+    "sugar": 7.4
+  },
+  {
+    "name": "Apple,Stewed,FromRaw,Sugar-Sweetened",
+    "calories": 81,
+    "carbs": 20.7,
+    "sugar": 20.4
+  },
+  {
+    "name": "Apple,Stewed,FromRaw,Unsweetened",
+    "calories": 31,
+    "carbs": 7.8,
+    "sugar": 7.4
+  },
+  {
+    "name": "Apple,Toffee-/Sugar-Coated",
+    "calories": 121,
+    "carbs": 31.2,
+    "sugar": 30.7
+  },
+  {
+    "name": "Apricot,CannedInExtraLightJuice",
+    "calories": 42,
+    "carbs": 9.6,
+    "sugar": 8.2
+  },
+  {
+    "name": "Apricot,CannedInLightSyrup",
+    "calories": 52,
+    "carbs": 12.4,
+    "sugar": 11.3
+  },
+  {
+    "name": "Apricot,CannedInLightSyrup,Drained",
+    "calories": 51,
+    "carbs": 11.7,
+    "sugar": 10.7
+  },
+  {
+    "name": "Apricot,CannedInNaturalJuice",
+    "calories": 42,
+    "carbs": 9.6,
+    "sugar": 8.2
+  },
+  {
+    "name": "Apricot,CannedInNaturalJuice,Drained",
+    "calories": 41,
+    "carbs": 8.9,
+    "sugar": 7.8
+  },
+  {
+    "name": "Apricot,CannedInWater",
+    "calories": 24,
+    "carbs": 5,
+    "sugar": 4.3
+  },
+  {
+    "name": "Apricot,Canned,NsAsToTypeOfPackingLiquid",
+    "calories": 44,
+    "carbs": 10.1,
+    "sugar": 8.8
+  },
+  {
+    "name": "Apricot,Canned,NsAsToTypeOfPackingLiquid,Drained",
+    "calories": 43,
+    "carbs": 9.7,
+    "sugar": 8.5
+  },
+  {
+    "name": "Apricot,Canned,PieFruit",
+    "calories": 44,
+    "carbs": 9.4,
+    "sugar": 8.8
+  },
+  {
+    "name": "Apricot,Dried,Raw",
+    "calories": 196,
+    "carbs": 44.4,
+    "sugar": 40.5
+  },
+  {
+    "name": "Apricot,Dried,Stewed,ArtificiallySweetened",
+    "calories": 43,
+    "carbs": 9.9,
+    "sugar": 9
+  },
+  {
+    "name": "Apricot,Dried,Stewed,Sugar-Sweetened",
+    "calories": 76,
+    "carbs": 18.4,
+    "sugar": 17.6
+  },
+  {
+    "name": "Apricot,Dried,Stewed,Unsweetened",
+    "calories": 43,
+    "carbs": 9.9,
+    "sugar": 9
+  },
+  {
+    "name": "Apricot,Glace",
+    "calories": 254,
+    "carbs": 65.5,
+    "sugar": 65.3
+  },
+  {
+    "name": "Apricot,Raw",
+    "calories": 38,
+    "carbs": 7.7,
+    "sugar": 7.1
+  },
+  {
+    "name": "Apricot,Stewed,FromRaw,ArtificiallySweetened",
+    "calories": 28,
+    "carbs": 5.5,
+    "sugar": 5
+  },
+  {
+    "name": "Apricot,Stewed,FromRaw,Sugar-Sweetened",
+    "calories": 82,
+    "carbs": 20.9,
+    "sugar": 20.6
+  },
+  {
+    "name": "Apricot,Stewed,FromRaw,Unsweetened",
+    "calories": 28,
+    "carbs": 5.5,
+    "sugar": 5
+  },
+  {
+    "name": "ArtichokeHeart,CannedInBrine,Drained",
+    "calories": 16,
+    "carbs": 1.2,
+    "sugar": 1.1
+  },
+  {
+    "name": "Artichoke,Globe,Cooked,FatAddedInCooking",
+    "calories": 39,
+    "carbs": 1.4,
+    "sugar": 1
+  },
+  {
+    "name": "Artichoke,Globe,Cooked,FatNotAddedInCooking",
+    "calories": 21,
+    "carbs": 1.4,
+    "sugar": 1
+  },
+  {
+    "name": "Artichoke,Jerusalem,Cooked,FatAddedInCooking",
+    "calories": 81,
+    "carbs": 11.3,
+    "sugar": 2.9
+  },
+  {
+    "name": "Artichoke,Jerusalem,Cooked,FatNotAddedInCooking",
+    "calories": 58,
+    "carbs": 11.6,
+    "sugar": 3
+  },
+  {
+    "name": "ArtificialSweetener,Aspartame&Acesulfame-K,Tablet",
+    "calories": 340,
+    "carbs": 0,
+    "sugar": 0
+  },
+  {
+    "name": "ArtificialSweetener,Aspartame,Liquid",
+    "calories": 7,
+    "carbs": 0,
+    "sugar": 0
+  },
+  {
+    "name": "ArtificialSweetener,Aspartame,SpoonForSpoon",
+    "calories": 406,
+    "carbs": 97,
+    "sugar": 0
+  },
+  {
+    "name": "ArtificialSweetener,Aspartame,Tablet",
+    "calories": 363,
+    "carbs": 60,
+    "sugar": 60
+  },
+  {
+    "name": "ArtificialSweetener,Cyclamate&Saccharin,Tablet",
+    "calories": 161,
+    "carbs": 42.2,
+    "sugar": 42.2
+  },
+  {
+    "name": "ArtificialSweetener,NsAspartameOrSaccharin,Tablet",
+    "calories": 272,
+    "carbs": 41.2,
+    "sugar": 41.2
+  },
+  {
+    "name": "ArtificialSweetener,Saccharin,Liquid",
+    "calories": 0,
+    "carbs": 0,
+    "sugar": 0
+  },
+  {
+    "name": "ArtificialSweetener,Saccharin,SpoonForSpoon",
+    "calories": 398,
+    "carbs": 98,
+    "sugar": 0
+  },
+  {
+    "name": "ArtificialSweetener,Saccharin,Tablet",
+    "calories": 161,
+    "carbs": 42.2,
+    "sugar": 42.2
+  },
+  {
+    "name": "ArtificialSweetener,SpoonForSpoon,Nfs",
+    "calories": 400,
+    "carbs": 96.2,
+    "sugar": 0.5
+  },
+  {
+    "name": "ArtificialSweetener,Sucralose,SpoonForSpoon",
+    "calories": 376,
+    "carbs": 92.8,
+    "sugar": 2.7
+  },
+  {
+    "name": "ArtificialSweetener,Sucralose,Tablet",
+    "calories": 329,
+    "carbs": 86.1,
+    "sugar": 86.1
+  },
+  {
+    "name": "ArtificialSweetener,Tablet,Nfs",
+    "calories": 274,
+    "carbs": 43,
+    "sugar": 43
+  },
+  {
+    "name": "Asparagus,Canned,Drained",
+    "calories": 17,
+    "carbs": 1.5,
+    "sugar": 1.5
+  },
+  {
+    "name": "Asparagus,Canned,ReducedSalt,Drained",
+    "calories": 17,
+    "carbs": 1.5,
+    "sugar": 1.5
+  },
+  {
+    "name": "Asparagus,Cooked,FatAddedInCooking",
+    "calories": 35,
+    "carbs": 1.6,
+    "sugar": 1.6
+  },
+  {
+    "name": "Asparagus,Cooked,FatNotAddedInCooking",
+    "calories": 19,
+    "carbs": 1.6,
+    "sugar": 1.6
+  },
+  {
+    "name": "Asparagus,Raw",
+    "calories": 17,
+    "carbs": 1.4,
+    "sugar": 1.4
+  },
+  {
+    "name": "Avocado,Raw",
+    "calories": 210,
+    "carbs": 0.4,
+    "sugar": 0.4
+  },
+  {
+    "name": "A",
+    "calories": null,
+    "carbs": null,
+    "sugar": null
+  },
+  {
+    "name": "F",
+    "calories": null,
+    "carbs": null,
+    "sugar": null
+  },
+  {
+    "name": "K",
+    "calories": null,
+    "carbs": null,
+    "sugar": null
+  },
+  {
+    "name": "P",
+    "calories": null,
+    "carbs": null,
+    "sugar": null
+  },
+  {
+    "name": "UtoZ",
+    "calories": null,
+    "carbs": null,
+    "sugar": null
+  }
+]
