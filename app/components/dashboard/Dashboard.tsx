@@ -1,6 +1,14 @@
+"use client";
 import React from "react";
+import useSWR from "swr";
 
 function Dashboard() {
+  const fetcher = (url: string) => fetch(url).then((res) => res.json());
+
+  const { data, error, isLoading } = useSWR("/api/food", fetcher);
+  console.log(data);
+  if (error) return <div>failed to load</div>;
+  if (isLoading) return <div>loading...</div>;
   return (
     <div className="min-w-full bg-white">
       <table className="table-auto min-w-full bg-white border border-gray-200">
@@ -25,6 +33,7 @@ function Dashboard() {
           </tr>
         </tbody>
       </table>
+      {/* <p className="text-black">{data.map((x: any) => x.name)}</p> */}
     </div>
   );
 }
