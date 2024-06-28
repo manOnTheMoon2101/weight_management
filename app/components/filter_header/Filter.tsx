@@ -1,8 +1,7 @@
 "use client";
 import React from "react";
 import { useState } from "react";
-import Button from "./addButton/Button";
-import Modal from "./modal/Modal";
+
 const Filter = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -16,8 +15,6 @@ const Filter = () => {
   return (
     <div>
       Filter
-      <Button onClick={openModal} />
-      <Modal isOpen={modalOpen} onClose={closeModal} />
     </div>
   );
 };
