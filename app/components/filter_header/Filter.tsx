@@ -28,34 +28,9 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
-const frameworks = [
-  {
-    value: "next.js",
-    label: "Next.js",
-  },
-  {
-    value: "sveltekit",
-    label: "SvelteKit",
-  },
-  {
-    value: "nuxt.js",
-    label: "Nuxt.js",
-  },
-  {
-    value: "remix",
-    label: "Remix",
-  },
-  {
-    value: "astro",
-    label: "Astro",
-  },
-];
-
 interface DataType {
-  // Define the structure of your data here
   id: string;
   name: string;
-  // Add more fields as needed
 }
 const Filter = () => {
   const [open, setOpen] = useState(false);
@@ -68,7 +43,7 @@ const Filter = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get("http://localhost:3000/api/food");
-        setData(response.data); // Assuming response.data is an array of items
+        setData(response.data);
       } catch (error) {
         console.error("Error fetching data: ", error);
       }
