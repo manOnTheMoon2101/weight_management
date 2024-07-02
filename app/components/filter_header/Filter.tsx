@@ -13,6 +13,9 @@ import axios from "axios";
 import { Check, ChevronsUpDown } from "lucide-react";
 
 import { cn } from "@/lib/utils";
+import { Input } from "@/components/ui/input";
+import { Switch } from "@/components/ui/switch";
+import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import {
   Command,
@@ -59,6 +62,14 @@ const Filter = () => {
         <DialogTrigger>Open</DialogTrigger>
         <DialogContent>
           <DialogHeader>
+            <DialogTitle>Weight:</DialogTitle>
+            <DialogDescription>
+              <Input placeholder="Weight" />
+            </DialogDescription>
+            <DialogDescription>
+              <Switch />
+              <Label>Worked out?</Label>
+            </DialogDescription>
             <DialogTitle>Select Food:</DialogTitle>
             <DialogDescription>
               <Popover open={open} onOpenChange={setOpen}>
@@ -67,10 +78,8 @@ const Filter = () => {
                     variant="outline"
                     role="combobox"
                     aria-expanded={open}
-                    className="w-[400px] justify-between"
                   >
-                    {value ? value : "Search"}
-                    <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                    +
                   </Button>
                 </PopoverTrigger>
                 <PopoverContent className="w-[200px] p-0">
@@ -106,8 +115,27 @@ const Filter = () => {
                   </Command>
                 </PopoverContent>
               </Popover>
+              {value}
             </DialogDescription>
           </DialogHeader>
+          <DialogDescription>
+            <Switch />
+            <Label htmlFor="airplane-mode">Vitamin?</Label>
+          </DialogDescription>
+          <DialogDescription>
+            <Switch />
+            <Label htmlFor="airplane-mode">Weight Management</Label>
+          </DialogDescription>
+          <DialogDescription>
+            <Switch />
+            <Label htmlFor="airplane-mode">Fat Burner</Label>
+          </DialogDescription>
+          <DialogDescription>
+            <h3>Protein:</h3>
+            <h3>Fat:</h3>
+            <h3>Sugar:</h3>
+            <h3>Carbs:</h3>
+          </DialogDescription>
         </DialogContent>
       </Dialog>
     </div>
