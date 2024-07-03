@@ -120,15 +120,15 @@ const Filter = () => {
           </DialogHeader>
           <DialogDescription>
             <Switch />
-            <Label htmlFor="airplane-mode">Vitamin?</Label>
+            <Label>Vitamin?</Label>
           </DialogDescription>
           <DialogDescription>
             <Switch />
-            <Label htmlFor="airplane-mode">Weight Management</Label>
+            <Label>CLA?</Label>
           </DialogDescription>
           <DialogDescription>
             <Switch />
-            <Label htmlFor="airplane-mode">Fat Burner</Label>
+            <Label>L-Carnitine?</Label>
           </DialogDescription>
           <DialogDescription>
             <h3>Protein:</h3>
