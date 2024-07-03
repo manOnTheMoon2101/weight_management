@@ -23,6 +23,12 @@ function Dashboard() {
                   Carbohydrates
                 </th>
                 <th className="px-4 py-2 text-black text-center">Sugar</th>
+
+                <th className="px-4 py-2 text-black text-center">Vitamin?</th>
+                <th className="px-4 py-2 text-black text-center">CLA?</th>
+                <th className="px-4 py-2 text-black text-center">
+                  L-Carnitine?
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -44,6 +50,16 @@ function Dashboard() {
                 </td>
                 <td className="border px-4 py-2 text-black text-center">
                   {x.totalSugar}
+                </td>
+
+                <td className="border px-4 py-2 text-black text-center">
+                  {x.tookVitamin == true ? "true" : "false"}
+                </td>
+                <td className="border px-4 py-2 text-black text-center">
+                  {x.tookWeightmanagement == true ? "true" : "false"}
+                </td>
+                <td className="border px-4 py-2 text-black text-center">
+                  {x.tookFatburner == true ? "true" : "false"}
                 </td>
               </tr>
             </tbody>
