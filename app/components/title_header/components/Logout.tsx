@@ -4,7 +4,7 @@ const Logout = () => {
   return (
     <div className="flex flex-row">
       <p>account name</p>
-      <Button className="bg-red-600">Logout</Button>
+      <Button>Logout</Button>
     </div>
   );
 };
