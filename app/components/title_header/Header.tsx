@@ -1,5 +1,5 @@
 import React from "react";
-import Logout from "./account/Logout";
+import Logout from "./components/Logout";
 
 const Header = () => {
   return (

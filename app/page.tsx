@@ -2,16 +2,16 @@
 
 import Image from "next/image";
 import axios from "axios";
-import Header from "./components/header/Header";
+import Header from "./components/title_header/Header";
 import Dashboard from "./components/dashboard/Dashboard";
-import Filter from "./components/filter_header/Filter";
+import Filter from "./components/body_header/Filter";
 
 export default function Home(e: any) {
   return (
     <main>
-      <Header/>
+      <Header />
       <div>
-        <Filter/>
+        <Filter />
       </div>
       <div>
         <Dashboard></Dashboard>
