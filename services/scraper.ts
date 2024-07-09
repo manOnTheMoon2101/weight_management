@@ -6,18 +6,19 @@ const url =
 
 axios
   .get(url)
-  .then(async (response:any) => {
+  .then(async (response: any) => {
     const html = response.data;
     const $ = cheerio.load(html);
 
     const tableRows = $(".bodyText tr");
 
-    let data: { name: any; calories: number; carbs: number; sugar: number; }[] = [];
+    let data: { name: any; calories: number; carbs: number; sugar: number }[] =
+      [];
 
-    tableRows.each((index:any, element:any) => {
+    tableRows.each((index: any, element: any) => {
       const columns = $(element)
         .find("td")
-        .map((i:any, cell:any) => $(cell).text().trim())
+        .map((i: any, cell: any) => $(cell).text().trim())
         .get();
 
       if (columns.length > 0) {
@@ -31,10 +32,8 @@ axios
       }
     });
 
-
-
     console.log("Data has been saved to the database.");
   })
-  .catch((error:any) => {
+  .catch((error: any) => {
     console.log(error);
   });
