@@ -2,6 +2,15 @@
 import React from "react";
 import useSWR from "swr";
 
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { AiOutlineExport } from "react-icons/ai";
 function Dashboard() {
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
@@ -14,6 +23,9 @@ function Dashboard() {
         <table className="table-auto min-w-full bg-white border border-gray-200">
           <thead>
             <tr className="bg-gray-100">
+              <th className="px-4 py-2 text-black text-center bg-slate-900 text-white">
+                Open
+              </th>
               <th className="px-4 py-2 text-black text-center">Date</th>
               <th className="px-4 py-2 text-black text-center">Weight</th>
               <th className="px-4 py-2 text-black text-center">Food</th>
@@ -32,6 +44,23 @@ function Dashboard() {
           {data.map((x: any) => (
             <tbody>
               <tr key={x.id}>
+                <td className="border px-4 py-2 text-black text-center">
+                  <Dialog>
+                    <DialogTrigger>
+                      <AiOutlineExport />
+                    </DialogTrigger>
+                    <DialogContent>
+                      <DialogHeader>
+                        <DialogTitle>{x.createdAt}</DialogTitle>
+                        <DialogDescription>
+                          This action cannot be undone. This will permanently
+                          delete your account and remove your data from our
+                          servers.
+                        </DialogDescription>
+                      </DialogHeader>
+                    </DialogContent>
+                  </Dialog>
+                </td>
                 <td className="border px-4 py-2 text-black text-center">
                   {x.createdAt}
                 </td>
