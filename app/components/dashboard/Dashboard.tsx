@@ -10,7 +10,19 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 import { AiOutlineExport } from "react-icons/ai";
+import { Button } from "@/components/ui/button";
 function Dashboard() {
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
@@ -52,11 +64,29 @@ function Dashboard() {
                     <DialogContent>
                       <DialogHeader>
                         <DialogTitle>{x.createdAt}</DialogTitle>
-                        <DialogDescription>
-                          This action cannot be undone. This will permanently
-                          delete your account and remove your data from our
-                          servers.
-                        </DialogDescription>
+                        <DialogDescription>weight:{x.weight}</DialogDescription>
+
+                        <AlertDialog>
+                          <AlertDialogTrigger>
+                            <Button>Delete</Button>
+                          </AlertDialogTrigger>
+                          <AlertDialogContent>
+                            <AlertDialogHeader>
+                              <AlertDialogTitle>
+                                Are you absolutely sure?
+                              </AlertDialogTitle>
+                              <AlertDialogDescription>
+                                This action cannot be undone. This will
+                                permanently remove your data from our servers.
+                              </AlertDialogDescription>
+                            </AlertDialogHeader>
+                            <AlertDialogFooter>
+                              <AlertDialogCancel>Cancel</AlertDialogCancel>
+                              <AlertDialogAction>Continue</AlertDialogAction>
+                            </AlertDialogFooter>
+                          </AlertDialogContent>
+                        </AlertDialog>
+                        <Button>Edit</Button>
                       </DialogHeader>
                     </DialogContent>
                   </Dialog>
