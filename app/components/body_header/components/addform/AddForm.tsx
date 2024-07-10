@@ -12,6 +12,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
+import { IoMdAddCircleOutline } from "react-icons/io";
 import { Button } from "@/components/ui/button";
 import { Command, CommandInput } from "@/components/ui/command";
 import {
@@ -41,7 +42,7 @@ const AddForm = () => {
   return (
     <div>
       <Dialog>
-        <DialogTrigger>Add</DialogTrigger>
+        <DialogTrigger><Button><IoMdAddCircleOutline />Add</Button></DialogTrigger>
         <DialogContent>
           <DialogHeader>
             <DialogTitle>Weight:</DialogTitle>
