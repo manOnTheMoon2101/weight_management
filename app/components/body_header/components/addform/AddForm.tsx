@@ -42,7 +42,7 @@ const AddForm = () => {
   return (
     <div>
       <Dialog>
-        <DialogTrigger><Button><IoMdAddCircleOutline />Add</Button></DialogTrigger>
+        <DialogTrigger><IoMdAddCircleOutline />Add</DialogTrigger>
         <DialogContent>
           <DialogHeader>
             <DialogTitle>Weight:</DialogTitle>
