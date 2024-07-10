@@ -23,10 +23,9 @@ import {
 } from "@/components/ui/alert-dialog";
 import { AiOutlineExport } from "react-icons/ai";
 import { Button } from "@/components/ui/button";
-function Dashboard() {
+function Dashboard(date:any) {
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
-
-  const { data, error, isLoading } = useSWR("/api/data", fetcher);
+  const { data, error, isLoading } = useSWR(`/api/filter/${date.month}`, fetcher);
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;
   return (

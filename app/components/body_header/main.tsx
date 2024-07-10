@@ -1,12 +1,13 @@
 "use client";
 import React from "react";
-import { CalendarForm } from "./components/calendar/calendar";
+import { Data_Filter } from "./components/filter/Data_Filter";
 import AddForm from "./components/addform/AddForm";
-
-const Filter = () => {
+import { useState } from "react";
+const Filter = (month:any) => {
+  const [customVariable, setCustomVariable] = useState(month);
   return (
     <div className="flex flex-row justify-between">
-      <CalendarForm />
+      <Data_Filter month='07' />
       <AddForm />
     </div>
   );
