@@ -1,5 +1,5 @@
 import React from "react";
-import Logout from "./components/Logout";
+
 
 const Header = () => {
   return (
@@ -8,7 +8,7 @@ const Header = () => {
         <h4>Weight Management App</h4>
       </div>
       <div>
-        <Logout />
+
       </div>
     </div>
   );

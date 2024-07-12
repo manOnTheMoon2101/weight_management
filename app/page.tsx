@@ -1,16 +1,13 @@
 "use client";
+import { Dashboard } from "./components/body_header/components/dashboard/Dashboard";
 import Header from "./components/title_header/Header";
-import Dashboard from "./components/dashboard/Dashboard";
-import Body_Header from "./components/body_header/main";
 export default function Home(e: any) {
   return (
     <main>
       <Header />
+
       <div>
-        <Body_Header month />
-      </div>
-      <div>
-        <Dashboard month={"07"} />
+        <Dashboard />
       </div>
     </main>
   );
