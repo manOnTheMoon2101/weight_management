@@ -42,7 +42,10 @@ const AddForm = () => {
   return (
     <div>
       <Dialog>
-        <DialogTrigger><IoMdAddCircleOutline />Add</DialogTrigger>
+        <DialogTrigger className="flex flex-row justify-between items-baseline">
+          <IoMdAddCircleOutline />
+          Add
+        </DialogTrigger>
         <DialogContent>
           <DialogHeader>
             <DialogTitle>Weight:</DialogTitle>
