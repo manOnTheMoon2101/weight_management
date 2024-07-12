@@ -10,7 +10,6 @@ export const GET = async (
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear();
 
-    
     const data = await prisma.data.findMany({
       where: {
         createdAt: {
@@ -20,7 +19,7 @@ export const GET = async (
       },
     });
 
-    // data.map((x: any) => (x.createdAt = x.createdAt.toDateString()));
+    data.map((x: any) => (x.createdAt = x.createdAt.toDateString()));
 
     return NextResponse.json(data);
   } catch (err) {
