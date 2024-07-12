@@ -25,8 +25,11 @@ import { AiOutlineExport } from "react-icons/ai";
 import { Button } from "@/components/ui/button";
 function Dashboard_table(date: any) {
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
+  const prodOrDevUrl = "http://localhost:3000/";
   const { data, error, isLoading } = useSWR(
-    `/api/filter/${date.month}`,
+    `${prodOrDevUrl ? prodOrDevUrl : "https://example.com/"}/api/filter/${
+      date.month
+    }`,
     fetcher
   );
   if (error) return <div>failed to load</div>;
