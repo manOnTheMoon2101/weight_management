@@ -1,4 +1,6 @@
 import React from "react";
+import Account from "./components/account/account";
+import { ModeToggle } from "./components/theme/toggle";
 
 const Header = () => {
   return (
@@ -6,7 +8,12 @@ const Header = () => {
       <div>
         <h4>Weight Management App</h4>
       </div>
-      <div></div>
+      <div>
+        <Account />
+      </div>
+      <div>
+        <ModeToggle/>
+      </div>
     </div>
   );
 };
