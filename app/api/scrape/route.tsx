@@ -7,15 +7,32 @@ const prisma = new PrismaClient();
 export const POST = async () => {
   try {
     for (const food of scrapeData) {
-      await prisma.food.create({
-        data: {
-          name: food.name,
-          calories: food.calories,
-          sugar: food.sugar,
-          carbs: food.carbs,
+
+      //old data
+      // await prisma.food.create({
+      //   data: {
+      //     name: food.name,
+      //     calories: food.calories,
+      //     sugar: food.sugar,
+      //     carbs: food.carbs,
   
-        },
-      });
+      //   },
+      // });
+
+
+          // Update existing data
+    // for (const food of scrapeData) {
+    //   await prisma.food.updateMany({
+    //     where: {
+    //       name: food.name,
+    //     },
+    //     data: {
+    //       protein: food.protein, // Update protein field
+    //       iron: food.iron,       // Update iron field
+    //     },
+    //   });
+    // }
+
     }
 
     await prisma.$disconnect();

@@ -1,4 +1,3 @@
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -19,6 +18,8 @@ model Food {
   name      String?
   calories  Float?
   sugar     Float?
+  protein   Float?
+  iron      Float?
   carbs     Float?
   createdAt DateTime?
   updatedAt DateTime?
