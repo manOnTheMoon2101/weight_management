@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import axios from "axios";
 import { useState, useEffect } from "react";
 import {
   Dialog,
@@ -9,21 +10,35 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { Check } from "lucide-react";
 import { Input } from "@/components/ui/input";
+import { cn } from "@/lib/utils";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { Button } from "@/components/ui/button";
-import { Command, CommandInput } from "@/components/ui/command";
+import {
+  Command,
+  CommandInput,
+  CommandList,
+  CommandEmpty,
+  CommandGroup,
+  CommandItem,
+} from "@/components/ui/command";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
 
+interface DataType {
+  id: string;
+  name: string;
+}
+
 const AddForm = () => {
-  const [open, setOpen] = useState<any>(false);
-  const [value, setValue] = useState<any>([]);
+  const [open, setOpen] = useState(false);
+  const [value, setValue] = useState("");
   const [data, setData] = useState<any>([]);
 
   useEffect(() => {
@@ -68,9 +83,37 @@ const AddForm = () => {
                     +
                   </Button>
                 </PopoverTrigger>
-                <PopoverContent className="w-[200px] p-0">
+                <PopoverContent className="w-[500px] p-0">
                   <Command>
-                    <CommandInput placeholder="Search food..." />
+                    <CommandInput placeholder="Search framework..." />
+                    <CommandList>
+                      <CommandEmpty>No Data Found.</CommandEmpty>
+                      <CommandGroup>
+                        {data.map((x: any) => (
+                          <CommandItem
+                            key={x.id}
+                            value={x.name}
+                            onSelect={(currentValue) => {
+                              setValue(
+                                currentValue === value ? "" : currentValue
+                              );
+                              setOpen(false);
+                            }}
+                          >
+                            <Check
+                              className={cn(
+                                "mr-2 h-4 w-4",
+                                value === x.name ? "opacity-100" : "opacity-0"
+                              )}
+                            />
+                            <div className="flex flex-row justify-around items-baseline w-full">
+                              <div className="w-1/2"> {x.name}</div>
+                              <div className="w-1/2"> {x.calories}kcal</div>
+                            </div>
+                          </CommandItem>
+                        ))}
+                      </CommandGroup>
+                    </CommandList>
                   </Command>
                 </PopoverContent>
               </Popover>
