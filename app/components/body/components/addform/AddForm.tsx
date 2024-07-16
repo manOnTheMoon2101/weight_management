@@ -31,11 +31,6 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
-interface DataType {
-  id: string;
-  name: string;
-}
-
 const AddForm = () => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState("");
@@ -107,8 +102,14 @@ const AddForm = () => {
                               )}
                             />
                             <div className="flex flex-row justify-around items-baseline w-full">
-                              <div className="w-1/2"> {x.name}</div>
-                              <div className="w-1/2"> {x.calories}kcal</div>
+                              <div className="w-1/2 overflow-x-auto text-center">
+                                {" "}
+                                {x.name}
+                              </div>
+                              <div className="w-1/2 text-center">
+                                {" "}
+                                {x.calories}kcal
+                              </div>
                             </div>
                           </CommandItem>
                         ))}
