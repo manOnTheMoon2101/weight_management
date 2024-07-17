@@ -45,6 +45,7 @@ function Dashboard_table(date: any) {
               </th>
               <th className="px-4 py-2 text-black text-center">Date</th>
               <th className="px-4 py-2 text-black text-center">Weight</th>
+              <th className="px-4 py-2 text-black text-center">Calories</th>
               <th className="px-4 py-2 text-black text-center">Food</th>
               <th className="px-4 py-2 text-black text-center">Protein</th>
               <th className="px-4 py-2 text-black text-center">Fat</th>
@@ -58,85 +59,81 @@ function Dashboard_table(date: any) {
               <th className="px-4 py-2 text-black text-center">L-Carnitine?</th>
             </tr>
           </thead>
-          {
-            data.map((x: any) => (
-                <tbody>
-                  <tr key={x.id}>
-                    <td className="border px-4 py-2 text-black text-center">
-                      <Dialog>
-                        <DialogTrigger>
-                          <AiOutlineExport />
-                        </DialogTrigger>
-                        <DialogContent>
-                          <DialogHeader>
-                            <DialogTitle>{x.createdAt}</DialogTitle>
-                            <DialogDescription>
-                              weight:{x.weight}
-                            </DialogDescription>
+          {data.map((x: any) => (
+            <tbody>
+              <tr key={x.id}>
+                <td className="border px-4 py-2 text-black text-center">
+                  <Dialog>
+                    <DialogTrigger>
+                      <AiOutlineExport />
+                    </DialogTrigger>
+                    <DialogContent>
+                      <DialogHeader>
+                        <DialogTitle>{x.createdAt}</DialogTitle>
+                        <DialogDescription>weight:{x.weight}</DialogDescription>
 
-                            <AlertDialog>
-                              <AlertDialogTrigger>
-                                <Button>Delete</Button>
-                              </AlertDialogTrigger>
-                              <AlertDialogContent>
-                                <AlertDialogHeader>
-                                  <AlertDialogTitle>
-                                    Are you absolutely sure?
-                                  </AlertDialogTitle>
-                                  <AlertDialogDescription>
-                                    This action cannot be undone. This will
-                                    permanently remove your data from our
-                                    servers.
-                                  </AlertDialogDescription>
-                                </AlertDialogHeader>
-                                <AlertDialogFooter>
-                                  <AlertDialogCancel>Cancel</AlertDialogCancel>
-                                  <AlertDialogAction>
-                                    Continue
-                                  </AlertDialogAction>
-                                </AlertDialogFooter>
-                              </AlertDialogContent>
-                            </AlertDialog>
-                            <Button>Edit</Button>
-                          </DialogHeader>
-                        </DialogContent>
-                      </Dialog>
-                    </td>
-                    <td className="border px-4 py-2 text-black text-center">
-                      {x.createdAt}
-                    </td>
-                    <td className="border px-4 py-2 text-black text-center">
-                      {x.weight}
-                    </td>
-                    <td className="border px-4 py-2 text-black text-center">
-                      {x.foodsInt == null ? x.foodsInt : "No Food(wow!)"}
-                    </td>
-                    <td className="border px-4 py-2 text-black text-center">
-                      {x.totalProtein}
-                    </td>
-                    <td className="border px-4 py-2 text-black text-center">
-                      {x.totalFat}
-                    </td>
-                    <td className="border px-4 py-2 text-black text-center">
-                      {x.totalCarbs}
-                    </td>
-                    <td className="border px-4 py-2 text-black text-center">
-                      {x.totalSugar}
-                    </td>
+                        <AlertDialog>
+                          <AlertDialogTrigger>
+                            <Button>Delete</Button>
+                          </AlertDialogTrigger>
+                          <AlertDialogContent>
+                            <AlertDialogHeader>
+                              <AlertDialogTitle>
+                                Are you absolutely sure?
+                              </AlertDialogTitle>
+                              <AlertDialogDescription>
+                                This action cannot be undone. This will
+                                permanently remove your data from our servers.
+                              </AlertDialogDescription>
+                            </AlertDialogHeader>
+                            <AlertDialogFooter>
+                              <AlertDialogCancel>Cancel</AlertDialogCancel>
+                              <AlertDialogAction>Continue</AlertDialogAction>
+                            </AlertDialogFooter>
+                          </AlertDialogContent>
+                        </AlertDialog>
+                        <Button>Edit</Button>
+                      </DialogHeader>
+                    </DialogContent>
+                  </Dialog>
+                </td>
+                <td className="border px-4 py-2 text-black text-center">
+                  {x.createdAt}
+                </td>
+                <td className="border px-4 py-2 text-black text-center">
+                  {x.weight}
+                </td>
+                <td className="border px-4 py-2 text-black text-center">
+                  {x.totalCalories}
+                </td>
+                <td className="border px-4 py-2 text-black text-center">
+                  {x.foodsInt == null ? x.foodsInt : "No Food(wow!)"}
+                </td>
+                <td className="border px-4 py-2 text-black text-center">
+                  {x.totalProtein}
+                </td>
+                <td className="border px-4 py-2 text-black text-center">
+                  {x.totalFat}
+                </td>
+                <td className="border px-4 py-2 text-black text-center">
+                  {x.totalCarbs}
+                </td>
+                <td className="border px-4 py-2 text-black text-center">
+                  {x.totalSugar}
+                </td>
 
-                    <td className="border px-4 py-2 text-black text-center">
-                      {x.tookVitamin == true ? "true" : "false"}
-                    </td>
-                    <td className="border px-4 py-2 text-black text-center">
-                      {x.tookWeightmanagement == true ? "true" : "false"}
-                    </td>
-                    <td className="border px-4 py-2 text-black text-center">
-                      {x.tookFatburner == true ? "true" : "false"}
-                    </td>
-                  </tr>
-                </tbody>
-              ))
-            }
+                <td className="border px-4 py-2 text-black text-center">
+                  {x.tookVitamin == true ? "true" : "false"}
+                </td>
+                <td className="border px-4 py-2 text-black text-center">
+                  {x.tookWeightmanagement == true ? "true" : "false"}
+                </td>
+                <td className="border px-4 py-2 text-black text-center">
+                  {x.tookFatburner == true ? "true" : "false"}
+                </td>
+              </tr>
+            </tbody>
+          ))}
         </table>
         <div className="flex flex-row justify-center">
           {data.length <= 0 ? "No Data" : ""}
