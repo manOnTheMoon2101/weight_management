@@ -4,7 +4,7 @@ import { ModeToggle } from "./components/theme/toggle";
 
 const Header = () => {
   return (
-    <div className="flex flex-row bg-red-200 justify-between items-baseline">
+    <div className="flex flex-row justify-between items-baseline">
       <div>
         <h4>Weight Management App</h4>
       </div>
