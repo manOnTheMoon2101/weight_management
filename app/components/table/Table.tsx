@@ -36,33 +36,29 @@ function Dashboard_table(date: any) {
   if (isLoading) return <div>loading...</div>;
   return (
     <>
-      <div className="min-w-full bg-white">
-        <table className="table-auto min-w-full bg-white border border-gray-200">
+      <div className="min-w-full">
+        <table className="table-auto min-w-full  border">
           <thead>
-            <tr className="bg-gray-100">
-              <th className="px-4 py-2 text-black text-center bg-slate-900 text-white">
-                Open
-              </th>
-              <th className="px-4 py-2 text-black text-center">Date</th>
-              <th className="px-4 py-2 text-black text-center">Weight</th>
-              <th className="px-4 py-2 text-black text-center">Calories</th>
-              <th className="px-4 py-2 text-black text-center">Food</th>
-              <th className="px-4 py-2 text-black text-center">Protein</th>
-              <th className="px-4 py-2 text-black text-center">Fat</th>
-              <th className="px-4 py-2 text-black text-center">
-                Carbohydrates
-              </th>
-              <th className="px-4 py-2 text-black text-center">Sugar</th>
+            <tr>
+              <th className="px-4 py-2 text-center">Open</th>
+              <th className="px-4 py-2  text-center">Date</th>
+              <th className="px-4 py-2  text-center">Weight</th>
+              <th className="px-4 py-2  text-center">Calories</th>
+              <th className="px-4 py-2  text-center">Food</th>
+              <th className="px-4 py-2  text-center">Protein</th>
+              <th className="px-4 py-2  text-center">Fat</th>
+              <th className="px-4 py-2  text-center">Carbohydrates</th>
+              <th className="px-4 py-2  text-center">Sugar</th>
 
-              <th className="px-4 py-2 text-black text-center">Vitamin?</th>
-              <th className="px-4 py-2 text-black text-center">CLA?</th>
-              <th className="px-4 py-2 text-black text-center">L-Carnitine?</th>
+              <th className="px-4 py-2  text-center">Vitamin?</th>
+              <th className="px-4 py-2  text-center">CLA?</th>
+              <th className="px-4 py-2  text-center">L-Carnitine?</th>
             </tr>
           </thead>
           {data.map((x: any) => (
             <tbody>
               <tr key={x.id}>
-                <td className="border px-4 py-2 text-black text-center">
+                <td className="border px-4 py-2 text-center">
                   <Dialog>
                     <DialogTrigger>
                       <AiOutlineExport />
@@ -97,38 +93,32 @@ function Dashboard_table(date: any) {
                     </DialogContent>
                   </Dialog>
                 </td>
-                <td className="border px-4 py-2 text-black text-center">
-                  {x.createdAt}
-                </td>
-                <td className="border px-4 py-2 text-black text-center">
-                  {x.weight}
-                </td>
-                <td className="border px-4 py-2 text-black text-center">
+                <td className="border px-4 py-2  text-center">{x.createdAt}</td>
+                <td className="border px-4 py-2  text-center">{x.weight}</td>
+                <td className="border px-4 py-2  text-center">
                   {x.totalCalories}
                 </td>
-                <td className="border px-4 py-2 text-black text-center">
+                <td className="border px-4 py-2  text-center">
                   {x.foodsInt == null ? x.foodsInt : "No Food(wow!)"}
                 </td>
-                <td className="border px-4 py-2 text-black text-center">
+                <td className="border px-4 py-2  text-center">
                   {x.totalProtein}
                 </td>
-                <td className="border px-4 py-2 text-black text-center">
-                  {x.totalFat}
-                </td>
-                <td className="border px-4 py-2 text-black text-center">
+                <td className="border px-4 py-2  text-center">{x.totalFat}</td>
+                <td className="border px-4 py-2  text-center">
                   {x.totalCarbs}
                 </td>
-                <td className="border px-4 py-2 text-black text-center">
+                <td className="border px-4 py-2  text-center">
                   {x.totalSugar}
                 </td>
 
-                <td className="border px-4 py-2 text-black text-center">
+                <td className="border px-4 py-2  text-center">
                   {x.tookVitamin == true ? "true" : "false"}
                 </td>
-                <td className="border px-4 py-2 text-black text-center">
+                <td className="border px-4 py-2  text-center">
                   {x.tookWeightmanagement == true ? "true" : "false"}
                 </td>
-                <td className="border px-4 py-2 text-black text-center">
+                <td className="border px-4 py-2  text-center">
                   {x.tookFatburner == true ? "true" : "false"}
                 </td>
               </tr>
