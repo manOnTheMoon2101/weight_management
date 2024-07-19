@@ -12,7 +12,7 @@ const Header = () => {
         <Account />
       </div>
       <div>
-        <ModeToggle/>
+        <ModeToggle />
       </div>
     </div>
   );
