@@ -14,8 +14,8 @@ import { Avatar, AvatarFallback} from "@/components/ui/avatar";
 import { signIn, signOut } from "next-auth/react";
 const Account = () => {
   const { data: session } = useSession();
-  const name = JSON.stringify(session?.user?.name);
-  const cleanedName = name.replace(/^"(.*)"$/, "$1");
+  const name = JSON.stringify(session?.user?.name) ? JSON.stringify(session?.user?.name):null;
+  const cleanedName = name ? name.replace(/^"(.*)"$/, "$1") :null;
   return (
     <div>
       <DropdownMenu>
@@ -25,7 +25,7 @@ const Account = () => {
               <div>
                 <Avatar>
                   <AvatarFallback>
-                    {name ? cleanedName.charAt(0) : null}
+                    {name ? cleanedName?.charAt(0) : null}
                   </AvatarFallback>
                 </Avatar>
               </div>
