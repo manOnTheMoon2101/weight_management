@@ -25,9 +25,10 @@ import { AiOutlineExport } from "react-icons/ai";
 import { Button } from "@/components/ui/button";
 function Dashboard_table(date: any) {
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
-  const prodOrDevUrl = "http://localhost:3000/";
+  const DevUrl = "http://localhost:3000/";
+  const prodUrl = "https://weight-management-ntcqe7hvv-manonthemoon2101s-projects.vercel.app/";
   const { data, error, isLoading } = useSWR(
-    `${prodOrDevUrl ? prodOrDevUrl : "https://weight-management-ntcqe7hvv-manonthemoon2101s-projects.vercel.app/"}/api/filter/${
+    `${prodUrl}/api/filter/${
       date.month
     }`,
     fetcher
