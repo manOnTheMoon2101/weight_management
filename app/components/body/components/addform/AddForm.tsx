@@ -36,9 +36,6 @@ const AddForm = () => {
   const [value, setValue] = useState("");
   const [data, setData] = useState<any>([]);
 
-
-
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -78,7 +75,7 @@ const AddForm = () => {
                     role="combobox"
                     aria-expanded={open}
                   >
-                    {!open ? '+':"loading"}
+                    {!open ? "+" : "loading"}
                   </Button>
                 </PopoverTrigger>
                 <PopoverContent className="w-[500px] p-0">
