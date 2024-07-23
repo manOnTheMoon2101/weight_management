@@ -30,10 +30,11 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-
+import { useRouter } from "next/navigation";
 const AddForm = () => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState("");
+  const [post, postData] = useState<any>({});
   const [data, setData] = useState<any>([]);
 
   useEffect(() => {
@@ -48,6 +49,82 @@ const AddForm = () => {
 
     fetchData();
   }, []);
+
+  const router = useRouter();
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    axios
+      .post("/api/data", data)
+      .then((res: any) => {
+        console.log(res);
+      })
+      .catch((err: any) => {
+        console.log(err);
+      })
+      .finally(() => {
+        setData({});
+        console.log(data);
+        router.refresh();
+      });
+  };
+
+  const handleChange = (e: any) => {
+    const name = e.target.name;
+    const value = parseFloat(e.target.value);
+    setData((prevState: any) => ({ ...prevState, [name]: value }));
+  };
+
+  // reffernce this form
+//   <form onSubmit={handleSubmit}>
+//   <div className={styles.leftDiv}>
+//     <div>
+//       <h3>Weight</h3>
+//       <input
+//         required
+//         type="number"
+//         name="weight"
+//         onChange={handleChange}
+//         value={data.weight || ""}
+//       />
+//     </div>
+//     <div>
+//       <h3>Workout Days</h3>
+
+//       <input
+//         required
+//         type="number"
+//         name="days"
+//         onChange={handleChange}
+//         value={data.days || ""}
+//       />
+//     </div>
+
+//     <h3>Lost Weight?</h3>
+
+//     <div className={styles.checkboxCon}>
+//       <input
+//         id="checkbox"
+//         type="checkbox"
+//         name="lostWeight"
+//         defaultChecked={!isChecked}
+//         onChange={handleCheckboxChange}
+//       />
+//     </div>
+//   </div>
+
+//   <div className={styles.rightDiv}>
+//     <h3>Info</h3>
+//     <input
+//       name="info"
+//       onChange={handleChangeString}
+//       value={data.info || ""}
+//     />
+//   </div>
+//   <div className={styles.submitButton}>
+//     <button type="submit">Submit</button>
+//   </div>
+// </form>
 
   return (
     <div>
