@@ -23,6 +23,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import { AiOutlineExport } from "react-icons/ai";
 import { Button } from "@/components/ui/button";
+import ViewModal from "../body/components/viewModal/ViewModal";
 function Dashboard_table(date: any) {
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
   const { data, error, isLoading } = useSWR(
@@ -57,35 +58,10 @@ function Dashboard_table(date: any) {
                 <td className="border px-4 py-2 text-center">
                   <Dialog>
                     <DialogTrigger>
-                      <AiOutlineExport />
+                      <AiOutlineExport /> Open
                     </DialogTrigger>
                     <DialogContent>
-                      <DialogHeader>
-                        <DialogTitle>{x.createdAt}</DialogTitle>
-                        <DialogDescription>weight:{x.weight}</DialogDescription>
-
-                        <AlertDialog>
-                          <AlertDialogTrigger>
-                            <Button>Delete</Button>
-                          </AlertDialogTrigger>
-                          <AlertDialogContent>
-                            <AlertDialogHeader>
-                              <AlertDialogTitle>
-                                Are you absolutely sure?
-                              </AlertDialogTitle>
-                              <AlertDialogDescription>
-                                This action cannot be undone. This will
-                                permanently remove your data from our servers.
-                              </AlertDialogDescription>
-                            </AlertDialogHeader>
-                            <AlertDialogFooter>
-                              <AlertDialogCancel>Cancel</AlertDialogCancel>
-                              <AlertDialogAction>Continue</AlertDialogAction>
-                            </AlertDialogFooter>
-                          </AlertDialogContent>
-                        </AlertDialog>
-                        <Button>Edit</Button>
-                      </DialogHeader>
+                    <ViewModal x={x}/>
                     </DialogContent>
                   </Dialog>
                 </td>
