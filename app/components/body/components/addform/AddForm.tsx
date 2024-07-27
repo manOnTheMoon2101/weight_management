@@ -123,7 +123,17 @@ const AddForm = () => {
               />
             </div>
 
-            <h3>Lost Weight?</h3>
+            <div>
+              <h3>Calories</h3>
+
+              <input
+                required
+                type="number"
+                name="days"
+                onChange={handleChange}
+                value={post.totalCalories}
+              />
+            </div>
 
             <div>
               <button type="submit">Submit</button>

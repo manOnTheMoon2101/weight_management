@@ -16,7 +16,10 @@ export const authOptions: NextAuthOptions = {
           type: "email",
           placeholder: "example@example.com",
         },
-        password: { label: "Password", type: "password" },
+        password: {
+          label: "Password",
+          type: "password",
+        },
       },
       async authorize(credentials) {
         if (!credentials?.email || !credentials.password) {
@@ -51,6 +54,10 @@ export const authOptions: NextAuthOptions = {
       },
     }),
   ],
+
+  pages:{
+    signIn:'/login'
+  },
   callbacks: {
     session: ({ session, token }) => {
       return {
