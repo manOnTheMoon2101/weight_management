@@ -4,7 +4,9 @@ import Header from "./components/title_header/Header";
 export default function Home(e: any) {
   return (
     <main>
-      <Header />
+      <div className="mb-5">
+        <Header />
+      </div>
       <div>
         <Dashboard />
       </div>

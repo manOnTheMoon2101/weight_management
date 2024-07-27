@@ -4,7 +4,7 @@ import { ModeToggle } from "./components/theme/toggle";
 import ReleaseNotes from "./components/notes/ReleaseNotes";
 const Header = () => {
   return (
-    <div className="flex flex-row justify-between items-baseline">
+    <div className="flex flex-row justify-between items-baseline border-b-4">
       <div>
         <h4>Weight Management App</h4>
       </div>
@@ -12,7 +12,7 @@ const Header = () => {
         <ModeToggle />
       </div>
       <div>
-        <ReleaseNotes/>
+        <ReleaseNotes />
       </div>
       <div>
         <Account />
