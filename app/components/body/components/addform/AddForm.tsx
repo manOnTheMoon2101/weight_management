@@ -3,7 +3,7 @@ import React from "react";
 import axios from "axios";
 import { useState } from "react";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-
+import { Switch } from "@/components/ui/switch";
 import { IoMdAddCircleOutline } from "react-icons/io";
 
 import { useRouter } from "next/navigation";
@@ -31,7 +31,7 @@ const AddForm = () => {
   };
 
   const handleChange = (e: any) => {
-    const value = parseFloat(e.target.value);
+    const value = e.target.value;
     setData(value);
   };
 
@@ -131,35 +131,17 @@ const AddForm = () => {
             <div>
               <h3>Fat Burner</h3>
 
-              <input
-                required
-                type="number"
-                name="days"
-                onChange={handleChange}
-                value={post.totalCalories}
-              />
+        <Switch/>
             </div>
             <div>
               <h3>CLA</h3>
 
-              <input
-                required
-                type="number"
-                name="days"
-                onChange={handleChange}
-                value={post.totalCalories}
-              />
+              <Switch/>
             </div>
             <div>
               <h3>Vitamin</h3>
 
-              <input
-                required
-                type="number"
-                name="days"
-                onChange={handleChange}
-                value={post.totalCalories}
-              />
+              <Switch/>
             </div>
 
             <div>
