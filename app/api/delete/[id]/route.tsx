@@ -66,6 +66,7 @@ export const PATCH = async (
 ) => {
   try {
     const { id } = params;
+    const now = new Date();
     const updateData = await prisma.data.update({
       where: {
         id: id,
@@ -73,6 +74,7 @@ export const PATCH = async (
       data: {
         isActive: false,
         isDeleted: true,
+        updatedAt: now,
       },
     });
     if (!updateData) {
