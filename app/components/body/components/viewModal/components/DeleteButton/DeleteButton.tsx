@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import {
   AlertDialog,
@@ -27,7 +28,7 @@ const DeleteButton = (id: any) => {
     <div>
       <AlertDialog>
         <AlertDialogTrigger>
-          <Button onClick={() => handleDeletePost(id.data)}>Delete</Button>
+          <Button>Delete</Button>
         </AlertDialogTrigger>
         <AlertDialogContent>
           <AlertDialogHeader>
@@ -39,7 +40,9 @@ const DeleteButton = (id: any) => {
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction>Continue</AlertDialogAction>
+            <AlertDialogAction onClick={() => handleDeletePost(id.data)}>
+              Continue
+            </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
