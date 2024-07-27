@@ -22,6 +22,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { AiOutlineExport } from "react-icons/ai";
+import { CiPill } from "react-icons/ci";
 import { Button } from "@/components/ui/button";
 import ViewModal from "../body/components/viewModal/ViewModal";
 function Dashboard_table(date: any) {
@@ -82,13 +83,13 @@ function Dashboard_table(date: any) {
                 </td>
 
                 <td className="border px-4 py-2  text-center">
-                  {x.tookVitamin == true ? "true" : "false"}
+                  {x.tookVitamin ? "💊" : ""}
                 </td>
                 <td className="border px-4 py-2  text-center">
-                  {x.tookWeightmanagement == true ? "true" : "false"}
+                  {x.tookWeightmanagement ? "💊" : ""}
                 </td>
                 <td className="border px-4 py-2  text-center">
-                  {x.tookFatburner == true ? "true" : "false"}
+                  {x.tookFatburner ? "💊" : ""}
                 </td>
               </tr>
             </tbody>
