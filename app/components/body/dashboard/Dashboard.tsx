@@ -55,7 +55,7 @@ export function Dashboard() {
             <SelectItem value="12">December</SelectItem>
           </SelectContent>
         </Select>
-        <Refresh/>
+        <Refresh month={selectedMonth} />
         <AddForm />
       </div>
       <div>
