@@ -90,8 +90,7 @@ const AddForm = () => {
     <div>
       <Dialog>
         <DialogTrigger className="flex flex-row justify-between items-baseline">
-          <IoMdAddCircleOutline />
-          Add
+          <IoMdAddCircleOutline size={35} />
         </DialogTrigger>
         <DialogContent>
           <form onSubmit={handleSubmit}>
