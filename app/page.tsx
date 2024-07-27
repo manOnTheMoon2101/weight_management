@@ -7,7 +7,7 @@ export default function Home(e: any) {
       <div className="mb-5">
         <Header />
       </div>
-      <div>
+      <div className="m-2">
         <Dashboard />
       </div>
     </main>
