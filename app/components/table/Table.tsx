@@ -58,10 +58,10 @@ function Dashboard_table(date: any) {
                 <td className="border px-4 py-2 text-center">
                   <Dialog>
                     <DialogTrigger>
-                      <AiOutlineExport /> Open
+                      <AiOutlineExport />
                     </DialogTrigger>
                     <DialogContent>
-                    <ViewModal x={x}/>
+                      <ViewModal x={x} />
                     </DialogContent>
                   </Dialog>
                 </td>
