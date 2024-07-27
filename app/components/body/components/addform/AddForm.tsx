@@ -1,12 +1,8 @@
 "use client";
 import React from "react";
 import axios from "axios";
-import { useState} from "react";
-import {
-  Dialog,
-  DialogContent,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+import { useState } from "react";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 
 import { IoMdAddCircleOutline } from "react-icons/io";
 
@@ -14,8 +10,6 @@ import { useRouter } from "next/navigation";
 const AddForm = () => {
   const [post, postData] = useState<any>({});
   const [data, setData] = useState<any>([]);
-
-
 
   const router = useRouter();
 
@@ -125,6 +119,87 @@ const AddForm = () => {
 
             <div>
               <h3>Calories</h3>
+
+              <input
+                required
+                type="number"
+                name="days"
+                onChange={handleChange}
+                value={post.totalCalories}
+              />
+            </div>
+            <div>
+              <h3>Fat Burner</h3>
+
+              <input
+                required
+                type="number"
+                name="days"
+                onChange={handleChange}
+                value={post.totalCalories}
+              />
+            </div>
+            <div>
+              <h3>CLA</h3>
+
+              <input
+                required
+                type="number"
+                name="days"
+                onChange={handleChange}
+                value={post.totalCalories}
+              />
+            </div>
+            <div>
+              <h3>Vitamin</h3>
+
+              <input
+                required
+                type="number"
+                name="days"
+                onChange={handleChange}
+                value={post.totalCalories}
+              />
+            </div>
+
+            <div>
+              <h3>Protein</h3>
+
+              <input
+                required
+                type="number"
+                name="days"
+                onChange={handleChange}
+                value={post.totalCalories}
+              />
+            </div>
+
+            <div>
+              <h3>Fat</h3>
+
+              <input
+                required
+                type="number"
+                name="days"
+                onChange={handleChange}
+                value={post.totalCalories}
+              />
+            </div>
+
+            <div>
+              <h3>Carbohydrates</h3>
+
+              <input
+                required
+                type="number"
+                name="days"
+                onChange={handleChange}
+                value={post.totalCalories}
+              />
+            </div>
+
+            <div>
+              <h3>Sugar</h3>
 
               <input
                 required
