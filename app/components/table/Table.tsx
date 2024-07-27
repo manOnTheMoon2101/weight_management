@@ -41,7 +41,6 @@ function Dashboard_table(date: any) {
               <th className="px-4 py-2  text-center">Date</th>
               <th className="px-4 py-2  text-center">Weight</th>
               <th className="px-4 py-2  text-center">Calories</th>
-              <th className="px-4 py-2  text-center">Food</th>
               <th className="px-4 py-2  text-center">Protein</th>
               <th className="px-4 py-2  text-center">Fat</th>
               <th className="px-4 py-2  text-center">Carbohydrates</th>
@@ -94,9 +93,6 @@ function Dashboard_table(date: any) {
                 <td className="border px-4 py-2  text-center">{x.weight}</td>
                 <td className="border px-4 py-2  text-center">
                   {x.totalCalories}
-                </td>
-                <td className="border px-4 py-2  text-center">
-                  {x.foodsInt == null ? x.foodsInt : "No Food(wow!)"}
                 </td>
                 <td className="border px-4 py-2  text-center">
                   {x.totalProtein}

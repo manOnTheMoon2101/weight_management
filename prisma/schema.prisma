@@ -33,17 +33,17 @@ model Data {
   weight               Float
   createdAt            DateTime @default(now())
   updatedAt            DateTime
-  workedOut            Boolean
-  tookFatburner        Boolean
-  tookWeightmanagement Boolean
-  tookVitamin          Boolean
+  workedOut            Boolean?
+  tookFatburner        Boolean?
+  tookWeightmanagement Boolean?
+  tookVitamin          Boolean?
   totalCalories        Float?
-  totalProtein         Float
-  totalFat             Float
-  totalCarbs           Float
-  workoutTime          String
-  totalSugar           Float
-  averageWaterinML     Float
+  totalProtein         Float?
+  totalFat             Float?
+  totalCarbs           Float?
+  workoutTime          String?
+  totalSugar           Float?
+  averageWaterinML     Float?
   foodsInt             Int[]
 
   userId String @db.ObjectId

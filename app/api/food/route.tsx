@@ -1,18 +1,18 @@
-import prisma from "@/prisma/prisma";
-import { NextResponse } from "next/server";
+// import prisma from "@/prisma/prisma";
+// import { NextResponse } from "next/server";
 
-export const GET = async () => {
-  try {
-    const data = await prisma.food.findMany();
+// export const GET = async () => {
+//   try {
+//     const data = await prisma.food.findMany();
 
-    return NextResponse.json(data);
-  } catch (err) {
-    return NextResponse.json(
-      {
-        message: "GET food Error",
-        err,
-      },
-      { status: 500 }
-    );
-  }
-};
+//     return NextResponse.json(data);
+//   } catch (err) {
+//     return NextResponse.json(
+//       {
+//         message: "GET food Error",
+//         err,
+//       },
+//       { status: 500 }
+//     );
+//   }
+// };
