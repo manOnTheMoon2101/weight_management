@@ -1,11 +1,7 @@
 import React from "react";
 import { TbNotes } from "react-icons/tb";
 import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import NoteModal from "./components/NoteModal";
 const ReleaseNotes = () => {
   const notes: any = {
@@ -35,6 +31,7 @@ const ReleaseNotes = () => {
           </Button>
         </DialogTrigger>
         <DialogContent>
+          <h2>Release Notes</h2>
           {Object.values(notes).map((x: any) => (
             <Dialog key={x.title}>
               <DialogTrigger asChild>

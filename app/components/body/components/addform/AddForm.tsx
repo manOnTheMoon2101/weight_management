@@ -131,17 +131,17 @@ const AddForm = () => {
             <div>
               <h3>Fat Burner</h3>
 
-        <Switch/>
+              <Switch />
             </div>
             <div>
               <h3>CLA</h3>
 
-              <Switch/>
+              <Switch />
             </div>
             <div>
               <h3>Vitamin</h3>
 
-              <Switch/>
+              <Switch />
             </div>
 
             <div>
