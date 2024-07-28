@@ -21,10 +21,11 @@ export const POST = async (request: any) => {
       userId,
     } = body;
 
+    const now = new Date();
     const data = await prisma.data.create({
       data: {
         weight: weight,
-        updatedAt: updatedAt,
+        updatedAt: now,
         workedOut: workedOut,
         tookFatburner: tookFatburner,
         tookWeightmanagement: tookWeightmanagement,
