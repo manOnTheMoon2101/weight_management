@@ -26,8 +26,8 @@ const ReleaseNotes = () => {
     <div className="flex flex-row">
       <Dialog>
         <DialogTrigger asChild>
-          <Button variant="outline">
-            <TbNotes />
+          <Button className="rounded-full">
+            <TbNotes size={35} />
           </Button>
         </DialogTrigger>
         <DialogContent>
@@ -35,7 +35,7 @@ const ReleaseNotes = () => {
           {Object.values(notes).map((x: any) => (
             <Dialog key={x.title}>
               <DialogTrigger asChild>
-                <Button variant="outline">
+                <Button>
                   {x.title}
                   <TbNotes />
                 </Button>

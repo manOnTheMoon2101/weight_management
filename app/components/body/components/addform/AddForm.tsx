@@ -31,7 +31,6 @@ const AddForm = () => {
       });
   };
 
-  
   const handleChange = (e: any) => {
     const name = e.target.name;
     const value = parseFloat(e.target.value);
@@ -40,9 +39,12 @@ const AddForm = () => {
 
   return (
     <div>
-      <Dialog  open={open} onOpenChange={setOpen}>
+      <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger className="flex flex-row justify-between items-baseline">
-          <Button><IoMdAddCircleOutline size={35} />Add New</Button>
+          <Button>
+            <IoMdAddCircleOutline size={35} />
+            Add New
+          </Button>
         </DialogTrigger>
         <DialogContent>
           <form onSubmit={handleSubmit}>
