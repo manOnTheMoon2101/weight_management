@@ -53,6 +53,7 @@ const AddForm = () => {
             <div>
               <h3>Weight</h3>
               <Input
+                required
                 type="number"
                 name="weight"
                 onChange={handleChange}
@@ -63,6 +64,7 @@ const AddForm = () => {
               <h3>Calories</h3>
 
               <Input
+                required
                 type="number"
                 name="totalCalories"
                 onChange={handleChange}
@@ -134,7 +136,14 @@ const AddForm = () => {
             </div>
 
             <div>
-              <Button type="submit">Submit</Button>
+              <Button
+                type="submit"
+                disabled={!post.weight || !post.totalCalories}
+              >
+                Submit
+              </Button>
+              {post.weight ? "" : "Weight Required"}
+              {post.totalCalories ? "" : "Calories Required"}
             </div>
           </form>
         </DialogContent>
