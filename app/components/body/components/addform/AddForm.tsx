@@ -7,7 +7,6 @@ import { Switch } from "@/components/ui/switch";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { useRouter } from "next/navigation";
 
 const AddForm = () => {
   const [post, postData] = useState<any>({
@@ -15,10 +14,7 @@ const AddForm = () => {
     tookFatburner: false,
     tookVitamin: false,
   });
-
-  console.log(post);
-
-  const router = useRouter();
+  const [open, setOpen] = useState(false);
   const handleSubmit = (e: any) => {
     e.preventDefault();
     axios
@@ -31,11 +27,11 @@ const AddForm = () => {
       })
       .finally(() => {
         postData({});
-        console.log(post);
-        router.refresh();
+        setOpen(false);
       });
   };
 
+  
   const handleChange = (e: any) => {
     const name = e.target.name;
     const value = parseFloat(e.target.value);
@@ -44,7 +40,7 @@ const AddForm = () => {
 
   return (
     <div>
-      <Dialog>
+      <Dialog  open={open} onOpenChange={setOpen}>
         <DialogTrigger className="flex flex-row justify-between items-baseline">
           <IoMdAddCircleOutline size={35} />
         </DialogTrigger>
