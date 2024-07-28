@@ -1,43 +1,47 @@
 import prisma from "@/prisma/prisma";
 import { NextResponse } from "next/server";
-
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/auth/options";
 export const POST = async (request: any) => {
   try {
+    const session = await getServerSession(authOptions);
+
     const body = await request.json();
+
     const {
       weight,
-      updatedAt,
-      workedOut,
       tookFatburner,
+      totalCalories,
       tookWeightmanagement,
       tookVitamin,
       totalProtein,
       totalFat,
       totalCarbs,
-      workoutTime,
       totalSugar,
-      averageWaterinML,
       foodsInt,
-      userId,
     } = body;
+
+    const user = await prisma.user.findUnique({
+      where: {
+        email: session?.user?.email as string,
+      },
+    });
 
     const now = new Date();
     const data = await prisma.data.create({
       data: {
         weight: weight,
         updatedAt: now,
-        workedOut: workedOut,
         tookFatburner: tookFatburner,
         tookWeightmanagement: tookWeightmanagement,
         tookVitamin: tookVitamin,
+        totalCalories:totalCalories,
         totalProtein: totalProtein,
         totalFat: totalFat,
         totalCarbs: totalCarbs,
-        workoutTime: workoutTime,
         totalSugar: totalSugar,
-        averageWaterinML: averageWaterinML,
         foodsInt: foodsInt,
-        userId: userId,
+        userId: user!.id,
       },
     });
 

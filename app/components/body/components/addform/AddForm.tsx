@@ -8,16 +8,21 @@ import { IoMdAddCircleOutline } from "react-icons/io";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
+
 const AddForm = () => {
-  const [post, postData] = useState<any>({});
-  const [data, setData] = useState<any>([]);
+  const [post, postData] = useState<any>({
+    tookWeightmanagement: false,
+    tookFatburner: false,
+    tookVitamin: false,
+  });
+
+  console.log(post);
 
   const router = useRouter();
-
   const handleSubmit = (e: any) => {
     e.preventDefault();
     axios
-      .post("/api/data", data)
+      .post("/api/data", post)
       .then((res: any) => {
         console.log(res);
       })
@@ -25,67 +30,17 @@ const AddForm = () => {
         console.log(err);
       })
       .finally(() => {
-        setData({});
-        console.log(data);
+        postData({});
+        console.log(post);
         router.refresh();
       });
   };
 
   const handleChange = (e: any) => {
-    const value = e.target.value;
-    setData(value);
+    const name = e.target.name;
+    const value = parseFloat(e.target.value);
+    postData((prevState: any) => ({ ...prevState, [name]: value }));
   };
-
-  // reffernce this form
-  //   <form onSubmit={handleSubmit}>
-  //   <div className={styles.leftDiv}>
-  //     <div>
-  //       <h3>Weight</h3>
-  //       <input
-  //         required
-  //         type="number"
-  //         name="weight"
-  //         onChange={handleChange}
-  //         value={data.weight || ""}
-  //       />
-  //     </div>
-  //     <div>
-  //       <h3>Workout Days</h3>
-
-  //       <input
-  //         required
-  //         type="number"
-  //         name="days"
-  //         onChange={handleChange}
-  //         value={data.days || ""}
-  //       />
-  //     </div>
-
-  //     <h3>Lost Weight?</h3>
-
-  //     <div className={styles.checkboxCon}>
-  //       <input
-  //         id="checkbox"
-  //         type="checkbox"
-  //         name="lostWeight"
-  //         defaultChecked={!isChecked}
-  //         onChange={handleCheckboxChange}
-  //       />
-  //     </div>
-  //   </div>
-
-  //   <div className={styles.rightDiv}>
-  //     <h3>Info</h3>
-  //     <input
-  //       name="info"
-  //       onChange={handleChangeString}
-  //       value={data.info || ""}
-  //     />
-  //   </div>
-  //   <div className={styles.submitButton}>
-  //     <button type="submit">Submit</button>
-  //   </div>
-  // </form>
 
   return (
     <div>
@@ -98,7 +53,6 @@ const AddForm = () => {
             <div>
               <h3>Weight</h3>
               <Input
-                required
                 type="number"
                 name="weight"
                 onChange={handleChange}
@@ -109,9 +63,8 @@ const AddForm = () => {
               <h3>Calories</h3>
 
               <Input
-                required
                 type="number"
-                name="days"
+                name="totalCalories"
                 onChange={handleChange}
                 value={post.totalCalories}
               />
@@ -119,26 +72,29 @@ const AddForm = () => {
             <div>
               <h3>Fat Burner</h3>
 
-              <Switch />
+              <Switch name="tookFatburner" value={post.tookFatburner} />
+              {post.tookFatburner}
             </div>
             <div>
               <h3>CLA</h3>
 
-              <Switch />
+              <Switch
+                name="tookWeightmanagement"
+                value={post.tookWeightmanagement}
+              />
             </div>
             <div>
               <h3>Vitamin</h3>
 
-              <Switch />
+              <Switch name="tookVitamin" value={post.tookVitamin} />
             </div>
 
             <div>
               <h3>Protein</h3>
 
               <Input
-                required
                 type="number"
-                name="days"
+                name="totalProtein"
                 onChange={handleChange}
                 value={post.totalProtein}
               />
@@ -148,9 +104,8 @@ const AddForm = () => {
               <h3>Fat</h3>
 
               <Input
-                required
                 type="number"
-                name="days"
+                name="totalFat"
                 onChange={handleChange}
                 value={post.totalFat}
               />
@@ -160,9 +115,8 @@ const AddForm = () => {
               <h3>Carbohydrates</h3>
 
               <Input
-                required
                 type="number"
-                name="days"
+                name="totalCarbs"
                 onChange={handleChange}
                 value={post.totalCarbs}
               />
@@ -172,9 +126,8 @@ const AddForm = () => {
               <h3>Sugar</h3>
 
               <Input
-                required
                 type="number"
-                name="days"
+                name="totalSugar"
                 onChange={handleChange}
                 value={post.totalSugar}
               />
