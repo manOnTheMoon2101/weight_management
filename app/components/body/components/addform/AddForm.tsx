@@ -106,18 +106,6 @@ const AddForm = () => {
               />
             </div>
             <div>
-              <h3>Workout Days</h3>
-
-              <Input
-                required
-                type="number"
-                name="days"
-                onChange={handleChange}
-                value={post.totalCalories}
-              />
-            </div>
-
-            <div>
               <h3>Calories</h3>
 
               <Input
@@ -152,7 +140,7 @@ const AddForm = () => {
                 type="number"
                 name="days"
                 onChange={handleChange}
-                value={post.totalCalories}
+                value={post.totalProtein}
               />
             </div>
 
@@ -164,7 +152,7 @@ const AddForm = () => {
                 type="number"
                 name="days"
                 onChange={handleChange}
-                value={post.totalCalories}
+                value={post.totalFat}
               />
             </div>
 
@@ -176,7 +164,7 @@ const AddForm = () => {
                 type="number"
                 name="days"
                 onChange={handleChange}
-                value={post.totalCalories}
+                value={post.totalCarbs}
               />
             </div>
 
@@ -188,7 +176,7 @@ const AddForm = () => {
                 type="number"
                 name="days"
                 onChange={handleChange}
-                value={post.totalCalories}
+                value={post.totalSugar}
               />
             </div>
 
