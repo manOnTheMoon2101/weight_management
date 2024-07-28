@@ -5,7 +5,8 @@ import { useState } from "react";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Switch } from "@/components/ui/switch";
 import { IoMdAddCircleOutline } from "react-icons/io";
-
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 const AddForm = () => {
   const [post, postData] = useState<any>({});
@@ -96,7 +97,7 @@ const AddForm = () => {
           <form onSubmit={handleSubmit}>
             <div>
               <h3>Weight</h3>
-              <input
+              <Input
                 required
                 type="number"
                 name="weight"
@@ -107,7 +108,7 @@ const AddForm = () => {
             <div>
               <h3>Workout Days</h3>
 
-              <input
+              <Input
                 required
                 type="number"
                 name="days"
@@ -119,7 +120,7 @@ const AddForm = () => {
             <div>
               <h3>Calories</h3>
 
-              <input
+              <Input
                 required
                 type="number"
                 name="days"
@@ -146,7 +147,7 @@ const AddForm = () => {
             <div>
               <h3>Protein</h3>
 
-              <input
+              <Input
                 required
                 type="number"
                 name="days"
@@ -158,7 +159,7 @@ const AddForm = () => {
             <div>
               <h3>Fat</h3>
 
-              <input
+              <Input
                 required
                 type="number"
                 name="days"
@@ -170,7 +171,7 @@ const AddForm = () => {
             <div>
               <h3>Carbohydrates</h3>
 
-              <input
+              <Input
                 required
                 type="number"
                 name="days"
@@ -182,7 +183,7 @@ const AddForm = () => {
             <div>
               <h3>Sugar</h3>
 
-              <input
+              <Input
                 required
                 type="number"
                 name="days"
@@ -192,7 +193,7 @@ const AddForm = () => {
             </div>
 
             <div>
-              <button type="submit">Submit</button>
+              <Button type="submit">Submit</Button>
             </div>
           </form>
         </DialogContent>
