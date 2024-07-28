@@ -4,10 +4,10 @@ const NoteModal = (note: any) => {
   return (
     <div>
       <div>
-        <h1>{note.notes.title}</h1>
-
+        <h1 className="text-center">{note.notes.title}</h1>
+        <p>{note.notes.details}</p>
         <div>
-          <h3>New Feautues</h3>
+          <h3 className="text-4xl">New Feautues:</h3>
           <ul>
             {note.notes.features.map((feature: any, index: any) => (
               <li key={index} className="list-disc">
@@ -18,7 +18,7 @@ const NoteModal = (note: any) => {
         </div>
 
         <div>
-          <h3>Bug Fixes</h3>
+          <h3 className="text-4xl">Bug Fixes:</h3>
           <ul>
             {note.notes.bugs.map((bug: any, index: any) => (
               <li key={index} className="list-disc">

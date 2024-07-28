@@ -7,6 +7,7 @@ const ReleaseNotes = () => {
   const notes: any = {
     version1: {
       title: "1.0",
+      details: "finally out of beta!!!enjoy new features and we're actively on the lookout for them pesty bugs.",
       features: [
         "Dark/Light Mode",
         "Register New User Page",
