@@ -23,6 +23,8 @@ export const GET = async (
     const data = await prisma.data.findMany({
       where: {
         userId: user.id,
+        isActive:true,
+        isDeleted:false,
         createdAt: {
           gte: new Date(`${currentYear}-${month}-01T01:00:00.459+00:00`),
           lte: new Date(`${currentYear}-${month}-31T01:00:00.459+00:00`),

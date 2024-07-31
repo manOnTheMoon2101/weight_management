@@ -22,12 +22,11 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { AiOutlineExport } from "react-icons/ai";
+import { CiPill } from "react-icons/ci";
 import { Button } from "@/components/ui/button";
+import ViewModal from "../body/components/viewModal/ViewModal";
 function Dashboard_table(date: any) {
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
-  const devUrl = "http://localhost:3000/";
-  const prodUrl =
-    "https://weight-management-ntcqe7hvv-manonthemoon2101s-projects.vercel.app/";
   const { data, error, isLoading } = useSWR(
     `/api/filter/${date.month}`,
     fetcher
@@ -39,12 +38,11 @@ function Dashboard_table(date: any) {
       <div className="min-w-full">
         <table className="table-auto min-w-full  border">
           <thead>
-            <tr>
+            <tr className="bg-orange-400">
               <th className="px-4 py-2 text-center">Open</th>
               <th className="px-4 py-2  text-center">Date</th>
               <th className="px-4 py-2  text-center">Weight</th>
               <th className="px-4 py-2  text-center">Calories</th>
-              <th className="px-4 py-2  text-center">Food</th>
               <th className="px-4 py-2  text-center">Protein</th>
               <th className="px-4 py-2  text-center">Fat</th>
               <th className="px-4 py-2  text-center">Carbohydrates</th>
@@ -64,32 +62,7 @@ function Dashboard_table(date: any) {
                       <AiOutlineExport />
                     </DialogTrigger>
                     <DialogContent>
-                      <DialogHeader>
-                        <DialogTitle>{x.createdAt}</DialogTitle>
-                        <DialogDescription>weight:{x.weight}</DialogDescription>
-
-                        <AlertDialog>
-                          <AlertDialogTrigger>
-                            <Button>Delete</Button>
-                          </AlertDialogTrigger>
-                          <AlertDialogContent>
-                            <AlertDialogHeader>
-                              <AlertDialogTitle>
-                                Are you absolutely sure?
-                              </AlertDialogTitle>
-                              <AlertDialogDescription>
-                                This action cannot be undone. This will
-                                permanently remove your data from our servers.
-                              </AlertDialogDescription>
-                            </AlertDialogHeader>
-                            <AlertDialogFooter>
-                              <AlertDialogCancel>Cancel</AlertDialogCancel>
-                              <AlertDialogAction>Continue</AlertDialogAction>
-                            </AlertDialogFooter>
-                          </AlertDialogContent>
-                        </AlertDialog>
-                        <Button>Edit</Button>
-                      </DialogHeader>
+                      <ViewModal x={x} />
                     </DialogContent>
                   </Dialog>
                 </td>
@@ -97,9 +70,6 @@ function Dashboard_table(date: any) {
                 <td className="border px-4 py-2  text-center">{x.weight}</td>
                 <td className="border px-4 py-2  text-center">
                   {x.totalCalories}
-                </td>
-                <td className="border px-4 py-2  text-center">
-                  {x.foodsInt == null ? x.foodsInt : "No Food(wow!)"}
                 </td>
                 <td className="border px-4 py-2  text-center">
                   {x.totalProtein}
@@ -113,13 +83,13 @@ function Dashboard_table(date: any) {
                 </td>
 
                 <td className="border px-4 py-2  text-center">
-                  {x.tookVitamin == true ? "true" : "false"}
+                  {x.tookVitamin ? "💊" : ""}
                 </td>
                 <td className="border px-4 py-2  text-center">
-                  {x.tookWeightmanagement == true ? "true" : "false"}
+                  {x.tookWeightmanagement ? "💊" : ""}
                 </td>
                 <td className="border px-4 py-2  text-center">
-                  {x.tookFatburner == true ? "true" : "false"}
+                  {x.tookFatburner ? "💊" : ""}
                 </td>
               </tr>
             </tbody>
