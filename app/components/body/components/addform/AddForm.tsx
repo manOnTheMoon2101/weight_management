@@ -20,7 +20,7 @@ interface Props {
   totalSugar: number;
 }
 const AddForm = () => {
-  const { toast } = useToast()
+  const { toast } = useToast();
   const [post, postData] = useState<any>({
     weight: 0,
     tookFatburner: false,
@@ -48,7 +48,7 @@ const AddForm = () => {
         setOpen(false);
         toast({
           description: "Your message has been sent.",
-        })
+        });
       });
   };
 
@@ -74,7 +74,7 @@ const AddForm = () => {
             <div>
               <label>
                 Weight:
-                <input
+                <Input
                   type="number"
                   name="weight"
                   value={post.weight}
@@ -88,7 +88,7 @@ const AddForm = () => {
             <div>
               <label>
                 Took Fatburner:
-                <input
+                <Input
                   type="checkbox"
                   name="tookFatburner"
                   checked={post.tookFatburner}
@@ -99,7 +99,7 @@ const AddForm = () => {
             <div>
               <label>
                 Total Calories:
-                <input
+                <Input
                   type="number"
                   name="totalCalories"
                   value={post.totalCalories}
@@ -113,7 +113,7 @@ const AddForm = () => {
             <div>
               <label>
                 Took Weight Management:
-                <input
+                <Input
                   type="checkbox"
                   name="tookWeightmanagement"
                   checked={post.tookWeightmanagement}
@@ -125,7 +125,7 @@ const AddForm = () => {
             <div>
               <label>
                 Took Vitamin:
-                <input
+                <Input
                   type="checkbox"
                   name="tookVitamin"
                   checked={post.tookVitamin}
@@ -137,7 +137,7 @@ const AddForm = () => {
             <div>
               <label>
                 Total Protein:
-                <input
+                <Input
                   type="number"
                   name="totalProtein"
                   value={post.totalProtein}
@@ -151,7 +151,7 @@ const AddForm = () => {
             <div>
               <label>
                 Total Fat:
-                <input
+                <Input
                   type="number"
                   name="totalFat"
                   value={post.totalFat}
@@ -165,7 +165,7 @@ const AddForm = () => {
             <div>
               <label>
                 Total Carbs:
-                <input
+                <Input
                   type="number"
                   name="totalCarbs"
                   value={post.totalCarbs}
@@ -179,7 +179,7 @@ const AddForm = () => {
             <div>
               <label>
                 Total Sugar:
-                <input
+                <Input
                   type="number"
                   name="totalSugar"
                   value={post.totalSugar}
