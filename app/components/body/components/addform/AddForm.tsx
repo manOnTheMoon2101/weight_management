@@ -42,12 +42,17 @@ const AddForm = () => {
       })
       .catch((err: any) => {
         console.log(err);
+        toast({
+          description: "Error",
+          className: "bg-red-800",
+        });
       })
       .finally(() => {
         postData({});
         setOpen(false);
         toast({
-          description: "Your message has been sent.",
+          description: "Data has been saved.",
+          className: "bg-lime-800",
         });
       });
   };
@@ -80,11 +85,19 @@ const AddForm = () => {
                   value={post.weight}
                   onChange={handleChange}
                   step="0.01"
-                  required
                 />
               </label>
             </div>
-
+            <Button
+              onClick={() =>
+                toast({
+                  description: "Data has been saved.",
+                  className: "bg-red-800",
+                })
+              }
+            >
+              test
+            </Button>
             <div>
               <label>
                 Took Fatburner:
@@ -105,7 +118,6 @@ const AddForm = () => {
                   value={post.totalCalories}
                   onChange={handleChange}
                   step="1"
-                  required
                 />
               </label>
             </div>
@@ -143,7 +155,6 @@ const AddForm = () => {
                   value={post.totalProtein}
                   onChange={handleChange}
                   step="0.01"
-                  required
                 />
               </label>
             </div>
@@ -157,7 +168,6 @@ const AddForm = () => {
                   value={post.totalFat}
                   onChange={handleChange}
                   step="0.01"
-                  required
                 />
               </label>
             </div>
@@ -171,7 +181,6 @@ const AddForm = () => {
                   value={post.totalCarbs}
                   onChange={handleChange}
                   step="0.01"
-                  required
                 />
               </label>
             </div>
@@ -185,12 +194,18 @@ const AddForm = () => {
                   value={post.totalSugar}
                   onChange={handleChange}
                   step="0.01"
-                  required
                 />
               </label>
             </div>
 
-            <Button type="submit">Submit</Button>
+            <Button
+              disabled={!post.weight || !post.totalCalories}
+              type="submit"
+            >
+              Submit
+            </Button>
+            {post.weight ? "" : "Weight Required"}
+            {post.totalCalories ? "" : "Calories Required"}
           </form>
         </DialogContent>
       </Dialog>

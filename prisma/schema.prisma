@@ -39,7 +39,7 @@ model Data {
   tookFatburner        Boolean?
   tookWeightmanagement Boolean?
   tookVitamin          Boolean?
-  totalCalories        Float?
+  totalCalories        Float
   totalProtein         Float?
   totalFat             Float?
   totalCarbs           Float?
