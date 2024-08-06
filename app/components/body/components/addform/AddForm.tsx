@@ -88,16 +88,6 @@ const AddForm = () => {
                 />
               </label>
             </div>
-            <Button
-              onClick={() =>
-                toast({
-                  description: "Data has been saved.",
-                  className: "bg-red-800",
-                })
-              }
-            >
-              test
-            </Button>
             <div>
               <label>
                 Took Fatburner:
