@@ -31,7 +31,7 @@ const ReleaseNotes = () => {
     <div className="flex flex-row">
       <Dialog>
         <DialogTrigger asChild>
-          <Button className="rounded-full">
+          <Button className="rounded-full animate-ping-long">
             <TbNotes size={35} />
           </Button>
         </DialogTrigger>
