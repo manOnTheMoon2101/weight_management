@@ -96,7 +96,7 @@ function Dashboard_table(date: any) {
           ))}
         </table>
         <div className="flex flex-row justify-center">
-          {data.length <= 0 ? "No Data" : ""}
+          <h3 className="text-4xl"> {data.length <= 0 ? "No Data" : ""}</h3>
         </div>
       </div>
     </>

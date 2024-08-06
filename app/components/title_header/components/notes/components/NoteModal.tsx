@@ -7,7 +7,7 @@ const NoteModal = (note: any) => {
         <h1 className="text-center">{note.notes.title}</h1>
         <p>{note.notes.details}</p>
         <div>
-          <h3 className="text-4xl">New Feautues:</h3>
+          <h3 className="text-4xl">New Upcoming Feautues:</h3>
           <ul>
             {note.notes.features.map((feature: any, index: any) => (
               <li key={index} className="list-disc">
