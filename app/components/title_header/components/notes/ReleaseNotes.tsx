@@ -6,17 +6,21 @@ import NoteModal from "./components/NoteModal";
 const ReleaseNotes = () => {
   const notes: any = {
     version1: {
-      title: "1.0",
-      details: "finally out of beta!!!enjoy new features and we're actively on the lookout for them pesty bugs.",
+      title: "0.5",
+      details: "still in beta!!!full release in middle of august.",
       features: [
         "Dark/Light Mode",
-        "Register New User Page",
+        "Account Registring/Loging",
         "Graphical UI Overall",
+        "Loading Elements",
+        "Mobile Friendly Interface",
+        "+ MORE..."
       ],
       bugs: [
-        "Loading elements fixed",
-        "Form validations to Forms",
-        "Mobile Design UI Fixed",
+        "Refreshing Issues",
+        "Validations",
+        "Performance issues",
+         "+ MORE..."
       ],
     },
     // version2: {
