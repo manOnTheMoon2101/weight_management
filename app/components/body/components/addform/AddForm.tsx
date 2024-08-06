@@ -6,6 +6,7 @@ import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Switch } from "@/components/ui/switch";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { Input } from "@/components/ui/input";
+import { useToast } from "@/components/ui/use-toast";
 import { Button } from "@/components/ui/button";
 interface Props {
   weight: number;
@@ -19,6 +20,7 @@ interface Props {
   totalSugar: number;
 }
 const AddForm = () => {
+  const { toast } = useToast()
   const [post, postData] = useState<any>({
     weight: 0,
     tookFatburner: false,
@@ -44,6 +46,9 @@ const AddForm = () => {
       .finally(() => {
         postData({});
         setOpen(false);
+        toast({
+          description: "Your message has been sent.",
+        })
       });
   };
 
@@ -91,7 +96,6 @@ const AddForm = () => {
                 />
               </label>
             </div>
-
             <div>
               <label>
                 Total Calories:
