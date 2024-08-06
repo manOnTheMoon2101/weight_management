@@ -18,7 +18,7 @@ interface Props {
   totalCarbs: number;
   totalSugar: number;
 }
-const AddForm  = () => {
+const AddForm = () => {
   const [post, postData] = useState<any>({
     weight: 0,
     tookFatburner: false,
@@ -47,7 +47,7 @@ const AddForm  = () => {
       });
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: any) => {
     const { name, value, type, checked } = e.target;
     postData({
       ...post,
@@ -58,11 +58,11 @@ const AddForm  = () => {
   return (
     <div>
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogTrigger className="flex flex-row justify-between items-baseline">
-   
+        <DialogTrigger>
+          <div className="flex flex-row justify-between items-center">
             <IoMdAddCircleOutline size={35} />
-            Add New
- 
+            <p>Add New</p>
+          </div>
         </DialogTrigger>
         <DialogContent>
           <form onSubmit={handleSubmit}>
