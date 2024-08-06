@@ -4,19 +4,22 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
-import { useRef } from "react";
+import { useRef ,useState } from "react";
 import { Label } from "@/components/ui/label";
 const Login = () => {
   const email = useRef("");
+  const [loading, setLoading] = useState(false);
   const password = useRef("");
 
   const onSubmit = async () => {
+    setLoading(true);
     const result = await signIn("credentials", {
       email: email.current,
       password: password.current,
       redirect: true,
       callbackUrl: "/",
     });
+    setLoading(false);
   };
 
   return (
@@ -50,7 +53,7 @@ const Login = () => {
           </Link>
         </div>
 
-        <Button onClick={onSubmit}>Login</Button>
+        <Button onClick={onSubmit}>{loading ? "Refreshing..." : "Login"}</Button>
       </div>
     </div>
   );

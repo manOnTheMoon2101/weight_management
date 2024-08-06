@@ -11,7 +11,6 @@ import {
 } from "@/components/ui/select";
 import { useState } from "react";
 import AddForm from "../components/addform/AddForm";
-import Refresh from "../components/refresh/Refresh";
 export function Dashboard() {
   const getCurrentMonthTwoDigit = () => {
     let date = new Date();
@@ -55,7 +54,6 @@ export function Dashboard() {
             <SelectItem value="12">December</SelectItem>
           </SelectContent>
         </Select>
-        <Refresh  month={selectedMonth}/>
         <AddForm />
       </div>
       <div>
