@@ -25,14 +25,47 @@ import { AiOutlineExport } from "react-icons/ai";
 import { CiPill } from "react-icons/ci";
 import { Button } from "@/components/ui/button";
 import ViewModal from "../body/components/viewModal/ViewModal";
+import { Skeleton } from "@/components/ui/skeleton";
+import SkeletonHolder from "./skeleton/skeletonHolder";
 function Dashboard_table(date: any) {
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
   const { data, error, isLoading } = useSWR(
     `/api/filter/${date.month}`,
     fetcher
   );
+  const skeletons = Array.from({ length: 14 });
   if (error) return <div>failed to load</div>;
-  if (isLoading) return <div>loading...</div>;
+  if (isLoading)
+    return (
+      <>
+        <div className="min-w-full">
+          <table className="table-auto min-w-full  border">
+            <thead>
+              <tr className="bg-orange-400">
+                <th className="px-4 py-2 text-center">Open</th>
+                <th className="px-4 py-2  text-center">Date</th>
+                <th className="px-4 py-2  text-center">Weight</th>
+                <th className="px-4 py-2  text-center">Calories</th>
+                <th className="px-4 py-2  text-center">Protein</th>
+                <th className="px-4 py-2  text-center">Fat</th>
+                <th className="px-4 py-2  text-center">Carbohydrates</th>
+                <th className="px-4 py-2  text-center">Sugar</th>
+
+                <th className="px-4 py-2  text-center">Vitamin?</th>
+                <th className="px-4 py-2  text-center">CLA?</th>
+                <th className="px-4 py-2  text-center">L-Carnitine?</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {skeletons.map((_, index) => (
+                <SkeletonHolder key={index} />
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </>
+    );
   return (
     <>
       <div className="min-w-full">
