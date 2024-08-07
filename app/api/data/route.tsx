@@ -19,7 +19,6 @@ export const POST = async (request: any) => {
       totalFat,
       totalCarbs,
       totalSugar,
-      foodsInt,
     } = body;
 
     const user = await prisma.user.findUnique({
@@ -42,7 +41,6 @@ export const POST = async (request: any) => {
         totalFat: totalFat,
         totalCarbs: totalCarbs,
         totalSugar: totalSugar,
-        foodsInt: foodsInt,
         userId: user!.id,
       },
     });
