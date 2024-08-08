@@ -12,6 +12,7 @@ import {
 import { Avatar, AvatarFallback} from "@/components/ui/avatar";
 
 import { signIn, signOut } from "next-auth/react";
+import { ModeToggle } from "../theme/toggle";
 const Account = () => {
   const { data: session } = useSession();
   const name = JSON.stringify(session?.user?.name) ? JSON.stringify(session?.user?.name):null;
@@ -33,10 +34,13 @@ const Account = () => {
             </div>
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="end">
-          <DropdownMenuItem onClick={() => signOut()}>
+        <DropdownMenuContent align="center">
+
+           <ModeToggle/>
+           <DropdownMenuItem className="bg-red-900" onClick={() => signOut()}>
             Sign Out
           </DropdownMenuItem>
+
         </DropdownMenuContent>
       </DropdownMenu>
     </div>

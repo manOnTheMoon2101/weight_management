@@ -10,7 +10,7 @@ const Header = () => {
         <ReleaseNotes />
       </div>
       <div className="flex flex-row items-baseline">
-        <ModeToggle />
+        {/* <ModeToggle /> */}
         <Account />
       </div>
     </div>

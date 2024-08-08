@@ -27,9 +27,6 @@ export function ModeToggle() {
     }
   }, []);
 
-  const mode = theme ? 'light':theme ? 'dark':null
-  
-
   return (
     <div>
       {/* <DropdownMenu>
@@ -52,8 +49,10 @@ export function ModeToggle() {
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu> */}
-
-      <Switch onCheckedChange={handleThemeToggle} />
+      <div className="text-center">
+        <Switch onCheckedChange={handleThemeToggle} />
+        <h2>{theme == "light" ? "Light Mode" : "Dark Mode"}</h2>
+      </div>
     </div>
   );
 }
