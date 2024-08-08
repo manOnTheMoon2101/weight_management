@@ -8,6 +8,7 @@ import { IoMdAddCircleOutline } from "react-icons/io";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
 import { Button } from "@/components/ui/button";
+import { AiOutlineLoading } from "react-icons/ai";
 interface Props {
   weight: number;
   tookFatburner: boolean;
@@ -21,6 +22,7 @@ interface Props {
 }
 const AddForm = () => {
   const { toast } = useToast();
+  const [loading, setLoading] = useState(false);
   const [post, postData] = useState<any>({
     weight: 0,
     tookFatburner: false,
@@ -34,6 +36,7 @@ const AddForm = () => {
   });
   const [open, setOpen] = useState(false);
   const handleSubmit = (e: any) => {
+    setLoading(true);
     e.preventDefault();
     axios
       .post("/api/data", post)
@@ -49,6 +52,7 @@ const AddForm = () => {
       })
       .finally(() => {
         postData({});
+        setLoading(false);
         setOpen(false);
         toast({
           description: "Data has been saved.",
@@ -192,7 +196,11 @@ const AddForm = () => {
               disabled={!post.weight || !post.totalCalories}
               type="submit"
             >
-              Submit
+              {loading ? (
+                <AiOutlineLoading className="animate-spin text-orange-400 text-lg" />
+              ) : (
+                "Submit"
+              )}
             </Button>
             {post.weight ? "" : "Weight Required"}
             {post.totalCalories ? "" : "Calories Required"}
