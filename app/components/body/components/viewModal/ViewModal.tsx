@@ -101,7 +101,7 @@ const ViewModal = (data: any) => {
         </div>
       </form>
       <DeleteButton data={data.x.id} />
-      <EditButton />
+      <EditButton data={data}/>
     </div>
   );
 };
