@@ -9,6 +9,7 @@ import { AiOutlineLoading } from "react-icons/ai";
 import { Label } from "@/components/ui/label";
 import { FaInfoCircle } from "react-icons/fa";
 import { useToast } from "@/components/ui/use-toast";
+import { useRouter } from "next/navigation";
 import {
   Tooltip,
   TooltipContent,
@@ -21,16 +22,17 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const isDisabled = !email || !password;
-  const cursorStyle = isDisabled ? 'cursor-not-allowed' : 'cursor-pointer';
+  const router = useRouter();
+  const cursorStyle = isDisabled ? "cursor-not-allowed" : "cursor-pointer";
   const onSubmit = async () => {
     setLoading(true);
     try {
       await signIn("credentials", {
         email,
         password,
-        redirect: true,
-        callbackUrl: "/",
+        redirect: false,
       });
+      router.push("/?welcome=true");
     } catch (error) {
       console.error(error);
     } finally {

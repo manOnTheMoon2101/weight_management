@@ -8,6 +8,7 @@ import Link from "next/link";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { AiOutlineLoading } from "react-icons/ai";
+import { toast } from "@/components/ui/use-toast";
 const Register = () => {
   const [loading, setLoading] = useState(false);
   const [user, postUser] = useState<any>({});
@@ -28,6 +29,10 @@ const Register = () => {
         setLoading(false);
         console.log(user);
         router.push("/login");
+        toast({
+          description: "User Succesfully Created ",
+          className: "bg-lime-800",
+        });
       });
   };
 
