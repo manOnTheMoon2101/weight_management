@@ -102,7 +102,7 @@ const Login = () => {
             </Button>
           )}
 
-          <p>
+          <p className="mt-10">
             Don't have an account?{" "}
             <Link href="/register" className="text-orange-600">
               Register?
