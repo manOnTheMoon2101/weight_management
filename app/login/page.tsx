@@ -15,23 +15,23 @@ const Login = () => {
   const password = useRef("");
 
   const onSubmit = async () => {
-    const result = await signIn("credentials", {
+    setLoading(false);
+    await signIn("credentials", {
       email: email.current,
       password: password.current,
       redirect: true,
       callbackUrl: "/",
     });
+    setLoading(true);
   };
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center">
       <div className="p-8 rounded shadow-md border-4 rounded">
         <div>
-          <h2 className="text-6xl">
-            Welcome to <span>Weight Management</span>
-          </h2>
+          <h2 className="text-6xl">Welcome</h2>
         </div>
-        <Label>Email</Label>
+        <Label className="text-2xl text-center">Email</Label>
         <Input
           placeholder="email@email.com"
           type="email"
@@ -39,7 +39,7 @@ const Login = () => {
             email.current = e.target.value;
           }}
         />
-        <Label>Password</Label>
+        <Label className="text-2xl">Password</Label>
         <Input
           placeholder="*****"
           type="password"
