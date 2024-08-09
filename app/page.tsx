@@ -13,15 +13,6 @@ export default function Home(e: any) {
   const name = JSON.stringify(session?.user?.name)
     ? JSON.stringify(session?.user?.name)
     : null;
-  // useEffect(() => {
-  //   // Check if the user is logged in and the name is available
-  //   if (session?.user?.name) {
-  //     toast({
-  //       title: `Welcome, ${name}!`,
-  //       duration: 5000,
-  //     });
-  //   }
-  // }, [session, toast]);
   const router = useRouter();
 
   const searchParams = useSearchParams();
