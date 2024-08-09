@@ -32,10 +32,10 @@ export default function Home(e: any) {
         <Header />
       </div>
       <div className="flex h-screen">
-        <div className="w-[30%] max-h-[50vh] overflow-auto">
+        <div className="w-[30%] max-h-[50vh] overflow-auto mx-2">
           <Graph />
         </div>
-        <div className="w-[70%] h-full">
+        <div className="w-[70%] h-full mx-2">
           <Dashboard />
         </div>
       </div>
