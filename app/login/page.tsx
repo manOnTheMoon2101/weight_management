@@ -10,19 +10,24 @@ import { Label } from "@/components/ui/label";
 import { useToast } from "@/components/ui/use-toast";
 const Login = () => {
   const { toast } = useToast();
-  const email = useRef("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const password = useRef("");
 
   const onSubmit = async () => {
-    setLoading(false);
-    await signIn("credentials", {
-      email: email.current,
-      password: password.current,
-      redirect: true,
-      callbackUrl: "/",
-    });
     setLoading(true);
+    try {
+      await signIn("credentials", {
+        email,
+        password,
+        redirect: true,
+        callbackUrl: "/",
+      });
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -35,29 +40,27 @@ const Login = () => {
         <Input
           placeholder="email@email.com"
           type="email"
-          onChange={(e: any) => {
-            email.current = e.target.value;
-          }}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <Label className="text-2xl">Password</Label>
         <Input
           placeholder="*****"
           type="password"
-          onChange={(e: any) => {
-            password.current = e.target.value;
-          }}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
 
         <div className="flex flex-row justify-end">
           <Link href="/register" className="underline text-xs">
-            No Account?Create one now
+            No Account? Create one now
           </Link>
         </div>
 
         {loading ? (
           <AiOutlineLoading className="animate-spin text-orange-400 text-lg" />
         ) : (
-          <Button className="bg-orange-400 text-slate-50" onClick={onSubmit}>
+          <Button className="bg-orange-400 text-slate-50" onClick={onSubmit} disabled={!email || !password}>
             Login
           </Button>
         )}
