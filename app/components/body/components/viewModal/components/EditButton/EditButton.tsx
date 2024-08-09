@@ -232,20 +232,20 @@ const EditButton = (data: any) => {
               <Tooltip>
                 <TooltipTrigger asChild>
                   <div>
+                                      {loading ? (
+                    <AiOutlineLoading className="animate-spin text-orange-400 text-lg" />
+                  ) : (
                     <Button
                       disabled={!post.weight || !post.totalCalories}
                       type="submit"
                       className="bg-orange-400 text-slate-50"
                     >
-                      {loading ? (
-                        <AiOutlineLoading className="animate-spin text-orange-400 text-lg" />
-                      ) : (
-                        "Save"
-                      )}
-                    </Button>
+                      Save
+                      </Button>
+                  )}
                   </div>
                 </TooltipTrigger>
-                <TooltipContent className="text-left">Save Data</TooltipContent>
+                <TooltipContent>Save Data</TooltipContent>
               </Tooltip>
             </TooltipProvider>
           </form>

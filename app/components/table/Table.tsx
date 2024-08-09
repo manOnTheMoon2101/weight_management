@@ -26,6 +26,12 @@ import { CiPill } from "react-icons/ci";
 import { Button } from "@/components/ui/button";
 import ViewModal from "../body/components/viewModal/ViewModal";
 import { Skeleton } from "@/components/ui/skeleton";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import SkeletonHolder from "./skeleton/skeletonHolder";
 function Dashboard_table(date: any) {
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
@@ -92,7 +98,16 @@ function Dashboard_table(date: any) {
                 <td className="border px-4 py-2 text-center">
                   <Dialog>
                     <DialogTrigger>
-                      <AiOutlineExport />
+                      <TooltipProvider>
+                        <Tooltip>
+                          <TooltipTrigger>
+                            <AiOutlineExport />
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p>Open Modal</p>
+                          </TooltipContent>
+                        </Tooltip>
+                      </TooltipProvider>
                     </DialogTrigger>
                     <DialogContent>
                       <ViewModal x={x} />
