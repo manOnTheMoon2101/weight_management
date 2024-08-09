@@ -7,8 +7,15 @@ import { Switch } from "@/components/ui/switch";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
+import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { AiOutlineLoading } from "react-icons/ai";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 interface Props {
   weight: number;
   tookFatburner: boolean;
@@ -85,9 +92,9 @@ const AddForm = () => {
         </DialogTrigger>
         <DialogContent>
           <form onSubmit={handleSubmit}>
-            <div>
-              <label>
-                Weight:
+            <div className="flex flex-row justify-between">
+              <div className="flex flex-col justify-center items-center m-2">
+                <Label className="text-center mb-2 text-xl">Weight</Label>
                 <Input
                   type="number"
                   name="weight"
@@ -95,23 +102,11 @@ const AddForm = () => {
                   onChange={handleChange}
                   step="0.01"
                 />
-              </label>
-            </div>
-            <div>
-              <label>
-                Took Fatburner:
-                <Switch
-                  name="tookFatburner"
-                  checked={post.tookFatburner}
-                  onCheckedChange={(checked) =>
-                    handleSwitchChange("tookFatburner", checked)
-                  }
-                />
-              </label>
-            </div>
-            <div>
-              <label>
-                Total Calories:
+              </div>
+              <div className="flex flex-col justify-center items-center m-2">
+                <Label className="text-center mb-2 text-xl">
+                  Total Calories
+                </Label>
                 <Input
                   type="number"
                   name="totalCalories"
@@ -119,12 +114,44 @@ const AddForm = () => {
                   onChange={handleChange}
                   step="1"
                 />
-              </label>
+              </div>
             </div>
+            <div className="flex flex-row justify-evenly m-10">
+              <div className="flex flex-col justify-center items-center">
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Label className="text-center cursor-help mb-2 text-xl">
+                        FB
+                      </Label>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>Fat Burner</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
+                <Switch
+                  name="tookFatburner"
+                  checked={post.tookFatburner}
+                  onCheckedChange={(checked) =>
+                    handleSwitchChange("tookFatburner", checked)
+                  }
+                />
+              </div>
 
-            <div>
-              <label>
-                Took Weight Management:
+              <div className="flex flex-col justify-center items-center">
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Label className="text-center cursor-help mb-2 text-xl">
+                        CLA
+                      </Label>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>(Conjugated linoleic acid)</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
                 <Switch
                   name="tookWeightmanagement"
                   checked={post.tookWeightmanagement}
@@ -132,12 +159,21 @@ const AddForm = () => {
                     handleSwitchChange("tookWeightmanagement", checked)
                   }
                 />
-              </label>
-            </div>
+              </div>
 
-            <div>
-              <label>
-                Took Vitamin:
+              <div className="flex flex-col justify-center items-center">
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Label className="text-center cursor-help mb-2 text-xl">
+                        VIT
+                      </Label>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>Vitamin</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
                 <Switch
                   name="tookVitamin"
                   checked={post.tookVitamin}
@@ -145,12 +181,11 @@ const AddForm = () => {
                     handleSwitchChange("tookVitamin", checked)
                   }
                 />
-              </label>
+              </div>
             </div>
-
-            <div>
-              <label>
-                Total Protein:
+            <div className="flex flex-col justify-center items-center mb-5">
+              <div className="text-center">
+                <Label className="text-center mb-2 text-xl">Protein</Label>
                 <Input
                   type="number"
                   name="totalProtein"
@@ -158,12 +193,12 @@ const AddForm = () => {
                   onChange={handleChange}
                   step="0.01"
                 />
-              </label>
+              </div>
             </div>
 
-            <div>
-              <label>
-                Total Fat:
+            <div className="flex flex-col justify-center items-center mb-5">
+              <div className="text-center">
+                <Label className="text-xl mb-2">Fat</Label>
                 <Input
                   type="number"
                   name="totalFat"
@@ -171,12 +206,12 @@ const AddForm = () => {
                   onChange={handleChange}
                   step="0.01"
                 />
-              </label>
+              </div>
             </div>
 
-            <div>
-              <label>
-                Total Carbs:
+            <div className="flex flex-col justify-center items-center mb-5">
+              <div className="text-center">
+                <Label className="text-xl">Carbs</Label>
                 <Input
                   type="number"
                   name="totalCarbs"
@@ -184,12 +219,12 @@ const AddForm = () => {
                   onChange={handleChange}
                   step="0.01"
                 />
-              </label>
+              </div>
             </div>
 
-            <div>
-              <label>
-                Total Sugar:
+            <div className="flex flex-col justify-center items-center mb-5">
+              <div className="text-center">
+                <Label className="text-xl">Sugar</Label>
                 <Input
                   type="number"
                   name="totalSugar"
@@ -197,21 +232,32 @@ const AddForm = () => {
                   onChange={handleChange}
                   step="0.01"
                 />
-              </label>
+              </div>
             </div>
-
-            <Button
-              disabled={!post.weight || !post.totalCalories}
-              type="submit"
-            >
-              {loading ? (
-                <AiOutlineLoading className="animate-spin text-orange-400 text-lg" />
-              ) : (
-                "Submit"
-              )}
-            </Button>
-            {post.weight ? "" : "Weight Required"}
-            {post.totalCalories ? "" : "Calories Required"}
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <div>
+                    <Button
+                      disabled={!post.weight || !post.totalCalories}
+                      type="submit"
+                      className="bg-orange-400 text-slate-50"
+                    >
+                      {loading ? (
+                        <AiOutlineLoading className="animate-spin text-orange-400 text-lg" />
+                      ) : (
+                        "Submit"
+                      )}
+                    </Button>
+                  </div>
+                </TooltipTrigger>
+                <TooltipContent className="text-red-600 text-left">
+                  {!post.weight && "Weight Required"}
+                  <br />
+                  {!post.totalCalories && "Calories Required"}
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
           </form>
         </DialogContent>
       </Dialog>
