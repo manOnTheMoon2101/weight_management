@@ -4,9 +4,12 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
-import { useRef ,useState } from "react";
+import { useRef, useState } from "react";
+import { AiOutlineLoading } from "react-icons/ai";
 import { Label } from "@/components/ui/label";
+import { useToast } from "@/components/ui/use-toast";
 const Login = () => {
+  const { toast } = useToast();
   const email = useRef("");
   const [loading, setLoading] = useState(false);
   const password = useRef("");
@@ -19,6 +22,13 @@ const Login = () => {
       redirect: true,
       callbackUrl: "/",
     });
+
+    if (result?.ok) {
+      toast({
+        description: "Succesfully Logged in:Welcome ${}",
+        className: "bg-lime-800",
+      });
+    }
     setLoading(false);
   };
 
@@ -53,7 +63,11 @@ const Login = () => {
           </Link>
         </div>
 
-        <Button onClick={onSubmit}>{loading ? "Refreshing..." : "Login"}</Button>
+        {loading ? (
+          <AiOutlineLoading className="animate-spin text-orange-400 text-lg" />
+        ) : (
+          <Button onClick={onSubmit}>Login</Button>
+        )}
       </div>
     </div>
   );
