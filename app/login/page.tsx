@@ -97,7 +97,7 @@ const Login = () => {
               <TooltipTrigger asChild>
                 <div>
                   {loading ? (
-                    <AiOutlineLoading className="animate-spin text-orange-400 text-lg" />
+                    <AiOutlineLoading className="animate-spin text-orange-400 text-lg w-full" />
                   ) : (
                     <Button
                       className={`bg-orange-400 text-slate-50 w-full`}

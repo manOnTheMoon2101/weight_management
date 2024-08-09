@@ -70,10 +70,10 @@ const Register = () => {
 
           <div className="flex flex-col mt-10">
             {loading ? (
-              <AiOutlineLoading className="animate-spin text-orange-400 text-lg" />
+              <AiOutlineLoading className="animate-spin text-orange-400 text-lg w-full" />
             ) : (
               <Button
-                className="bg-orange-400 text-slate-50"
+                className="bg-orange-400 text-slate-50 w-full"
                 onClick={handleSubmit}
                 disabled={!user.email || !user.password || !user.name}
               >
