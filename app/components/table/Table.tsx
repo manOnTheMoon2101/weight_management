@@ -101,23 +101,13 @@ function Dashboard_table(date: any) {
                 </td>
                 <td className="border px-4 py-2  text-center">{x.createdAt}</td>
                 <td className="border px-4 py-2  text-center">{x.weight}</td>
-                <td
-                  className={`border px-4 py-2  text-center  ${
-                    x.totalCalories > 200 ? "text-red-500" : ""
-                  }`}
-                >
+                <td className={`border px-4 py-2  text-center  ${x.totalCalories > 200 ? 'text-red-500' : ''}`}>
                   {x.totalCalories}
                 </td>
                 <td className="border px-4 py-2  text-center">
                   {x.totalProtein}
                 </td>
-                <td
-                  className={`border px-4 py-2  text-center ${
-                    x.totalFat > 100 ? "text-red-500" : ""
-                  }`}
-                >
-                  {x.totalFat}
-                </td>
+                <td className="border px-4 py-2  text-center">{x.totalFat}</td>
                 <td className="border px-4 py-2  text-center">
                   {x.totalCarbs}
                 </td>
@@ -139,10 +129,7 @@ function Dashboard_table(date: any) {
           ))}
         </table>
         <div className="flex flex-row justify-center">
-          <h3 className="text-2xl">
-            {" "}
-            {data.length <= 0 ? "No Data Found..." : ""}
-          </h3>
+          <h3 className="text-2xl"> {data.length <= 0 ? "No Data Found..." : ""}</h3>
         </div>
       </div>
     </>
