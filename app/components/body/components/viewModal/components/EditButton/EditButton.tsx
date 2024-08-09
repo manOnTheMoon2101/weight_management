@@ -44,9 +44,10 @@ const EditButton = (data: any) => {
   const [open, setOpen] = useState(false);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
+    const newValue = type === 'number' ? parseFloat(value) : value;
     postData((prevPost: any) => ({
       ...prevPost,
-      [name]: type === "checkbox" ? checked : value,
+      [name]: newValue,
     }));
   };
   const handleSwitchChange = (name: any, checked: any) => {
@@ -64,7 +65,14 @@ const EditButton = (data: any) => {
       setOpen(false);
     } catch (error) {
     } finally {
+      postData({});
       setLoading(false);
+      setOpen(false);
+      toast({
+        description: "Data has been saved.",
+        className: "bg-lime-800",
+      });
+    
     }
   };
 
