@@ -63,15 +63,17 @@ const Register = () => {
             onChange={handleChange}
             value={user.password}
           />
-
-          <Link href="/login" className="underline text-xs">
-            Already have a Account?
-          </Link>
-
+          <div className="flex flex-row justify-end">
+            <Link href="/login" className="underline text-xs">
+              Already have a Account?
+            </Link>
+          </div>
           {loading ? (
             <AiOutlineLoading className="animate-spin text-orange-400 text-lg" />
           ) : (
-            <Button onClick={handleSubmit}>Login</Button>
+            <Button className="bg-orange-400 text-slate-50" onClick={handleSubmit}>
+              Login
+            </Button>
           )}
         </form>
       </div>
