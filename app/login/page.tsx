@@ -22,8 +22,6 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const isDisabled = !email || !password;
-  const router = useRouter();
-  const cursorStyle = isDisabled ? "cursor-not-allowed" : "cursor-pointer";
   const onSubmit = async () => {
     setLoading(true);
     try {
@@ -101,7 +99,7 @@ const Login = () => {
                     <AiOutlineLoading className="animate-spin text-orange-400 text-lg" />
                   ) : (
                     <Button
-                      className={`bg-orange-400 text-slate-50 w-full cursor-not-allowed`}
+                      className={`bg-orange-400 text-slate-50 w-full`}
                       onClick={onSubmit}
                       disabled={!email || !password}
                     >
