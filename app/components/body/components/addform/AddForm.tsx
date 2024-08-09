@@ -68,7 +68,12 @@ const AddForm = () => {
       [name]: type === "checkbox" ? checked : parseFloat(value),
     });
   };
-
+  const handleSwitchChange = (name: any, checked: any) => {
+    postData({
+      ...post,
+      [name]: checked,
+    });
+  };
   return (
     <div>
       <Dialog open={open} onOpenChange={setOpen}>
@@ -95,11 +100,12 @@ const AddForm = () => {
             <div>
               <label>
                 Took Fatburner:
-                <Input
-                  type="checkbox"
+                <Switch
                   name="tookFatburner"
                   checked={post.tookFatburner}
-                  onChange={handleChange}
+                  onCheckedChange={(checked) =>
+                    handleSwitchChange("tookFatburner", checked)
+                  }
                 />
               </label>
             </div>
@@ -119,11 +125,12 @@ const AddForm = () => {
             <div>
               <label>
                 Took Weight Management:
-                <Input
-                  type="checkbox"
+                <Switch
                   name="tookWeightmanagement"
                   checked={post.tookWeightmanagement}
-                  onChange={handleChange}
+                  onCheckedChange={(checked) =>
+                    handleSwitchChange("tookWeightmanagement", checked)
+                  }
                 />
               </label>
             </div>
@@ -131,11 +138,12 @@ const AddForm = () => {
             <div>
               <label>
                 Took Vitamin:
-                <Input
-                  type="checkbox"
+                <Switch
                   name="tookVitamin"
                   checked={post.tookVitamin}
-                  onChange={handleChange}
+                  onCheckedChange={(checked) =>
+                    handleSwitchChange("tookVitamin", checked)
+                  }
                 />
               </label>
             </div>
