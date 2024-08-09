@@ -9,14 +9,16 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Avatar, AvatarFallback} from "@/components/ui/avatar";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
 import { signIn, signOut } from "next-auth/react";
 import { ModeToggle } from "../theme/toggle";
 const Account = () => {
   const { data: session } = useSession();
-  const name = JSON.stringify(session?.user?.name) ? JSON.stringify(session?.user?.name):null;
-  const cleanedName = name ? name.replace(/^"(.*)"$/, "$1") :null;
+  const name = JSON.stringify(session?.user?.name)
+    ? JSON.stringify(session?.user?.name)
+    : null;
+  const cleanedName = name ? name.replace(/^"(.*)"$/, "$1") : null;
   return (
     <div>
       <DropdownMenu>
@@ -35,12 +37,13 @@ const Account = () => {
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="center">
-
-           <ModeToggle/>
-           <DropdownMenuItem className="bg-red-900" onClick={() => signOut()}>
+          <ModeToggle />
+          <DropdownMenuItem
+            className="bg-red-900 text-slate-50 flex flex-row justify-center"
+            onClick={() => signOut()}
+          >
             Sign Out
           </DropdownMenuItem>
-
         </DropdownMenuContent>
       </DropdownMenu>
     </div>
