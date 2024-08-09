@@ -22,6 +22,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const isDisabled = !email || !password;
+  const router = useRouter();
   const onSubmit = async () => {
     setLoading(true);
     try {
