@@ -40,45 +40,49 @@ const Register = () => {
   return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="p-8 rounded shadow-md">
-        <h2 className="text-6xl">Register Account</h2>
         <form>
-          <Label className="text-2xl">Name</Label>
+          <Label className="text-4xl text-center">Name</Label>
           <Input
             placeholder="Name"
             name="name"
             onChange={handleChange}
             value={user.name}
           />
-          <Label className="text-2xl">Email</Label>
+          <Label className="text-4xl text-center">Email</Label>
           <Input
             placeholder="Email"
             name="email"
             onChange={handleChange}
             value={user.email}
           />
-          <Label className="text-2xl">Password</Label>
+          <Label className="text-4xl text-center">Password</Label>
           <Input
             placeholder="Password"
             name="password"
             onChange={handleChange}
             value={user.password}
           />
-          <div className="flex flex-row justify-end">
-            <Link href="/login" className="underline text-xs">
+
+          <div className="flex flex-col mt-10">
+            {loading ? (
+              <AiOutlineLoading className="animate-spin text-orange-400 text-lg" />
+            ) : (
+              <Button
+                className="bg-orange-400 text-slate-50"
+                onClick={handleSubmit}
+                disabled={!user.email || !user.password || !user.name}
+              >
+                Login
+              </Button>
+            )}
+            <p className="mt-10">
               Already have a Account?
-            </Link>
+              <Link href="/login" className="text-orange-600">
+                {" "}
+                Log In?
+              </Link>
+            </p>
           </div>
-          {loading ? (
-            <AiOutlineLoading className="animate-spin text-orange-400 text-lg" />
-          ) : (
-            <Button
-              className="bg-orange-400 text-slate-50"
-              onClick={handleSubmit}
-              disabled={!user.email || !user.password || !user.name}
-            >
-              Login
-            </Button>
-          )}
         </form>
       </div>
     </div>

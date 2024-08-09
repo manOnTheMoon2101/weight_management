@@ -20,7 +20,8 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-
+  const isDisabled = !email || !password;
+  const cursorStyle = isDisabled ? 'cursor-not-allowed' : 'cursor-pointer';
   const onSubmit = async () => {
     setLoading(true);
     try {
@@ -90,18 +91,30 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <div className="flex flex-col mt-10">
-          {loading ? (
-            <AiOutlineLoading className="animate-spin text-orange-400 text-lg" />
-          ) : (
-            <Button
-              className="bg-orange-400 text-slate-50 w-full"
-              onClick={onSubmit}
-              disabled={!email || !password}
-            >
-              Login
-            </Button>
-          )}
-
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <div>
+                  {loading ? (
+                    <AiOutlineLoading className="animate-spin text-orange-400 text-lg" />
+                  ) : (
+                    <Button
+                      className={`bg-orange-400 text-slate-50 w-full cursor-not-allowed`}
+                      onClick={onSubmit}
+                      disabled={!email || !password}
+                    >
+                      Login
+                    </Button>
+                  )}
+                </div>
+              </TooltipTrigger>
+              <TooltipContent className="text-red-600 text-left">
+                {!email && "Email Required"}
+                <br />
+                {!password && "Password Required"}
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
           <p className="mt-10">
             Don't have an account?{" "}
             <Link href="/register" className="text-orange-600">
