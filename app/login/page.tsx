@@ -15,31 +15,22 @@ const Login = () => {
   const password = useRef("");
 
   const onSubmit = async () => {
-    setLoading(true);
     const result = await signIn("credentials", {
       email: email.current,
       password: password.current,
       redirect: true,
       callbackUrl: "/",
     });
-
-    if (result?.ok) {
-      toast({
-        description: "Succesfully Logged in:Welcome ${}",
-        className: "bg-lime-800",
-      });
-    }
-    setLoading(false);
   };
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center">
-      <div>
-        <h2>
-          Welcome to <span>Weight Management</span>
-        </h2>
-      </div>
       <div className="p-8 rounded shadow-md border-4 rounded">
+        <div>
+          <h2 className="text-6xl">
+            Welcome to <span>Weight Management</span>
+          </h2>
+        </div>
         <Label>Email</Label>
         <Input
           placeholder="email@email.com"
