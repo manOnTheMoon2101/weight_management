@@ -48,7 +48,7 @@ const EditButton = (data: any) => {
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger>
           <div className="flex flex-row justify-between items-center">
-            <p>Edit</p>
+            <Button>Edit</Button>
           </div>
         </DialogTrigger>
         <DialogContent>

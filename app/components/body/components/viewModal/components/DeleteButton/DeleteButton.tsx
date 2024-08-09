@@ -36,7 +36,7 @@ const DeleteButton = (id: any) => {
     <div>
       <AlertDialog>
         <AlertDialogTrigger>
-          <Button>Delete</Button>
+          <Button className="bg-red-900 text-slate-50">Delete</Button>
         </AlertDialogTrigger>
         <AlertDialogContent>
           <AlertDialogHeader>

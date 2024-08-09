@@ -53,7 +53,9 @@ const ViewModal = (data: any) => {
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>
-            <p className="text-lg">{data.x.tookWeightmanagement ? "💊" : "none"}</p>
+            <p className="text-lg">
+              {data.x.tookWeightmanagement ? "💊" : "none"}
+            </p>
           </div>
 
           <div className="flex flex-col justify-center items-center">
@@ -100,8 +102,9 @@ const ViewModal = (data: any) => {
           </div>
         </div>
       </form>
+
+      <EditButton data={data} />
       <DeleteButton data={data.x.id} />
-      <EditButton data={data}/>
     </div>
   );
 };
