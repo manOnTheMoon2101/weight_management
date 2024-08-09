@@ -37,13 +37,15 @@ const Account = () => {
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="center">
-          <ModeToggle />
-          <DropdownMenuItem
-            className="bg-red-900 text-slate-50 flex flex-row justify-center"
-            onClick={() => signOut()}
-          >
-            Sign Out
-          </DropdownMenuItem>
+          <div>
+            <ModeToggle />
+            <DropdownMenuItem
+              className="bg-red-900 text-slate-50 flex flex-row justify-center  mt-5"
+              onClick={() => signOut()}
+            >
+              Sign Out
+            </DropdownMenuItem>
+          </div>
         </DropdownMenuContent>
       </DropdownMenu>
     </div>
