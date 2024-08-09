@@ -30,7 +30,7 @@ const Register = () => {
         console.log(user);
         router.push("/login");
         toast({
-          description: "User Succesfully Created ",
+          description: "User Successfully Created ",
           className: "bg-lime-800",
         });
       });
