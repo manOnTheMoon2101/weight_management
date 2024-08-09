@@ -13,6 +13,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Switch } from "@/components/ui/switch";
 import { useEffect } from "react";
+import { FaRegSun } from "react-icons/fa";
+import { FaRegMoon } from "react-icons/fa";
 export function ModeToggle() {
   const { theme, setTheme } = useTheme();
 
@@ -49,9 +51,9 @@ export function ModeToggle() {
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu> */}
-      <div className="text-center">
+      <div className="flex flex-row justify-around items-center">
+        <h2>{theme == "light" ? <FaRegSun /> : <FaRegMoon />}</h2>
         <Switch onCheckedChange={handleThemeToggle} />
-        <h2>{theme == "light" ? "Light Mode" : "Dark Mode"}</h2>
       </div>
     </div>
   );
