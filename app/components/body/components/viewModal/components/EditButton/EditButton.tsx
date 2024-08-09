@@ -31,36 +31,62 @@ const EditButton = (data: any) => {
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
   const [post, postData] = useState<any>({
-    weight: 0,
-    tookFatburner: false,
-    totalCalories: 0,
-    tookWeightmanagement: false,
-    tookVitamin: false,
-    totalProtein: 0,
-    totalFat: 0,
-    totalCarbs: 0,
-    totalSugar: 0,
+    weight: data.data.x.weight,
+    tookFatburner: data.data.x.tookFatburner,
+    totalCalories: data.data.x.totalCalories,
+    tookWeightmanagement: data.data.x.tookWeightmanagement,
+    tookVitamin: data.data.x.tookVitamin,
+    totalProtein: data.data.x.totalProtein,
+    totalFat: data.data.x.totalFat,
+    totalCarbs: data.data.x.totalCarbs,
+    totalSugar: data.data.x.totalSugar,
   });
   const [open, setOpen] = useState(false);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value, type, checked } = e.target;
+    postData((prevPost: any) => ({
+      ...prevPost,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+  };
+  const handleSwitchChange = (name: any, checked: any) => {
+    postData({
+      ...post,
+      [name]: checked,
+    });
+  };
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      await axios.patch(`/api/edit/${data.data.x.id}`, post);
+      setOpen(false);
+    } catch (error) {
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div>
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger>
           <div className="flex flex-row justify-between items-center">
-            <Button>Edit</Button>
+            <Button onClick={() => setOpen(true)}>Edit</Button>
           </div>
         </DialogTrigger>
         <DialogContent>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="flex flex-row justify-between">
               <div className="flex flex-col justify-center items-center m-2">
                 <Label className="text-center mb-2 text-xl">Weight</Label>
                 <Input
                   type="number"
                   name="weight"
-                  value={data.data.x.weight}
+                  value={post.weight}
                   step="0.01"
+                  onChange={handleChange}
                 />
               </div>
               <div className="flex flex-col justify-center items-center m-2">
@@ -70,8 +96,9 @@ const EditButton = (data: any) => {
                 <Input
                   type="number"
                   name="totalCalories"
-                  value={data.data.x.totalCalories}
+                  value={post.totalCalories}
                   step="1"
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -91,7 +118,10 @@ const EditButton = (data: any) => {
                 </TooltipProvider>
                 <Switch
                   name="tookFatburner"
-                  checked={data.data.x.tookFatburner}
+                  checked={post.tookFatburner}
+                  onCheckedChange={(checked) =>
+                    handleSwitchChange("tookFatburner", checked)
+                  }
                 />
               </div>
 
@@ -110,7 +140,10 @@ const EditButton = (data: any) => {
                 </TooltipProvider>
                 <Switch
                   name="tookWeightmanagement"
-                  checked={data.data.x.tookWeightmanagement}
+                  checked={post.tookWeightmanagement}
+                  onCheckedChange={(checked) =>
+                    handleSwitchChange("tookWeightmanagement", checked)
+                  }
                 />
               </div>
 
@@ -127,7 +160,13 @@ const EditButton = (data: any) => {
                     </TooltipContent>
                   </Tooltip>
                 </TooltipProvider>
-                <Switch name="tookVitamin" checked={data.data.x.tookVitamin} />
+                <Switch
+                  name="tookVitamin"
+                  checked={post.tookVitamin}
+                  onCheckedChange={(checked) =>
+                    handleSwitchChange("tookVitamin", checked)
+                  }
+                />
               </div>
             </div>
             <div className="flex flex-col justify-center items-center mb-5">
@@ -136,8 +175,9 @@ const EditButton = (data: any) => {
                 <Input
                   type="number"
                   name="totalProtein"
-                  value={data.data.x.totalProtein}
+                  value={post.totalProtein}
                   step="0.01"
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -148,8 +188,9 @@ const EditButton = (data: any) => {
                 <Input
                   type="number"
                   name="totalFat"
-                  value={data.data.x.totalFat}
+                  value={post.totalFat}
                   step="0.01"
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -160,8 +201,9 @@ const EditButton = (data: any) => {
                 <Input
                   type="number"
                   name="totalCarbs"
-                  value={data.data.x.totalCarbs}
+                  value={post.totalCarbs}
                   step="0.01"
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -172,8 +214,9 @@ const EditButton = (data: any) => {
                 <Input
                   type="number"
                   name="totalSugar"
-                  value={data.data.x.totalSugar}
+                  value={post.totalSugar}
                   step="0.01"
+                  onChange={handleChange}
                 />
               </div>
             </div>
