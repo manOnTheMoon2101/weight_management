@@ -10,9 +10,7 @@ import { useRouter } from "next/navigation";
 export default function Home(e: any) {
   const { toast } = useToast();
   const { data: session } = useSession();
-  const name = JSON.stringify(session?.user?.name)
-    ? JSON.stringify(session?.user?.name)
-    : null;
+  const name = session?.user?.name || null;
   const router = useRouter();
 
   const searchParams = useSearchParams();

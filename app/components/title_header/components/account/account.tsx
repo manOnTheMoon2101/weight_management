@@ -15,9 +15,7 @@ import { signIn, signOut } from "next-auth/react";
 import { ModeToggle } from "../theme/toggle";
 const Account = () => {
   const { data: session } = useSession();
-  const name = JSON.stringify(session?.user?.name)
-    ? JSON.stringify(session?.user?.name)
-    : null;
+  const name = session?.user?.name || null;
   const cleanedName = name ? name.replace(/^"(.*)"$/, "$1") : null;
   return (
     <div>
@@ -32,7 +30,7 @@ const Account = () => {
                   </AvatarFallback>
                 </Avatar>
               </div>
-              <div>{JSON.stringify(session?.user?.name)}</div>
+              <div>{name}</div>
             </div>
           </Button>
         </DropdownMenuTrigger>
