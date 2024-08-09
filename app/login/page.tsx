@@ -60,7 +60,11 @@ const Login = () => {
         {loading ? (
           <AiOutlineLoading className="animate-spin text-orange-400 text-lg" />
         ) : (
-          <Button className="bg-orange-400 text-slate-50" onClick={onSubmit} disabled={!email || !password}>
+          <Button
+            className="bg-orange-400 text-slate-50"
+            onClick={onSubmit}
+            disabled={!email || !password}
+          >
             Login
           </Button>
         )}
