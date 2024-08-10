@@ -32,9 +32,7 @@ export default function Home(e: any) {
         <Header />
       </div>
       <div>
-        <div>
-          <Dashboard />
-        </div>
+        <Dashboard />
       </div>
     </main>
   );
