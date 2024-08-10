@@ -81,7 +81,7 @@ const Graph = (date: any) => {
                 type="natural"
                 stroke="red"
                 strokeWidth={2}
-                dot={false}
+                dot={true}
               />
             </AreaChart>
           </ChartContainer>

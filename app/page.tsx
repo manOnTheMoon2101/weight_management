@@ -1,6 +1,6 @@
 "use client";
 import { Dashboard } from "./components/body/dashboard/Dashboard";
-import Graph from "./components/body/graphs/Graph";
+import Graph from "./components/body/graphs/WeightGraph";
 import Header from "./components/title_header/Header";
 import { useToast } from "@/components/ui/use-toast";
 import { useSearchParams } from "next/navigation";
