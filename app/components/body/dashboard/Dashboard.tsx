@@ -9,6 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import Graph from "../graphs/Graph";
 import { useState } from "react";
 import AddForm from "../components/addform/AddForm";
 export function Dashboard() {
@@ -56,8 +57,13 @@ export function Dashboard() {
         </Select>
         <AddForm />
       </div>
-      <div>
-        <Dashboard_table month={selectedMonth} />
+      <div className="flex flex-row justify-around m-5">
+        <div className="w-[30%] max-h-[50vh] overflow-auto mx-2">
+          <Graph month={selectedMonth} />
+        </div>
+        <div>
+          <Dashboard_table month={selectedMonth} />
+        </div>
       </div>
     </div>
   );

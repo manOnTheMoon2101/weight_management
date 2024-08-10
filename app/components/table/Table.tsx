@@ -86,7 +86,6 @@ function Dashboard_table(date: any) {
               <th className="px-4 py-2  text-center">Fat</th>
               <th className="px-4 py-2  text-center">Carbohydrates</th>
               <th className="px-4 py-2  text-center">Sugar</th>
-
               <th className="px-4 py-2  text-center">Vitamin?</th>
               <th className="px-4 py-2  text-center">CLA?</th>
               <th className="px-4 py-2  text-center">L-Carnitine?</th>
