@@ -48,8 +48,7 @@ const Graph = (date: any) => {
   if (isLoading) return <div>loading</div>;
 
   return (
-    <div className="border-2 rounded">
-      <h2>Graphs</h2>
+    <div>
       <Card>
         <CardHeader>
           <CardTitle>Weight Chart</CardTitle>
