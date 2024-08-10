@@ -1,7 +1,7 @@
 "use client";
 import useSWR from "swr";
 import { TrendingUp } from "lucide-react";
-import { CartesianGrid, Line, LineChart, XAxis } from "recharts";
+import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
 import {
   Card,
   CardContent,
@@ -57,7 +57,7 @@ const Graph = (date: any) => {
         </CardHeader>
         <CardContent>
           <ChartContainer config={chartConfig}>
-            <LineChart
+            <AreaChart
               accessibilityLayer
               data={chartData}
               margin={{
@@ -77,14 +77,14 @@ const Graph = (date: any) => {
                 cursor={false}
                 content={<ChartTooltipContent hideLabel />}
               />
-              <Line
+              <Area
                 dataKey="weight"
                 type="natural"
                 stroke="red"
                 strokeWidth={2}
                 dot={false}
               />
-            </LineChart>
+            </AreaChart>
           </ChartContainer>
         </CardContent>
       </Card>
