@@ -7,10 +7,11 @@ const ReleaseNotes = () => {
   const notes: any = {
     version1: {
       title: "0.5",
-      details: "still in beta!!!full release in middle of august.",
+      details: "Still in Beta!!!Full release in Middle of August.",
       features: [
         "Dark/Light Mode",
-        "Account Registring/Loging",
+        "Graphs",
+        "Account Management",
         "Graphical UI Overall",
         "Loading Elements",
         "Mobile Friendly Interface",
@@ -18,6 +19,7 @@ const ReleaseNotes = () => {
       ],
       bugs: [
         "Refreshing Issues",
+        "Form Fixes",
         "Validations",
         "Performance issues",
          "+ MORE..."
