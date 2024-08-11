@@ -49,6 +49,11 @@ const AddForm = () => {
       .post("/api/data", post)
       .then((res: any) => {
         console.log(res);
+        toast({
+          description: "Data has been saved.",
+          className: "bg-lime-800",
+        });
+        window.location.reload();
       })
       .catch((err: any) => {
         console.log(err);
@@ -61,10 +66,6 @@ const AddForm = () => {
         postData({});
         setLoading(false);
         setOpen(false);
-        toast({
-          description: "Data has been saved.",
-          className: "bg-lime-800",
-        });
       });
   };
 
@@ -238,17 +239,17 @@ const AddForm = () => {
               <Tooltip>
                 <TooltipTrigger asChild>
                   <div>
-                    <Button
-                      disabled={!post.weight || !post.totalCalories}
-                      type="submit"
-                      className="bg-orange-400 text-slate-50"
-                    >
-                      {loading ? (
-                        <AiOutlineLoading className="animate-spin text-orange-400 text-lg" />
-                      ) : (
-                        "Submit"
-                      )}
-                    </Button>
+                    {loading ? (
+                      <AiOutlineLoading className="animate-spin text-orange-400 text-lg" />
+                    ) : (
+                      <Button
+                        disabled={!post.weight || !post.totalCalories}
+                        type="submit"
+                        className="bg-orange-400 text-slate-50"
+                      >
+                        Save
+                      </Button>
+                    )}
                   </div>
                 </TooltipTrigger>
                 <TooltipContent className="text-red-600 text-left">
