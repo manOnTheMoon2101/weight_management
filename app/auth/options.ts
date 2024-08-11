@@ -36,14 +36,14 @@ export const authOptions: NextAuthOptions = {
           return null;
         }
 
-        // const isPasswordValid = await compare(
-        //   credentials.password,
-        //   user.password
-        // );
+        const isPasswordValid = await compare(
+          credentials.password,
+          user.password
+        );
 
-        // if (!isPasswordValid) {
-        //   return null;
-        // }
+        if (!isPasswordValid) {
+          return null;
+        }
 
         return {
           id: user.id + "",
