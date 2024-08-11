@@ -85,7 +85,7 @@ const Register = () => {
                 onClick={handleSubmit}
                 disabled={!user.email || !user.password || !user.name}
               >
-                Login
+                Register
               </Button>
             )}
             <p className="mt-10">
