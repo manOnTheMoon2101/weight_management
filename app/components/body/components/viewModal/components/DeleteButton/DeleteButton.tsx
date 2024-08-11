@@ -12,8 +12,10 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/components/ui/use-toast";
 import axios from "axios";
 const DeleteButton = (id: any) => {
+  const { toast } = useToast();
   const handleDeletePost = (id: any) => {
     axios
       .patch(`/api/delete/${id}`)
@@ -22,13 +24,19 @@ const DeleteButton = (id: any) => {
       })
       .catch((err) => {
         console.log(err);
+      })
+      .finally(() => {
+        toast({
+          description: "Data removed...",
+          className: "bg-red-800",
+        });
       });
   };
   return (
     <div>
       <AlertDialog>
         <AlertDialogTrigger>
-          <Button>Delete</Button>
+          <Button className="bg-red-900 text-slate-50">Delete</Button>
         </AlertDialogTrigger>
         <AlertDialogContent>
           <AlertDialogHeader>

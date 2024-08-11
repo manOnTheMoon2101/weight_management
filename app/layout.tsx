@@ -4,6 +4,7 @@ import "./globals.css";
 import { Providers } from "./providers";
 import { ThemeProvider } from "./components/theme_provider/theme_provider";
 import { Toaster } from "@/components/ui/toaster";
+import { Suspense } from 'react'
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -19,6 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <Suspense>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -28,6 +30,7 @@ export default function RootLayout({
           <Providers>{children}</Providers>
           <Toaster/>
         </ThemeProvider>
+        </Suspense>
       </body>
     </html>
   );

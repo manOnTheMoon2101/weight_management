@@ -25,18 +25,57 @@ import { AiOutlineExport } from "react-icons/ai";
 import { CiPill } from "react-icons/ci";
 import { Button } from "@/components/ui/button";
 import ViewModal from "../body/components/viewModal/ViewModal";
+import { Skeleton } from "@/components/ui/skeleton";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import SkeletonHolder from "./skeleton/skeletonHolder";
 function Dashboard_table(date: any) {
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
   const { data, error, isLoading } = useSWR(
     `/api/filter/${date.month}`,
     fetcher
   );
+  const skeletons = Array.from({ length: 14 });
   if (error) return <div>failed to load</div>;
-  if (isLoading) return <div>loading...</div>;
+  if (isLoading)
+    return (
+      <>
+        <div className="min-w-full">
+          <table className="table-auto min-w-full  border">
+            <thead>
+              <tr className="bg-orange-400">
+                <th className="px-4 py-2 text-center">Open</th>
+                <th className="px-4 py-2  text-center">Date</th>
+                <th className="px-4 py-2  text-center">Weight</th>
+                <th className="px-4 py-2  text-center">Calories</th>
+                <th className="px-4 py-2  text-center">Protein</th>
+                <th className="px-4 py-2  text-center">Fat</th>
+                <th className="px-4 py-2  text-center">Carbohydrates</th>
+                <th className="px-4 py-2  text-center">Sugar</th>
+
+                <th className="px-4 py-2  text-center">Vitamin?</th>
+                <th className="px-4 py-2  text-center">CLA?</th>
+                <th className="px-4 py-2  text-center">L-Carnitine?</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {skeletons.map((_, index) => (
+                <SkeletonHolder key={index} />
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </>
+    );
   return (
     <>
-      <div className="min-w-full">
-        <table className="table-auto min-w-full  border">
+      <div className="min-w-full overflow-x-auto">
+        <table className="table-auto min-w-full border">
           <thead>
             <tr className="bg-orange-400">
               <th className="px-4 py-2 text-center">Open</th>
@@ -47,7 +86,6 @@ function Dashboard_table(date: any) {
               <th className="px-4 py-2  text-center">Fat</th>
               <th className="px-4 py-2  text-center">Carbohydrates</th>
               <th className="px-4 py-2  text-center">Sugar</th>
-
               <th className="px-4 py-2  text-center">Vitamin?</th>
               <th className="px-4 py-2  text-center">CLA?</th>
               <th className="px-4 py-2  text-center">L-Carnitine?</th>
@@ -59,7 +97,16 @@ function Dashboard_table(date: any) {
                 <td className="border px-4 py-2 text-center">
                   <Dialog>
                     <DialogTrigger>
-                      <AiOutlineExport />
+                      <TooltipProvider>
+                        <Tooltip>
+                          <TooltipTrigger>
+                            <AiOutlineExport />
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p>Open Modal</p>
+                          </TooltipContent>
+                        </Tooltip>
+                      </TooltipProvider>
                     </DialogTrigger>
                     <DialogContent>
                       <ViewModal x={x} />
@@ -68,13 +115,23 @@ function Dashboard_table(date: any) {
                 </td>
                 <td className="border px-4 py-2  text-center">{x.createdAt}</td>
                 <td className="border px-4 py-2  text-center">{x.weight}</td>
-                <td className="border px-4 py-2  text-center">
+                <td
+                  className={`border px-4 py-2  text-center  ${
+                    x.totalCalories > 200 ? "text-red-500" : ""
+                  }`}
+                >
                   {x.totalCalories}
                 </td>
                 <td className="border px-4 py-2  text-center">
                   {x.totalProtein}
                 </td>
-                <td className="border px-4 py-2  text-center">{x.totalFat}</td>
+                <td
+                  className={`border px-4 py-2  text-center  ${
+                    x.totalFat > 100 ? "text-red-500" : ""
+                  }`}
+                >
+                  {x.totalFat}
+                </td>
                 <td className="border px-4 py-2  text-center">
                   {x.totalCarbs}
                 </td>
@@ -96,7 +153,10 @@ function Dashboard_table(date: any) {
           ))}
         </table>
         <div className="flex flex-row justify-center">
-          <h3 className="text-4xl"> {data.length <= 0 ? "No Data" : ""}</h3>
+          <h3 className="text-2xl">
+            {" "}
+            {data.length <= 0 ? "No Data Found..." : ""}
+          </h3>
         </div>
       </div>
     </>

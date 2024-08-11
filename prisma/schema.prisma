@@ -35,7 +35,6 @@ model Data {
   updatedAt            DateTime
   isActive             Boolean  @default(true)
   isDeleted            Boolean  @default(false)
-  workedOut            Boolean?
   tookFatburner        Boolean?
   tookWeightmanagement Boolean?
   tookVitamin          Boolean?
@@ -45,9 +44,6 @@ model Data {
   totalCarbs           Float?
   workoutTime          String?
   totalSugar           Float?
-  averageWaterinML     Float?
-  foodsInt             Int?
-
   userId String @db.ObjectId
   user   User   @relation(fields: [userId], references: [id])
 }

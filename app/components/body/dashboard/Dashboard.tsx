@@ -9,6 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import WeightGraph from "../graphs/WeightGraph";
 import { useState } from "react";
 import AddForm from "../components/addform/AddForm";
 export function Dashboard() {
@@ -56,8 +57,13 @@ export function Dashboard() {
         </Select>
         <AddForm />
       </div>
-      <div>
-        <Dashboard_table month={selectedMonth} />
+      <div className="flex flex-col md:flex-row justify-around m-5 h-full">
+        <div className="w-full md:w-[30%] max-h-[50vh] overflow-auto mx-2 ">
+          <WeightGraph month={selectedMonth} />
+        </div>
+        <div className="w-full md:w-auto flex-1">
+          <Dashboard_table month={selectedMonth} />
+        </div>
       </div>
     </div>
   );

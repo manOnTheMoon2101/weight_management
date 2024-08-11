@@ -2,12 +2,13 @@ import prisma from "@/prisma/prisma";
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/auth/options";
-export const POST = async (request: any) => {
+export const PATCH = async (
+  request: any,
+  { params }: { params: { id: string } }
+) => {
   try {
-    const session = await getServerSession(authOptions);
-
     const body = await request.json();
-
+    const session = await getServerSession(authOptions);
     const {
       weight,
       tookFatburner,
@@ -20,36 +21,40 @@ export const POST = async (request: any) => {
       totalCarbs,
       totalSugar,
     } = body;
-
-    const user = await prisma.user.findUnique({
-      where: {
-        email: session?.user?.email as string,
-      },
-    });
-
+    const { id } = params;
     const now = new Date();
-    const data = await prisma.data.create({
+    const updateData = await prisma.data.update({
+      where: {
+        id: id,
+      },
       data: {
         weight: weight,
         updatedAt: now,
         tookFatburner: tookFatburner,
         tookWeightmanagement: tookWeightmanagement,
         tookVitamin: tookVitamin,
-        workoutTime:workoutTime,
-        totalCalories:totalCalories,
+        workoutTime: workoutTime,
+        totalCalories: totalCalories,
         totalProtein: totalProtein,
         totalFat: totalFat,
         totalCarbs: totalCarbs,
         totalSugar: totalSugar,
-        userId: user!.id,
       },
     });
+    if (!updateData) {
+      return NextResponse.json(
+        {
+          message: "Update not Found",
+        },
+        { status: 404 }
+      );
+    }
 
-    return NextResponse.json(data);
+    return NextResponse.json(updateData);
   } catch (err) {
     return NextResponse.json(
       {
-        message: "POST Error",
+        message: "PATCH Error",
         err,
       },
       { status: 500 }
