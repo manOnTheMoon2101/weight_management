@@ -11,6 +11,11 @@ import { FaInfoCircle } from "react-icons/fa";
 import { useToast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
 import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
@@ -43,39 +48,36 @@ const Login = () => {
     <div className="min-h-screen flex flex-col items-center justify-center">
       <div className="p-8">
         <div className="flex flex-row justify-end">
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Button className="cursor-help" variant="ghost">
-                  <FaInfoCircle size={30} className="text-orange-400" />
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent className="">
-                <div>
-                  <h2 className="text-center text-2xl">
-                    Welcome to my Weight Management App!
-                  </h2>
-                  <p className="m-5 text-center ">
-                    This platform is designed specifically for showcasing
-                    individual work and is used by a select group of users.
-                    <br />
-                    To ensure the security of your information, please avoid
-                    using real-life Google passwords or any other sensitive
-                    credentials when registering or logging in.
-                    <br />
-                  </p>
-                  <p className="m-5 text-center">
-                    If you encounter any bugs or issues while using the site,I
-                    encourage you to report them so we can address them
-                    promptly.
-                    <br />
-                    Your feedback is invaluable in helping me improve the
-                    experience for everyone.
-                  </p>
-                </div>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
+          <Popover>
+            <PopoverTrigger asChild>
+              <Button className="cursor-help" variant="ghost">
+                <FaInfoCircle size={30} className="text-orange-400" />
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent className="w-80 h-80 max-w-full max-h-full overflow-auto">
+              <div>
+                <h2 className="text-center text-2xl">
+                  Welcome to my Weight Management App!
+                </h2>
+                <p className="m-5 text-center ">
+                  This platform is designed specifically for showcasing
+                  individual work and is used by a select group of users.
+                  <br />
+                  To ensure the security of your information, please avoid using
+                  real-life Google passwords or any other sensitive credentials
+                  when registering or logging in.
+                  <br />
+                </p>
+                <p className="m-5 text-center">
+                  If you encounter any bugs or issues while using the site,I
+                  encourage you to report them so we can address them promptly.
+                  <br />
+                  Your feedback is invaluable in helping me improve the
+                  experience for everyone.
+                </p>
+              </div>
+            </PopoverContent>
+          </Popover>
         </div>
         <Label className="text-4xl text-center">Email</Label>
         <Input
