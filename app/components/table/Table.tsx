@@ -74,63 +74,84 @@ function Dashboard_table(date: any) {
     );
   return (
     <>
-      <div className="max-w-full overflow-x-auto">
-      <table className="table-auto w-full border rounded overflow-x-auto">
-  <thead>
-    <tr className="bg-orange-400 text-white">
-      <th className="px-2 py-1 text-center text-xs sm:text-sm">Open</th>
-      <th className="px-2 py-1 text-center text-xs sm:text-sm">Date</th>
-      <th className="px-2 py-1 text-center text-xs sm:text-sm">Weight</th>
-      <th className="px-2 py-1 text-center text-xs sm:text-sm">Calories</th>
-      <th className="px-2 py-1 text-center text-xs sm:text-sm">Protein</th>
-      <th className="px-2 py-1 text-center text-xs sm:text-sm">Fat</th>
-      <th className="px-2 py-1 text-center text-xs sm:text-sm">Carbohydrates</th>
-      <th className="px-2 py-1 text-center text-xs sm:text-sm">Sugar</th>
-      <th className="px-2 py-1 text-center text-xs sm:text-sm">Vitamin?</th>
-      <th className="px-2 py-1 text-center text-xs sm:text-sm">CLA?</th>
-      <th className="px-2 py-1 text-center text-xs sm:text-sm">L-Carnitine?</th>
-    </tr>
-  </thead>
-  <tbody>
-    {data.map((x: any) => (
-      <tr key={x.id} className="border-t">
-        <td className="border px-2 py-1 text-center text-xs sm:text-sm">
-          <Dialog>
-            <DialogTrigger>
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger>
-                    <AiOutlineExport />
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>Open Modal</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-            </DialogTrigger>
-            <DialogContent>
-              <ViewModal x={x} />
-            </DialogContent>
-          </Dialog>
-        </td>
-        <td className="border px-2 py-1 text-center text-xs sm:text-sm">{x.createdAt}</td>
-        <td className="border px-2 py-1 text-center text-xs sm:text-sm">{x.weight}</td>
-        <td className={`border px-2 py-1 text-center text-xs sm:text-sm ${x.totalCalories > 200 ? "text-red-500" : ""}`}>
-          {x.totalCalories}
-        </td>
-        <td className="border px-2 py-1 text-center text-xs sm:text-sm">{x.totalProtein}</td>
-        <td className={`border px-2 py-1 text-center text-xs sm:text-sm ${x.totalFat > 100 ? "text-red-500" : ""}`}>
-          {x.totalFat}
-        </td>
-        <td className="border px-2 py-1 text-center text-xs sm:text-sm">{x.totalCarbs}</td>
-        <td className="border px-2 py-1 text-center text-xs sm:text-sm">{x.totalSugar}</td>
-        <td className="border px-2 py-1 text-center text-xs sm:text-sm">{x.tookVitamin ? "💊" : ""}</td>
-        <td className="border px-2 py-1 text-center text-xs sm:text-sm">{x.tookWeightmanagement ? "💊" : ""}</td>
-        <td className="border px-2 py-1 text-center text-xs sm:text-sm">{x.tookFatburner ? "💊" : ""}</td>
-      </tr>
-    ))}
-  </tbody>
-</table>
+      <div className="min-w-full">
+        <table className="table-auto min-w-full  border">
+          <thead>
+            <tr className="bg-orange-400">
+              <th className="px-4 py-2 text-center">Open</th>
+              <th className="px-4 py-2  text-center">Date</th>
+              <th className="px-4 py-2  text-center">Weight</th>
+              <th className="px-4 py-2  text-center">Calories</th>
+              <th className="px-4 py-2  text-center">Protein</th>
+              <th className="px-4 py-2  text-center">Fat</th>
+              <th className="px-4 py-2  text-center">Carbohydrates</th>
+              <th className="px-4 py-2  text-center">Sugar</th>
+              <th className="px-4 py-2  text-center">Vitamin?</th>
+              <th className="px-4 py-2  text-center">CLA?</th>
+              <th className="px-4 py-2  text-center">L-Carnitine?</th>
+            </tr>
+          </thead>
+          {data.map((x: any) => (
+            <tbody>
+              <tr key={x.id}>
+                <td className="border px-4 py-2 text-center">
+                  <Dialog>
+                    <DialogTrigger>
+                      <TooltipProvider>
+                        <Tooltip>
+                          <TooltipTrigger>
+                            <AiOutlineExport />
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p>Open Modal</p>
+                          </TooltipContent>
+                        </Tooltip>
+                      </TooltipProvider>
+                    </DialogTrigger>
+                    <DialogContent>
+                      <ViewModal x={x} />
+                    </DialogContent>
+                  </Dialog>
+                </td>
+                <td className="border px-4 py-2  text-center">{x.createdAt}</td>
+                <td className="border px-4 py-2  text-center">{x.weight}</td>
+                <td
+                  className={`border px-4 py-2  text-center  ${
+                    x.totalCalories > 200 ? "text-red-500" : ""
+                  }`}
+                >
+                  {x.totalCalories}
+                </td>
+                <td className="border px-4 py-2  text-center">
+                  {x.totalProtein}
+                </td>
+                <td
+                  className={`border px-4 py-2  text-center  ${
+                    x.totalFat > 100 ? "text-red-500" : ""
+                  }`}
+                >
+                  {x.totalFat}
+                </td>
+                <td className="border px-4 py-2  text-center">
+                  {x.totalCarbs}
+                </td>
+                <td className="border px-4 py-2  text-center">
+                  {x.totalSugar}
+                </td>
+
+                <td className="border px-4 py-2  text-center">
+                  {x.tookVitamin ? "💊" : ""}
+                </td>
+                <td className="border px-4 py-2  text-center">
+                  {x.tookWeightmanagement ? "💊" : ""}
+                </td>
+                <td className="border px-4 py-2  text-center">
+                  {x.tookFatburner ? "💊" : ""}
+                </td>
+              </tr>
+            </tbody>
+          ))}
+        </table>
         <div className="flex flex-row justify-center">
           <h3 className="text-2xl">
             {" "}
