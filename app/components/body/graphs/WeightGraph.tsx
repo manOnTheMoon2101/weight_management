@@ -40,6 +40,56 @@ const Graph = (date: any) => {
     `/api/filter/${date.month}`,
     fetcher
   );
+  const months = [
+    {
+      text: "January",
+      value: "01",
+    },
+    {
+      text: "Febraury",
+      value: "02",
+    },
+    {
+      text: "March",
+      value: "03",
+    },
+    {
+      text: "April",
+      value: "04",
+    },
+    {
+      text: "May",
+      value: "05",
+    },
+    {
+      text: "June",
+      value: "06",
+    },
+    {
+      text: "July",
+      value: "07",
+    },
+    {
+      text: "August",
+      value: "08",
+    },
+    {
+      text: "September",
+      value: "09",
+    },
+    {
+      text: "October",
+      value: "10",
+    },
+    {
+      text: "November",
+      value: "11",
+    },
+    {
+      text: "December",
+      value: "12",
+    },
+  ];
   const chartData =
     data?.map((item: any) => ({
       createdAt: new Date(item.createdAt).toLocaleDateString(), // Format date as needed
@@ -49,8 +99,8 @@ const Graph = (date: any) => {
   if (isLoading)
     return (
       <div className="flex items-center space-x-4">
-      <Skeleton className="w-[100%] h-[300px] rounded-full" />
-    </div>
+        <Skeleton className="w-[100%] h-[300px] rounded-full" />
+      </div>
     );
 
   return (
@@ -58,7 +108,9 @@ const Graph = (date: any) => {
       <Card>
         <CardHeader>
           <CardTitle>Weight Chart</CardTitle>
-          <CardDescription>{date.month}</CardDescription>
+          <CardDescription>
+            {months.map((x: any) => (x.value == date.month ? x.text : ""))}
+          </CardDescription>
         </CardHeader>
         <CardContent>
           <ChartContainer config={chartConfig}>
