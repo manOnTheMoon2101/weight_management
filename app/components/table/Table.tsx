@@ -117,7 +117,7 @@ function Dashboard_table(date: any) {
                 <td className="border px-4 py-2  text-center">{x.weight}</td>
                 <td
                   className={`border px-4 py-2  text-center  ${
-                    x.totalCalories > 200 ? "text-red-500" : ""
+                    x.totalCalories > 2000 ? "text-red-500" : ""
                   }`}
                 >
                   {x.totalCalories}
