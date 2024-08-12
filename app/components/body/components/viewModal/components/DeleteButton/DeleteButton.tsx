@@ -19,17 +19,17 @@ const DeleteButton = (id: any) => {
   const handleDeletePost = (id: any) => {
     axios
       .patch(`/api/delete/${id}`)
-      .then((res) => {
-        console.log(res);
+      .then((res: any) => {
+        toast({
+          description: "Data has been Deleted.",
+          className: "bg-red-800",
+        });
+        window.location.reload();
       })
       .catch((err) => {
         console.log(err);
       })
       .finally(() => {
-        toast({
-          description: "Data removed...",
-          className: "bg-red-800",
-        });
       });
   };
   return (

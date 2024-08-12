@@ -44,7 +44,7 @@ const EditButton = (data: any) => {
   const [open, setOpen] = useState(false);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
-    const newValue = type === 'number' ? parseFloat(value) : value;
+    const newValue = type === "number" ? parseFloat(value) : value;
     postData((prevPost: any) => ({
       ...prevPost,
       [name]: newValue,
@@ -61,7 +61,13 @@ const EditButton = (data: any) => {
     setLoading(true);
 
     try {
-      await axios.patch(`/api/edit/${data.data.x.id}`, post);
+      await axios.patch(`/api/edit/${data.data.x.id}`, post).then(() => {
+        window.location.reload();
+        toast({
+          description: "Data has been saved.",
+          className: "bg-lime-800",
+        });
+      });
       setOpen(false);
     } catch (error) {
     } finally {
@@ -72,7 +78,6 @@ const EditButton = (data: any) => {
         description: "Data has been saved.",
         className: "bg-lime-800",
       });
-    
     }
   };
 
@@ -232,17 +237,17 @@ const EditButton = (data: any) => {
               <Tooltip>
                 <TooltipTrigger asChild>
                   <div>
-                                      {loading ? (
-                    <AiOutlineLoading className="animate-spin text-orange-400 text-lg" />
-                  ) : (
-                    <Button
-                      disabled={!post.weight || !post.totalCalories}
-                      type="submit"
-                      className="bg-orange-400 text-slate-50"
-                    >
-                      Save
+                    {loading ? (
+                      <AiOutlineLoading className="animate-spin text-orange-400 text-lg" />
+                    ) : (
+                      <Button
+                        disabled={!post.weight || !post.totalCalories}
+                        type="submit"
+                        className="bg-orange-400 text-slate-50"
+                      >
+                        Save
                       </Button>
-                  )}
+                    )}
                   </div>
                 </TooltipTrigger>
                 <TooltipContent>Save Data</TooltipContent>
