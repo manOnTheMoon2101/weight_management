@@ -61,7 +61,7 @@ export function Dashboard() {
         <div className="w-full md:w-[30%] max-h-[50vh] overflow-auto mx-2 ">
           <WeightGraph month={selectedMonth} />
         </div>
-        <div className="w-full md:w-auto flex-1">
+        <div className="w-full md:w-[70%] flex-1">
           <Dashboard_table month={selectedMonth} />
         </div>
       </div>

@@ -39,7 +39,7 @@ function Dashboard_table(date: any) {
     `/api/filter/${date.month}`,
     fetcher
   );
-  const skeletons = Array.from({ length: 14 });
+  const skeletons = Array.from({ length: 7 });
   if (error) return <div>failed to load</div>;
   if (isLoading)
     return (

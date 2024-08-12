@@ -33,6 +33,7 @@ const chartConfig = {
 
 import React from "react";
 import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 const Graph = (date: any) => {
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
   const { data, error, isLoading } = useSWR(
@@ -45,7 +46,12 @@ const Graph = (date: any) => {
       weight: item.weight,
     })) || [];
   if (error) return <div>failed to load</div>;
-  if (isLoading) return <div>loading</div>;
+  if (isLoading)
+    return (
+      <div className="flex items-center space-x-4">
+      <Skeleton className="w-[100%] h-[300px] rounded-full" />
+    </div>
+    );
 
   return (
     <div>
