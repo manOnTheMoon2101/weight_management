@@ -136,8 +136,9 @@ const Graph = (date: any) => {
               />
               <Area
                 dataKey="weight"
-                type="natural"
-                stroke="red"
+                type="natural"       
+                fill="purple"      
+                stroke="orange"
                 strokeWidth={2}
                 dot={true}
               />
