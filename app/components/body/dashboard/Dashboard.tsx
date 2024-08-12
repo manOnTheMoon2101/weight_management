@@ -10,6 +10,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import WeightGraph from "../graphs/WeightGraph";
+import { CalorieGraph } from "../graphs/CalorieGraph";
 import { useState } from "react";
 import AddForm from "../components/addform/AddForm";
 export function Dashboard() {
@@ -64,6 +65,7 @@ export function Dashboard() {
       <div className="flex flex-col md:flex-row justify-around m-5 h-full">
         <div className="w-full my-5 md:w-[30%] max-h-[50vh] overflow-auto mx-2 ">
           <WeightGraph month={selectedMonth} />
+          <CalorieGraph month={selectedMonth} />
         </div>
         <div className="w-full my-5 md:w-[70%] flex-1">
           <Dashboard_table month={selectedMonth} />

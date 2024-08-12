@@ -1,7 +1,6 @@
 "use client";
-import useSWR from "swr";
 import { TrendingUp } from "lucide-react";
-import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
+import { Bar, BarChart, CartesianGrid, XAxis, LabelList } from "recharts";
 import {
   Card,
   CardContent,
@@ -10,6 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import useSWR from "swr";
 import {
   ChartConfig,
   ChartContainer,
@@ -30,11 +30,7 @@ const chartConfig = {
     color: "hsl(var(--chart-1))",
   },
 } satisfies ChartConfig;
-
-import React from "react";
-import { Button } from "@/components/ui/button";
-import { Skeleton } from "@/components/ui/skeleton";
-const Graph = (date: any) => {
+export function CalorieGraph(date: any) {
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
   const { data, error, isLoading } = useSWR(
     `/api/filter/${date.month}`,
@@ -93,60 +89,44 @@ const Graph = (date: any) => {
   const chartData =
     data?.map((item: any) => ({
       createdAt: new Date(item.createdAt).toLocaleDateString(), // Format date as needed
-      weight: item.weight,
+      totalCalories: item.totalCalories,
     })) || [];
   if (error) return <div>failed to load</div>;
   if (isLoading)
-    return (
-      <div className="flex items-center space-x-4">
-        <Skeleton className="w-[100%] h-[300px] rounded-full" />
-      </div>
-    );
-
+    return <div className="flex items-center space-x-4">loading</div>;
   return (
-    <div>
-      <Card>
-        <CardHeader>
-          <CardTitle>Weight Chart</CardTitle>
-          <CardDescription>
-            {months.map((x: any) => (x.value == date.month ? x.text : ""))}
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <ChartContainer config={chartConfig}>
-            <AreaChart
-              accessibilityLayer
-              data={chartData}
-              margin={{
-                left: 12,
-                right: 12,
-              }}
-            >
-              <CartesianGrid vertical={false} />
-              <XAxis
-                dataKey="createdAt"
-                tickLine={false}
-                axisLine={false}
-                tickMargin={8}
-              />
-              <ChartTooltip
-                cursor={false}
-                content={<ChartTooltipContent hideLabel />}
-              />
-              <Area
-                dataKey="weight"
-                type="natural"
-                fill="purple"
-                stroke="orange"
-                strokeWidth={2}
-                dot={true}
-              />
-            </AreaChart>
-          </ChartContainer>
-        </CardContent>
-      </Card>
-    </div>
-  );
-};
+    <Card>
+      <CardHeader>
+        <CardTitle>Calorie Chart</CardTitle>
+        <CardDescription> {months.map((x: any) => (x.value == date.month ? x.text : ""))}</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <ChartContainer config={chartConfig}>
+          <BarChart accessibilityLayer data={chartData}>
+            <CartesianGrid vertical={false} />
+            <XAxis
+              dataKey="createdAt"
+              tickLine={false}
+              tickMargin={10}
+              axisLine={false}
+            
+            />
+            <ChartTooltip
+              cursor={false}
+              content={<ChartTooltipContent hideLabel />}
+            />
 
-export default Graph;
+            <Bar dataKey="totalCalories" fill="orange" radius={8}>
+              <LabelList
+                position="top"
+                offset={5}
+                className="fill-foreground"
+                fontSize={12}
+              />
+            </Bar>
+          </BarChart>
+        </ChartContainer>
+      </CardContent>
+    </Card>
+  );
+}
