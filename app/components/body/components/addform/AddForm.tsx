@@ -48,7 +48,6 @@ const AddForm = () => {
     axios
       .post("/api/data", post)
       .then((res: any) => {
-        console.log(res);
         toast({
           description: "Data has been saved.",
           className: "bg-lime-800",
