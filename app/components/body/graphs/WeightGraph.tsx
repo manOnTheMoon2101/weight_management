@@ -16,6 +16,16 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
+import { Acme } from "next/font/google";
+import { Anek_Devanagari } from "next/font/google";
+const anek = Anek_Devanagari({
+  subsets: ['latin'],
+  weight: "400"
+})
+const acme = Acme({
+  subsets: ['latin'],
+  weight: "400"
+})
 const chartData = [
   { month: "January", desktop: 186 },
   { month: "February", desktop: 305 },
@@ -107,8 +117,8 @@ const Graph = (date: any) => {
     <div>
       <Card>
         <CardHeader>
-          <CardTitle>Weight Chart</CardTitle>
-          <CardDescription>
+          <CardTitle className={`${anek.className}`}>Weight Chart</CardTitle>
+          <CardDescription  className={`${acme.className}`}>
             {months.map((x: any) => (x.value == date.month ? x.text : ""))}
           </CardDescription>
         </CardHeader>

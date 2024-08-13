@@ -16,6 +16,11 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { Cousine } from "next/font/google";
+const cousine = Cousine({
+  subsets: ['latin'],
+  weight: "400"
+})
 interface Props {
   weight: number;
   tookFatburner: boolean;
@@ -86,15 +91,19 @@ const AddForm = () => {
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger>
           <div className="flex flex-row justify-between items-center">
-            <IoMdAddCircleOutline size={35} />
-            <p>Add New</p>
+            
+      <div className="flex flex-col items-center">
+      <IoMdAddCircleOutline size={35} className="text-orange-400" />
+          
+        <span className={`${cousine.className} text-sx`}>Add Data</span>
+      </div>
           </div>
         </DialogTrigger>
         <DialogContent>
           <form onSubmit={handleSubmit}>
             <div className="flex flex-row justify-between">
               <div className="flex flex-col justify-center items-center m-2">
-                <Label className="text-center mb-2 text-xl">Weight</Label>
+                <Label className={`text-center mb-2 text-xl ${cousine.className}`}>Weight</Label>
                 <Input
                   type="number"
                   name="weight"
@@ -104,7 +113,7 @@ const AddForm = () => {
                 />
               </div>
               <div className="flex flex-col justify-center items-center m-2">
-                <Label className="text-center mb-2 text-xl">
+                <Label className={`text-center mb-2 text-xl ${cousine.className}`}>
                   Total Calories
                 </Label>
                 <Input
@@ -121,7 +130,7 @@ const AddForm = () => {
                 <TooltipProvider>
                   <Tooltip>
                     <TooltipTrigger asChild>
-                      <Label className="text-center cursor-help mb-2 text-xl">
+                      <Label className={`text-center mb-2 text-xl ${cousine.className}`}>
                         FB
                       </Label>
                     </TooltipTrigger>
@@ -143,7 +152,7 @@ const AddForm = () => {
                 <TooltipProvider>
                   <Tooltip>
                     <TooltipTrigger asChild>
-                      <Label className="text-center cursor-help mb-2 text-xl">
+                      <Label className={`text-center mb-2 text-xl ${cousine.className}`}>
                         CLA
                       </Label>
                     </TooltipTrigger>
@@ -165,7 +174,7 @@ const AddForm = () => {
                 <TooltipProvider>
                   <Tooltip>
                     <TooltipTrigger asChild>
-                      <Label className="text-center cursor-help mb-2 text-xl">
+                      <Label className={`text-center mb-2 text-xl ${cousine.className}`}>
                         VIT
                       </Label>
                     </TooltipTrigger>
@@ -185,7 +194,7 @@ const AddForm = () => {
             </div>
             <div className="flex flex-col justify-center items-center mb-5">
               <div className="text-center">
-                <Label className="text-center mb-2 text-xl">Protein</Label>
+                <Label className={`text-center mb-2 text-xl ${cousine.className}`}>Protein</Label>
                 <Input
                   type="number"
                   name="totalProtein"
@@ -198,7 +207,7 @@ const AddForm = () => {
 
             <div className="flex flex-col justify-center items-center mb-5">
               <div className="text-center">
-                <Label className="text-xl mb-2">Fat</Label>
+                <Label className={`text-center mb-2 text-xl ${cousine.className}`}>Fat</Label>
                 <Input
                   type="number"
                   name="totalFat"
@@ -211,7 +220,7 @@ const AddForm = () => {
 
             <div className="flex flex-col justify-center items-center mb-5">
               <div className="text-center">
-                <Label className="text-xl">Carbs</Label>
+                <Label className={`text-center mb-2 text-xl ${cousine.className}`}>Carbs</Label>
                 <Input
                   type="number"
                   name="totalCarbs"
@@ -224,7 +233,7 @@ const AddForm = () => {
 
             <div className="flex flex-col justify-center items-center mb-5">
               <div className="text-center">
-                <Label className="text-xl">Sugar</Label>
+                <Label className={`text-center mb-2 text-xl ${cousine.className}`}>Sugar</Label>
                 <Input
                   type="number"
                   name="totalSugar"

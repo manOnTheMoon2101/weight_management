@@ -33,6 +33,11 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import SkeletonHolder from "./skeleton/skeletonHolder";
+import { Cousine } from "next/font/google";
+const cousine = Cousine({
+  subsets: ['latin'],
+  weight: "400"
+})
 function Dashboard_table(date: any) {
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
   const { data, error, isLoading } = useSWR(
@@ -86,9 +91,9 @@ function Dashboard_table(date: any) {
               <th className="px-4 py-2  text-center">Fat</th>
               <th className="px-4 py-2  text-center">Carbohydrates</th>
               <th className="px-4 py-2  text-center">Sugar</th>
-              <th className="px-4 py-2  text-center">Vitamin?</th>
-              <th className="px-4 py-2  text-center">CLA?</th>
-              <th className="px-4 py-2  text-center">L-Carnitine?</th>
+              <th className="px-4 py-2  text-center">Vitamin</th>
+              <th className="px-4 py-2  text-center">CLA</th>
+              <th className="px-4 py-2  text-center">L-Carnitine</th>
             </tr>
           </thead>
           {data.map((x: any) => (
@@ -113,39 +118,39 @@ function Dashboard_table(date: any) {
                     </DialogContent>
                   </Dialog>
                 </td>
-                <td className="border px-4 py-2  text-center">{x.createdAt}</td>
-                <td className="border px-4 py-2  text-center">{x.weight}</td>
+                <td className={`border px-4 py-2  text-center ${cousine.className}`}>{x.createdAt}</td>
+                <td className={`border px-4 py-2  text-center ${cousine.className}`}>{x.weight}</td>
                 <td
-                  className={`border px-4 py-2  text-center  ${
+                  className={`border px-4 py-2 ${cousine.className}  text-center  ${
                     x.totalCalories > 2000 ? "text-red-500" : ""
                   }`}
                 >
                   {x.totalCalories}
                 </td>
-                <td className="border px-4 py-2  text-center">
+                <td className={`border px-4 py-2  text-center ${cousine.className}`}>
                   {x.totalProtein}
                 </td>
                 <td
-                  className={`border px-4 py-2  text-center  ${
+                  className={`border px-4 py-2  ${cousine.className}  text-center  ${
                     x.totalFat > 100 ? "text-red-500" : ""
                   }`}
                 >
                   {x.totalFat}
                 </td>
-                <td className="border px-4 py-2  text-center">
+                <td className={`border px-4 py-2  text-center ${cousine.className}`}>
                   {x.totalCarbs}
                 </td>
-                <td className="border px-4 py-2  text-center">
+                <td className={`border px-4 py-2  text-center ${cousine.className}`}>
                   {x.totalSugar}
                 </td>
 
-                <td className="border px-4 py-2  text-center">
+                <td className={`border px-4 py-2  text-center ${cousine.className}`}>
                   {x.tookVitamin ? "💊" : ""}
                 </td>
-                <td className="border px-4 py-2  text-center">
+                <td className={`border px-4 py-2  text-center ${cousine.className}`}>
                   {x.tookWeightmanagement ? "💊" : ""}
                 </td>
-                <td className="border px-4 py-2  text-center">
+                <td className={`border px-4 py-2  text-center ${cousine.className}`}>
                   {x.tookFatburner ? "💊" : ""}
                 </td>
               </tr>

@@ -16,6 +16,16 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
+import { Acme } from "next/font/google";
+import { Anek_Devanagari } from "next/font/google";
+const anek = Anek_Devanagari({
+  subsets: ['latin'],
+  weight: "400"
+})
+const acme = Acme({
+  subsets: ['latin'],
+  weight: "400"
+})
 const chartData = [
   { month: "January", desktop: 186 },
   { month: "February", desktop: 305 },
@@ -97,8 +107,11 @@ export function CalorieGraph(date: any) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Calorie Chart</CardTitle>
-        <CardDescription> {months.map((x: any) => (x.value == date.month ? x.text : ""))}</CardDescription>
+        <CardTitle className={`${anek.className}`}>Calorie Chart</CardTitle>
+        <CardDescription  className={`${acme.className}`}>
+          {" "}
+          {months.map((x: any) => (x.value == date.month ? x.text : ""))}
+        </CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
@@ -109,7 +122,6 @@ export function CalorieGraph(date: any) {
               tickLine={false}
               tickMargin={10}
               axisLine={false}
-            
             />
             <ChartTooltip
               cursor={false}
