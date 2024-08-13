@@ -1,6 +1,5 @@
 import React from "react";
 import Account from "./components/account/account";
-import { ModeToggle } from "./components/theme/toggle";
 import ReleaseNotes from "./components/notes/ReleaseNotes";
 const Header = () => {
   return (

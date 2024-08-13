@@ -4,7 +4,7 @@ import "./globals.css";
 import { Providers } from "./providers";
 import { ThemeProvider } from "./components/theme_provider/theme_provider";
 import { Toaster } from "@/components/ui/toaster";
-import { Suspense } from 'react'
+import { Suspense } from "react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -21,15 +21,15 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Suspense>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Providers>{children}</Providers>
-          <Toaster/>
-        </ThemeProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Providers>{children}</Providers>
+            <Toaster />
+          </ThemeProvider>
         </Suspense>
       </body>
     </html>

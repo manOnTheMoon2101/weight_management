@@ -4,11 +4,10 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { AiOutlineLoading } from "react-icons/ai";
 import { Label } from "@/components/ui/label";
 import { FaInfoCircle } from "react-icons/fa";
-import { useToast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
 import {
   Popover,
@@ -22,7 +21,6 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 const Login = () => {
-  const { toast } = useToast();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
