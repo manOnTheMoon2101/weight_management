@@ -95,7 +95,7 @@ const AddForm = () => {
       <div className="flex flex-col items-center">
       <IoMdAddCircleOutline size={35} className="text-orange-400" />
           
-        <span className={`${cousine.className} text-sx`}>Add Data</span>
+      <span className={`${cousine.className} text-sx hover:text-purple-500`}>Add Data</span>
       </div>
           </div>
         </DialogTrigger>

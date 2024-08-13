@@ -127,7 +127,7 @@ const Graph = (date: any) => {
                 dataKey="createdAt"
                 tickLine={false}
                 axisLine={false}
-                tickMargin={8}
+                tickMargin={10}
               />
               <ChartTooltip
                 cursor={false}

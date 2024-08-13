@@ -17,13 +17,13 @@ import {
 import { Acme } from "next/font/google";
 import { Anek_Devanagari } from "next/font/google";
 const anek = Anek_Devanagari({
-  subsets: ['latin'],
-  weight: "400"
-})
+  subsets: ["latin"],
+  weight: "400",
+});
 const acme = Acme({
-  subsets: ['latin'],
-  weight: "400"
-})
+  subsets: ["latin"],
+  weight: "400",
+});
 const chartConfig = {
   desktop: {
     label: "Desktop",
@@ -98,7 +98,7 @@ export function CalorieGraph(date: any) {
     <Card>
       <CardHeader>
         <CardTitle className={`${anek.className}`}>Calorie Chart</CardTitle>
-        <CardDescription  className={`${acme.className}`}>
+        <CardDescription className={`${acme.className}`}>
           {" "}
           {months.map((x: any) => (x.value == date.month ? x.text : ""))}
         </CardDescription>
@@ -118,7 +118,7 @@ export function CalorieGraph(date: any) {
               content={<ChartTooltipContent hideLabel />}
             />
 
-            <Bar dataKey="totalCalories" fill="rgb(251 146 60" radius={8}>
+            <Bar dataKey="totalCalories" fill="rgb(251 146 60)" radius={8}>
               <LabelList
                 position="top"
                 offset={5}
