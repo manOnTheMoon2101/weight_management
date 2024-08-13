@@ -12,6 +12,11 @@ import {
 } from "@/components/ui/tooltip";
 import SkeletonHolder from "./skeleton/skeletonHolder";
 import { Cousine } from "next/font/google";
+import { Anek_Devanagari } from "next/font/google";
+const anek = Anek_Devanagari({
+  subsets: ["latin"],
+  weight: "400",
+});
 const cousine = Cousine({
   subsets: ["latin"],
   weight: "400",
@@ -57,7 +62,8 @@ function Dashboard_table(date: any) {
     );
   return (
     <>
-      <div className="min-w-full overflow-x-auto">
+      <div className="min-w-full overflow-x-auto border rounded">
+        <h3 className={`${anek.className} text-2xl`}>Dashboard</h3>
         <table className="table-auto min-w-full border">
           <thead>
             <tr className="bg-orange-400">
