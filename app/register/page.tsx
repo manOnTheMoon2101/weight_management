@@ -23,7 +23,7 @@ const Register = () => {
       })
       .catch((err: any) => {
         console.log(err);
-        if(err){
+        if (err) {
           toast({
             description: "Error",
             className: "bg-red-800",
@@ -35,12 +35,11 @@ const Register = () => {
         setLoading(false);
         console.log(user);
         router.push("/login");
-   
-      toast({
-        description: "User Successfully Created ",
-        className: "bg-lime-800",
-      });
-     
+
+        toast({
+          description: "User Successfully Created ",
+          className: "bg-lime-800",
+        });
       });
   };
 

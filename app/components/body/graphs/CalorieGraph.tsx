@@ -1,11 +1,9 @@
 "use client";
-import { TrendingUp } from "lucide-react";
 import { Bar, BarChart, CartesianGrid, XAxis, LabelList } from "recharts";
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -16,14 +14,16 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-const chartData = [
-  { month: "January", desktop: 186 },
-  { month: "February", desktop: 305 },
-  { month: "March", desktop: 237 },
-  { month: "April", desktop: 73 },
-  { month: "May", desktop: 209 },
-  { month: "June", desktop: 214 },
-];
+import { Acme } from "next/font/google";
+import { Anek_Devanagari } from "next/font/google";
+const anek = Anek_Devanagari({
+  subsets: ["latin"],
+  weight: "400",
+});
+const acme = Acme({
+  subsets: ["latin"],
+  weight: "400",
+});
 const chartConfig = {
   desktop: {
     label: "Desktop",
@@ -97,8 +97,11 @@ export function CalorieGraph(date: any) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Calorie Chart</CardTitle>
-        <CardDescription> {months.map((x: any) => (x.value == date.month ? x.text : ""))}</CardDescription>
+        <CardTitle className={`${anek.className}`}>Calorie Chart</CardTitle>
+        <CardDescription className={`${acme.className}`}>
+          {" "}
+          {months.map((x: any) => (x.value == date.month ? x.text : ""))}
+        </CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
@@ -109,14 +112,13 @@ export function CalorieGraph(date: any) {
               tickLine={false}
               tickMargin={10}
               axisLine={false}
-            
             />
             <ChartTooltip
               cursor={false}
               content={<ChartTooltipContent hideLabel />}
             />
 
-            <Bar dataKey="totalCalories" fill="orange" radius={8}>
+            <Bar dataKey="totalCalories" fill="rgb(251 146 60)" radius={8}>
               <LabelList
                 position="top"
                 offset={5}

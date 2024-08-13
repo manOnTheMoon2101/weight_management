@@ -4,7 +4,6 @@ import axios from "axios";
 import { useState } from "react";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Switch } from "@/components/ui/switch";
-import { IoMdAddCircleOutline } from "react-icons/io";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
 import { Label } from "@/components/ui/label";
@@ -16,17 +15,6 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-interface Props {
-  weight: number;
-  tookFatburner: boolean;
-  totalCalories: number;
-  tookWeightmanagement: boolean;
-  tookVitamin: boolean;
-  totalProtein: number;
-  totalFat: number;
-  totalCarbs: number;
-  totalSugar: number;
-}
 const EditButton = (data: any) => {
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);

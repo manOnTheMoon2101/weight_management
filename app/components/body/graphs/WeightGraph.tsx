@@ -1,12 +1,10 @@
 "use client";
 import useSWR from "swr";
-import { TrendingUp } from "lucide-react";
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -16,14 +14,16 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-const chartData = [
-  { month: "January", desktop: 186 },
-  { month: "February", desktop: 305 },
-  { month: "March", desktop: 237 },
-  { month: "April", desktop: 73 },
-  { month: "May", desktop: 209 },
-  { month: "June", desktop: 214 },
-];
+import { Acme } from "next/font/google";
+import { Anek_Devanagari } from "next/font/google";
+const anek = Anek_Devanagari({
+  subsets: ['latin'],
+  weight: "400"
+})
+const acme = Acme({
+  subsets: ['latin'],
+  weight: "400"
+})
 const chartConfig = {
   desktop: {
     label: "Desktop",
@@ -107,8 +107,8 @@ const Graph = (date: any) => {
     <div>
       <Card>
         <CardHeader>
-          <CardTitle>Weight Chart</CardTitle>
-          <CardDescription>
+          <CardTitle className={`${anek.className}`}>Weight Chart</CardTitle>
+          <CardDescription  className={`${acme.className}`}>
             {months.map((x: any) => (x.value == date.month ? x.text : ""))}
           </CardDescription>
         </CardHeader>
@@ -127,7 +127,7 @@ const Graph = (date: any) => {
                 dataKey="createdAt"
                 tickLine={false}
                 axisLine={false}
-                tickMargin={8}
+                tickMargin={10}
               />
               <ChartTooltip
                 cursor={false}
@@ -136,8 +136,8 @@ const Graph = (date: any) => {
               <Area
                 dataKey="weight"
                 type="natural"
-                fill="purple"
-                stroke="orange"
+                fill="rgb(79, 23, 135)"
+                stroke="rgb(251 146 60)"
                 strokeWidth={2}
                 dot={true}
               />

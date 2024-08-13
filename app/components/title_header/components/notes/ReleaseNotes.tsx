@@ -1,3 +1,4 @@
+'use client';
 import React from "react";
 import { TbNotes } from "react-icons/tb";
 import { Button } from "@/components/ui/button";

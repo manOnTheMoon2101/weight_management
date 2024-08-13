@@ -1,5 +1,4 @@
 import React from "react";
-import { DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import DeleteButton from "./components/DeleteButton/DeleteButton";
 import EditButton from "./components/EditButton/EditButton";
 import { Label } from "@/components/ui/label";
