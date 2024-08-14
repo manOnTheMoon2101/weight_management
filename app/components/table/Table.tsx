@@ -63,7 +63,7 @@ function Dashboard_table(date: any) {
   return (
     <>
       <div className="min-w-full overflow-x-auto border rounded">
-        <h3 className={`${anek.className} text-2xl`}>Dashboard</h3>
+        <h3 className={`${anek.className} text-2xl m-5`}>Dashboard</h3>
         <table className="table-auto min-w-full border">
           <thead>
             <tr className="bg-orange-400">
@@ -122,24 +122,30 @@ function Dashboard_table(date: any) {
                   {x.totalCalories}
                 </td>
                 <td
-                  className={`border px-4 py-2  text-center ${cousine.className}`}
+                  className={`border px-4 py-2  text-center ${
+                    cousine.className
+                  }  ${x.totalProtein < 70 ? "text-red-500" : ""}`}
                 >
                   {x.totalProtein}
                 </td>
                 <td
                   className={`border px-4 py-2  ${
                     cousine.className
-                  }  text-center  ${x.totalFat > 100 ? "text-red-500" : ""}`}
+                  }  text-center  ${x.totalFat > 67 ? "text-red-500" : ""}`}
                 >
                   {x.totalFat}
                 </td>
                 <td
-                  className={`border px-4 py-2  text-center ${cousine.className}`}
+                  className={`border px-4 py-2  text-center ${
+                    cousine.className
+                  } ${x.totalCarbs > 120 ? "text-red-500" : ""} `}
                 >
                   {x.totalCarbs}
                 </td>
                 <td
-                  className={`border px-4 py-2  text-center ${cousine.className}`}
+                  className={`border px-4 py-2  text-center ${
+                    cousine.className
+                  } ${x.totalSugar > 30 ? "text-red-500" : ""} `}
                 >
                   {x.totalSugar}
                 </td>
