@@ -46,7 +46,8 @@ Weight Management App that tracks important nutrients nessecary for weight loss/
 
 1.Create/Register account
 
-![Uploading Screenshot from 2024-08-14 16-02-07.png…]()
+![Screenshot from 2024-08-14 16-02-07](https://github.com/user-attachments/assets/8a3c3f47-9f77-462b-aca0-a0ab5bf33650)
+
 
 
 2.Add and save Data
