@@ -14,6 +14,8 @@ model User {
   name     String?
 
   Data Data[]
+
+  @@unique([id, name])
 }
 
 model Food {
@@ -44,6 +46,7 @@ model Data {
   totalCarbs           Float?
   workoutTime          String?
   totalSugar           Float?
-  userId String @db.ObjectId
-  user   User   @relation(fields: [userId], references: [id])
+  userId               String   @db.ObjectId
+  userName             String
+  user                 User     @relation(fields: [userId, userName], references: [id, name])
 }

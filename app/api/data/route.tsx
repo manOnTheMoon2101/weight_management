@@ -42,6 +42,7 @@ export const POST = async (request: any) => {
         totalCarbs: totalCarbs,
         totalSugar: totalSugar,
         userId: user!.id,
+        userName:String(user!.name)
       },
     });
 
