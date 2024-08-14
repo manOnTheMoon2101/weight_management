@@ -52,15 +52,17 @@ Weight Management App that tracks important nutrients nessecary for weight loss/
 
 2.Add and save Data
 
-image
+![Screenshot from 2024-08-14 16-07-58](https://github.com/user-attachments/assets/e584ba33-72b3-48e7-ab6e-a5bd3243067a)
+
 
 3.Preview Data in Dashboard/Graphs
 
-image
+![Screenshot from 2024-08-14 16-11-05](https://github.com/user-attachments/assets/98ca5dfc-2560-438b-903f-5f24d0437f03)
 
 4.Edit/Delete Data
 
-image
+![Screenshot from 2024-08-14 16-08-16](https://github.com/user-attachments/assets/0235b091-9666-4b0a-8834-99012e397184)
+
 ## Run Locally
 
 Clone the project
