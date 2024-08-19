@@ -120,8 +120,7 @@ export function CalorieGraph(date: any) {
 
             <Bar dataKey="totalCalories" fill="rgb(251 146 60)" radius={8}>
               <LabelList
-                position="top"
-                offset={5}
+                offset={0}       
                 className="fill-foreground"
                 fontSize={12}
               />
