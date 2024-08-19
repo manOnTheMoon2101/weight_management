@@ -9,7 +9,7 @@ const NoteModal = (note: any) => {
         <p>{note.notes.details ? note.notes.details : ''}</p>
         <div>
           {note.notes.features ? (
-            <h3 className="text-4xl border-b-4">New Feautures:</h3>
+            <h3 className="text-2xl border-b-4 border-orange-400">New Feautures:</h3>
           ) : (
             ""
           )}
@@ -26,7 +26,7 @@ const NoteModal = (note: any) => {
 
         <div>
           {note.notes.bugs ? (
-            <h3 className="text-2xl border-b-4">Bug Fixes coming soon...</h3>
+            <h3 className="text-2xl border-b-4 border-orange-400">Bug Fixes coming soon...</h3>
           ) : (
             ""
           )}

@@ -48,10 +48,13 @@ const ReleaseNotes = () => {
           {Object.values(notes).map((x: any) => (
             <Dialog key={x.title}>
               <DialogTrigger asChild>
-                <Button>
+                {x.title == "1.0" ? <Button className="bg-orange-400">
                   {x.title}
                   <TbNotes />
-                </Button>
+                </Button> : <Button>
+                  {x.title}
+                  <TbNotes />
+                </Button>}
               </DialogTrigger>
               <DialogContent>
                 <NoteModal notes={x} />
