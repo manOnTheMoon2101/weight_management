@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import React from "react";
 import { TbNotes } from "react-icons/tb";
 import { Button } from "@/components/ui/button";
@@ -6,29 +6,34 @@ import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import NoteModal from "./components/NoteModal";
 const ReleaseNotes = () => {
   const notes: any = {
-    version1: {
+    version0: {
       title: "0.5",
-      details: "Still in Beta!!!Full release in Middle of August.",
-      features: [
-        "Dark/Light Mode",
-        "Graphs",
-        "Account Management",
-        "Graphical UI Overall",
-        "Loading Elements",
-        "Mobile Friendly Interface",
-        "+ MORE..."
-      ],
+      date:'July 2024',
+      features: "",
       bugs: [
         "Refreshing Issues",
+        "Theme Provider",
+        "UI overlaping",
+        "Loading elements",
+        "Responsive Design(Mobile View)",
         "Form Fixes",
         "Validations",
         "Performance issues",
-         "+ MORE..."
+        "+ more...",
       ],
     },
-    // version2: {
-    //   title: "2.0",
-    // },
+    version1: {
+      title: "1.0",
+      date:'August 2024',
+      features: [
+        "Graphical UI Overall",
+        "Theme Modes",
+        "Mobile Friendly Interface",
+        "Graphs",
+        "Refresh Functions",
+        "+ more...",
+      ],
+    },
   };
   return (
     <div className="flex flex-row">
