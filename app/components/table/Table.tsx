@@ -32,7 +32,7 @@ function Dashboard_table(date: any) {
   if (isLoading)
     return (
       <>
-        <div className="min-w-full overflow-x-auto">
+        <div className="min-w-full overflow-x-auto  border rounded">
           <table className="table-auto min-w-full">
             <thead>
               <tr>
@@ -61,7 +61,7 @@ function Dashboard_table(date: any) {
     );
   return (
     <>
-      <div className="min-w-full overflow-x-auto">
+      <div className="min-w-full overflow-x-auto border rounded">
         {/* <h3 className={`${anek.className} text-2xl m-5`}>Dashboard</h3> */}
         <table className="table-auto min-w-full">
           <thead>

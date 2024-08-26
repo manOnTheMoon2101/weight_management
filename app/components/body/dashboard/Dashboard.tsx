@@ -62,7 +62,7 @@ export function Dashboard() {
         </div>
       </div>
       <div className="flex flex-col md:flex-row justify-around  h-full">
-        <div className="w-full my-5 md:w-[30%] max-h-[50vh] mx-5 overflow-auto  ">
+        <div className="w-full my-5 md:w-[30%] max-h-[50vh]  overflow-auto  ">
           <WeightGraph month={selectedMonth} />
           <CalorieGraph month={selectedMonth} />
         </div>
