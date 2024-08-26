@@ -89,12 +89,8 @@ const AddForm = () => {
   return (
     <div>
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogTrigger>
-          <div className="flex flex-row justify-between items-center">
-            <div className="flex flex-col items-center">
-              <Button>New Record +</Button>
-            </div>
-          </div>
+        <DialogTrigger asChild>
+          <Button>New Record +</Button>
         </DialogTrigger>
         <DialogContent>
           <form onSubmit={handleSubmit}>
