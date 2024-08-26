@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
-import { signIn, signOut } from "next-auth/react";
+import { signOut } from "next-auth/react";
 import { ModeToggle } from "../theme/toggle";
 const Account = () => {
   const { data: session } = useSession();
@@ -20,24 +20,23 @@ const Account = () => {
     <div>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="outline">
-            <div className="flex flex-row items-baseline">
-              <div>
+            <div className="flex flex-row items-baseline cursor-pointer">
+              <div className="mx-2">
                 <Avatar>
                   <AvatarFallback>
                     {name ? cleanedName?.charAt(0) : null}
                   </AvatarFallback>
                 </Avatar>
               </div>
-              <div>{name}</div>
+              <div className="text-white">{name}</div>
             </div>
-          </Button>
+      
         </DropdownMenuTrigger>
         <DropdownMenuContent align="center">
           <div>
             <ModeToggle />
             <DropdownMenuItem
-              className="bg-red-900 text-slate-50 flex flex-row justify-center  mt-5"
+              className="bg-red-900 text-slate-50 flex flex-row justify-center  mt-5 cursor-pointer"
               onClick={() => signOut()}
             >
               Sign Out

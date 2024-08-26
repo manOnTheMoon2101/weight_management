@@ -17,13 +17,13 @@ import {
 import { Acme } from "next/font/google";
 import { Anek_Devanagari } from "next/font/google";
 const anek = Anek_Devanagari({
-  subsets: ['latin'],
-  weight: "400"
-})
+  subsets: ["latin"],
+  weight: "400",
+});
 const acme = Acme({
-  subsets: ['latin'],
-  weight: "400"
-})
+  subsets: ["latin"],
+  weight: "400",
+});
 const chartConfig = {
   desktop: {
     label: "Desktop",
@@ -32,7 +32,6 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 import React from "react";
-import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 const Graph = (date: any) => {
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
@@ -92,14 +91,14 @@ const Graph = (date: any) => {
   ];
   const chartData =
     data?.map((item: any) => ({
-      createdAt: new Date(item.createdAt).toLocaleDateString(), // Format date as needed
+      createdAt: new Date(item.createdAt).getDate(),
       weight: item.weight,
     })) || [];
   if (error) return <div>failed to load</div>;
   if (isLoading)
     return (
       <div className="flex items-center space-x-4">
-        <Skeleton className="w-[100%] h-[300px] rounded-full" />
+        <Skeleton className="w-[100%] h-[300px]" />
       </div>
     );
 
@@ -108,7 +107,7 @@ const Graph = (date: any) => {
       <Card>
         <CardHeader>
           <CardTitle className={`${anek.className}`}>Weight Chart</CardTitle>
-          <CardDescription  className={`${acme.className}`}>
+          <CardDescription className={`${acme.className}`}>
             {months.map((x: any) => (x.value == date.month ? x.text : ""))}
           </CardDescription>
         </CardHeader>

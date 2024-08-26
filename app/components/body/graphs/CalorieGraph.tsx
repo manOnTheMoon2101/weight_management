@@ -7,6 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Skeleton } from "@/components/ui/skeleton";
 import useSWR from "swr";
 import {
   ChartConfig,
@@ -88,14 +89,18 @@ export function CalorieGraph(date: any) {
   ];
   const chartData =
     data?.map((item: any) => ({
-      createdAt: new Date(item.createdAt).toLocaleDateString(), // Format date as needed
+      createdAt: new Date(item.createdAt).getDate(), // Format date as needed
       totalCalories: item.totalCalories,
     })) || [];
   if (error) return <div>failed to load</div>;
   if (isLoading)
-    return <div className="flex items-center space-x-4">loading</div>;
+    return (
+      <div className="flex items-center space-x-4">
+        <Skeleton className="w-[100%] h-[300px] mt-5" />
+      </div>
+    );
   return (
-    <Card>
+    <Card className="my-5">
       <CardHeader>
         <CardTitle className={`${anek.className}`}>Calorie Chart</CardTitle>
         <CardDescription className={`${acme.className}`}>
@@ -119,11 +124,7 @@ export function CalorieGraph(date: any) {
             />
 
             <Bar dataKey="totalCalories" fill="rgb(251 146 60)" radius={8}>
-              <LabelList
-                offset={0}       
-                className="fill-foreground"
-                fontSize={12}
-              />
+              <LabelList offset={0} className="fill-foreground" fontSize={12} />
             </Bar>
           </BarChart>
         </ChartContainer>

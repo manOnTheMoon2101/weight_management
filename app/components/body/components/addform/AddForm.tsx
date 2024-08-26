@@ -89,18 +89,8 @@ const AddForm = () => {
   return (
     <div>
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogTrigger>
-          <div className="flex flex-row justify-between items-center">
-            <div className="flex flex-col items-center">
-              <IoMdAddCircleOutline size={35} className="text-orange-400" />
-
-              <span
-                className={`${cousine.className} text-sx hover:text-purple-500`}
-              >
-                Add Data
-              </span>
-            </div>
-          </div>
+        <DialogTrigger asChild>
+          <Button>New Record +</Button>
         </DialogTrigger>
         <DialogContent>
           <form onSubmit={handleSubmit}>

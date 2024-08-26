@@ -38,7 +38,7 @@ export function Dashboard() {
             }}
             defaultValue={getCurrentMonthTwoDigit()}
           >
-            <SelectTrigger className="w-[180px]">
+            <SelectTrigger className="w-[180px] mx-3 border border-orange-400">
               <SelectValue placeholder="Select Month" />
             </SelectTrigger>
             <SelectContent>
@@ -61,8 +61,8 @@ export function Dashboard() {
           <AddForm />
         </div>
       </div>
-      <div className="flex flex-col md:flex-row justify-around m-5 h-full">
-        <div className="w-full my-5 md:w-[30%] max-h-[50vh] overflow-auto mx-2 ">
+      <div className="flex flex-col md:flex-row justify-around  h-full">
+        <div className="w-full my-5 md:w-[30%] max-h-[50vh] mx-5 overflow-auto  ">
           <WeightGraph month={selectedMonth} />
           <CalorieGraph month={selectedMonth} />
         </div>
