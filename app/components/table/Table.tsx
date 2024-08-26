@@ -52,7 +52,7 @@ function Dashboard_table(date: any) {
 
             <tbody>
               {skeletons.map((_, index) => (
-                <SkeletonHolder key={index}   />
+                <SkeletonHolder key={index} />
               ))}
             </tbody>
           </table>
@@ -63,9 +63,9 @@ function Dashboard_table(date: any) {
     <>
       <div className="min-w-full overflow-x-auto">
         {/* <h3 className={`${anek.className} text-2xl m-5`}>Dashboard</h3> */}
-        <table className="table-auto min-w-full border">
+        <table className="table-auto min-w-full">
           <thead>
-            <tr className="bg-orange-400">
+            <tr>
               <th className="px-4 py-2 text-center">Open</th>
               <th className="px-4 py-2  text-center">Date</th>
               <th className="px-4 py-2  text-center">Weight</th>
@@ -82,7 +82,7 @@ function Dashboard_table(date: any) {
           {data.map((x: any) => (
             <tbody>
               <tr key={x.id}>
-                <td className="border px-4 py-2 text-center">
+                <td className="border-b px-4 py-2 text-center">
                   <Dialog>
                     <DialogTrigger>
                       <TooltipProvider>
@@ -102,17 +102,17 @@ function Dashboard_table(date: any) {
                   </Dialog>
                 </td>
                 <td
-                  className={`border px-4 py-2  text-center ${cousine.className}`}
+                  className={`border-b px-4 py-2  text-center ${cousine.className}`}
                 >
                   {x.createdAt}
                 </td>
                 <td
-                  className={`border px-4 py-2  text-center ${cousine.className}`}
+                  className={`border-b px-4 py-2  text-center ${cousine.className}`}
                 >
                   {x.weight}
                 </td>
                 <td
-                  className={`border px-4 py-2 ${
+                  className={`border-b px-4 py-2 ${
                     cousine.className
                   }  text-center  ${
                     x.totalCalories > 2000 ? "text-red-500" : ""
@@ -121,28 +121,28 @@ function Dashboard_table(date: any) {
                   {x.totalCalories}
                 </td>
                 <td
-                  className={`border px-4 py-2  text-center ${
+                  className={`border-b px-4 py-2  text-center ${
                     cousine.className
                   }  ${x.totalProtein < 70 ? "text-red-500" : ""}`}
                 >
                   {x.totalProtein}
                 </td>
                 <td
-                  className={`border px-4 py-2  ${
+                  className={`border-b px-4 py-2  ${
                     cousine.className
                   }  text-center  ${x.totalFat > 67 ? "text-red-500" : ""}`}
                 >
                   {x.totalFat}
                 </td>
                 <td
-                  className={`border px-4 py-2  text-center ${
+                  className={`border-b px-4 py-2  text-center ${
                     cousine.className
                   } ${x.totalCarbs > 120 ? "text-red-500" : ""} `}
                 >
                   {x.totalCarbs}
                 </td>
                 <td
-                  className={`border px-4 py-2  text-center ${
+                  className={`border-b px-4 py-2  text-center ${
                     cousine.className
                   } ${x.totalSugar > 30 ? "text-red-500" : ""} `}
                 >
@@ -150,17 +150,17 @@ function Dashboard_table(date: any) {
                 </td>
 
                 <td
-                  className={`border px-4 py-2  text-center ${cousine.className}`}
+                  className={`border-b px-4 py-2  text-center ${cousine.className}`}
                 >
                   {x.tookVitamin ? "💊" : ""}
                 </td>
                 <td
-                  className={`border px-4 py-2  text-center ${cousine.className}`}
+                  className={`border-b px-4 py-2  text-center ${cousine.className}`}
                 >
                   {x.tookWeightmanagement ? "💊" : ""}
                 </td>
                 <td
-                  className={`border px-4 py-2  text-center ${cousine.className}`}
+                  className={`border-b px-4 py-2  text-center ${cousine.className}`}
                 >
                   {x.tookFatburner ? "💊" : ""}
                 </td>
