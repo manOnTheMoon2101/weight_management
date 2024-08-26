@@ -88,7 +88,7 @@ export function CalorieGraph(date: any) {
   ];
   const chartData =
     data?.map((item: any) => ({
-      createdAt: new Date(item.createdAt).toLocaleDateString(), // Format date as needed
+      createdAt: new Date(item.createdAt).getDate(), // Format date as needed
       totalCalories: item.totalCalories,
     })) || [];
   if (error) return <div>failed to load</div>;

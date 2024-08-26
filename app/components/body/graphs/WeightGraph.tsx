@@ -92,7 +92,7 @@ const Graph = (date: any) => {
   ];
   const chartData =
     data?.map((item: any) => ({
-      createdAt: new Date(item.createdAt).toLocaleDateString(), // Format date as needed
+      createdAt: new Date(item.createdAt).getDate(),
       weight: item.weight,
     })) || [];
   if (error) return <div>failed to load</div>;
