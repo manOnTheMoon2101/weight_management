@@ -33,6 +33,7 @@ function Dashboard_table(date: any) {
     return (
       <>
         <div className="min-w-full">
+        <h3 className={`${anek.className} text-2xl m-5`}>Dashboard</h3>
           <table className="table-auto min-w-full  border">
             <thead>
               <tr className="bg-orange-400">

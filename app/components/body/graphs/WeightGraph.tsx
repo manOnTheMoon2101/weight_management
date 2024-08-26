@@ -99,7 +99,7 @@ const Graph = (date: any) => {
   if (isLoading)
     return (
       <div className="flex items-center space-x-4">
-        <Skeleton className="w-[100%] h-[300px] rounded-full" />
+        <Skeleton className="w-[100%] h-[300px]" />
       </div>
     );
 
