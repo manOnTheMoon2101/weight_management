@@ -92,8 +92,7 @@ const AddForm = () => {
         <DialogTrigger>
           <div className="flex flex-row justify-between items-center">
             <div className="flex flex-col items-center">
-      
-<Button>New Record +</Button>
+              <Button>New Record +</Button>
             </div>
           </div>
         </DialogTrigger>
