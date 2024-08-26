@@ -27,13 +27,12 @@ function Dashboard_table(date: any) {
     `/api/filter/${date.month}`,
     fetcher
   );
-  const skeletons = Array.from({ length: 7 });
+  const skeletons = Array.from({ length: 14 });
   if (error) return <div>failed to load</div>;
   if (isLoading)
     return (
       <>
-        <div className="min-w-full">
-        <h3 className={`${anek.className} text-2xl m-5`}>Dashboard</h3>
+        <div className="min-w-full overflow-x-auto">
           <table className="table-auto min-w-full  border">
             <thead>
               <tr className="bg-orange-400">
@@ -45,7 +44,6 @@ function Dashboard_table(date: any) {
                 <th className="px-4 py-2  text-center">Fat</th>
                 <th className="px-4 py-2  text-center">Carbohydrates</th>
                 <th className="px-4 py-2  text-center">Sugar</th>
-
                 <th className="px-4 py-2  text-center">Vitamin?</th>
                 <th className="px-4 py-2  text-center">CLA?</th>
                 <th className="px-4 py-2  text-center">L-Carnitine?</th>
@@ -54,7 +52,7 @@ function Dashboard_table(date: any) {
 
             <tbody>
               {skeletons.map((_, index) => (
-                <SkeletonHolder key={index} />
+                <SkeletonHolder key={index}   />
               ))}
             </tbody>
           </table>
@@ -63,8 +61,8 @@ function Dashboard_table(date: any) {
     );
   return (
     <>
-      <div className="min-w-full overflow-x-auto border rounded">
-        <h3 className={`${anek.className} text-2xl m-5`}>Dashboard</h3>
+      <div className="min-w-full overflow-x-auto">
+        {/* <h3 className={`${anek.className} text-2xl m-5`}>Dashboard</h3> */}
         <table className="table-auto min-w-full border">
           <thead>
             <tr className="bg-orange-400">
