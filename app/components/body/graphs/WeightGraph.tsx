@@ -17,13 +17,13 @@ import {
 import { Acme } from "next/font/google";
 import { Anek_Devanagari } from "next/font/google";
 const anek = Anek_Devanagari({
-  subsets: ['latin'],
-  weight: "400"
-})
+  subsets: ["latin"],
+  weight: "400",
+});
 const acme = Acme({
-  subsets: ['latin'],
-  weight: "400"
-})
+  subsets: ["latin"],
+  weight: "400",
+});
 const chartConfig = {
   desktop: {
     label: "Desktop",
@@ -32,7 +32,6 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 import React from "react";
-import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 const Graph = (date: any) => {
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
@@ -108,7 +107,7 @@ const Graph = (date: any) => {
       <Card>
         <CardHeader>
           <CardTitle className={`${anek.className}`}>Weight Chart</CardTitle>
-          <CardDescription  className={`${acme.className}`}>
+          <CardDescription className={`${acme.className}`}>
             {months.map((x: any) => (x.value == date.month ? x.text : ""))}
           </CardDescription>
         </CardHeader>

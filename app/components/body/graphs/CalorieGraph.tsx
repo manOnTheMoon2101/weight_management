@@ -100,7 +100,7 @@ export function CalorieGraph(date: any) {
       </div>
     );
   return (
-    <Card>
+    <Card className="my-5">
       <CardHeader>
         <CardTitle className={`${anek.className}`}>Calorie Chart</CardTitle>
         <CardDescription className={`${acme.className}`}>
