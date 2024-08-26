@@ -33,9 +33,9 @@ function Dashboard_table(date: any) {
     return (
       <>
         <div className="min-w-full overflow-x-auto">
-          <table className="table-auto min-w-full  border">
+          <table className="table-auto min-w-full">
             <thead>
-              <tr className="bg-orange-400">
+              <tr>
                 <th className="px-4 py-2 text-center">Open</th>
                 <th className="px-4 py-2  text-center">Date</th>
                 <th className="px-4 py-2  text-center">Weight</th>
