@@ -81,6 +81,7 @@ const Login = () => {
         <Input
           placeholder="email@email.com"
           type="email"
+          className="border-purple-900"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -88,6 +89,7 @@ const Login = () => {
         <Input
           placeholder="*****"
           type="password"
+          className="border-purple-900"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
@@ -118,7 +120,7 @@ const Login = () => {
           </TooltipProvider>
           <p className="mt-10">
             Don't have an account?{" "}
-            <Link href="/register" className="text-orange-600">
+            <Link href="/register" className="text-orange-400">
               Register?
             </Link>
           </p>
