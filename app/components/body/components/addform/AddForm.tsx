@@ -1,21 +1,11 @@
-
+"use client";
 import { useMediaQuery } from "@custom-react-hooks/use-media-query";
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from "@/components/ui/drawer";
+import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 import React from "react";
 import axios from "axios";
 import { useState } from "react";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Switch } from "@/components/ui/switch";
-import { IoMdAddCircleOutline } from "react-icons/io";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
 import { Label } from "@/components/ui/label";
@@ -32,17 +22,6 @@ const cousine = Cousine({
   subsets: ["latin"],
   weight: "400",
 });
-interface Props {
-  weight: number;
-  tookFatburner: boolean;
-  totalCalories: number;
-  tookWeightmanagement: boolean;
-  tookVitamin: boolean;
-  totalProtein: number;
-  totalFat: number;
-  totalCarbs: number;
-  totalSugar: number;
-}
 export function AddForm() {
   const isDesktop = useMediaQuery("(min-width: 768px)");
   const { toast } = useToast();

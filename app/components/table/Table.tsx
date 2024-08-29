@@ -1,16 +1,6 @@
-import { cn } from "@/lib/utils";
+"use client";
 import { useMediaQuery } from "@custom-react-hooks/use-media-query";
-import { Button } from "@/components/ui/button";
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from "@/components/ui/drawer";
+import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 import React from "react";
 import useSWR from "swr";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
@@ -25,16 +15,11 @@ import {
 import SkeletonHolder from "./skeleton/skeletonHolder";
 import { Cousine } from "next/font/google";
 import { Anek_Devanagari } from "next/font/google";
-const anek = Anek_Devanagari({
-  subsets: ["latin"],
-  weight: "400",
-});
 const cousine = Cousine({
   subsets: ["latin"],
   weight: "400",
 });
 export function Dashboard_table(date: any) {
-  const [open, setOpen] = React.useState(false);
   const isDesktop = useMediaQuery("(min-width: 768px)");
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
   const { data, error, isLoading } = useSWR(
