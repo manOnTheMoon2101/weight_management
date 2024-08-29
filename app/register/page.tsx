@@ -57,12 +57,14 @@ const Register = () => {
           <Input
             placeholder="Name"
             name="name"
+            className="border-purple-900"
             onChange={handleChange}
             value={user.name}
           />
           <Label className="text-4xl text-center">Email</Label>
           <Input
             placeholder="Email"
+            className="border-purple-900"
             name="email"
             onChange={handleChange}
             value={user.email}
@@ -71,6 +73,7 @@ const Register = () => {
           <Input
             placeholder="Password"
             name="password"
+            className="border-purple-900"
             onChange={handleChange}
             value={user.password}
           />
@@ -89,7 +92,7 @@ const Register = () => {
             )}
             <p className="mt-10">
               Already have a Account?
-              <Link href="/login" className="text-orange-600">
+              <Link href="/login" className="text-orange-400">
                 {" "}
                 Log In?
               </Link>
