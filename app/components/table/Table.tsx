@@ -14,7 +14,6 @@ import {
 } from "@/components/ui/tooltip";
 import SkeletonHolder from "./skeleton/skeletonHolder";
 import { Cousine } from "next/font/google";
-import { Anek_Devanagari } from "next/font/google";
 const cousine = Cousine({
   subsets: ["latin"],
   weight: "400",

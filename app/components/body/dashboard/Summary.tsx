@@ -1,6 +1,12 @@
 "use client";
 import { Skeleton } from "@/components/ui/skeleton";
 import useSWR from "swr";
+import { Badge } from "@/components/ui/badge";
+import { Cousine } from "next/font/google";
+const cousine = Cousine({
+  subsets: ["latin"],
+  weight: "400",
+});
 
 export function Summary(date: any) {
   function getAverage(numbers: any) {
@@ -50,25 +56,33 @@ export function Summary(date: any) {
       </div>
     );
   return (
-    <div>
-      <div>
-        <h2>Average Weight</h2>
-        {getAverage(data.map((x: any) => x.weight))}
-      </div>
-
-      <div>
+    <div className={`text-center m-5 ${cousine.className}`}>
+      <div className="m-5">
         <h2>Average Calories</h2>
-        {getAverage(data.map((x: any) => x.totalCalories))}
+        <Badge className="bg-orange-400 text-white">
+          {" "}
+          {getAverage(data.map((x: any) => x.totalCalories))}
+        </Badge>
       </div>
-
-      <div>
+      <div className="m-5">
+        <h2 className="">Average Weight</h2>
+        <Badge className="bg-orange-400 text-white">
+          {" "}
+          {getAverage(data.map((x: any) => x.weight))}
+        </Badge>
+      </div>
+      <div className="m-5">
         <h2>Min Weight</h2>
-        {getMin(data.map((x: any) => x.weight))}
+        <Badge className="bg-orange-400 text-white">
+          {getMin(data.map((x: any) => x.weight))}
+        </Badge>
       </div>
 
-      <div>
+      <div className="m-5">
         <h2>Max Weight</h2>
-        {getMax(data.map((x: any) => x.weight))}
+        <Badge className="bg-orange-400 text-white">
+          {getMax(data.map((x: any) => x.weight))}
+        </Badge>
       </div>
     </div>
   );
