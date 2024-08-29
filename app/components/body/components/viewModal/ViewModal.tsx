@@ -1,6 +1,6 @@
 import React from "react";
 import DeleteButton from "./components/DeleteButton/DeleteButton";
-import EditButton from "./components/EditButton/EditButton";
+import { EditButton } from "./components/EditButton/EditButton";
 import { Label } from "@/components/ui/label";
 import {
   Tooltip,
