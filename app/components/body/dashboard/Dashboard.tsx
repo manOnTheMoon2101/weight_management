@@ -11,7 +11,7 @@ import {
 import WeightGraph from "../graphs/WeightGraph";
 import { CalorieGraph } from "../graphs/CalorieGraph";
 import { useState } from "react";
-import AddForm from "../components/addform/AddForm";
+import { AddForm } from "../components/addform/AddForm";
 import { Summary } from "./Summary";
 export function Dashboard() {
   const getCurrentMonthTwoDigit = () => {
