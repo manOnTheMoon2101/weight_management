@@ -78,7 +78,7 @@ export function EditButton(data: any) {
         <Dialog open={open} onOpenChange={setOpen}>
           <DialogTrigger>
             <div className="flex flex-row justify-between items-center">
-              <Button onClick={() => setOpen(true)} className="m-5">
+              <Button onClick={() => setOpen(true)} className="">
                 Edit
               </Button>
             </div>
@@ -259,7 +259,7 @@ export function EditButton(data: any) {
       <Drawer open={open} onOpenChange={setOpen}>
         <DrawerTrigger>
           <div className="flex flex-row justify-between items-center">
-            <Button onClick={() => setOpen(true)} className="m-5">
+            <Button onClick={() => setOpen(true)} className="">
               Edit
             </Button>
           </div>
