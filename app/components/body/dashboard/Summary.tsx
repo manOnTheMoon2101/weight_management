@@ -10,7 +10,7 @@ const cousine = Cousine({
 
 export function Summary(date: any) {
   function getAverage(numbers: any) {
-    if (numbers.length === 0) return 0;
+    if (numbers.length === 0) return null;
 
     const sum = numbers.reduce((acc: any, current: any) => acc + current, 0);
 
@@ -20,7 +20,7 @@ export function Summary(date: any) {
   }
   function getMin(numbers: string | any[]) {
     if (numbers.length === 0) {
-      throw new Error("Array cannot be empty");
+      return null;
     }
     let min = numbers[0];
     for (let i = 1; i < numbers.length; i++) {
@@ -32,7 +32,7 @@ export function Summary(date: any) {
   }
   function getMax(numbers: string | any[]) {
     if (numbers.length === 0) {
-      throw new Error("Array cannot be empty");
+      return null;
     }
     let max = numbers[0];
     for (let i = 1; i < numbers.length; i++) {
@@ -61,27 +61,29 @@ export function Summary(date: any) {
         <h2>Average Calories</h2>
         <Badge className="bg-orange-400 text-white">
           {" "}
-          {getAverage(data.map((x: any) => x.totalCalories))}
+          {getAverage(
+            data.map((x: any) => (x.totalCalories ? x.totalCalories : ""))
+          )}
         </Badge>
       </div>
       <div className="m-5">
         <h2 className="">Average Weight</h2>
         <Badge className="bg-orange-400 text-white">
           {" "}
-          {getAverage(data.map((x: any) => x.weight))}
+          {getAverage(data.map((x: any) => (x.weight ? x.weight : "")))}
         </Badge>
       </div>
       <div className="m-5">
         <h2>Min Weight</h2>
         <Badge className="bg-orange-400 text-white">
-          {getMin(data.map((x: any) => x.weight))}
+          {getMin(data.map((x: any) => (x.weight ? x.weight : "")))}
         </Badge>
       </div>
 
       <div className="m-5">
         <h2>Max Weight</h2>
         <Badge className="bg-orange-400 text-white">
-          {getMax(data.map((x: any) => x.weight))}
+          {getMax(data.map((x: any) => (x.weight ? x.weight : "")))}
         </Badge>
       </div>
     </div>
