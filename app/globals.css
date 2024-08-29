@@ -4,8 +4,9 @@
 
 ::-webkit-scrollbar {
   height: 7px;
-  width: 10px;
+  width: 6px;
   border: 1px solid #d5d5d5;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-track {
@@ -14,7 +15,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: 0px;
+  border-radius: 10px;
   background: rgb(79, 23, 135);
 }
 
