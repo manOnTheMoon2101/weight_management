@@ -1,6 +1,6 @@
 "use client";
 
-import Dashboard_table from "@/app/components/table/Table";
+import { Dashboard_table } from "../../table/Table";
 import {
   Select,
   SelectContent,
