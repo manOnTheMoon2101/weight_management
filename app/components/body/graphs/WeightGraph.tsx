@@ -1,6 +1,6 @@
 "use client";
 import useSWR from "swr";
-import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
+import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts";
 import {
   Card,
   CardContent,
@@ -103,49 +103,48 @@ const Graph = (date: any) => {
     );
 
   return (
-    <div>
-      <Card>
-        <CardHeader>
-          <CardTitle className={`${anek.className}`}>Weight Chart</CardTitle>
-          <CardDescription className={`${acme.className}`}>
-            {months.map((x: any) => (x.value == date.month ? x.text : ""))}
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <ChartContainer config={chartConfig}>
-            <AreaChart
-              accessibilityLayer
-              data={chartData}
-              margin={{
-                left: 12,
-                right: 12,
-              }}
-            >
-              <CartesianGrid vertical={false} />
-              <XAxis
-                dataKey="createdAt"
-                tickLine={false}
-                axisLine={false}
-                tickMargin={10}
-              />
-              <ChartTooltip
-                cursor={false}
-                content={<ChartTooltipContent hideLabel />}
-              />
-              <Area
-                dataKey="weight"
-                name="Weight(kg)"
-                type="monotoneX"
-                fill="rgb(79, 23, 135)"
-                stroke="rgb(251 146 60)"
-                strokeWidth={2}
-                dot={true}
-              />
-            </AreaChart>
-          </ChartContainer>
-        </CardContent>
-      </Card>
-    </div>
+    <Card className="my-5 w-1/4">
+      <CardHeader>
+        <CardTitle className={`${anek.className}`}>Weight Chart</CardTitle>
+        <CardDescription className={`${acme.className}`}>
+          {months.map((x: any) => (x.value == date.month ? x.text : ""))}
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        <ChartContainer config={chartConfig}>
+          <AreaChart
+            accessibilityLayer
+            data={chartData}
+            margin={{
+              left: 12,
+              right: 12,
+            }}
+          >
+            <CartesianGrid vertical={false} />
+            <XAxis
+              dataKey="createdAt"
+              tickLine={false}
+              axisLine={false}
+              tickMargin={10}
+            />
+            <ChartTooltip
+              cursor={false}
+              content={<ChartTooltipContent hideLabel />}
+            />
+            <YAxis domain={[60,100]}/>
+            <Area
+              dataKey="weight"
+              name="Weight(kg)"
+              type="monotoneX"
+              fill="none"
+              stroke="rgb(251 146 60)"
+              strokeWidth={1}
+              dot={true}
+            />
+          </AreaChart>
+        </ChartContainer>
+      </CardContent>
+    </Card>
   );
 };
 

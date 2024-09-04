@@ -56,8 +56,8 @@ export function Summary(date: any) {
       </div>
     );
   return (
-    <div className={`text-center m-5 ${cousine.className}`}>
-      <div className="m-5">
+    <div className={`text-center m-5 ${cousine.className} w-1/4`}>
+      <div className="m-5 ">
         <h2>Average Calories</h2>
         <Badge className="bg-orange-400 text-white">
           {" "}

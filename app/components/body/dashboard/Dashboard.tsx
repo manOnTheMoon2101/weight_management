@@ -13,6 +13,7 @@ import { CalorieGraph } from "../graphs/CalorieGraph";
 import { useState } from "react";
 import { AddForm } from "../components/addform/AddForm";
 import { Summary } from "./Summary";
+import { AverageWeight } from "../graphs/AverageWeight";
 export function Dashboard() {
   const getCurrentMonthTwoDigit = () => {
     let date = new Date();
@@ -62,13 +63,14 @@ export function Dashboard() {
           <AddForm />
         </div>
       </div>
-      <div className="flex flex-col md:flex-row justify-around  h-full">
-        <div className="w-full my-5 md:w-[30%] max-h-[50vh]  overflow-auto  ">
+      <div className="flex flex-col justify-around w-full  h-full">
+        <div className="w-full flex flex-row my-5 overflow-auto ">
+         <AverageWeight/>
           <Summary month={selectedMonth} />
           <WeightGraph month={selectedMonth} />
-          <CalorieGraph month={selectedMonth} />
+          <CalorieGraph month={selectedMonth} /> 
         </div>
-        <div className="w-full my-5 md:w-[70%] flex-1">
+        <div className="w-full my-5">
           <Dashboard_table month={selectedMonth} />
         </div>
       </div>
