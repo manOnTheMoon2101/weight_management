@@ -134,6 +134,7 @@ const Graph = (date: any) => {
               />
               <Area
                 dataKey="weight"
+                name="Weight(kg)"
                 type="monotoneX"
                 fill="rgb(79, 23, 135)"
                 stroke="rgb(251 146 60)"

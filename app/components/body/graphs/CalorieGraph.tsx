@@ -123,7 +123,7 @@ export function CalorieGraph(date: any) {
               content={<ChartTooltipContent hideLabel />}
             />
 
-            <Bar dataKey="totalCalories" fill="rgb(251 146 60)" radius={8}>
+            <Bar dataKey="totalCalories" name='Calories' fill="rgb(251 146 60)" radius={8}>
               <LabelList offset={0} className="fill-foreground" fontSize={12} />
             </Bar>
           </BarChart>
