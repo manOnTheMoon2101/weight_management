@@ -138,7 +138,7 @@ const Graph = (date: any) => {
     );
 
   return (
-    <Card className="my-5 w-1/4">
+    <Card className="my-5">
       <CardHeader>
         <CardTitle className={`${anek.className}`}>Weight Chart</CardTitle>
         <CardDescription className={`${acme.className}`}>

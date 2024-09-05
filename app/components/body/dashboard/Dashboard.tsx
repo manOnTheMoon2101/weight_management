@@ -62,13 +62,13 @@ export function Dashboard() {
           <AddForm />
         </div>
       </div>
-      <div className="flex flex-col justify-around w-full  h-full">
-        <div className="w-full flex flex-row justify-around  my-5 overflow-auto">
+      <div className="flex flex-col md:flex-col justify-around  h-full">
+        <div className="w-full my-5 md:flex flex-row justify-around overflow-auto  ">
           <ProteinGraph month={selectedMonth} />
           <WeightGraph month={selectedMonth} />
           <CalorieGraph month={selectedMonth} />
         </div>
-        <div className="w-full my-5">
+        <div className="w-full my-5  flex-1">
           <Dashboard_table month={selectedMonth} />
         </div>
       </div>
