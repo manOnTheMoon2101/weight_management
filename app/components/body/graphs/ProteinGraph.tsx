@@ -1,6 +1,8 @@
 "use client";
 import useSWR from "swr";
 import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts";
+import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from "recharts";
+
 import {
   Card,
   CardContent,
@@ -35,7 +37,7 @@ const chartConfig = {
 
 import React from "react";
 import { Skeleton } from "@/components/ui/skeleton";
-const Graph = (date: any) => {
+const ProteinGraph = (date: any) => {
   function getAverage(numbers: any) {
     if (numbers.length === 0) return null;
 
@@ -127,7 +129,7 @@ const Graph = (date: any) => {
   const chartData =
     data?.map((item: any) => ({
       createdAt: new Date(item.createdAt).getDate(),
-      weight: item.weight,
+      protein: item.totalProtein,
     })) || [];
   if (error) return <div>failed to load</div>;
   if (isLoading)
@@ -140,67 +142,57 @@ const Graph = (date: any) => {
   return (
     <Card className="my-5 w-1/4">
       <CardHeader>
-        <CardTitle className={`${anek.className}`}>Weight Chart</CardTitle>
+        <CardTitle className={`${anek.className}`}>Protein Chart</CardTitle>
         <CardDescription className={`${acme.className}`}>
+          {" "}
           {months.map((x: any) => (x.value == date.month ? x.text : ""))}
         </CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
-          <AreaChart
-            accessibilityLayer
-            data={chartData}
-            margin={{
-              left: 12,
-              right: 12,
-            }}
-          >
-            <CartesianGrid vertical={false} />
-            <XAxis
-              dataKey="createdAt"
-              tickLine={false}
-              axisLine={false}
-              tickMargin={10}
+          <RadarChart data={chartData}>
+            <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
+            <PolarAngleAxis dataKey="createdAt" />
+            <PolarGrid />
+            <Radar
+              dataKey="protein"
+              name="Protein"
+              fill="#fb923c"
+              dot={{
+                stroke: "rgb(251 146 60)",
+                fill: "none",
+              }}
+              fillOpacity={0.6}
             />
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent hideLabel />}
-            />
-            <YAxis domain={[60, 100]} />
-            <Area
-              dataKey="weight"
-              name="Weight(kg)"
-              type="monotoneX"
-              fill="none"
-              stroke="rgb(251 146 60)"
-              strokeWidth={1}
-              dot={true}
-            />
-          </AreaChart>
+          </RadarChart>
         </ChartContainer>
       </CardContent>
       <CardFooter>
         <div className="flex w-full items-start gap-2 text-sm">
           <div className="grid gap-2">
-            <div className="flex items-center gap-2 font-medium leading-none"></div>
             <div className="flex items-center gap-2 leading-none text-muted-foreground">
               <div className="m-5 text-center">
-                <h2 className="my-2">Min Weight</h2>
+                <h2 className="my-2">Min Protein</h2>
                 <Badge className="bg-purple-900 text-white">
-                  {getMin(data.map((x: any) => (x.weight ? x.weight : "")))}
+                  {getMin(
+                    data.map((x: any) => (x.totalProtein ? x.totalProtein : ""))
+                  )}
                 </Badge>
               </div>
               <div className="m-5 text-center">
-                <h2 className="my-2">Average Weight</h2>
+                <h2 className="my-2">Average Protein</h2>
                 <Badge className="bg-purple-900 text-white">
-                  {" "}
-                  {getAverage(data.map((x: any) => (x.weight ? x.weight : "")))}
+                  {getAverage(
+                    data.map((x: any) => (x.totalProtein ? x.totalProtein : ""))
+                  )}
                 </Badge>
               </div>
               <div className="m-5 text-center">
-                <h2 className="my-2">Max Weight</h2>
+                <h2 className="my-2">Max Protein</h2>
                 <Badge className="bg-purple-900 text-white">
-                  {getMax(data.map((x: any) => (x.weight ? x.weight : "")))}
+                  {getMax(
+                    data.map((x: any) => (x.totalProtein ? x.totalProtein : ""))
+                  )}
                 </Badge>
               </div>
             </div>
@@ -211,4 +203,4 @@ const Graph = (date: any) => {
   );
 };
 
-export default Graph;
+export default ProteinGraph;
