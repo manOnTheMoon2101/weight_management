@@ -1,29 +1,23 @@
 "use client";
-import {
-  Bar,
-  BarChart,
-  CartesianGrid,
-  XAxis,
-  LabelList,
-  YAxis,
-} from "recharts";
+import useSWR from "swr";
+import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts";
+import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from "recharts";
+
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
-  CardFooter,
   CardTitle,
+  CardFooter,
 } from "@/components/ui/card";
-import { Skeleton } from "@/components/ui/skeleton";
-import useSWR from "swr";
+import { Badge } from "@/components/ui/badge";
 import {
   ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-import { Badge } from "@/components/ui/badge";
 import { Acme } from "next/font/google";
 import { Anek_Devanagari } from "next/font/google";
 const anek = Anek_Devanagari({
@@ -40,7 +34,10 @@ const chartConfig = {
     color: "hsl(var(--chart-1))",
   },
 } satisfies ChartConfig;
-export function CalorieGraph(date: any) {
+
+import React from "react";
+import { Skeleton } from "@/components/ui/skeleton";
+const ProteinGraph = (date: any) => {
   function getAverage(numbers: any) {
     if (numbers.length === 0) return null;
 
@@ -131,20 +128,21 @@ export function CalorieGraph(date: any) {
   ];
   const chartData =
     data?.map((item: any) => ({
-      createdAt: new Date(item.createdAt).getDate(), // Format date as needed
-      totalCalories: item.totalCalories,
+      createdAt: new Date(item.createdAt).getDate(),
+      protein: item.totalProtein,
     })) || [];
   if (error) return <div>failed to load</div>;
   if (isLoading)
     return (
       <div className="flex items-center space-x-4">
-        <Skeleton className="w-[100%] h-[300px] mt-5" />
+        <Skeleton className="w-[100%] h-[300px]" />
       </div>
     );
+
   return (
     <Card className="my-5">
       <CardHeader>
-        <CardTitle className={`${anek.className}`}>Calorie Chart</CardTitle>
+        <CardTitle className={`${anek.className}`}>Protein Chart</CardTitle>
         <CardDescription className={`${acme.className}`}>
           {" "}
           {months.map((x: any) => (x.value == date.month ? x.text : ""))}
@@ -152,63 +150,48 @@ export function CalorieGraph(date: any) {
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
-          <BarChart accessibilityLayer data={chartData}>
-            <CartesianGrid vertical={false} />
-            <XAxis
-              dataKey="createdAt"
-              tickLine={false}
-              tickMargin={10}
-              axisLine={false}
+          <RadarChart data={chartData}>
+            <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
+            <PolarAngleAxis dataKey="createdAt" />
+            <PolarGrid />
+            <Radar
+              dataKey="protein"
+              name="Protein"
+              fill="#fb923c"
+              dot={{
+                stroke: "rgb(251 146 60)",
+                fill: "none",
+              }}
+              fillOpacity={0.6}
             />
-            <YAxis domain={[0]} />
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent hideLabel />}
-            />
-
-            <Bar
-              dataKey="totalCalories"
-              name="Calories"
-              fill="rgb(251 146 60)"
-              radius={8}
-            >
-              <LabelList offset={0} className="fill-foreground" fontSize={12} />
-            </Bar>
-          </BarChart>
+          </RadarChart>
         </ChartContainer>
       </CardContent>
       <CardFooter>
         <div className="flex w-full items-start gap-2 text-sm">
           <div className="grid gap-2">
-            <div className="flex items-center gap-2 font-medium leading-none"></div>
             <div className="flex items-center gap-2 leading-none text-muted-foreground">
               <div className="m-5 text-center">
-                <h2 className="my-2">Min Calories</h2>
+                <h2 className="my-2">Min Protein</h2>
                 <Badge className="bg-purple-900 text-white">
                   {getMin(
-                    data.map((x: any) =>
-                      x.totalCalories ? x.totalCalories : ""
-                    )
+                    data.map((x: any) => (x.totalProtein ? x.totalProtein : ""))
                   )}
                 </Badge>
               </div>
               <div className="m-5 text-center">
-                <h2 className="my-2">Average Calories</h2>
+                <h2 className="my-2">Average Protein</h2>
                 <Badge className="bg-purple-900 text-white">
                   {getAverage(
-                    data.map((x: any) =>
-                      x.totalCalories ? x.totalCalories : ""
-                    )
+                    data.map((x: any) => (x.totalProtein ? x.totalProtein : ""))
                   )}
                 </Badge>
               </div>
               <div className="m-5 text-center">
-                <h2 className="my-2">Max Calories</h2>
+                <h2 className="my-2">Max Protein</h2>
                 <Badge className="bg-purple-900 text-white">
                   {getMax(
-                    data.map((x: any) =>
-                      x.totalCalories ? x.totalCalories : ""
-                    )
+                    data.map((x: any) => (x.totalProtein ? x.totalProtein : ""))
                   )}
                 </Badge>
               </div>
@@ -218,4 +201,6 @@ export function CalorieGraph(date: any) {
       </CardFooter>
     </Card>
   );
-}
+};
+
+export default ProteinGraph;
