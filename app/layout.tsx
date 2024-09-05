@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { Viewport } from 'next';
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
@@ -11,7 +12,14 @@ export const metadata: Metadata = {
   title: "@weight_mangement_app",
   description: "Weight Management App made by @cleveclayton",
 };
-
+export function generateViewport(): Viewport {
+  return {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+  }
+}
 export default function RootLayout({
   children,
 }: Readonly<{
