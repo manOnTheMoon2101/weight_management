@@ -126,6 +126,12 @@ const Login = () => {
               Register?
             </Link>
           </p>
+          <p className="mt-10">
+            Don't want to create a account{" "}
+            <Link href="/demo" className="text-orange-400">
+             Demo?
+            </Link>
+          </p>
         </div>
       </div>
     </div>
