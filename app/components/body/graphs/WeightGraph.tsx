@@ -187,20 +187,20 @@ const Graph = (date: any) => {
               <div className="m-5 text-center">
                 <h2 className="my-2">Min Weight</h2>
                 <Badge className="bg-purple-900 text-white">
-                  {getMin(data.map((x: any) => (x.weight ? x.weight : "")))}
+                  {getMin(data.map((x: any) => (x.weight ? x.weight : 0)))}
                 </Badge>
               </div>
               <div className="m-5 text-center">
                 <h2 className="my-2">Average Weight</h2>
                 <Badge className="bg-purple-900 text-white">
                   {" "}
-                  {getAverage(data.map((x: any) => (x.weight ? x.weight : "")))}
+                  {getAverage(data.map((x: any) => (x.weight ? x.weight : 0)))}
                 </Badge>
               </div>
               <div className="m-5 text-center">
                 <h2 className="my-2">Max Weight</h2>
                 <Badge className="bg-purple-900 text-white">
-                  {getMax(data.map((x: any) => (x.weight ? x.weight : "")))}
+                  {getMax(data.map((x: any) => (x.weight ? x.weight : 0)))}
                 </Badge>
               </div>
             </div>
