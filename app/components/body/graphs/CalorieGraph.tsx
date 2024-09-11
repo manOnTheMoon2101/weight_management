@@ -187,7 +187,7 @@ export function CalorieGraph(date: any) {
                 <Badge className="bg-purple-900 text-white">
                   {getMin(
                     data.map((x: any) =>
-                      x.totalCalories ? x.totalCalories : ""
+                      x.totalCalories ? x.totalCalories : 0
                     )
                   )}
                 </Badge>
@@ -197,7 +197,7 @@ export function CalorieGraph(date: any) {
                 <Badge className="bg-purple-900 text-white">
                   {getAverage(
                     data.map((x: any) =>
-                      x.totalCalories ? x.totalCalories : ""
+                      x.totalCalories ? x.totalCalories : 0
                     )
                   )}
                 </Badge>
@@ -207,7 +207,7 @@ export function CalorieGraph(date: any) {
                 <Badge className="bg-purple-900 text-white">
                   {getMax(
                     data.map((x: any) =>
-                      x.totalCalories ? x.totalCalories : ""
+                      x.totalCalories ? x.totalCalories : 0
                     )
                   )}
                 </Badge>

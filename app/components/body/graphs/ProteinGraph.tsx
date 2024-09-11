@@ -175,7 +175,7 @@ const ProteinGraph = (date: any) => {
                 <h2 className="my-2">Min Protein</h2>
                 <Badge className="bg-purple-900 text-white">
                   {getMin(
-                    data.map((x: any) => (x.totalProtein ? x.totalProtein : ""))
+                    data.map((x: any) => (x.totalProtein ? x.totalProtein : 0))
                   )}
                 </Badge>
               </div>
@@ -183,7 +183,7 @@ const ProteinGraph = (date: any) => {
                 <h2 className="my-2">Average Protein</h2>
                 <Badge className="bg-purple-900 text-white">
                   {getAverage(
-                    data.map((x: any) => (x.totalProtein ? x.totalProtein : ""))
+                    data.map((x: any) => (x.totalProtein ? x.totalProtein : 0))
                   )}
                 </Badge>
               </div>
@@ -191,7 +191,7 @@ const ProteinGraph = (date: any) => {
                 <h2 className="my-2">Max Protein</h2>
                 <Badge className="bg-purple-900 text-white">
                   {getMax(
-                    data.map((x: any) => (x.totalProtein ? x.totalProtein : ""))
+                    data.map((x: any) => (x.totalProtein ? x.totalProtein : 0))
                   )}
                 </Badge>
               </div>
