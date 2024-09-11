@@ -9,6 +9,8 @@ import { AiOutlineLoading } from "react-icons/ai";
 import { Label } from "@/components/ui/label";
 import { FaInfoCircle } from "react-icons/fa";
 import { useRouter } from "next/navigation";
+import isValidEmail from "../utils/emailValidation";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import {
   Popover,
   PopoverContent,
@@ -24,6 +26,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const isDisabled = !email || !password;
   const router = useRouter();
   const onSubmit = async () => {
@@ -41,7 +44,9 @@ const Login = () => {
       setLoading(false);
     }
   };
-
+  const handleTogglePassword = () => {
+    setShowPassword(!showPassword);
+  };
   return (
     <div className="min-h-screen flex flex-col items-center justify-center">
       <div className="p-8">
@@ -81,20 +86,25 @@ const Login = () => {
         </div>
         <Label className="text-4xl text-center">Email</Label>
         <Input
-          placeholder="email@email.com"
+          placeholder="email@example.com"
           type="email"
           className="border-purple-900"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
         <Label className="text-4xl">Password</Label>
-        <Input
-          placeholder="*****"
-          type="password"
-          className="border-purple-900"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        <div className="flex flex-row">
+          <Input
+            placeholder="*****"
+            type={showPassword ? "text" : "password"}
+            className="border-purple-900"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <Button type="button" onClick={handleTogglePassword}>
+            {showPassword ? <FaEyeSlash /> : <FaEye />}
+          </Button>
+        </div>
         <div className="flex flex-col mt-10">
           <TooltipProvider>
             <Tooltip>
@@ -106,7 +116,7 @@ const Login = () => {
                     <Button
                       className={`bg-orange-400 text-slate-50 w-full`}
                       onClick={onSubmit}
-                      disabled={!email || !password}
+                      disabled={!isValidEmail(email) || !password}
                     >
                       Login
                     </Button>
@@ -124,12 +134,6 @@ const Login = () => {
             Don't have an account?{" "}
             <Link href="/register" className="text-orange-400">
               Register?
-            </Link>
-          </p>
-          <p className="mt-10">
-            Don't want to create a account{" "}
-            <Link href="/demo" className="text-orange-400">
-             Demo?
             </Link>
           </p>
         </div>

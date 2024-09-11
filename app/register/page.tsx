@@ -9,9 +9,12 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import { AiOutlineLoading } from "react-icons/ai";
 import { toast } from "@/components/ui/use-toast";
+import isValidEmail from "../utils/emailValidation";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 const Register = () => {
   const [loading, setLoading] = useState(false);
   const [user, postUser] = useState<any>({});
+  const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -43,6 +46,10 @@ const Register = () => {
       });
   };
 
+  const handleTogglePassword = () => {
+    setShowPassword(!showPassword);
+  };
+
   const handleChange = (e: any) => {
     const name = e.target.name;
     const value = String(e.target.value);
@@ -55,7 +62,7 @@ const Register = () => {
         <form>
           <Label className="text-4xl text-center">Name</Label>
           <Input
-            placeholder="Name"
+            placeholder="First Name"
             name="name"
             className="border-purple-900"
             onChange={handleChange}
@@ -63,21 +70,31 @@ const Register = () => {
           />
           <Label className="text-4xl text-center">Email</Label>
           <Input
-            placeholder="Email"
+            placeholder="email@example.com"
             className="border-purple-900"
             name="email"
             onChange={handleChange}
             value={user.email}
           />
+          {isValidEmail(user.email) || user.email == "" ? (
+            ""
+          ) : (
+            <p className="text-red-600">Not Valid Email!</p>
+          )}
           <Label className="text-4xl text-center">Password</Label>
-          <Input
-            placeholder="Password"
-            name="password"
-            className="border-purple-900"
-            onChange={handleChange}
-            value={user.password}
-          />
-
+          <div className="flex flex-row">
+            <Input
+              placeholder="*****"
+              name="password"
+              type={showPassword ? "text" : "password"}
+              className="border-purple-900"
+              onChange={handleChange}
+              value={user.password}
+            />
+            <Button type="button" onClick={handleTogglePassword}>
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </Button>
+          </div>
           <div className="flex flex-col mt-10">
             {loading ? (
               <AiOutlineLoading className="animate-spin text-orange-400 text-lg w-full" />
@@ -85,7 +102,9 @@ const Register = () => {
               <Button
                 className="bg-orange-400 text-slate-50 w-full"
                 onClick={handleSubmit}
-                disabled={!user.email || !user.password || !user.name}
+                disabled={
+                  !isValidEmail(user.email) || !user.password || !user.name
+                }
               >
                 Register
               </Button>
