@@ -12,11 +12,6 @@ import isValidEmail from "../utils/emailValidation";
 import { Info } from "./components/info/Info";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
-import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
@@ -51,7 +46,7 @@ const Login = () => {
     <div className="min-h-screen flex flex-col items-center justify-center">
       <div className="p-8">
         <div className="flex flex-row justify-end">
-      <Info/>
+          <Info />
         </div>
         <Label className="text-4xl text-center">Email</Label>
         <Input
