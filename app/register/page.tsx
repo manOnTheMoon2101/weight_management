@@ -15,6 +15,7 @@ const Register = () => {
   const [loading, setLoading] = useState(false);
   const [user, postUser] = useState<any>({});
   const [showPassword, setShowPassword] = useState(false);
+  const [touched, setTouched] = useState(false);
   const router = useRouter();
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -49,7 +50,9 @@ const Register = () => {
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
-
+  const handleBlur = () => {
+    setTouched(true);
+  };
   const handleChange = (e: any) => {
     const name = e.target.name;
     const value = String(e.target.value);
@@ -74,11 +77,10 @@ const Register = () => {
             className="border-purple-900"
             name="email"
             onChange={handleChange}
+            onBlur={handleBlur}
             value={user.email}
           />
-          {isValidEmail(user.email) || user.email == "" ? (
-            ""
-          ) : (
+          {touched && !isValidEmail(user.email) && user.email !== "" && (
             <p className="text-red-600">Not Valid Email!</p>
           )}
           <Label className="text-4xl text-center">Password</Label>

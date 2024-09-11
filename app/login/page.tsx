@@ -22,7 +22,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const isDisabled = !email || !password;
+  const [touched, setTouched] = useState(false);
   const router = useRouter();
   const onSubmit = async () => {
     setLoading(true);
@@ -39,6 +39,9 @@ const Login = () => {
       setLoading(false);
     }
   };
+  const handleBlur = () => {
+    setTouched(true);
+  };
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
@@ -54,8 +57,12 @@ const Login = () => {
           type="email"
           className="border-purple-900"
           value={email}
+          onBlur={handleBlur}
           onChange={(e) => setEmail(e.target.value)}
         />
+        {touched && !isValidEmail(email) && email !== "" && (
+          <p className="text-red-600">Not Valid Email!</p>
+        )}
         <Label className="text-4xl">Password</Label>
         <div className="flex flex-row">
           <Input
