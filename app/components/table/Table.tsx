@@ -14,6 +14,15 @@ import {
 } from "@/components/ui/tooltip";
 import SkeletonHolder from "./skeleton/skeletonHolder";
 import { Cousine } from "next/font/google";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { FaInfoCircle } from "react-icons/fa";
 const cousine = Cousine({
   subsets: ["latin"],
   weight: "400",
@@ -37,14 +46,39 @@ export function Dashboard_table(date: any) {
                 <th className="px-4 py-2 text-center">Open</th>
                 <th className="px-4 py-2  text-center">Date</th>
                 <th className="px-4 py-2  text-center">Weight</th>
-                <th className="px-4 py-2  text-center">Calories</th>
-                <th className="px-4 py-2  text-center">Protein</th>
-                <th className="px-4 py-2  text-center">Fat</th>
-                <th className="px-4 py-2  text-center">Carbohydrates</th>
-                <th className="px-4 py-2  text-center">Sugar</th>
-                <th className="px-4 py-2  text-center">Vitamin?</th>
-                <th className="px-4 py-2  text-center">CLA?</th>
-                <th className="px-4 py-2  text-center">L-Carnitine?</th>
+                <th className="px-4 py-2  text-center">
+                  {" "}
+                  <div className="flex flex-row justify-center">
+                    Calories <FaInfoCircle />
+                  </div>
+                </th>
+                <th className="px-4 py-2  text-center">
+                  {" "}
+                  <div className="flex flex-row justify-center">
+                    Protein <FaInfoCircle />
+                  </div>
+                </th>
+                <th className="px-4 py-2  text-center">
+                  {" "}
+                  <div className="flex flex-row justify-center">
+                    Fat <FaInfoCircle />
+                  </div>
+                </th>
+                <th className="px-4 py-2  text-center">
+                  {" "}
+                  <div className="flex flex-row justify-center">
+                    Carbs <FaInfoCircle />
+                  </div>
+                </th>
+                <th className="px-4 py-2  text-center">
+                  {" "}
+                  <div className="flex flex-row justify-center">
+                    Sugar <FaInfoCircle />
+                  </div>
+                </th>
+                <th className="px-4 py-2  text-center">Vitamin</th>
+                <th className="px-4 py-2  text-center">CLA</th>
+                <th className="px-4 py-2  text-center">L-Carnitine</th>
               </tr>
             </thead>
 
@@ -68,11 +102,70 @@ export function Dashboard_table(date: any) {
                 <th className="px-4 py-2 text-center">Open</th>
                 <th className="px-4 py-2  text-center">Date</th>
                 <th className="px-4 py-2  text-center">Weight</th>
-                <th className="px-4 py-2  text-center">Calories</th>
-                <th className="px-4 py-2  text-center">Protein</th>
-                <th className="px-4 py-2  text-center">Fat</th>
-                <th className="px-4 py-2  text-center">Carbohydrates</th>
-                <th className="px-4 py-2  text-center">Sugar</th>
+                <th className="px-4 py-2  text-center">
+                  <Popover>
+                    <PopoverTrigger asChild>
+                      <div className="flex flex-row justify-center">
+                        Calories <FaInfoCircle />
+                      </div>
+                    </PopoverTrigger>
+                    <PopoverContent className="text-center">
+                      <p>Max 2000 Calories</p>
+                    </PopoverContent>
+                  </Popover>
+                </th>
+                <th className="px-4 py-2  text-center">
+                  {" "}
+                  <Popover>
+                    <PopoverTrigger asChild>
+                      <div className="flex flex-row justify-center">
+                        Protein <FaInfoCircle />
+                      </div>
+                    </PopoverTrigger>
+                    <PopoverContent className="text-center">
+                      <p>Min 70g Protein</p>
+                    </PopoverContent>
+                  </Popover>
+                </th>
+                <th className="px-4 py-2  text-center">
+                  <Popover>
+                    <PopoverTrigger asChild>
+                      <div className="flex flex-row justify-center">
+                        Fat <FaInfoCircle />
+                      </div>
+                    </PopoverTrigger>
+                    <PopoverContent className="text-center">
+                      <p>Max 67g Fat</p>
+                    </PopoverContent>
+                  </Popover>
+                </th>
+                <th className="px-4 py-2  text-center">
+                  <Popover>
+                    <PopoverTrigger asChild>
+                      <div className="flex flex-row justify-center">
+                        Carbs
+                        <FaInfoCircle />
+                      </div>
+                    </PopoverTrigger>
+                    <PopoverContent className="text-center">
+                      <p>Max 120g Carbs</p>
+                    </PopoverContent>
+                  </Popover>
+                </th>
+                <th className="px-4 py-2  text-center">
+                  {" "}
+                  <Popover>
+                    <PopoverTrigger asChild>
+                      <div className="flex flex-row justify-center">
+                        Sugar
+                        <FaInfoCircle />
+                      </div>
+                    </PopoverTrigger>
+                    <PopoverContent className="text-center">
+                      <p>Max 30g Sugar</p>
+                    </PopoverContent>
+                  </Popover>
+                </th>
                 <th className="px-4 py-2  text-center">Vitamin</th>
                 <th className="px-4 py-2  text-center">CLA</th>
                 <th className="px-4 py-2  text-center">L-Carnitine</th>
@@ -187,11 +280,73 @@ export function Dashboard_table(date: any) {
               <th className="px-4 py-2 text-center">Open</th>
               <th className="px-4 py-2  text-center">Date</th>
               <th className="px-4 py-2  text-center">Weight</th>
-              <th className="px-4 py-2  text-center">Calories</th>
-              <th className="px-4 py-2  text-center">Protein</th>
-              <th className="px-4 py-2  text-center">Fat</th>
-              <th className="px-4 py-2  text-center">Carbohydrates</th>
-              <th className="px-4 py-2  text-center">Sugar</th>
+              <th className="px-4 py-2  text-center">
+                {" "}
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <div className="flex flex-row justify-center">
+                      Calories <FaInfoCircle />
+                    </div>
+                  </PopoverTrigger>
+                  <PopoverContent className="text-center">
+                    <p>Max 2000 Calories</p>
+                  </PopoverContent>
+                </Popover>
+              </th>
+              <th className="px-4 py-2  text-center">
+                {" "}
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <div className="flex flex-row justify-center">
+                      Protein <FaInfoCircle />
+                    </div>
+                  </PopoverTrigger>
+                  <PopoverContent className="text-center">
+                    <p>Min 70g Protein</p>
+                  </PopoverContent>
+                </Popover>
+              </th>
+              <th className="px-4 py-2  text-center">
+                {" "}
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <div className="flex flex-row justify-center">
+                      Fat <FaInfoCircle />
+                    </div>
+                  </PopoverTrigger>
+                  <PopoverContent className="text-center">
+                    <p>Max 67g Fat</p>
+                  </PopoverContent>
+                </Popover>
+              </th>
+              <th className="px-4 py-2  text-center">
+                {" "}
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <div className="flex flex-row justify-center">
+                      Carbs
+                      <FaInfoCircle />
+                    </div>
+                  </PopoverTrigger>
+                  <PopoverContent className="text-center">
+                    <p>Max 120g Carbs</p>
+                  </PopoverContent>
+                </Popover>
+              </th>
+              <th className="px-4 py-2  text-center">
+                {" "}
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <div className="flex flex-row justify-center">
+                      Sugar
+                      <FaInfoCircle />
+                    </div>
+                  </PopoverTrigger>
+                  <PopoverContent className="text-center">
+                    <p>Max 30g Sugar</p>
+                  </PopoverContent>
+                </Popover>
+              </th>
               <th className="px-4 py-2  text-center">Vitamin</th>
               <th className="px-4 py-2  text-center">CLA</th>
               <th className="px-4 py-2  text-center">L-Carnitine</th>
