@@ -94,11 +94,11 @@ export function Dashboard_table(date: any) {
   if (isDesktop) {
     return (
       <>
-        <div className="min-w-full overflow-x-auto border rounded">
+        <div className="min-w-full overflow-x-auto border rounded h-52">
           {/* <h3 className={`${anek.className} text-2xl m-5`}>Dashboard</h3> */}
           <table className="table-auto min-w-full">
             <thead>
-              <tr>
+              <tr className="sticky top-0 bg-background">
                 <th className="px-4 py-2 text-center">Open</th>
                 <th className="px-4 py-2  text-center">Date</th>
                 <th className="px-4 py-2  text-center">Weight</th>
