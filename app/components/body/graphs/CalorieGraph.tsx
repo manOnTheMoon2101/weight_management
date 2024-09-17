@@ -172,7 +172,13 @@ export function CalorieGraph(date: any) {
               fill="rgb(251 146 60)"
               radius={8}
             >
-              <LabelList offset={0} className="fill-foreground" fontSize={12} />
+              <LabelList
+                position={"center"}
+                angle={270}
+                offset={0}
+                className="fill-foreground"
+                fontSize={12}
+              />
             </Bar>
           </BarChart>
         </ChartContainer>
