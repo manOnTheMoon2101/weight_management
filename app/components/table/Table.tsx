@@ -270,10 +270,10 @@ export function Dashboard_table(date: any) {
 
   return (
     <>
-      <div className="min-w-full overflow-x-auto border rounded">
+      <div className="min-w-full overflow-x-auto border rounded h-96">
         <table className="table-auto min-w-full">
           <thead>
-            <tr>
+            <tr className="sticky top-0 bg-background">
               <th className="px-4 py-2 text-center">Open</th>
               <th className="px-4 py-2  text-center">Date</th>
               <th className="px-4 py-2  text-center">Weight</th>
