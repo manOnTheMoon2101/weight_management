@@ -46,7 +46,7 @@ export function Dashboard_table(date: any) {
                 <th className="px-4 py-2  text-center">
                   {" "}
                   <div className="flex flex-row justify-center">
-                    Calories <FaInfoCircle />
+                    Calories <FaInfoCircle/>
                   </div>
                 </th>
                 <th className="px-4 py-2  text-center">
@@ -103,7 +103,7 @@ export function Dashboard_table(date: any) {
                   <Popover>
                     <PopoverTrigger asChild>
                       <div className="flex flex-row justify-center">
-                        Calories <FaInfoCircle />
+                        Calories <FaInfoCircle className="hover:text-orange-400"/>
                       </div>
                     </PopoverTrigger>
                     <PopoverContent className="text-center">
@@ -116,7 +116,7 @@ export function Dashboard_table(date: any) {
                   <Popover>
                     <PopoverTrigger asChild>
                       <div className="flex flex-row justify-center">
-                        Protein <FaInfoCircle />
+                        Protein <FaInfoCircle className="hover:text-orange-400" />
                       </div>
                     </PopoverTrigger>
                     <PopoverContent className="text-center">
@@ -128,7 +128,7 @@ export function Dashboard_table(date: any) {
                   <Popover>
                     <PopoverTrigger asChild>
                       <div className="flex flex-row justify-center">
-                        Fat <FaInfoCircle />
+                        Fat <FaInfoCircle className="hover:text-orange-400" />
                       </div>
                     </PopoverTrigger>
                     <PopoverContent className="text-center">
@@ -141,7 +141,7 @@ export function Dashboard_table(date: any) {
                     <PopoverTrigger asChild>
                       <div className="flex flex-row justify-center">
                         Carbs
-                        <FaInfoCircle />
+                        <FaInfoCircle className="hover:text-orange-400" />
                       </div>
                     </PopoverTrigger>
                     <PopoverContent className="text-center">
@@ -155,7 +155,7 @@ export function Dashboard_table(date: any) {
                     <PopoverTrigger asChild>
                       <div className="flex flex-row justify-center">
                         Sugar
-                        <FaInfoCircle />
+                        <FaInfoCircle className="hover:text-orange-400"/>
                       </div>
                     </PopoverTrigger>
                     <PopoverContent className="text-center">
@@ -282,7 +282,7 @@ export function Dashboard_table(date: any) {
                 <Popover>
                   <PopoverTrigger asChild>
                     <div className="flex flex-row justify-center">
-                      Calories <FaInfoCircle />
+                      Calories <FaInfoCircle  className="hover:text-orange-400"/>
                     </div>
                   </PopoverTrigger>
                   <PopoverContent className="text-center">
@@ -295,7 +295,7 @@ export function Dashboard_table(date: any) {
                 <Popover>
                   <PopoverTrigger asChild>
                     <div className="flex flex-row justify-center">
-                      Protein <FaInfoCircle />
+                      Protein <FaInfoCircle  className="hover:text-orange-400"/>
                     </div>
                   </PopoverTrigger>
                   <PopoverContent className="text-center">
@@ -308,7 +308,7 @@ export function Dashboard_table(date: any) {
                 <Popover>
                   <PopoverTrigger asChild>
                     <div className="flex flex-row justify-center">
-                      Fat <FaInfoCircle />
+                      Fat <FaInfoCircle className="hover:text-orange-400"/>
                     </div>
                   </PopoverTrigger>
                   <PopoverContent className="text-center">
@@ -322,7 +322,7 @@ export function Dashboard_table(date: any) {
                   <PopoverTrigger asChild>
                     <div className="flex flex-row justify-center">
                       Carbs
-                      <FaInfoCircle />
+                      <FaInfoCircle className="hover:text-orange-400"/>
                     </div>
                   </PopoverTrigger>
                   <PopoverContent className="text-center">
@@ -336,7 +336,7 @@ export function Dashboard_table(date: any) {
                   <PopoverTrigger asChild>
                     <div className="flex flex-row justify-center">
                       Sugar
-                      <FaInfoCircle />
+                      <FaInfoCircle className="hover:text-orange-400"/>
                     </div>
                   </PopoverTrigger>
                   <PopoverContent className="text-center">
