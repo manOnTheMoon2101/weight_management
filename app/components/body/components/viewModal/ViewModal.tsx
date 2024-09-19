@@ -55,7 +55,7 @@ const ViewModal = (data: any) => {
                     <Label
                       className={`text-center mb-2 text-xl ${cousine.className}`}
                     >
-                      FB
+                      L-C
                     </Label>
                   </TooltipTrigger>
                   <TooltipContent>

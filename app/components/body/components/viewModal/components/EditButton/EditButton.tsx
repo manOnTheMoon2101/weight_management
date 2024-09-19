@@ -141,7 +141,7 @@ export function EditButton(data: any) {
                       <Tooltip>
                         <TooltipTrigger asChild>
                           <Label className="text-center cursor-help mb-2 text-xl">
-                            FB
+                          L-C
                           </Label>
                         </TooltipTrigger>
                         <TooltipContent>
@@ -296,7 +296,7 @@ export function EditButton(data: any) {
                   <Tooltip>
                     <TooltipTrigger asChild>
                       <Label className="text-center cursor-help mb-2 text-xl">
-                        FB
+                      L-C
                       </Label>
                     </TooltipTrigger>
                     <TooltipContent>

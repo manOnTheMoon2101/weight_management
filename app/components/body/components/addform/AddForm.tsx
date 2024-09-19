@@ -155,7 +155,7 @@ export function AddForm() {
                         <Label
                           className={`text-center mb-2 text-xl ${cousine.className}`}
                         >
-                          FB
+                        L-C
                         </Label>
                       </TooltipTrigger>
                       <TooltipContent>
@@ -368,7 +368,7 @@ export function AddForm() {
                     <Label
                       className={`text-center mb-2 text-xl ${cousine.className}`}
                     >
-                      FB
+                      L-C
                     </Label>
                   </TooltipTrigger>
                   <TooltipContent>
