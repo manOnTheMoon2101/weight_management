@@ -11,6 +11,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import { MdDelete } from "react-icons/md";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import axios from "axios";
@@ -29,14 +30,13 @@ const DeleteButton = (id: any) => {
       .catch((err) => {
         console.log(err);
       })
-      .finally(() => {
-      });
+      .finally(() => {});
   };
   return (
     <div>
       <AlertDialog>
         <AlertDialogTrigger>
-          <Button className="bg-red-900 text-slate-50">Delete</Button>
+          <MdDelete className="text-red-500 mx-2" size={30} />
         </AlertDialogTrigger>
         <AlertDialogContent>
           <AlertDialogHeader>

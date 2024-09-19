@@ -11,6 +11,8 @@ import { useState } from "react";
 import { Switch } from "@/components/ui/switch";
 import { useToast } from "@/components/ui/use-toast";
 import { AiOutlineLoading } from "react-icons/ai";
+import { FaEdit } from "react-icons/fa";
+import { FaSave } from "react-icons/fa";
 import {
   Tooltip,
   TooltipContent,
@@ -77,156 +79,12 @@ export function EditButton(data: any) {
       <div>
         <Dialog open={open} onOpenChange={setOpen}>
           <DialogTrigger>
-            <div className="flex flex-row justify-between items-center">
-              <Button onClick={() => setOpen(true)} className="">
-                Edit
-              </Button>
+            <div className="flex flex-row justify-between items-center mx-2">
+              <FaEdit size={30} onClick={() => setOpen(true)} />
             </div>
           </DialogTrigger>
           <DialogContent>
-            <form onSubmit={handleSubmit}>
-              <div className="flex flex-row justify-between">
-                <div className="flex flex-col justify-center items-center m-2">
-                  <Label className="text-center mb-2 text-xl">Weight</Label>
-                  <Input
-                    type="number"
-                    name="weight"
-                    value={post.weight}
-                    step="0.01"
-                    onChange={handleChange}
-                  />
-                </div>
-                <div className="flex flex-col justify-center items-center m-2">
-                  <Label className="text-center mb-2 text-xl">
-                    Total Calories
-                  </Label>
-                  <Input
-                    type="number"
-                    name="totalCalories"
-                    value={post.totalCalories}
-                    step="1"
-                    onChange={handleChange}
-                  />
-                </div>
-              </div>
-              <div className="flex flex-row justify-evenly m-10">
-                <div className="flex flex-col justify-center items-center">
-                  <TooltipProvider>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <Label className="text-center cursor-help mb-2 text-xl">
-                          FB
-                        </Label>
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>Fat Burner</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                  <Switch
-                    name="tookFatburner"
-                    checked={post.tookFatburner}
-                    onCheckedChange={(checked) =>
-                      handleSwitchChange("tookFatburner", checked)
-                    }
-                  />
-                </div>
-
-                <div className="flex flex-col justify-center items-center">
-                  <TooltipProvider>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <Label className="text-center cursor-help mb-2 text-xl">
-                          CLA
-                        </Label>
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>(Conjugated linoleic acid)</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                  <Switch
-                    name="tookWeightmanagement"
-                    checked={post.tookWeightmanagement}
-                    onCheckedChange={(checked) =>
-                      handleSwitchChange("tookWeightmanagement", checked)
-                    }
-                  />
-                </div>
-
-                <div className="flex flex-col justify-center items-center">
-                  <TooltipProvider>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <Label className="text-center cursor-help mb-2 text-xl">
-                          VIT
-                        </Label>
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>Vitamin</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                  <Switch
-                    name="tookVitamin"
-                    checked={post.tookVitamin}
-                    onCheckedChange={(checked) =>
-                      handleSwitchChange("tookVitamin", checked)
-                    }
-                  />
-                </div>
-              </div>
-              <div className="flex flex-col justify-center items-center mb-5">
-                <div className="text-center">
-                  <Label className="text-center mb-2 text-xl">Protein</Label>
-                  <Input
-                    type="number"
-                    name="totalProtein"
-                    value={post.totalProtein}
-                    step="0.01"
-                    onChange={handleChange}
-                  />
-                </div>
-              </div>
-
-              <div className="flex flex-col justify-center items-center mb-5">
-                <div className="text-center">
-                  <Label className="text-xl mb-2">Fat</Label>
-                  <Input
-                    type="number"
-                    name="totalFat"
-                    value={post.totalFat}
-                    step="0.01"
-                    onChange={handleChange}
-                  />
-                </div>
-              </div>
-
-              <div className="flex flex-col justify-center items-center mb-5">
-                <div className="text-center">
-                  <Label className="text-xl">Carbs</Label>
-                  <Input
-                    type="number"
-                    name="totalCarbs"
-                    value={post.totalCarbs}
-                    step="0.01"
-                    onChange={handleChange}
-                  />
-                </div>
-              </div>
-
-              <div className="flex flex-col justify-center items-center mb-5">
-                <div className="text-center">
-                  <Label className="text-xl">Sugar</Label>
-                  <Input
-                    type="number"
-                    name="totalSugar"
-                    value={post.totalSugar}
-                    step="0.01"
-                    onChange={handleChange}
-                  />
-                </div>
-              </div>
+            <div className="flex flex-row justify-start">
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
@@ -239,7 +97,7 @@ export function EditButton(data: any) {
                           type="submit"
                           className="bg-orange-400 text-slate-50"
                         >
-                          Save
+                          <FaSave />
                         </Button>
                       )}
                     </div>
@@ -247,6 +105,150 @@ export function EditButton(data: any) {
                   <TooltipContent>Save Data</TooltipContent>
                 </Tooltip>
               </TooltipProvider>
+            </div>
+            <form onSubmit={handleSubmit}>
+              <div className="flex flex-row justify-around">
+                <div className="flex flex-col justify-center items-center m-2">
+                  <div className="my-2">
+                    <Label className="text-center mb-2 text-xl">Weight</Label>
+                    <Input
+                      type="number"
+                      name="weight"
+                      value={post.weight}
+                      className="border-orange-400"
+                      step="0.01"
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="my-2">
+                    {" "}
+                    <Label className="text-center mb-2 text-xl">
+                      Total Calories
+                    </Label>
+                    <Input
+                      type="number"
+                      name="totalCalories"
+                      className="border-orange-400"
+                      value={post.totalCalories}
+                      step="1"
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
+                <div className="flex flex-col justify-center items-center m-2">
+                  <div className="flex flex-col justify-center items-center">
+                    <TooltipProvider>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <Label className="text-center cursor-help mb-2 text-xl">
+                          L-C
+                          </Label>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>Fat Burner</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                    <Switch
+                      name="tookFatburner"
+                      checked={post.tookFatburner}
+                      onCheckedChange={(checked) =>
+                        handleSwitchChange("tookFatburner", checked)
+                      }
+                    />
+                  </div>
+
+                  <div className="flex flex-col justify-center items-center">
+                    <TooltipProvider>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <Label className="text-center cursor-help mb-2 text-xl">
+                            CLA
+                          </Label>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>(Conjugated linoleic acid)</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                    <Switch
+                      name="tookWeightmanagement"
+                      checked={post.tookWeightmanagement}
+                      onCheckedChange={(checked) =>
+                        handleSwitchChange("tookWeightmanagement", checked)
+                      }
+                    />
+                  </div>
+
+                  <div className="flex flex-col justify-center items-center">
+                    <TooltipProvider>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <Label className="text-center cursor-help mb-2 text-xl">
+                            VIT
+                          </Label>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>Vitamin</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                    <Switch
+                      name="tookVitamin"
+                      checked={post.tookVitamin}
+                      onCheckedChange={(checked) =>
+                        handleSwitchChange("tookVitamin", checked)
+                      }
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-row justify-center items-center mb-5">
+                <div className="text-center mx-2">
+                  <Label className="text-center mb-2 text-xl">Protein</Label>
+                  <Input
+                    type="number"
+                    name="totalProtein"
+                    value={post.totalProtein}
+                    step="0.01"
+                    onChange={handleChange}
+                  />
+                </div>
+
+                <div className="text-center mx-2">
+                  <Label className="text-xl mb-2">Fat</Label>
+                  <Input
+                    type="number"
+                    name="totalFat"
+                    value={post.totalFat}
+                    step="0.01"
+                    onChange={handleChange}
+                  />
+                </div>
+              </div>
+
+              <div className="flex flex-row justify-center items-center mb-5">
+                <div className="text-center mx-2">
+                  <Label className="text-xl">Carbs</Label>
+                  <Input
+                    type="number"
+                    name="totalCarbs"
+                    value={post.totalCarbs}
+                    step="0.01"
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className="text-center mx-2">
+                  <Label className="text-xl">Sugar</Label>
+                  <Input
+                    type="number"
+                    name="totalSugar"
+                    value={post.totalSugar}
+                    step="0.01"
+                    onChange={handleChange}
+                  />
+                </div>
+              </div>
             </form>
           </DialogContent>
         </Dialog>
@@ -258,10 +260,8 @@ export function EditButton(data: any) {
     <div>
       <Drawer open={open} onOpenChange={setOpen}>
         <DrawerTrigger>
-          <div className="flex flex-row justify-between items-center">
-            <Button onClick={() => setOpen(true)} className="">
-              Edit
-            </Button>
+          <div className="flex flex-row justify-between items-center mx-2">
+            <FaEdit size={30} onClick={() => setOpen(true)} />
           </div>
         </DrawerTrigger>
         <DrawerContent>
@@ -296,7 +296,7 @@ export function EditButton(data: any) {
                   <Tooltip>
                     <TooltipTrigger asChild>
                       <Label className="text-center cursor-help mb-2 text-xl">
-                        FB
+                      L-C
                       </Label>
                     </TooltipTrigger>
                     <TooltipContent>
