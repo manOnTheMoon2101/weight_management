@@ -111,7 +111,7 @@ export function AddForm() {
               </Tooltip>
             </TooltipProvider>
           </div>
-          
+
           <form onSubmit={handleSubmit}>
             <div className="flex flex-row justify-around">
               <div className="flex flex-col justify-center items-center m-2">
@@ -285,7 +285,7 @@ export function AddForm() {
               </div>
             </div>
 
-            <div className="flex flex-row justify-center items-center mb-5">
+            {/* <div className="flex flex-row justify-center items-center mb-5">
               <div className="text-center mx-2">
                 <Label
                   className={`text-center mb-2 text-xl ${cousine.className}`}
@@ -316,7 +316,7 @@ export function AddForm() {
                   step="0.01"
                 />
               </div>
-            </div>
+            </div> */}
           </form>
         </DialogContent>
       </Dialog>
