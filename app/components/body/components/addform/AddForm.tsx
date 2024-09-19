@@ -19,6 +19,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Cousine } from "next/font/google";
+import { Badge } from "@/components/ui/badge";
 const cousine = Cousine({
   subsets: ["latin"],
   weight: "400",
@@ -64,7 +65,14 @@ export function AddForm() {
         setOpen(false);
       });
   };
-
+  const options: Intl.DateTimeFormatOptions = { 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric' 
+  };
+  const currentDate: Date = new Date();
+  const formattedDate: string = currentDate.toLocaleDateString('en-US',options);
+  console.log(formattedDate);
   const handleChange = (e: any) => {
     const { name, value, type, checked } = e.target;
     postData({
@@ -318,6 +326,9 @@ export function AddForm() {
               </div>
             </div> */}
           </form>
+          <div className="flex flex-row justify-end">
+          <Badge>{formattedDate}</Badge>
+          </div>
         </DialogContent>
       </Dialog>
     );
@@ -525,6 +536,9 @@ export function AddForm() {
             </Tooltip>
           </TooltipProvider>
         </form>
+        <div className="flex flex-row justify-end">
+          <Badge>{formattedDate}</Badge>
+          </div>
       </DrawerContent>
     </Drawer>
   );
