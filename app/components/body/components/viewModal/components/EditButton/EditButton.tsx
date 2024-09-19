@@ -84,29 +84,29 @@ export function EditButton(data: any) {
             </div>
           </DialogTrigger>
           <DialogContent>
-            <div className="flex flex-row justify-start">
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <div>
-                      {loading ? (
-                        <AiOutlineLoading className="animate-spin text-orange-400 text-lg" />
-                      ) : (
-                        <Button
-                          disabled={!post.weight || !post.totalCalories}
-                          type="submit"
-                          className="bg-orange-400 text-slate-50"
-                        >
-                          <FaSave />
-                        </Button>
-                      )}
-                    </div>
-                  </TooltipTrigger>
-                  <TooltipContent>Save Data</TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-            </div>
             <form onSubmit={handleSubmit}>
+              <div className="flex flex-row justify-start">
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <div>
+                        {loading ? (
+                          <AiOutlineLoading className="animate-spin text-orange-400 text-lg" />
+                        ) : (
+                          <Button
+                            disabled={!post.weight || !post.totalCalories}
+                            type="submit"
+                            className="bg-orange-400 text-slate-50"
+                          >
+                            <FaSave />
+                          </Button>
+                        )}
+                      </div>
+                    </TooltipTrigger>
+                    <TooltipContent>Save Data</TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
+              </div>
               <div className="flex flex-row justify-around">
                 <div className="flex flex-col justify-center items-center m-2">
                   <div className="my-2">
@@ -141,7 +141,7 @@ export function EditButton(data: any) {
                       <Tooltip>
                         <TooltipTrigger asChild>
                           <Label className="text-center cursor-help mb-2 text-xl">
-                          L-C
+                            L-C
                           </Label>
                         </TooltipTrigger>
                         <TooltipContent>
@@ -296,7 +296,7 @@ export function EditButton(data: any) {
                   <Tooltip>
                     <TooltipTrigger asChild>
                       <Label className="text-center cursor-help mb-2 text-xl">
-                      L-C
+                        L-C
                       </Label>
                     </TooltipTrigger>
                     <TooltipContent>

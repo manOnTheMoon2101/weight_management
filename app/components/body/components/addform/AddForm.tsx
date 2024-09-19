@@ -65,13 +65,16 @@ export function AddForm() {
         setOpen(false);
       });
   };
-  const options: Intl.DateTimeFormatOptions = { 
-    year: 'numeric', 
-    month: 'long', 
-    day: 'numeric' 
+  const options: Intl.DateTimeFormatOptions = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
   };
   const currentDate: Date = new Date();
-  const formattedDate: string = currentDate.toLocaleDateString('en-US',options);
+  const formattedDate: string = currentDate.toLocaleDateString(
+    "en-US",
+    options
+  );
   console.log(formattedDate);
   const handleChange = (e: any) => {
     const { name, value, type, checked } = e.target;
@@ -93,34 +96,33 @@ export function AddForm() {
           <Button>New Record +</Button>
         </DialogTrigger>
         <DialogContent>
-          <div className="flex flex-row justify-start">
-            <TooltipProvider>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <div>
-                    {loading ? (
-                      <AiOutlineLoading className="animate-spin text-orange-400 text-lg" />
-                    ) : (
-                      <Button
-                        disabled={!post.weight || !post.totalCalories}
-                        type="submit"
-                        className="bg-orange-400 text-slate-50"
-                      >
-                        <FaSave />
-                      </Button>
-                    )}
-                  </div>
-                </TooltipTrigger>
-                <TooltipContent className="text-red-600 text-left">
-                  {!post.weight && "Weight Required"}
-                  <br />
-                  {!post.totalCalories && "Calories Required"}
-                </TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
-          </div>
-
           <form onSubmit={handleSubmit}>
+            <div className="flex flex-row justify-start">
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <div>
+                      {loading ? (
+                        <AiOutlineLoading className="animate-spin text-orange-400 text-lg" />
+                      ) : (
+                        <Button
+                          disabled={!post.weight || !post.totalCalories}
+                          type="submit"
+                          className="bg-orange-400 text-slate-50"
+                        >
+                          <FaSave />
+                        </Button>
+                      )}
+                    </div>
+                  </TooltipTrigger>
+                  <TooltipContent className="text-red-600 text-left">
+                    {!post.weight && "Weight Required"}
+                    <br />
+                    {!post.totalCalories && "Calories Required"}
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            </div>
             <div className="flex flex-row justify-around">
               <div className="flex flex-col justify-center items-center m-2">
                 <div className="my-2">
@@ -163,7 +165,7 @@ export function AddForm() {
                         <Label
                           className={`text-center mb-2 text-xl ${cousine.className}`}
                         >
-                        L-C
+                          L-C
                         </Label>
                       </TooltipTrigger>
                       <TooltipContent>
@@ -327,7 +329,7 @@ export function AddForm() {
             </div> */}
           </form>
           <div className="flex flex-row justify-end">
-          <Badge>{formattedDate}</Badge>
+            <Badge>{formattedDate}</Badge>
           </div>
         </DialogContent>
       </Dialog>
@@ -538,7 +540,7 @@ export function AddForm() {
         </form>
         <div className="flex flex-row justify-end">
           <Badge>{formattedDate}</Badge>
-          </div>
+        </div>
       </DrawerContent>
     </Drawer>
   );
