@@ -91,7 +91,7 @@ export function Dashboard_table(date: any) {
   if (isDesktop) {
     return (
       <>
-        <div className="min-w-full overflow-x-auto border rounded h-52">
+        <div className="min-w-full overflow-x-auto border rounded h-80">
           {/* <h3 className={`${anek.className} text-2xl m-5`}>Dashboard</h3> */}
           <table className="table-auto min-w-full">
             <thead>
