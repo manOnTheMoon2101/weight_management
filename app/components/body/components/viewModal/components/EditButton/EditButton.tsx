@@ -11,6 +11,7 @@ import { useState } from "react";
 import { Switch } from "@/components/ui/switch";
 import { useToast } from "@/components/ui/use-toast";
 import { AiOutlineLoading } from "react-icons/ai";
+import { FaEdit } from "react-icons/fa";
 import {
   Tooltip,
   TooltipContent,
@@ -77,10 +78,8 @@ export function EditButton(data: any) {
       <div>
         <Dialog open={open} onOpenChange={setOpen}>
           <DialogTrigger>
-            <div className="flex flex-row justify-between items-center">
-              <Button onClick={() => setOpen(true)} className="">
-                Edit
-              </Button>
+            <div className="flex flex-row justify-between items-center mx-2">
+              <FaEdit size={30} onClick={() => setOpen(true)} />
             </div>
           </DialogTrigger>
           <DialogContent>
@@ -258,10 +257,8 @@ export function EditButton(data: any) {
     <div>
       <Drawer open={open} onOpenChange={setOpen}>
         <DrawerTrigger>
-          <div className="flex flex-row justify-between items-center">
-            <Button onClick={() => setOpen(true)} className="">
-              Edit
-            </Button>
+          <div className="flex flex-row justify-between items-center mx-2">
+            <FaEdit size={30} onClick={() => setOpen(true)} />
           </div>
         </DrawerTrigger>
         <DrawerContent>
