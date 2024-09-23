@@ -61,7 +61,7 @@ const Nutrients = () => {
   if (isDesktop) {
     return (
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogTrigger asChild>
+        <DialogTrigger disabled={true} asChild>
           <h3 className="text-center cursor-pointer">Set Nutrients</h3>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">

@@ -125,7 +125,7 @@ export function EditButton(data: any) {
                   <div className="my-2">
                     {" "}
                     <Label className="text-center mb-2 text-xl">
-                      Total Calories
+                    Calories
                     </Label>
                     <Input
                       type="number"
@@ -306,7 +306,7 @@ export function EditButton(data: any) {
                 <div className="my-2">
                   {" "}
                   <Label className="text-center mb-2 text-xl">
-                    Total Calories
+                  Calories
                   </Label>
                   <Input
                     type="number"

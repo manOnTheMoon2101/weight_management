@@ -36,7 +36,8 @@ export function MenubarDemo() {
       <MenubarMenu>
         <MenubarTrigger>Settings</MenubarTrigger>
         <MenubarContent>
-          <Nutrients />
+          {/* <Nutrients /> */}
+          <p>coming soon...</p>
         </MenubarContent>
       </MenubarMenu>
       <MenubarMenu>
@@ -56,7 +57,8 @@ export function MenubarDemo() {
                 className="bg-red-900 text-slate-50 cursor-pointer"
                 onClick={() => signOut()}
               >
-               Log Out<PiSignOut />
+                Log Out
+                <PiSignOut />
               </Button>
             </div>
           </div>
