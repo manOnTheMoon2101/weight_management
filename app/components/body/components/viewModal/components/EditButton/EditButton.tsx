@@ -80,7 +80,7 @@ export function EditButton(data: any) {
         <Dialog open={open} onOpenChange={setOpen}>
           <DialogTrigger>
             <div className="flex flex-row justify-between items-center mx-2">
-              <Button variant="outline">
+              <Button variant="ghost">
                 <FaEdit size={30} onClick={() => setOpen(true)} />
               </Button>
             </div>

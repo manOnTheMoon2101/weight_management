@@ -36,7 +36,9 @@ const DeleteButton = (id: any) => {
     <div>
       <AlertDialog>
         <AlertDialogTrigger>
-          <Button variant='outline'><MdDelete className="text-red-500 mx-2" size={30} /></Button>
+          <Button variant="ghost">
+            <MdDelete className="text-red-500 mx-2" size={30} />
+          </Button>
         </AlertDialogTrigger>
         <AlertDialogContent>
           <AlertDialogHeader>
