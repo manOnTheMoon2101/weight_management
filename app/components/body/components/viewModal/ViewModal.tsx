@@ -39,7 +39,7 @@ const ViewModal = (data: any) => {
               <Label
                 className={`text-center mb-2 text-xl ${cousine.className}`}
               >
-                Total Calories
+                Calories
               </Label>
               <Badge className="bg-orange-400 text-white">
                 {data.x.totalCalories}
@@ -144,6 +144,9 @@ const ViewModal = (data: any) => {
           </div>
         </div>
       </form>
+      <div className="flex flex-row justify-end">
+        <Badge>{data.x.createdAt}</Badge>
+      </div>
     </div>
   );
 };

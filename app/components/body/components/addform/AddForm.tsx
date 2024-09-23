@@ -144,7 +144,7 @@ export function AddForm() {
                   <Label
                     className={`text-center mb-2 text-xl ${cousine.className}`}
                   >
-                    Total Calories
+                  Calories
                   </Label>
                   <Input
                     type="number"
@@ -390,7 +390,7 @@ export function AddForm() {
                   <Label
                     className={`text-center mb-2 text-xl ${cousine.className}`}
                   >
-                    Total Calories
+                  Calories
                   </Label>
                   <Input
                     type="number"
