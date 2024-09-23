@@ -56,9 +56,9 @@ const Nutrients = () => {
   const handleSugarToggleChange = (value: any) => {
     setSelectedSugarValue(value);
   };
+  const x = 90;
+  const y = 1;
   if (isDesktop) {
-    const x = 90;
-    const y = 1;
     return (
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
@@ -217,21 +217,155 @@ const Nutrients = () => {
 
   return (
     <Drawer open={open} onOpenChange={setOpen}>
-      <DrawerTrigger asChild>
-        <Button variant="outline">Edit Profile</Button>
-      </DrawerTrigger>
+        <DialogTrigger asChild>
+          <h3 className="text-center cursor-pointer">Set Nutrients</h3>
+        </DialogTrigger>
       <DrawerContent>
-        <DrawerHeader className="text-left">
-          <DrawerTitle>Edit profile</DrawerTitle>
-          <DrawerDescription>
-            Make changes to your profile here. Click save when you're done.
-          </DrawerDescription>
-        </DrawerHeader>
-        <DrawerFooter className="pt-2">
-          <DrawerClose asChild>
-            <Button variant="outline">Cancel</Button>
-          </DrawerClose>
-        </DrawerFooter>
+      <form>
+            <div className="flex flex-row justify-start">
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <div>
+                      {loading ? (
+                        <AiOutlineLoading className="animate-spin text-orange-400 text-lg" />
+                      ) : (
+                        <Button
+                          type="submit"
+                          className="bg-orange-400 text-slate-50"
+                        >
+                          <FaSave />
+                        </Button>
+                      )}
+                    </div>
+                  </TooltipTrigger>
+                  <TooltipContent>Save Data</TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            </div>
+            <div>
+              <div>
+                <Label>Calories</Label>
+                <div className="flex flex-row items-center">
+                  <ToggleGroup
+                    type="single"
+                    value={selectedValue}
+                    onValueChange={handleToggleChange}
+                  >
+                    <div className="flex flex-col">
+                      <ToggleGroupItem value="min" aria-label="Toggle min">
+                        min
+                      </ToggleGroupItem>
+                      <ToggleGroupItem value="max" aria-label="Toggle max">
+                        max
+                      </ToggleGroupItem>
+                    </div>
+                  </ToggleGroup>
+                  {selectedValue === "min" ? (
+                    <Input value={x} />
+                  ) : (
+                    <Input value={y} />
+                  )}
+                </div>
+              </div>
+              <div>
+                <Label>Protein</Label>
+                <div className="flex flex-row items-center">
+                  <ToggleGroup
+                    type="single"
+                    value={selectedProteinValue}
+                    onValueChange={handleProteinToggleChange}
+                  >
+                    <div className="flex flex-col">
+                      <ToggleGroupItem value="min" aria-label="Toggle min">
+                        min
+                      </ToggleGroupItem>
+                      <ToggleGroupItem value="max" aria-label="Toggle max">
+                        max
+                      </ToggleGroupItem>
+                    </div>
+                  </ToggleGroup>
+                  {selectedProteinValue === "min" ? (
+                    <Input value={x} />
+                  ) : (
+                    <Input value={y} />
+                  )}
+                </div>
+              </div>
+              <div>
+                <Label>Fat</Label>
+                <div className="flex flex-row items-center">
+                  <ToggleGroup
+                    type="single"
+                    value={selectedFatValue}
+                    onValueChange={handleFatToggleChange}
+                  >
+                    <div className="flex flex-col">
+                      <ToggleGroupItem value="min" aria-label="Toggle min">
+                        min
+                      </ToggleGroupItem>
+                      <ToggleGroupItem value="max" aria-label="Toggle max">
+                        max
+                      </ToggleGroupItem>
+                    </div>
+                  </ToggleGroup>
+                  {selectedFatValue === "min" ? (
+                    <Input value={x} />
+                  ) : (
+                    <Input value={y} />
+                  )}
+                </div>
+              </div>
+              <div>
+                <Label>Carbs</Label>
+                <div className="flex flex-row items-center">
+                  <ToggleGroup
+                    type="single"
+                    value={selectedCarbsValue}
+                    onValueChange={handleCarbsToggleChange}
+                  >
+                    <div className="flex flex-col">
+                      <ToggleGroupItem value="min" aria-label="Toggle min">
+                        min
+                      </ToggleGroupItem>
+                      <ToggleGroupItem value="max" aria-label="Toggle max">
+                        max
+                      </ToggleGroupItem>
+                    </div>
+                  </ToggleGroup>
+                  {selectedCarbsValue === "min" ? (
+                    <Input value={x} />
+                  ) : (
+                    <Input value={y} />
+                  )}
+                </div>
+              </div>
+              <div>
+                <Label>Sugar</Label>
+                <div className="flex flex-row items-center">
+                  <ToggleGroup
+                    type="single"
+                    value={selectedSugarValue}
+                    onValueChange={handleSugarToggleChange}
+                  >
+                    <div className="flex flex-col">
+                      <ToggleGroupItem value="min" aria-label="Toggle min">
+                        min
+                      </ToggleGroupItem>
+                      <ToggleGroupItem value="max" aria-label="Toggle max">
+                        max
+                      </ToggleGroupItem>
+                    </div>
+                  </ToggleGroup>
+                  {selectedSugarValue === "min" ? (
+                    <Input value={x} />
+                  ) : (
+                    <Input value={y} />
+                  )}
+                </div>
+              </div>
+            </div>
+          </form>
       </DrawerContent>
     </Drawer>
   );
