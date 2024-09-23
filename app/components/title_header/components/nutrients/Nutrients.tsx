@@ -24,9 +24,18 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { useState } from "react";
+import { FaSave } from "react-icons/fa";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { AiOutlineLoading } from "react-icons/ai";
 const Nutrients = () => {
   const [open, setOpen] = useState(false);
   const isDesktop = useMediaQuery("(min-width: 768px)");
+  const [loading, setLoading] = useState(false);
   const [selectedValue, setSelectedValue] = useState("");
   const [selectedProteinValue, setSelectedProteinValue] = useState("");
   const [selectedFatValue, setSelectedFatValue] = useState("");
@@ -57,6 +66,27 @@ const Nutrients = () => {
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
           <form>
+            <div className="flex flex-row justify-start">
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <div>
+                      {loading ? (
+                        <AiOutlineLoading className="animate-spin text-orange-400 text-lg" />
+                      ) : (
+                        <Button
+                          type="submit"
+                          className="bg-orange-400 text-slate-50"
+                        >
+                          <FaSave />
+                        </Button>
+                      )}
+                    </div>
+                  </TooltipTrigger>
+                  <TooltipContent>Save Data</TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            </div>
             <div>
               <div>
                 <Label>Calories</Label>
