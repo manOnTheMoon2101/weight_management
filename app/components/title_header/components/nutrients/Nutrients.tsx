@@ -62,7 +62,7 @@ const Nutrients = () => {
     return (
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-          <Button variant="outline">Set Nutrients</Button>
+          <h3 className="text-center cursor-pointer">Set Nutrients</h3>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
           <form>

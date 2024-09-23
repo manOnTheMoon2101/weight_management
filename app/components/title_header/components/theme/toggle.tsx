@@ -21,7 +21,7 @@ export function ModeToggle() {
 
   return (
     <div>
-      <div className="flex flex-row justify-around items-center mt-5">
+      <div className="flex flex-row justify-around items-center">
         <Switch onCheckedChange={handleThemeToggle} />
         <h2>{theme == "light" ? <FaRegSun /> : <FaRegMoon />}</h2>
       </div>
