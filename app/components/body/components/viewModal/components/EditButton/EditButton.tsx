@@ -19,6 +19,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { Badge } from "@/components/ui/badge";
 export function EditButton(data: any) {
   const isDesktop = useMediaQuery("(min-width: 768px)");
 
@@ -124,9 +125,7 @@ export function EditButton(data: any) {
                   </div>
                   <div className="my-2">
                     {" "}
-                    <Label className="text-center mb-2 text-xl">
-                    Calories
-                    </Label>
+                    <Label className="text-center mb-2 text-xl">Calories</Label>
                     <Input
                       type="number"
                       name="totalCalories"
@@ -252,6 +251,9 @@ export function EditButton(data: any) {
                 </div>
               </div>
             </form>
+            <div className="flex flex-row justify-end">
+              <Badge>{data.data.x.createdAt}</Badge>
+            </div>
           </DialogContent>
         </Dialog>
       </div>
@@ -305,9 +307,7 @@ export function EditButton(data: any) {
                 </div>
                 <div className="my-2">
                   {" "}
-                  <Label className="text-center mb-2 text-xl">
-                  Calories
-                  </Label>
+                  <Label className="text-center mb-2 text-xl">Calories</Label>
                   <Input
                     type="number"
                     name="totalCalories"
@@ -433,6 +433,9 @@ export function EditButton(data: any) {
               </div>
             </div>
           </form>
+          <div className="flex flex-row justify-end">
+            <Badge>{data.data.x.createdAt}</Badge>
+          </div>
         </DrawerContent>
       </Drawer>
     </div>

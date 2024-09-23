@@ -144,6 +144,9 @@ const ViewModal = (data: any) => {
           </div>
         </div>
       </form>
+      <div className="flex flex-row justify-end">
+        <Badge>{data.x.createdAt}</Badge>
+      </div>
     </div>
   );
 };
