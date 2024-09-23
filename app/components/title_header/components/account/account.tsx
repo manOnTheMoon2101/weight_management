@@ -12,6 +12,7 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
 import { signOut } from "next-auth/react";
 import { ModeToggle } from "../theme/toggle";
+import Nutrients from "../nutrients/Nutrients";
 const Account = () => {
   const { data: session } = useSession();
   const name = session?.user?.name || null;
@@ -35,6 +36,7 @@ const Account = () => {
         <DropdownMenuContent align="center">
           <div>
             <ModeToggle />
+            <Nutrients/>
             <DropdownMenuItem
               className="bg-red-900 text-slate-50 flex flex-row justify-center  mt-5 cursor-pointer"
               onClick={() => signOut()}
