@@ -1,3 +1,4 @@
+"use client";
 import * as React from "react";
 import { cn } from "@/lib/utils";
 import { useMediaQuery } from "@custom-react-hooks/use-media-query";
@@ -33,6 +34,8 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { AiOutlineLoading } from "react-icons/ai";
+import axios from "axios";
+import { useToast } from "@/components/ui/use-toast";
 const Nutrients = () => {
   const [open, setOpen] = useState(false);
   const isDesktop = useMediaQuery("(min-width: 768px)");
@@ -42,6 +45,7 @@ const Nutrients = () => {
   const [selectedFatValue, setSelectedFatValue] = useState("");
   const [selectedCarbsValue, setSelectedCarbsValue] = useState("");
   const [selectedSugarValue, setSelectedSugarValue] = useState("");
+  const { toast } = useToast();
   const handleToggleChange = (value: any) => {
     setSelectedValue(value);
   };
@@ -57,10 +61,55 @@ const Nutrients = () => {
   const handleSugarToggleChange = (value: any) => {
     setSelectedSugarValue(value);
   };
-  const x = 90;
-  const y = 1;
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
   const { data, error, isLoading } = useSWR(`/api/nutrients`, fetcher);
+  const [nutrients, updateNutrients] = useState<any>({
+    minCalories: data.map((x: any) => x.minCalories),
+    maxCalories: data.map((x: any) => x.maxCalories),
+    minProtein: data.map((x: any) => x.minProtein),
+    maxProtein: data.map((x: any) => x.maxProtein),
+    minFat: data.map((x: any) => x.minFat),
+    maxFat: data.map((x: any) => x.maxFat),
+    minCarbs: data.map((x: any) => x.minCarbs),
+    maxCarbs: data.map((x: any) => x.maxCarbs),
+    minSugar: data.map((x: any) => x.minSugar),
+    maxSugar: data.map((x: any) => x.maxSugar),
+  });
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value, type } = e.target;
+    const newValue = type === "number" ? parseFloat(value) : value;
+    updateNutrients((prevPost: any) => ({
+      ...prevPost,
+      [name]: newValue,
+    }));
+  };
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      await axios.patch(`/api/nutrients/`, nutrients).then(() => {
+        window.location.reload();
+        toast({
+          description: "Nutrients have been set.",
+          className: "bg-lime-800",
+        });
+      });
+      setOpen(false);
+    } catch (error) {
+    } finally {
+      updateNutrients({});
+      setLoading(false);
+      setOpen(false);
+      toast({
+        description: "Data has been saved.",
+        className: "bg-lime-800",
+      });
+    }
+  };
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
   if (isDesktop) {
     return (
       <Dialog open={open} onOpenChange={setOpen}>

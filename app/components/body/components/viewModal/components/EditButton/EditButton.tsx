@@ -38,7 +38,7 @@ export function EditButton(data: any) {
   });
   const [open, setOpen] = useState(false);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value, type, checked } = e.target;
+    const { name, value, type} = e.target;
     const newValue = type === "number" ? parseFloat(value) : value;
     postData((prevPost: any) => ({
       ...prevPost,
