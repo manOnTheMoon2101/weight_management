@@ -2,12 +2,8 @@ import prisma from "@/prisma/prisma";
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/app/auth/options";
-export const GET = async (
-  req: any,
-  { params }: { params: { month: string } }
-) => {
+export const GET = async () => {
   try {
-    const currentDate = new Date();
     let session: any;
     session = await getServerSession(authOptions);
 
@@ -36,3 +32,41 @@ export const GET = async (
     );
   }
 };
+
+// export const PATCH = async (
+//   request: any,
+//   { params }: { params: { id: string } }
+// ) => {
+//   try {
+//     const { id } = params;
+//     const now = new Date();
+//     const updateData = await prisma.nutrientsLimit.update({
+//       where: {
+//         userId: id,
+//       },
+//       data: {
+//         isActive: false,
+//         isDeleted: true,
+//         updatedAt: now,
+//       },
+//     });
+//     if (!updateData) {
+//       return NextResponse.json(
+//         {
+//           message: "Update not Found",
+//         },
+//         { status: 404 }
+//       );
+//     }
+
+//     return NextResponse.json(updateData);
+//   } catch (err) {
+//     return NextResponse.json(
+//       {
+//         message: "PATCH Error",
+//         err,
+//       },
+//       { status: 500 }
+//     );
+//   }
+// };

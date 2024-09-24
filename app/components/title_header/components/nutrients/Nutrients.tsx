@@ -63,52 +63,52 @@ const Nutrients = () => {
   };
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
   const { data, error, isLoading } = useSWR(`/api/nutrients`, fetcher);
-  const [nutrients, updateNutrients] = useState<any>({
-    minCalories: data.map((x: any) => x.minCalories),
-    maxCalories: data.map((x: any) => x.maxCalories),
-    minProtein: data.map((x: any) => x.minProtein),
-    maxProtein: data.map((x: any) => x.maxProtein),
-    minFat: data.map((x: any) => x.minFat),
-    maxFat: data.map((x: any) => x.maxFat),
-    minCarbs: data.map((x: any) => x.minCarbs),
-    maxCarbs: data.map((x: any) => x.maxCarbs),
-    minSugar: data.map((x: any) => x.minSugar),
-    maxSugar: data.map((x: any) => x.maxSugar),
-  });
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value, type } = e.target;
-    const newValue = type === "number" ? parseFloat(value) : value;
-    updateNutrients((prevPost: any) => ({
-      ...prevPost,
-      [name]: newValue,
-    }));
-  };
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setLoading(true);
+  // const [nutrients, updateNutrients] = useState<any>({
+  //   minCalories: data.map((x: any) => x.minCalories),
+  //   maxCalories: data.map((x: any) => x.maxCalories),
+  //   minProtein: data.map((x: any) => x.minProtein),
+  //   maxProtein: data.map((x: any) => x.maxProtein),
+  //   minFat: data.map((x: any) => x.minFat),
+  //   maxFat: data.map((x: any) => x.maxFat),
+  //   minCarbs: data.map((x: any) => x.minCarbs),
+  //   maxCarbs: data.map((x: any) => x.maxCarbs),
+  //   minSugar: data.map((x: any) => x.minSugar),
+  //   maxSugar: data.map((x: any) => x.maxSugar),
+  // });
+  // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   const { name, value, type } = e.target;
+  //   const newValue = type === "number" ? parseFloat(value) : value;
+  //   updateNutrients((prevPost: any) => ({
+  //     ...prevPost,
+  //     [name]: newValue,
+  //   }));
+  // };
+  // const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+  //   setLoading(true);
 
-    try {
-      await axios.patch(`/api/nutrients/`, nutrients).then(() => {
-        window.location.reload();
-        toast({
-          description: "Nutrients have been set.",
-          className: "bg-lime-800",
-        });
-      });
-      setOpen(false);
-    } catch (error) {
-    } finally {
-      updateNutrients({});
-      setLoading(false);
-      setOpen(false);
-      toast({
-        description: "Data has been saved.",
-        className: "bg-lime-800",
-      });
-    }
-  };
+  //   try {
+  //     await axios.patch(`/api/nutrients/`, nutrients).then(() => {
+  //       window.location.reload();
+  //       toast({
+  //         description: "Nutrients have been set.",
+  //         className: "bg-lime-800",
+  //       });
+  //     });
+  //     setOpen(false);
+  //   } catch (error) {
+  //   } finally {
+  //     updateNutrients({});
+  //     setLoading(false);
+  //     setOpen(false);
+  //     toast({
+  //       description: "Data has been saved.",
+  //       className: "bg-lime-800",
+  //     });
+  //   }
+  // };
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <AiOutlineLoading className="animate-spin text-orange-400 text-lg" />;
   }
   if (isDesktop) {
     return (
