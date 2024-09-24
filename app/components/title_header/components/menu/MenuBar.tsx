@@ -14,6 +14,7 @@ import {
   MenubarSubTrigger,
   MenubarTrigger,
 } from "@/components/ui/menubar";
+import useSWR from "swr";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { useSession } from "next-auth/react";
@@ -36,8 +37,7 @@ export function MenubarDemo() {
       <MenubarMenu>
         <MenubarTrigger>Settings</MenubarTrigger>
         <MenubarContent>
-          {/* <Nutrients /> */}
-          <p>coming soon...</p>
+          <Nutrients />
         </MenubarContent>
       </MenubarMenu>
       <MenubarMenu>
