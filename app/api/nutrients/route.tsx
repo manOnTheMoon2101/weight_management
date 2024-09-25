@@ -32,41 +32,66 @@ export const GET = async () => {
     );
   }
 };
+export const PATCH = async (
+  request: any,
+) => {
+  try {
+    const body = await request.json();
+    const {
+      minCalories,
+      maxCalories,
+      minProtein,
+      maxProtein,
+      minFat,
+      maxFat,
+      minCarbs,
+      maxCarbs,
+      minSugar,
+      maxSugar,
+    } = body;
+    let session: any;
+    session = await getServerSession(authOptions);
 
-// export const PATCH = async (
-//   request: any,
-//   { params }: { params: { id: string } }
-// ) => {
-//   try {
-//     const { id } = params;
-//     const now = new Date();
-//     const updateData = await prisma.nutrientsLimit.update({
-//       where: {
-//         userId: id,
-//       },
-//       data: {
-//         isActive: false,
-//         isDeleted: true,
-//         updatedAt: now,
-//       },
-//     });
-//     if (!updateData) {
-//       return NextResponse.json(
-//         {
-//           message: "Update not Found",
-//         },
-//         { status: 404 }
-//       );
-//     }
+    let user: any;
+    user = await prisma.user.findUnique({
+      where: {
+        email: session?.user?.email,
+      },
+    });
+    const updateNutrients = await prisma.nutrientsLimit.updateMany({
+      where: {
+        userId: user.id,
+      },
+      data: {
+        minCalories: minCalories,
+        maxCalories: maxCalories,
+        minProtein: minProtein,
+        maxProtein: maxProtein,
+        minFat: minFat,
+        maxFat: maxFat,
+        minCarbs: minCarbs,
+        maxCarbs: maxCarbs,
+        minSugar: minSugar,
+        maxSugar: maxSugar,
+      },
+    });
+    if (!updateNutrients) {
+      return NextResponse.json(
+        {
+          message: "Update not Found",
+        },
+        { status: 404 }
+      );
+    }
 
-//     return NextResponse.json(updateData);
-//   } catch (err) {
-//     return NextResponse.json(
-//       {
-//         message: "PATCH Error",
-//         err,
-//       },
-//       { status: 500 }
-//     );
-//   }
-// };
+    return NextResponse.json(updateNutrients);
+  } catch (err) {
+    return NextResponse.json(
+      {
+        message: "PATCH Error",
+        err,
+      },
+      { status: 500 }
+    );
+  }
+};
