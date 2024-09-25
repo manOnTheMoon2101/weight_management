@@ -68,7 +68,7 @@ export function Dashboard() {
           <WeightGraph month={selectedMonth} />
           <CalorieGraph month={selectedMonth} />
         </div>
-        <div className="w-full my-5  flex-1">
+        <div className="w-full my-5 flex-1">
           <Dashboard_table month={selectedMonth} />
         </div>
       </div>

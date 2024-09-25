@@ -22,32 +22,6 @@ const Account = () => {
   return (
     <div>
       <MenubarDemo/>
-      {/* <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <div className="flex flex-row items-baseline cursor-pointer">
-            <div className="mx-2">
-              <Avatar>
-                <AvatarFallback>
-                  {name ? cleanedName?.charAt(0) : null}
-                </AvatarFallback>
-              </Avatar>
-            </div>
-            <div className="text-white">{name}</div>
-          </div>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent align="center">
-          <div>
-            <ModeToggle />
-            <Nutrients />
-            <DropdownMenuItem
-              className="bg-red-900 text-slate-50 flex flex-row justify-center  mt-5 cursor-pointer"
-              onClick={() => signOut()}
-            >
-              <PiSignOut />
-            </DropdownMenuItem>
-          </div>
-        </DropdownMenuContent>
-      </DropdownMenu> */}
     </div>
   );
 };
