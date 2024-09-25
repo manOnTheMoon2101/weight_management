@@ -8,12 +8,12 @@ datasource db {
 }
 
 model User {
-  id       String  @id @default(auto()) @map("_id") @db.ObjectId
-  email    String  @unique
-  password String
-  name     String?
-
-  Data Data[]
+  id             String           @id @default(auto()) @map("_id") @db.ObjectId
+  email          String           @unique
+  password       String
+  name           String?
+  Data           Data[]
+  NutrientsLimit NutrientsLimit[]
 
   @@unique([id, name])
 }
@@ -49,4 +49,25 @@ model Data {
   userId               String   @db.ObjectId
   userName             String
   user                 User     @relation(fields: [userId, userName], references: [id, name])
+}
+
+model NutrientsLimit {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime
+  isActive    Boolean  @default(true)
+  isDeleted   Boolean  @default(false)
+  minCalories Float    @default(0)
+  maxCalories Float    @default(0)
+  minProtein  Float    @default(0)
+  maxProtein  Float    @default(0)
+  minFat      Float    @default(0)
+  maxFat      Float    @default(0)
+  minCarbs    Float    @default(0)
+  maxCarbs    Float    @default(0)
+  minSugar    Float    @default(0)
+  maxSugar    Float    @default(0)
+  userId      String   @db.ObjectId
+  userName    String
+  user        User     @relation(fields: [userId, userName], references: [id, name])
 }

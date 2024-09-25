@@ -334,70 +334,122 @@ export function Dashboard_table(date: any) {
               <th className="px-4 py-2  text-center">
                 {" "}
                 <Popover>
-                  <PopoverTrigger asChild>
-                    <div className="flex flex-row justify-center">
-                      Calories{" "}
-                      <FaInfoCircle className="hover:text-orange-400" />
-                    </div>
-                  </PopoverTrigger>
-                  <PopoverContent className="text-center">
-                    <p>Max 2000 Calories</p>
-                  </PopoverContent>
-                </Popover>
+                    <PopoverTrigger asChild>
+                      <div className="flex flex-row justify-center">
+                        Calories{" "}
+                        <FaInfoCircle className="hover:text-orange-400" />
+                      </div>
+                    </PopoverTrigger>
+                    <PopoverContent className="text-center">
+                      <div className="flex flex-row justify-around">
+                        <div>
+                          <h3>Min</h3>
+                          <Badge className="bg-orange-400 text-white">0</Badge>
+                        </div>
+                        <div>
+                          <h3>Max</h3>
+                          <Badge className="bg-orange-400 text-white">
+                            2000
+                          </Badge>
+                        </div>
+                      </div>
+                    </PopoverContent>
+                  </Popover>
               </th>
               <th className="px-4 py-2  text-center">
                 {" "}
                 <Popover>
-                  <PopoverTrigger asChild>
-                    <div className="flex flex-row justify-center">
-                      Protein <FaInfoCircle className="hover:text-orange-400" />
-                    </div>
-                  </PopoverTrigger>
-                  <PopoverContent className="text-center">
-                    <p>Min 70g Protein</p>
-                  </PopoverContent>
-                </Popover>
+                    <PopoverTrigger asChild>
+                      <div className="flex flex-row justify-center">
+                        Protein{" "}
+                        <FaInfoCircle className="hover:text-orange-400" />
+                      </div>
+                    </PopoverTrigger>
+                    <PopoverContent className="text-center">
+                      <div className="flex flex-row justify-around">
+                        <div>
+                          <h3>Min</h3>
+                          <Badge className="bg-orange-400 text-white">70</Badge>
+                        </div>
+                        <div>
+                          <h3>Max</h3>
+                          <Badge className="bg-orange-400 text-white">
+                            200
+                          </Badge>
+                        </div>
+                      </div>
+                    </PopoverContent>
+                  </Popover>
               </th>
               <th className="px-4 py-2  text-center">
                 {" "}
                 <Popover>
-                  <PopoverTrigger asChild>
-                    <div className="flex flex-row justify-center">
-                      Fat <FaInfoCircle className="hover:text-orange-400" />
-                    </div>
-                  </PopoverTrigger>
-                  <PopoverContent className="text-center">
-                    <p>Max 67g Fat</p>
-                  </PopoverContent>
-                </Popover>
+                    <PopoverTrigger asChild>
+                      <div className="flex flex-row justify-center">
+                        Fat <FaInfoCircle className="hover:text-orange-400" />
+                      </div>
+                    </PopoverTrigger>
+                    <PopoverContent className="text-center">
+                      <div className="flex flex-row justify-around">
+                        <div>
+                          <h3>Min</h3>
+                          <Badge className="bg-orange-400 text-white">0</Badge>
+                        </div>
+                        <div>
+                          <h3>Max</h3>
+                          <Badge className="bg-orange-400 text-white">67</Badge>
+                        </div>
+                      </div>
+                    </PopoverContent>
+                  </Popover>
               </th>
               <th className="px-4 py-2  text-center">
                 {" "}
                 <Popover>
-                  <PopoverTrigger asChild>
-                    <div className="flex flex-row justify-center">
-                      Carbs
-                      <FaInfoCircle className="hover:text-orange-400" />
-                    </div>
-                  </PopoverTrigger>
-                  <PopoverContent className="text-center">
-                    <p>Max 120g Carbs</p>
-                  </PopoverContent>
-                </Popover>
+                    <PopoverTrigger asChild>
+                      <div className="flex flex-row justify-center">
+                        Carbs
+                        <FaInfoCircle className="hover:text-orange-400" />
+                      </div>
+                    </PopoverTrigger>
+                    <PopoverContent className="text-center">
+                      <div className="flex flex-row justify-around">
+                        <div>
+                          <h3>Min</h3>
+                          <Badge className="bg-orange-400 text-white">0</Badge>
+                        </div>
+                        <div>
+                          <h3>Max</h3>
+                          <Badge className="bg-orange-400 text-white">
+                            120
+                          </Badge>
+                        </div>
+                      </div>
+                    </PopoverContent>
+                  </Popover>
               </th>
               <th className="px-4 py-2  text-center">
                 {" "}
                 <Popover>
-                  <PopoverTrigger asChild>
-                    <div className="flex flex-row justify-center">
-                      Sugar
-                      <FaInfoCircle className="hover:text-orange-400" />
-                    </div>
-                  </PopoverTrigger>
-                  <PopoverContent className="text-center">
-                    <p>Max 30g Sugar</p>
-                  </PopoverContent>
-                </Popover>
+                    <PopoverTrigger asChild>
+                      <div className="flex flex-row justify-center">
+                        Sugar
+                        <FaInfoCircle className="hover:text-orange-400" />
+                      </div>
+                    </PopoverTrigger>
+                    <PopoverContent className="text-center">
+                      <div className="flex flex-row justify-around">
+                        <div>
+                          <h3>Min</h3>
+                          <Badge className="bg-orange-400 text-white">0</Badge>
+                        </div>
+                        <div>
+                          <h3>Max</h3>
+                          <Badge className="bg-orange-400 text-white">30</Badge>
+                        </div>
+                      </div>
+                    </PopoverContent>
+                  </Popover>
               </th>
               <th className="px-4 py-2  text-center">Vitamin</th>
               <th className="px-4 py-2  text-center">CLA</th>
