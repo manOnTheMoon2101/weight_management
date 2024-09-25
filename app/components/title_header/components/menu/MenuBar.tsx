@@ -21,7 +21,6 @@ import { useSession } from "next-auth/react";
 import { signOut } from "next-auth/react";
 import { PiSignOut } from "react-icons/pi";
 import { ModeToggle } from "../theme/toggle";
-import Nutrients from "../nutrients/Nutrients";
 export function MenubarDemo() {
   const { data: session } = useSession();
   const name = session?.user?.name || null;
@@ -37,7 +36,7 @@ export function MenubarDemo() {
       <MenubarMenu>
         <MenubarTrigger>Settings</MenubarTrigger>
         <MenubarContent>
-          <Nutrients />
+         <p>coming soon...</p>
         </MenubarContent>
       </MenubarMenu>
       <MenubarMenu>
