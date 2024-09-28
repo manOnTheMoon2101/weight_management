@@ -84,7 +84,7 @@ const Graph = (data: any) => {
     <Card className="my-5">
       <CardHeader>
         <div className="flex flex-row justify-between items-center">
-          <CardTitle className={`${anek.className}`}>Protein Chart</CardTitle>
+          <CardTitle className={`${anek.className}`}>Weight</CardTitle>
           <GraphMenu month={data.month} />
         </div>
         <CardDescription className={`${acme.className}`}>
