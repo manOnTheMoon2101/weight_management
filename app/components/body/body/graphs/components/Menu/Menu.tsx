@@ -57,7 +57,7 @@ export function GraphMenu(chartRef: any, data: any) {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
-        <DropdownMenuLabel>{getMonthName(data.month)}</DropdownMenuLabel>
+        <DropdownMenuLabel>{getMonthName(chartRef.month)}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           {/* <DropdownMenuItem>
