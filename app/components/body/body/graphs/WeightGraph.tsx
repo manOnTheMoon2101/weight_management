@@ -130,7 +130,6 @@ const Graph = (data: any) => {
       <CardFooter>
         <div className="flex w-full items-start gap-2 text-sm">
           <div className="grid gap-2">
-            <div className="flex items-center gap-2 font-medium leading-none"></div>
             <div className="flex items-center gap-2 leading-none text-muted-foreground">
               <div className="m-5 text-center">
                 <h2 className="my-2">Min Weight</h2>
