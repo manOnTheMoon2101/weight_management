@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import type { Viewport } from 'next';
+import type { Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
-import { ThemeProvider } from "./components/theme_provider/theme_provider";
+import { ThemeProvider } from "./components/lib/theme_provider/theme_provider";
 import { Toaster } from "@/components/ui/toaster";
 import { Suspense } from "react";
 const inter = Inter({ subsets: ["latin"] });
@@ -14,11 +14,11 @@ export const metadata: Metadata = {
 };
 export function generateViewport(): Viewport {
   return {
-    width: 'device-width',
+    width: "device-width",
     initialScale: 1,
     maximumScale: 1,
     userScalable: false,
-  }
+  };
 }
 export default function RootLayout({
   children,
