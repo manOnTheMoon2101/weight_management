@@ -44,7 +44,7 @@ export function AddForm() {
     setLoading(true);
     e.preventDefault();
     axios
-      .post("/api/data", post)
+      .post("/api/nutrients/post", post)
       .then((res: any) => {
         toast({
           description: "Data has been saved.",
