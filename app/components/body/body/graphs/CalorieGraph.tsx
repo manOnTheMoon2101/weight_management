@@ -15,8 +15,7 @@ import {
   CardFooter,
   CardTitle,
 } from "@/components/ui/card";
-import { Skeleton } from "@/components/ui/skeleton";
-import useSWR from "swr";
+import months from "@/lib/files/months.json";
 import {
   ChartConfig,
   ChartContainer,
@@ -74,56 +73,10 @@ export function CalorieGraph(data: any) {
     }
     return max;
   }
-  const months = [
-    {
-      text: "January",
-      value: "01",
-    },
-    {
-      text: "Febraury",
-      value: "02",
-    },
-    {
-      text: "March",
-      value: "03",
-    },
-    {
-      text: "April",
-      value: "04",
-    },
-    {
-      text: "May",
-      value: "05",
-    },
-    {
-      text: "June",
-      value: "06",
-    },
-    {
-      text: "July",
-      value: "07",
-    },
-    {
-      text: "August",
-      value: "08",
-    },
-    {
-      text: "September",
-      value: "09",
-    },
-    {
-      text: "October",
-      value: "10",
-    },
-    {
-      text: "November",
-      value: "11",
-    },
-    {
-      text: "December",
-      value: "12",
-    },
-  ];
+  function getMonthName(value: any) {
+    const month = months.find((month) => month.value === value);
+    return month ? month.name : null;
+  }
   const chartData =
     data?.data.map((item: any) => ({
       createdAt: new Date(item.createdAt).getDate(), // Format date as needed
@@ -133,7 +86,9 @@ export function CalorieGraph(data: any) {
     <Card className="my-5">
       <CardHeader>
         <CardTitle className={`${anek.className}`}>Calorie Chart</CardTitle>
-        <CardDescription className={`${acme.className}`}></CardDescription>
+        <CardDescription className={`${acme.className}`}>
+          {getMonthName(data.month)}
+        </CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>

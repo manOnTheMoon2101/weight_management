@@ -19,6 +19,7 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart";
 import { Acme } from "next/font/google";
+import months from "@/lib/files/months.json";
 import { Anek_Devanagari } from "next/font/google";
 const anek = Anek_Devanagari({
   subsets: ["latin"],
@@ -34,9 +35,11 @@ const chartConfig = {
     color: "hsl(var(--chart-1))",
   },
 } satisfies ChartConfig;
-
 import React from "react";
-import { Skeleton } from "@/components/ui/skeleton";
+function getMonthName(value: any) {
+  const month = months.find((month) => month.value === value);
+  return month ? month.name : null;
+}
 const ProteinGraph = (data: any) => {
   function getAverage(numbers: any) {
     if (numbers.length === 0) return null;
@@ -71,56 +74,7 @@ const ProteinGraph = (data: any) => {
     }
     return max;
   }
-  const months = [
-    {
-      text: "January",
-      value: "01",
-    },
-    {
-      text: "Febraury",
-      value: "02",
-    },
-    {
-      text: "March",
-      value: "03",
-    },
-    {
-      text: "April",
-      value: "04",
-    },
-    {
-      text: "May",
-      value: "05",
-    },
-    {
-      text: "June",
-      value: "06",
-    },
-    {
-      text: "July",
-      value: "07",
-    },
-    {
-      text: "August",
-      value: "08",
-    },
-    {
-      text: "September",
-      value: "09",
-    },
-    {
-      text: "October",
-      value: "10",
-    },
-    {
-      text: "November",
-      value: "11",
-    },
-    {
-      text: "December",
-      value: "12",
-    },
-  ];
+  console.log(data);
   const chartData =
     data?.data.map((item: any) => ({
       createdAt: new Date(item.createdAt).getDate(),
@@ -131,6 +85,7 @@ const ProteinGraph = (data: any) => {
       <CardHeader>
         <CardTitle className={`${anek.className}`}>Protein Chart</CardTitle>
         <CardDescription className={`${acme.className}`}>
+          {getMonthName(data.month)}
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -160,7 +115,9 @@ const ProteinGraph = (data: any) => {
                 <h2 className="my-2">Min Protein</h2>
                 <Badge className="bg-purple-900 text-white">
                   {getMin(
-                    data.data.map((x: any) => (x.totalProtein ? x.totalProtein : 0))
+                    data.data.map((x: any) =>
+                      x.totalProtein ? x.totalProtein : 0
+                    )
                   )}
                 </Badge>
               </div>
@@ -168,7 +125,9 @@ const ProteinGraph = (data: any) => {
                 <h2 className="my-2">Average Protein</h2>
                 <Badge className="bg-purple-900 text-white">
                   {getAverage(
-                    data.data.map((x: any) => (x.totalProtein ? x.totalProtein : 0))
+                    data.data.map((x: any) =>
+                      x.totalProtein ? x.totalProtein : 0
+                    )
                   )}
                 </Badge>
               </div>
@@ -176,7 +135,9 @@ const ProteinGraph = (data: any) => {
                 <h2 className="my-2">Max Protein</h2>
                 <Badge className="bg-purple-900 text-white">
                   {getMax(
-                    data.data.map((x: any) => (x.totalProtein ? x.totalProtein : 0))
+                    data.data.map((x: any) =>
+                      x.totalProtein ? x.totalProtein : 0
+                    )
                   )}
                 </Badge>
               </div>
