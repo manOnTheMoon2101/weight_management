@@ -19,6 +19,7 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart";
 import { Acme } from "next/font/google";
+import { useRef } from 'react';
 import months from "@/lib/files/months.json";
 import { Anek_Devanagari } from "next/font/google";
 const anek = Anek_Devanagari({
@@ -42,6 +43,7 @@ function getMonthName(value: any) {
   return month ? month.name : null;
 }
 const ProteinGraph = (data: any) => {
+  const chartRef = useRef(null);
   function getAverage(numbers: any) {
     if (numbers.length === 0) return null;
 
@@ -82,11 +84,11 @@ const ProteinGraph = (data: any) => {
       protein: item.totalProtein,
     })) || [];
   return (
-    <Card className="my-5">
+    <Card className="my-5" ref={chartRef}>
       <CardHeader>
         <div className="flex flex-row justify-between items-center">
           <CardTitle className={`${anek.className}`}>Protein</CardTitle>
-          <GraphMenu month={data.month} />
+          <GraphMenu month={data.month} chartRef={chartRef}/>
         </div>
         <CardDescription className={`${acme.className}`}>
           {getMonthName(data.month)}

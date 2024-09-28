@@ -19,6 +19,7 @@ import {
 } from "@/components/ui/chart";
 import { Acme } from "next/font/google";
 import { Anek_Devanagari } from "next/font/google";
+import { useRef } from "react";
 const anek = Anek_Devanagari({
   subsets: ["latin"],
   weight: "400",
@@ -38,6 +39,7 @@ import React from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { GraphMenu } from "./components/Menu/Menu";
 const Graph = (data: any) => {
+  const chartRef = useRef(null);
   function getAverage(numbers: any) {
     if (numbers.length === 0) return null;
 
@@ -81,11 +83,11 @@ const Graph = (data: any) => {
       weight: item.weight,
     })) || [];
   return (
-    <Card className="my-5">
+    <Card className="my-5" ref={chartRef}>
       <CardHeader>
         <div className="flex flex-row justify-between items-center">
           <CardTitle className={`${anek.className}`}>Weight</CardTitle>
-          <GraphMenu month={data.month} />
+          <GraphMenu month={data.month} chartRef={chartRef} />
         </div>
         <CardDescription className={`${acme.className}`}>
           {getMonthName(data.month)}
