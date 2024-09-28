@@ -53,8 +53,7 @@ export function TableMenu(data: any) {
         <DropdownMenuLabel>{getMonthName(data.data.month)}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuItem>
-            <MdOutlineDataObject className="mr-2 h-4 w-4" />
+          <DropdownMenuItem asChild>
             <Limits />
           </DropdownMenuItem>
           <DropdownMenuSub>
