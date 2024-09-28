@@ -34,11 +34,14 @@ import months from "@/lib/files/months.json";
 import { CiExport } from "react-icons/ci";
 import { MdOutlineDataObject } from "react-icons/md";
 import { MdMenu } from "react-icons/md";
+import useSWR from "swr";
+import Limits from "./Limts/Limits";
 export function TableMenu(data: any) {
   function getMonthName(value: any) {
     const month = months.find((month) => month.value === value);
     return month ? month.name : null;
   }
+  const fetcher = (url: string) => fetch(url).then((res) => res.json());
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -52,7 +55,7 @@ export function TableMenu(data: any) {
         <DropdownMenuGroup>
           <DropdownMenuItem>
             <MdOutlineDataObject className="mr-2 h-4 w-4" />
-            <span>Set Limits</span>
+            <Limits />
           </DropdownMenuItem>
           <DropdownMenuSub>
             <DropdownMenuSubTrigger>
