@@ -1,5 +1,5 @@
 "use client";
-
+import useSWR from "swr";
 import { Dashboard_table } from "./table/Table";
 import {
   Select,
@@ -28,6 +28,14 @@ export function Body() {
   const [selectedMonth, setSelectedMonth] = useState(
     `${getCurrentMonthTwoDigit()}`
   );
+
+  const fetcher = (url: string) => fetch(url).then((res) => res.json());
+  const { data, error, isLoading } = useSWR(
+    `/api/nutrients/get/${selectedMonth}`,
+    fetcher
+  );
+  if (error) return <div>failed to load</div>;
+  if (isLoading) return <p>loading</p>;
   return (
     <div>
       <div className="flex flex-row justify-between">
@@ -64,12 +72,12 @@ export function Body() {
       </div>
       <div className="flex flex-col md:flex-col justify-around  h-full">
         <div className="w-full my-5 md:flex flex-row justify-around overflow-auto  ">
-          <ProteinGraph month={selectedMonth} />
-          <WeightGraph month={selectedMonth} />
-          <CalorieGraph month={selectedMonth} />
+          <ProteinGraph data={data} />
+          <WeightGraph data={data}/>
+          <CalorieGraph data={data}/>
         </div>
         <div className="w-full my-5 flex-1">
-          <Dashboard_table month={selectedMonth} />
+          <Dashboard_table data={data} />
         </div>
       </div>
     </div>

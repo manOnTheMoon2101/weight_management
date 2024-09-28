@@ -35,7 +35,7 @@ const chartConfig = {
 
 import React from "react";
 import { Skeleton } from "@/components/ui/skeleton";
-const Graph = (date: any) => {
+const Graph = (data: any) => {
   function getAverage(numbers: any) {
     if (numbers.length === 0) return null;
 
@@ -69,11 +69,6 @@ const Graph = (date: any) => {
     }
     return max;
   }
-  const fetcher = (url: string) => fetch(url).then((res) => res.json());
-  const { data, error, isLoading } = useSWR(
-    `/api/nutrients/get/${date.month}`,
-    fetcher
-  );
   const months = [
     {
       text: "January",
@@ -125,25 +120,15 @@ const Graph = (date: any) => {
     },
   ];
   const chartData =
-    data?.map((item: any) => ({
+    data?.data.map((item: any) => ({
       createdAt: new Date(item.createdAt).getDate(),
       weight: item.weight,
     })) || [];
-  if (error) return <div>failed to load</div>;
-  if (isLoading)
-    return (
-      <div className="flex items-center space-x-4">
-        <Skeleton className="w-[100%] h-[300px]" />
-      </div>
-    );
-
   return (
     <Card className="my-5">
       <CardHeader>
         <CardTitle className={`${anek.className}`}>Weight Chart</CardTitle>
-        <CardDescription className={`${acme.className}`}>
-          {months.map((x: any) => (x.value == date.month ? x.text : ""))}
-        </CardDescription>
+        <CardDescription className={`${acme.className}`}></CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
@@ -187,20 +172,22 @@ const Graph = (date: any) => {
               <div className="m-5 text-center">
                 <h2 className="my-2">Min Weight</h2>
                 <Badge className="bg-purple-900 text-white">
-                  {getMin(data.map((x: any) => (x.weight ? x.weight : 0)))}
+                  {getMin(data.data.map((x: any) => (x.weight ? x.weight : 0)))}
                 </Badge>
               </div>
               <div className="m-5 text-center">
                 <h2 className="my-2">Average Weight</h2>
                 <Badge className="bg-purple-900 text-white">
                   {" "}
-                  {getAverage(data.map((x: any) => (x.weight ? x.weight : 0)))}
+                  {getAverage(
+                    data.data.map((x: any) => (x.weight ? x.weight : 0))
+                  )}
                 </Badge>
               </div>
               <div className="m-5 text-center">
                 <h2 className="my-2">Max Weight</h2>
                 <Badge className="bg-purple-900 text-white">
-                  {getMax(data.map((x: any) => (x.weight ? x.weight : 0)))}
+                  {getMax(data.data.map((x: any) => (x.weight ? x.weight : 0)))}
                 </Badge>
               </div>
             </div>

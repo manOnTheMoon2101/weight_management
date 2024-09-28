@@ -25,70 +25,9 @@ const cousine = Cousine({
   subsets: ["latin"],
   weight: "400",
 });
-export function Dashboard_table(date: any) {
+export function Dashboard_table(data: any) {
   const isDesktop = useMediaQuery("(min-width: 768px)");
-  const fetcher = (url: string) => fetch(url).then((res) => res.json());
-  const { data, error, isLoading } = useSWR(
-    `/api/nutrients/get/${date.month}`,
-    fetcher
-  );
   const skeletons = Array.from({ length: 14 });
-  if (error) return <div>failed to load</div>;
-  if (isLoading)
-    return (
-      <>
-        <div className="min-w-full overflow-x-auto  border rounded">
-          <table className="table-auto min-w-full">
-            <thead>
-              <tr>
-                <th className="px-4 py-2 text-center">Open</th>
-                <th className="px-4 py-2  text-center">Date</th>
-                <th className="px-4 py-2  text-center">Weight</th>
-                <th className="px-4 py-2  text-center">
-                  {" "}
-                  <div className="flex flex-row justify-center">
-                    Calories <FaInfoCircle />
-                  </div>
-                </th>
-                <th className="px-4 py-2  text-center">
-                  {" "}
-                  <div className="flex flex-row justify-center">
-                    Protein <FaInfoCircle />
-                  </div>
-                </th>
-                <th className="px-4 py-2  text-center">
-                  {" "}
-                  <div className="flex flex-row justify-center">
-                    Fat <FaInfoCircle />
-                  </div>
-                </th>
-                <th className="px-4 py-2  text-center">
-                  {" "}
-                  <div className="flex flex-row justify-center">
-                    Carbs <FaInfoCircle />
-                  </div>
-                </th>
-                <th className="px-4 py-2  text-center">
-                  {" "}
-                  <div className="flex flex-row justify-center">
-                    Sugar <FaInfoCircle />
-                  </div>
-                </th>
-                <th className="px-4 py-2  text-center">Vitamin</th>
-                <th className="px-4 py-2  text-center">CLA</th>
-                <th className="px-4 py-2  text-center">L-Carnitine</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              {skeletons.map((_, index) => (
-                <SkeletonHolder key={index} />
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </>
-    );
   if (isDesktop) {
     return (
       <>
@@ -222,7 +161,7 @@ export function Dashboard_table(date: any) {
                 <th className="px-4 py-2  text-center">L-Carnitine</th>
               </tr>
             </thead>
-            {data.map((x: any) => (
+            {data.data.map((x: any) => (
               <tbody>
                 <tr key={x.id}>
                   <td className="border-b px-4 py-2 text-center">
@@ -314,7 +253,7 @@ export function Dashboard_table(date: any) {
           <div className="flex flex-row justify-center">
             <h3 className="text-2xl">
               {" "}
-              {data.length <= 0 ? "No Data Found..." : ""}
+              {data.data.length <= 0 ? "No Data Found..." : ""}
             </h3>
           </div>
         </div>
@@ -449,7 +388,7 @@ export function Dashboard_table(date: any) {
               <th className="px-4 py-2  text-center">L-Carnitine</th>
             </tr>
           </thead>
-          {data.map((x: any) => (
+          {data.data.map((x: any) => (
             <tbody>
               <tr key={x.id}>
                 <td className="border-b px-4 py-2 text-center">
@@ -532,7 +471,7 @@ export function Dashboard_table(date: any) {
         <div className="flex flex-row justify-center">
           <h3 className="text-2xl">
             {" "}
-            {data.length <= 0 ? "No Data Found..." : ""}
+            {data.data.length <= 0 ? "No Data Found..." : ""}
           </h3>
         </div>
       </div>

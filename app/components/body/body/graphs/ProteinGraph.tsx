@@ -37,7 +37,7 @@ const chartConfig = {
 
 import React from "react";
 import { Skeleton } from "@/components/ui/skeleton";
-const ProteinGraph = (date: any) => {
+const ProteinGraph = (data: any) => {
   function getAverage(numbers: any) {
     if (numbers.length === 0) return null;
 
@@ -71,11 +71,6 @@ const ProteinGraph = (date: any) => {
     }
     return max;
   }
-  const fetcher = (url: string) => fetch(url).then((res) => res.json());
-  const { data, error, isLoading } = useSWR(
-    `/api/nutrients/get/${date.month}`,
-    fetcher
-  );
   const months = [
     {
       text: "January",
@@ -127,25 +122,15 @@ const ProteinGraph = (date: any) => {
     },
   ];
   const chartData =
-    data?.map((item: any) => ({
+    data?.data.map((item: any) => ({
       createdAt: new Date(item.createdAt).getDate(),
       protein: item.totalProtein,
     })) || [];
-  if (error) return <div>failed to load</div>;
-  if (isLoading)
-    return (
-      <div className="flex items-center space-x-4">
-        <Skeleton className="w-[100%] h-[300px]" />
-      </div>
-    );
-
   return (
     <Card className="my-5">
       <CardHeader>
         <CardTitle className={`${anek.className}`}>Protein Chart</CardTitle>
         <CardDescription className={`${acme.className}`}>
-          {" "}
-          {months.map((x: any) => (x.value == date.month ? x.text : ""))}
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -175,7 +160,7 @@ const ProteinGraph = (date: any) => {
                 <h2 className="my-2">Min Protein</h2>
                 <Badge className="bg-purple-900 text-white">
                   {getMin(
-                    data.map((x: any) => (x.totalProtein ? x.totalProtein : 0))
+                    data.data.map((x: any) => (x.totalProtein ? x.totalProtein : 0))
                   )}
                 </Badge>
               </div>
@@ -183,7 +168,7 @@ const ProteinGraph = (date: any) => {
                 <h2 className="my-2">Average Protein</h2>
                 <Badge className="bg-purple-900 text-white">
                   {getAverage(
-                    data.map((x: any) => (x.totalProtein ? x.totalProtein : 0))
+                    data.data.map((x: any) => (x.totalProtein ? x.totalProtein : 0))
                   )}
                 </Badge>
               </div>
@@ -191,7 +176,7 @@ const ProteinGraph = (date: any) => {
                 <h2 className="my-2">Max Protein</h2>
                 <Badge className="bg-purple-900 text-white">
                   {getMax(
-                    data.map((x: any) => (x.totalProtein ? x.totalProtein : 0))
+                    data.data.map((x: any) => (x.totalProtein ? x.totalProtein : 0))
                   )}
                 </Badge>
               </div>
