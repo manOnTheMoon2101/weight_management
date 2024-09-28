@@ -34,7 +34,10 @@ import months from "@/lib/files/months.json";
 import { CiExport } from "react-icons/ci";
 import { MdMenu } from "react-icons/md";
 import html2canvas from "html2canvas";
-export function GraphMenu(chartRef: any, data: any) {
+import { PiFilePng } from "react-icons/pi";
+import { PiFileCsv } from "react-icons/pi";
+import { PiFilePdf } from "react-icons/pi";
+export function GraphMenu(chartRef: any) {
   function getMonthName(value: any) {
     const month = months.find((month) => month.value === value);
     return month ? month.name : null;
@@ -72,17 +75,17 @@ export function GraphMenu(chartRef: any, data: any) {
             <DropdownMenuPortal>
               <DropdownMenuSubContent>
                 <DropdownMenuItem>
-                  <Mail className="mr-2 h-4 w-4" />
                   <Button variant={"ghost"} onClick={downloadImage}>
+                    <PiFilePng className="mr-2 h-4 w-4" />
                     PNG
                   </Button>
                 </DropdownMenuItem>
                 <DropdownMenuItem disabled>
-                  <MessageSquare className="mr-2 h-4 w-4" />
+                  <PiFileCsv className="mr-2 h-4 w-4" />
                   <span>CSV</span>
                 </DropdownMenuItem>
                 <DropdownMenuItem disabled>
-                  <MessageSquare className="mr-2 h-4 w-4" />
+                  <PiFilePdf className="mr-2 h-4 w-4" />
                   <span>PDF</span>
                 </DropdownMenuItem>
               </DropdownMenuSubContent>
