@@ -36,6 +36,7 @@ const chartConfig = {
 
 import React from "react";
 import { Skeleton } from "@/components/ui/skeleton";
+import { GraphMenu } from "./components/Menu/Menu";
 const Graph = (data: any) => {
   function getAverage(numbers: any) {
     if (numbers.length === 0) return null;
@@ -82,7 +83,10 @@ const Graph = (data: any) => {
   return (
     <Card className="my-5">
       <CardHeader>
-        <CardTitle className={`${anek.className}`}>Weight Chart</CardTitle>
+        <div className="flex flex-row justify-between items-center">
+          <CardTitle className={`${anek.className}`}>Protein Chart</CardTitle>
+          <GraphMenu month={data.month} />
+        </div>
         <CardDescription className={`${acme.className}`}>
           {getMonthName(data.month)}
         </CardDescription>

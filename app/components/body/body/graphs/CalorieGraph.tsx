@@ -25,6 +25,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Acme } from "next/font/google";
 import { Anek_Devanagari } from "next/font/google";
+import { GraphMenu } from "./components/Menu/Menu";
 const anek = Anek_Devanagari({
   subsets: ["latin"],
   weight: "400",
@@ -85,7 +86,10 @@ export function CalorieGraph(data: any) {
   return (
     <Card className="my-5">
       <CardHeader>
-        <CardTitle className={`${anek.className}`}>Calorie Chart</CardTitle>
+        <div className="flex flex-row justify-between items-center">
+          <CardTitle className={`${anek.className}`}>Protein Chart</CardTitle>
+          <GraphMenu month={data.month} />
+        </div>
         <CardDescription className={`${acme.className}`}>
           {getMonthName(data.month)}
         </CardDescription>

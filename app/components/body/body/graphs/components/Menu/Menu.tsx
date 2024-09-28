@@ -45,7 +45,7 @@ export function GraphMenu(data: any) {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
-        <DropdownMenuLabel>{getMonthName(data.data.month)}</DropdownMenuLabel>
+        <DropdownMenuLabel>{getMonthName(data.month)}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           {/* <DropdownMenuItem>
@@ -55,7 +55,7 @@ export function GraphMenu(data: any) {
           <DropdownMenuSub>
             <DropdownMenuSubTrigger>
               <UserPlus className="mr-2 h-4 w-4" />
-              <span>Export Dashboard</span>
+              <span>Export Graph</span>
             </DropdownMenuSubTrigger>
             <DropdownMenuPortal>
               <DropdownMenuSubContent>

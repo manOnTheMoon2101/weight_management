@@ -36,6 +36,7 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 import React from "react";
+import { GraphMenu } from "./components/Menu/Menu";
 function getMonthName(value: any) {
   const month = months.find((month) => month.value === value);
   return month ? month.name : null;
@@ -83,7 +84,10 @@ const ProteinGraph = (data: any) => {
   return (
     <Card className="my-5">
       <CardHeader>
-        <CardTitle className={`${anek.className}`}>Protein Chart</CardTitle>
+        <div className="flex flex-row justify-between items-center">
+          <CardTitle className={`${anek.className}`}>Protein Chart</CardTitle>
+          <GraphMenu month={data.month} />
+        </div>
         <CardDescription className={`${acme.className}`}>
           {getMonthName(data.month)}
         </CardDescription>
