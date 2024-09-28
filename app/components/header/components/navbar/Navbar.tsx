@@ -34,12 +34,6 @@ export function NavBar() {
         </MenubarContent>
       </MenubarMenu>
       <MenubarMenu>
-        <MenubarTrigger>Settings</MenubarTrigger>
-        <MenubarContent>
-         <p>coming soon...</p>
-        </MenubarContent>
-      </MenubarMenu>
-      <MenubarMenu>
         <MenubarTrigger>Account</MenubarTrigger>
         <MenubarContent>
           <div>
