@@ -31,6 +31,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import months from "@/lib/files/months.json";
+import { CiExport } from "react-icons/ci";
 import { MdMenu } from "react-icons/md";
 export function GraphMenu(data: any) {
   function getMonthName(value: any) {
@@ -54,7 +55,7 @@ export function GraphMenu(data: any) {
           </DropdownMenuItem> */}
           <DropdownMenuSub>
             <DropdownMenuSubTrigger>
-              <UserPlus className="mr-2 h-4 w-4" />
+              <CiExport className="mr-2 h-4 w-4" />
               <span>Export Graph</span>
             </DropdownMenuSubTrigger>
             <DropdownMenuPortal>
