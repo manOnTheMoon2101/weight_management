@@ -18,17 +18,6 @@ model User {
   @@unique([id, name])
 }
 
-model Food {
-  id        String    @id @default(auto()) @map("_id") @db.ObjectId
-  name      String?
-  calories  Float?
-  sugar     Float?
-  protein   Float?
-  iron      Float?
-  carbs     Float?
-  createdAt DateTime?
-  updatedAt DateTime?
-}
 
 model Data {
   id                   String   @id @default(auto()) @map("_id") @db.ObjectId
