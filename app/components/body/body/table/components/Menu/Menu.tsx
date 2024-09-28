@@ -32,6 +32,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import months from "@/lib/files/months.json";
 import { CiExport } from "react-icons/ci";
+import { MdOutlineDataObject } from "react-icons/md";
 import { MdMenu } from "react-icons/md";
 export function TableMenu(data: any) {
   function getMonthName(value: any) {
@@ -49,10 +50,10 @@ export function TableMenu(data: any) {
         <DropdownMenuLabel>{getMonthName(data.data.month)}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          {/* <DropdownMenuItem>
-            <Users className="mr-2 h-4 w-4" />
-            <span>Team</span>
-          </DropdownMenuItem> */}
+          <DropdownMenuItem>
+            <MdOutlineDataObject className="mr-2 h-4 w-4" />
+            <span>Set Limits</span>
+          </DropdownMenuItem>
           <DropdownMenuSub>
             <DropdownMenuSubTrigger>
               <CiExport className="mr-2 h-4 w-4" />

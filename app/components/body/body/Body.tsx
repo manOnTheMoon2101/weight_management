@@ -71,8 +71,8 @@ export function Body() {
       <div className="flex flex-col md:flex-col justify-around  h-full">
         <div className="w-full my-5 md:flex flex-row justify-around overflow-auto  ">
           <ProteinGraph data={data} month={selectedMonth} />
-          <WeightGraph data={data} month={selectedMonth}/>
-          <CalorieGraph data={data} month={selectedMonth}/>
+          <WeightGraph data={data} month={selectedMonth} />
+          <CalorieGraph data={data} month={selectedMonth} />
         </div>
         <div className="w-full my-5 flex-1">
           <Dashboard_table data={data} month={selectedMonth} />
