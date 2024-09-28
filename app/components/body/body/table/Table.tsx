@@ -21,18 +21,21 @@ import {
 } from "@/components/ui/popover";
 import { Badge } from "@/components/ui/badge";
 import { FaInfoCircle } from "react-icons/fa";
+import { TableMenu } from "./components/Menu/Menu";
 const cousine = Cousine({
   subsets: ["latin"],
   weight: "400",
 });
-export function Dashboard_table(data: any) {
+export function Dashboard_table(data: any, month: any) {
   const isDesktop = useMediaQuery("(min-width: 768px)");
   const skeletons = Array.from({ length: 14 });
   if (isDesktop) {
     return (
       <>
         <div className="min-w-full overflow-x-auto border rounded h-80">
-          {/* <h3 className={`${anek.className} text-2xl m-5`}>Dashboard</h3> */}
+          <div className="flex flex-row justify-end">
+            <TableMenu data={data} />
+          </div>
           <table className="table-auto min-w-full">
             <thead>
               <tr className="sticky top-0 bg-background">

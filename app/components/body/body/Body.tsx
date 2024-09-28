@@ -75,7 +75,7 @@ export function Body() {
           <CalorieGraph data={data} />
         </div>
         <div className="w-full my-5 flex-1">
-          <Dashboard_table data={data} />
+          <Dashboard_table data={data} month={selectedMonth} />
         </div>
       </div>
     </div>
