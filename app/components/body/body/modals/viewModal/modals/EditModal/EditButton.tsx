@@ -13,6 +13,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { AiOutlineLoading } from "react-icons/ai";
 import { FaEdit } from "react-icons/fa";
 import { FaSave } from "react-icons/fa";
+import { MdEditNote } from "react-icons/md";
 import {
   Tooltip,
   TooltipContent,
@@ -84,7 +85,11 @@ export function EditButton(data: any) {
           <DialogTrigger>
             <div className="flex flex-row justify-between items-center mx-2">
               <Button variant="ghost">
-                <FaEdit size={30} onClick={() => setOpen(true)} />
+                <MdEditNote
+                  size={30}
+                  className="text-orange-400"
+                  onClick={() => setOpen(true)}
+                />
               </Button>
             </div>
           </DialogTrigger>
@@ -99,11 +104,11 @@ export function EditButton(data: any) {
                           <AiOutlineLoading className="animate-spin text-orange-400 text-lg" />
                         ) : (
                           <Button
+                            variant={"ghost"}
                             disabled={!post.weight || !post.totalCalories}
                             type="submit"
-                            className="bg-orange-400 text-slate-50"
                           >
-                            <FaSave />
+                            <FaSave size={20} className="text-orange-400" />
                           </Button>
                         )}
                       </div>
@@ -267,7 +272,13 @@ export function EditButton(data: any) {
       <Drawer open={open} onOpenChange={setOpen}>
         <DrawerTrigger>
           <div className="flex flex-row justify-between items-center mx-2">
-            <FaEdit size={30} onClick={() => setOpen(true)} />
+            <Button variant="ghost">
+              <MdEditNote
+                size={30}
+                className="text-orange-400"
+                onClick={() => setOpen(true)}
+              />
+            </Button>
           </div>
         </DrawerTrigger>
         <DrawerContent>
@@ -283,9 +294,9 @@ export function EditButton(data: any) {
                         <Button
                           disabled={!post.weight || !post.totalCalories}
                           type="submit"
-                          className="bg-orange-400 text-slate-50"
+                          variant={"ghost"}
                         >
-                          <FaSave />
+                          <FaSave size={20} className="text-orange-400" />
                         </Button>
                       )}
                     </div>
