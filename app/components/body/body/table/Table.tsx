@@ -27,19 +27,19 @@ const cousine = Cousine({
   subsets: ["latin"],
   weight: "400",
 });
-export function Dashboard_table(data: any, month: any) {
+export function Dashboard_table(data: any) {
   const isDesktop = useMediaQuery("(min-width: 768px)");
   const chartRef = useRef(null);
   const skeletons = Array.from({ length: 14 });
   if (isDesktop) {
     return (
       <div className="min-w-full overflow-x-auto border rounded h-80">
-        <div className="flex flex-row justify-end sticky top-0 bg-background">
+        {/* <div className="flex flex-row justify-end sticky top-0 bg-background">
           <TableMenu data={data} chartRef={chartRef} />
-        </div>
+        </div> */}
         <table className="table-auto min-w-full" ref={chartRef}>
           <thead>
-            <tr className="sticky top-10 bg-background">
+            <tr className="sticky top-0 bg-background">
               <th className="px-4 py-2 text-center">Open</th>
               <th className="px-4 py-2  text-center">Date</th>
               <th className="px-4 py-2  text-center">Weight</th>
@@ -258,222 +258,216 @@ export function Dashboard_table(data: any, month: any) {
   }
 
   return (
-    <>
-      <div className="min-w-full overflow-x-auto border rounded h-96">
-        <table className="table-auto min-w-full">
-          <thead>
-            <tr className="sticky top-0 bg-background">
-              <div className="px-4 py-2 text-center">
-                <TableMenu data={data} chartRef={chartRef} />
-              </div>
-              <th className="px-4 py-2 text-center">Open</th>
-              <th className="px-4 py-2  text-center">Date</th>
-              <th className="px-4 py-2  text-center">Weight</th>
-              <th className="px-4 py-2  text-center">
-                {" "}
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <div className="flex flex-row justify-center">
-                      Calories{" "}
-                      <FaInfoCircle className="hover:text-orange-400" />
+    <div className="min-w-full overflow-x-auto border rounded h-96">
+      <table className="table-auto min-w-full">
+        <thead>
+          <tr className="sticky top-0 bg-background">
+            <th className="px-4 py-2 text-center">Open</th>
+            <th className="px-4 py-2  text-center">Date</th>
+            <th className="px-4 py-2  text-center">Weight</th>
+            <th className="px-4 py-2  text-center">
+              {" "}
+              <Popover>
+                <PopoverTrigger asChild>
+                  <div className="flex flex-row justify-center">
+                    Calories <FaInfoCircle className="hover:text-orange-400" />
+                  </div>
+                </PopoverTrigger>
+                <PopoverContent className="text-center">
+                  <div className="flex flex-row justify-around">
+                    <div>
+                      <h3>Min</h3>
+                      <Badge className="bg-orange-400 text-white">0</Badge>
                     </div>
-                  </PopoverTrigger>
-                  <PopoverContent className="text-center">
-                    <div className="flex flex-row justify-around">
-                      <div>
-                        <h3>Min</h3>
-                        <Badge className="bg-orange-400 text-white">0</Badge>
-                      </div>
-                      <div>
-                        <h3>Max</h3>
-                        <Badge className="bg-orange-400 text-white">2000</Badge>
-                      </div>
+                    <div>
+                      <h3>Max</h3>
+                      <Badge className="bg-orange-400 text-white">2000</Badge>
                     </div>
-                  </PopoverContent>
-                </Popover>
-              </th>
-              <th className="px-4 py-2  text-center">
-                {" "}
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <div className="flex flex-row justify-center">
-                      Protein <FaInfoCircle className="hover:text-orange-400" />
+                  </div>
+                </PopoverContent>
+              </Popover>
+            </th>
+            <th className="px-4 py-2  text-center">
+              {" "}
+              <Popover>
+                <PopoverTrigger asChild>
+                  <div className="flex flex-row justify-center">
+                    Protein <FaInfoCircle className="hover:text-orange-400" />
+                  </div>
+                </PopoverTrigger>
+                <PopoverContent className="text-center">
+                  <div className="flex flex-row justify-around">
+                    <div>
+                      <h3>Min</h3>
+                      <Badge className="bg-orange-400 text-white">70</Badge>
                     </div>
-                  </PopoverTrigger>
-                  <PopoverContent className="text-center">
-                    <div className="flex flex-row justify-around">
-                      <div>
-                        <h3>Min</h3>
-                        <Badge className="bg-orange-400 text-white">70</Badge>
-                      </div>
-                      <div>
-                        <h3>Max</h3>
-                        <Badge className="bg-orange-400 text-white">200</Badge>
-                      </div>
+                    <div>
+                      <h3>Max</h3>
+                      <Badge className="bg-orange-400 text-white">200</Badge>
                     </div>
-                  </PopoverContent>
-                </Popover>
-              </th>
-              <th className="px-4 py-2  text-center">
-                {" "}
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <div className="flex flex-row justify-center">
-                      Fat <FaInfoCircle className="hover:text-orange-400" />
+                  </div>
+                </PopoverContent>
+              </Popover>
+            </th>
+            <th className="px-4 py-2  text-center">
+              {" "}
+              <Popover>
+                <PopoverTrigger asChild>
+                  <div className="flex flex-row justify-center">
+                    Fat <FaInfoCircle className="hover:text-orange-400" />
+                  </div>
+                </PopoverTrigger>
+                <PopoverContent className="text-center">
+                  <div className="flex flex-row justify-around">
+                    <div>
+                      <h3>Min</h3>
+                      <Badge className="bg-orange-400 text-white">0</Badge>
                     </div>
-                  </PopoverTrigger>
-                  <PopoverContent className="text-center">
-                    <div className="flex flex-row justify-around">
-                      <div>
-                        <h3>Min</h3>
-                        <Badge className="bg-orange-400 text-white">0</Badge>
-                      </div>
-                      <div>
-                        <h3>Max</h3>
-                        <Badge className="bg-orange-400 text-white">67</Badge>
-                      </div>
+                    <div>
+                      <h3>Max</h3>
+                      <Badge className="bg-orange-400 text-white">67</Badge>
                     </div>
-                  </PopoverContent>
-                </Popover>
-              </th>
-              <th className="px-4 py-2  text-center">
-                {" "}
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <div className="flex flex-row justify-center">
-                      Carbs
-                      <FaInfoCircle className="hover:text-orange-400" />
+                  </div>
+                </PopoverContent>
+              </Popover>
+            </th>
+            <th className="px-4 py-2  text-center">
+              {" "}
+              <Popover>
+                <PopoverTrigger asChild>
+                  <div className="flex flex-row justify-center">
+                    Carbs
+                    <FaInfoCircle className="hover:text-orange-400" />
+                  </div>
+                </PopoverTrigger>
+                <PopoverContent className="text-center">
+                  <div className="flex flex-row justify-around">
+                    <div>
+                      <h3>Min</h3>
+                      <Badge className="bg-orange-400 text-white">0</Badge>
                     </div>
-                  </PopoverTrigger>
-                  <PopoverContent className="text-center">
-                    <div className="flex flex-row justify-around">
-                      <div>
-                        <h3>Min</h3>
-                        <Badge className="bg-orange-400 text-white">0</Badge>
-                      </div>
-                      <div>
-                        <h3>Max</h3>
-                        <Badge className="bg-orange-400 text-white">120</Badge>
-                      </div>
+                    <div>
+                      <h3>Max</h3>
+                      <Badge className="bg-orange-400 text-white">120</Badge>
                     </div>
-                  </PopoverContent>
-                </Popover>
-              </th>
-              <th className="px-4 py-2  text-center">
-                {" "}
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <div className="flex flex-row justify-center">
-                      Sugar
-                      <FaInfoCircle className="hover:text-orange-400" />
+                  </div>
+                </PopoverContent>
+              </Popover>
+            </th>
+            <th className="px-4 py-2  text-center">
+              {" "}
+              <Popover>
+                <PopoverTrigger asChild>
+                  <div className="flex flex-row justify-center">
+                    Sugar
+                    <FaInfoCircle className="hover:text-orange-400" />
+                  </div>
+                </PopoverTrigger>
+                <PopoverContent className="text-center">
+                  <div className="flex flex-row justify-around">
+                    <div>
+                      <h3>Min</h3>
+                      <Badge className="bg-orange-400 text-white">0</Badge>
                     </div>
-                  </PopoverTrigger>
-                  <PopoverContent className="text-center">
-                    <div className="flex flex-row justify-around">
-                      <div>
-                        <h3>Min</h3>
-                        <Badge className="bg-orange-400 text-white">0</Badge>
-                      </div>
-                      <div>
-                        <h3>Max</h3>
-                        <Badge className="bg-orange-400 text-white">30</Badge>
-                      </div>
+                    <div>
+                      <h3>Max</h3>
+                      <Badge className="bg-orange-400 text-white">30</Badge>
                     </div>
-                  </PopoverContent>
-                </Popover>
-              </th>
-              <th className="px-4 py-2  text-center">Vitamin</th>
-              <th className="px-4 py-2  text-center">CLA</th>
-              <th className="px-4 py-2  text-center">L-Carnitine</th>
-            </tr>
-          </thead>
-          {data.data.map((x: any) => (
-            <tbody className="bg-background">
-              <tr key={x.id}>
-                <td className="border-b px-4 py-2 text-center">
-                  <Drawer>
-                    <DrawerTrigger asChild>
-                      <AiOutlineExport />
-                    </DrawerTrigger>
-                    <DrawerContent>
-                      <ViewModal x={x} />
-                    </DrawerContent>
-                  </Drawer>
-                </td>
-                <td
-                  className={`border-b px-4 py-2  text-center ${cousine.className}`}
-                >
-                  {x.createdAt}
-                </td>
-                <td
-                  className={`border-b px-4 py-2  text-center ${cousine.className}`}
-                >
-                  {x.weight}
-                </td>
-                <td
-                  className={`border-b px-4 py-2 ${
-                    cousine.className
-                  }  text-center  ${
-                    x.totalCalories > 2000 ? "text-red-500" : ""
-                  }`}
-                >
-                  {x.totalCalories}
-                </td>
-                <td
-                  className={`border-b px-4 py-2  text-center ${
-                    cousine.className
-                  }  ${x.totalProtein < 70 ? "text-red-500" : ""}`}
-                >
-                  {x.totalProtein}
-                </td>
-                <td
-                  className={`border-b px-4 py-2  ${
-                    cousine.className
-                  }  text-center  ${x.totalFat > 67 ? "text-red-500" : ""}`}
-                >
-                  {x.totalFat}
-                </td>
-                <td
-                  className={`border-b px-4 py-2  text-center ${
-                    cousine.className
-                  } ${x.totalCarbs > 120 ? "text-red-500" : ""} `}
-                >
-                  {x.totalCarbs}
-                </td>
-                <td
-                  className={`border-b px-4 py-2  text-center ${
-                    cousine.className
-                  } ${x.totalSugar > 30 ? "text-red-500" : ""} `}
-                >
-                  {x.totalSugar}
-                </td>
+                  </div>
+                </PopoverContent>
+              </Popover>
+            </th>
+            <th className="px-4 py-2  text-center">Vitamin</th>
+            <th className="px-4 py-2  text-center">CLA</th>
+            <th className="px-4 py-2  text-center">L-Carnitine</th>
+          </tr>
+        </thead>
+        {data.data.map((x: any) => (
+          <tbody className="bg-background">
+            <tr key={x.id}>
+              <td className="border-b px-4 py-2 text-center">
+                <Drawer>
+                  <DrawerTrigger asChild>
+                    <AiOutlineExport />
+                  </DrawerTrigger>
+                  <DrawerContent>
+                    <ViewModal x={x} />
+                  </DrawerContent>
+                </Drawer>
+              </td>
+              <td
+                className={`border-b px-4 py-2  text-center ${cousine.className}`}
+              >
+                {x.createdAt}
+              </td>
+              <td
+                className={`border-b px-4 py-2  text-center ${cousine.className}`}
+              >
+                {x.weight}
+              </td>
+              <td
+                className={`border-b px-4 py-2 ${
+                  cousine.className
+                }  text-center  ${
+                  x.totalCalories > 2000 ? "text-red-500" : ""
+                }`}
+              >
+                {x.totalCalories}
+              </td>
+              <td
+                className={`border-b px-4 py-2  text-center ${
+                  cousine.className
+                }  ${x.totalProtein < 70 ? "text-red-500" : ""}`}
+              >
+                {x.totalProtein}
+              </td>
+              <td
+                className={`border-b px-4 py-2  ${
+                  cousine.className
+                }  text-center  ${x.totalFat > 67 ? "text-red-500" : ""}`}
+              >
+                {x.totalFat}
+              </td>
+              <td
+                className={`border-b px-4 py-2  text-center ${
+                  cousine.className
+                } ${x.totalCarbs > 120 ? "text-red-500" : ""} `}
+              >
+                {x.totalCarbs}
+              </td>
+              <td
+                className={`border-b px-4 py-2  text-center ${
+                  cousine.className
+                } ${x.totalSugar > 30 ? "text-red-500" : ""} `}
+              >
+                {x.totalSugar}
+              </td>
 
-                <td
-                  className={`border-b px-4 py-2  text-center ${cousine.className}`}
-                >
-                  {x.tookVitamin ? "💊" : ""}
-                </td>
-                <td
-                  className={`border-b px-4 py-2  text-center ${cousine.className}`}
-                >
-                  {x.tookWeightmanagement ? "💊" : ""}
-                </td>
-                <td
-                  className={`border-b px-4 py-2  text-center ${cousine.className}`}
-                >
-                  {x.tookFatburner ? "💊" : ""}
-                </td>
-              </tr>
-            </tbody>
-          ))}
-        </table>
-        <div className="flex flex-row justify-center">
-          <h3 className="text-2xl">
-            {" "}
-            {data.data.length <= 0 ? "No Data Found..." : ""}
-          </h3>
-        </div>
+              <td
+                className={`border-b px-4 py-2  text-center ${cousine.className}`}
+              >
+                {x.tookVitamin ? "💊" : ""}
+              </td>
+              <td
+                className={`border-b px-4 py-2  text-center ${cousine.className}`}
+              >
+                {x.tookWeightmanagement ? "💊" : ""}
+              </td>
+              <td
+                className={`border-b px-4 py-2  text-center ${cousine.className}`}
+              >
+                {x.tookFatburner ? "💊" : ""}
+              </td>
+            </tr>
+          </tbody>
+        ))}
+      </table>
+      <div className="flex flex-row justify-center">
+        <h3 className="text-2xl">
+          {" "}
+          {data.data.length <= 0 ? "No Data Found..." : ""}
+        </h3>
       </div>
-    </>
+    </div>
   );
 }
