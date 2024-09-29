@@ -19,7 +19,7 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart";
 import { Acme } from "next/font/google";
-import { useRef } from 'react';
+import { useRef } from "react";
 import months from "@/lib/files/months.json";
 import { Anek_Devanagari } from "next/font/google";
 const anek = Anek_Devanagari({
@@ -83,13 +83,13 @@ const ProteinGraph = (data: any) => {
       createdAt: new Date(item.createdAt).getDate(),
       protein: item.totalProtein,
     })) || [];
-    const title = 'Protein'
+  const title = "Protein";
   return (
     <Card className="my-5" ref={chartRef}>
       <CardHeader>
         <div className="flex flex-row justify-between items-center">
           <CardTitle className={`${anek.className}`}>{title}</CardTitle>
-          <GraphMenu month={data.month} chartRef={chartRef} title={title}/>
+          <GraphMenu month={data.month} chartRef={chartRef} title={title} />
         </div>
         <CardDescription className={`${acme.className}`}>
           {getMonthName(data.month)}
