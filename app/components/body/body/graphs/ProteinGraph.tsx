@@ -77,7 +77,6 @@ const ProteinGraph = (data: any) => {
     }
     return max;
   }
-  console.log(data);
   const chartData =
     data?.data.map((item: any) => ({
       createdAt: new Date(item.createdAt).getDate(),

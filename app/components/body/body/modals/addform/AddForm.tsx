@@ -75,7 +75,6 @@ export function AddForm() {
     "en-US",
     options
   );
-  console.log(formattedDate);
   const handleChange = (e: any) => {
     const { name, value, type, checked } = e.target;
     postData({

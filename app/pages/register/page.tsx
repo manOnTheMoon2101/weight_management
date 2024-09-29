@@ -37,7 +37,6 @@ const Register = () => {
       .finally(() => {
         postUser({});
         setLoading(false);
-        console.log(user);
         router.push("/pages/login");
 
         toast({
