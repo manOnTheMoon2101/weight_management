@@ -1,5 +1,4 @@
 "use client";
-import useSWR from "swr";
 import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts";
 import {
   Card,

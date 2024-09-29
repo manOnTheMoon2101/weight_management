@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import DeleteButton from "./modals/DeleteModal/DeleteButton";
 import { EditButton } from "./modals/EditModal/EditButton";
