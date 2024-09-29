@@ -13,6 +13,7 @@ import { CalorieGraph } from "./graphs/CalorieGraph";
 import { useState } from "react";
 import { AddForm } from "./modals/addform/AddForm";
 import ProteinGraph from "./graphs/ProteinGraph";
+import { Skeleton } from "@/components/ui/skeleton";
 export function Body() {
   const getCurrentMonthTwoDigit = () => {
     let date = new Date();
@@ -33,7 +34,31 @@ export function Body() {
   const url = `/api/nutrients/get/${selectedMonth}`;
   const { data, error, isLoading } = useSWR(url, fetcher);
   if (error) return <div>failed to load</div>;
-  if (isLoading) return <p>loading</p>;
+  if (isLoading)
+    return (
+      <div>
+        <div className="flex flex-row justify-between">
+          <div className="mx-2 md:">
+            <Skeleton className="w-[180px] h-[50px] mx-3 border" />
+          </div>
+          <div className="mx-2 md:">
+            <Skeleton className="w-[180px] h-[50px] mx-3 border" />
+          </div>
+        </div>
+        <div className="flex flex-col md:flex-col justify-around  h-full">
+          <div className="w-full my-5 md:flex flex-row justify-around overflow-auto">
+          <Skeleton className="w-full h-[400px] sm:w-[360px]" />
+          <Skeleton className="w-full h-[400px] sm:w-[360px]" />
+          <Skeleton className="w-full h-[400px] sm:w-[360px]" />
+
+          </div>
+          <div className="w-full my-5 flex-1">
+            <Skeleton className="w-full h-96 mx-3 " />
+          </div>
+        </div>
+      </div>
+    );
+
   return (
     <div>
       <div className="flex flex-row justify-between">
@@ -69,7 +94,7 @@ export function Body() {
         </div>
       </div>
       <div className="flex flex-col md:flex-col justify-around  h-full">
-        <div className="w-full my-5 md:flex flex-row justify-around overflow-auto">
+        <div className="w-full my-5  md:flex flex-row justify-around overflow-auto">
           <ProteinGraph data={data} month={selectedMonth} />
           <WeightGraph data={data} month={selectedMonth} />
           <CalorieGraph data={data} month={selectedMonth} />
