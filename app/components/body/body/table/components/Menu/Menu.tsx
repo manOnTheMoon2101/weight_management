@@ -33,7 +33,6 @@ import {
 import months from "@/lib/files/months.json";
 import { CiExport } from "react-icons/ci";
 import { MdMenu } from "react-icons/md";
-import Limits from "./Limts/Limits";
 import html2canvas from "html2canvas";
 export function TableMenu(data: any) {
   function getMonthName(value: any) {
@@ -61,9 +60,6 @@ export function TableMenu(data: any) {
         <DropdownMenuLabel>{getMonthName(data.data.month)}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuItem asChild>
-            <Limits />
-          </DropdownMenuItem>
           <DropdownMenuSub>
             <DropdownMenuSubTrigger>
               <CiExport className="mr-2 h-4 w-4" />
