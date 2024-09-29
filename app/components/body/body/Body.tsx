@@ -47,10 +47,9 @@ export function Body() {
         </div>
         <div className="flex flex-col md:flex-col justify-around  h-full">
           <div className="w-full my-5 md:flex flex-row justify-around overflow-auto">
-          <Skeleton className="w-full h-[400px] sm:w-[360px]" />
-          <Skeleton className="w-full h-[400px] sm:w-[360px]" />
-          <Skeleton className="w-full h-[400px] sm:w-[360px]" />
-
+            <Skeleton className="w-full h-[400px] sm:w-[360px]" />
+            <Skeleton className="w-full h-[400px] sm:w-[360px]" />
+            <Skeleton className="w-full h-[400px] sm:w-[360px]" />
           </div>
           <div className="w-full my-5 flex-1">
             <Skeleton className="w-full h-96 mx-3 " />

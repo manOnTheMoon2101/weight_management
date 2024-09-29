@@ -2,7 +2,6 @@
 import { useMediaQuery } from "@custom-react-hooks/use-media-query";
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 import React from "react";
-import useSWR from "swr";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { AiOutlineExport } from "react-icons/ai";
 import ViewModal from "../modals/viewModal/ViewModal";
@@ -12,7 +11,6 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import SkeletonHolder from "./skeleton/skeletonHolder";
 import { Cousine } from "next/font/google";
 import {
   Popover,
