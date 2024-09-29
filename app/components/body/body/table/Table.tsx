@@ -34,12 +34,12 @@ export function Dashboard_table(data: any, month: any) {
   if (isDesktop) {
     return (
       <div className="min-w-full overflow-x-auto border rounded h-80">
-        <div className="flex flex-row justify-end">
-          <TableMenu data={data} chartRef={chartRef} />
-        </div>
         <table className="table-auto min-w-full" ref={chartRef}>
           <thead>
             <tr className="sticky top-0 bg-background">
+              <div className="px-4 py-2 text-center">
+                <TableMenu data={data} chartRef={chartRef} />
+              </div>
               <th className="px-4 py-2 text-center">Open</th>
               <th className="px-4 py-2  text-center">Date</th>
               <th className="px-4 py-2  text-center">Weight</th>
@@ -263,6 +263,9 @@ export function Dashboard_table(data: any, month: any) {
         <table className="table-auto min-w-full">
           <thead>
             <tr className="sticky top-0 bg-background">
+              <div className="px-4 py-2 text-center">
+                <TableMenu data={data} chartRef={chartRef} />
+              </div>
               <th className="px-4 py-2 text-center">Open</th>
               <th className="px-4 py-2  text-center">Date</th>
               <th className="px-4 py-2  text-center">Weight</th>
