@@ -38,7 +38,6 @@ import { PiFilePng } from "react-icons/pi";
 import { PiFileCsv } from "react-icons/pi";
 import { PiFilePdf } from "react-icons/pi";
 export function GraphMenu(chartRef: any) {
-  
   function getMonthName(value: any) {
     const month = months.find((month) => month.value === value);
     return month ? month.name : null;
@@ -49,7 +48,7 @@ export function GraphMenu(chartRef: any) {
       const dataUrl = canvas.toDataURL("image/png");
       const link = document.createElement("a");
       link.href = dataUrl;
-      link.download = "calories-chart.png";
+      link.download = `${getMonthName(chartRef.month) + " " + chartRef.title}`;
       link.click();
     }
   };

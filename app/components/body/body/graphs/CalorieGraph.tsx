@@ -22,7 +22,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-import { useRef } from 'react';
+import { useRef } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Acme } from "next/font/google";
 import { Anek_Devanagari } from "next/font/google";
@@ -85,12 +85,14 @@ export function CalorieGraph(data: any) {
       createdAt: new Date(item.createdAt).getDate(),
       totalCalories: item.totalCalories,
     })) || [];
+
+  const title = "Calories";
   return (
     <Card className="my-5" ref={chartRef}>
       <CardHeader>
         <div className="flex flex-row justify-between items-center">
-          <CardTitle className={`${anek.className}`}>Calories</CardTitle>
-          <GraphMenu month={data.month}  chartRef={chartRef} />
+          <CardTitle className={`${anek.className}`}>{title}</CardTitle>
+          <GraphMenu month={data.month} chartRef={chartRef} title={title} />
         </div>
         <CardDescription className={`${acme.className}`}>
           {getMonthName(data.month)}

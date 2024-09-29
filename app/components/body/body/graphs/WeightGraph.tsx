@@ -82,12 +82,13 @@ const Graph = (data: any) => {
       createdAt: new Date(item.createdAt).getDate(),
       weight: item.weight,
     })) || [];
+  const title = "Weight";
   return (
     <Card className="my-5" ref={chartRef}>
       <CardHeader>
         <div className="flex flex-row justify-between items-center">
-          <CardTitle className={`${anek.className}`}>Weight</CardTitle>
-          <GraphMenu month={data.month} chartRef={chartRef} />
+          <CardTitle className={`${anek.className}`}>{title}</CardTitle>
+          <GraphMenu month={data.month} chartRef={chartRef} title={title} />
         </div>
         <CardDescription className={`${acme.className}`}>
           {getMonthName(data.month)}
