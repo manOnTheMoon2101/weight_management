@@ -38,6 +38,7 @@ import { PiFilePng } from "react-icons/pi";
 import { PiFileCsv } from "react-icons/pi";
 import { PiFilePdf } from "react-icons/pi";
 export function GraphMenu(chartRef: any) {
+  
   function getMonthName(value: any) {
     const month = months.find((month) => month.value === value);
     return month ? month.name : null;

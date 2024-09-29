@@ -32,16 +32,24 @@ import {
 } from "@/components/ui/dropdown-menu";
 import months from "@/lib/files/months.json";
 import { CiExport } from "react-icons/ci";
-import { MdOutlineDataObject } from "react-icons/md";
 import { MdMenu } from "react-icons/md";
-import useSWR from "swr";
 import Limits from "./Limts/Limits";
+import html2canvas from "html2canvas";
 export function TableMenu(data: any) {
   function getMonthName(value: any) {
     const month = months.find((month) => month.value === value);
     return month ? month.name : null;
   }
-  const fetcher = (url: string) => fetch(url).then((res) => res.json());
+  const downloadImage = async () => {
+    if (data.chartRef.current) {
+      const canvas = await html2canvas(data.chartRef.current);
+      const dataUrl = canvas.toDataURL("image/png");
+      const link = document.createElement("a");
+      link.href = dataUrl;
+      link.download = "calories-chart.png";
+      link.click();
+    }
+  };
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -65,13 +73,15 @@ export function TableMenu(data: any) {
               <DropdownMenuSubContent>
                 <DropdownMenuItem>
                   <Mail className="mr-2 h-4 w-4" />
-                  <span>PNG</span>
+                  <Button onClick={downloadImage} variant={"ghost"}>
+                    PNG
+                  </Button>
                 </DropdownMenuItem>
-                <DropdownMenuItem>
+                <DropdownMenuItem disabled>
                   <MessageSquare className="mr-2 h-4 w-4" />
                   <span>CSV</span>
                 </DropdownMenuItem>
-                <DropdownMenuItem>
+                <DropdownMenuItem disabled>
                   <MessageSquare className="mr-2 h-4 w-4" />
                   <span>PDF</span>
                 </DropdownMenuItem>
