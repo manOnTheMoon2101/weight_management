@@ -115,7 +115,7 @@ const Limits = () => {
   if (isDesktop) {
     return (
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogTrigger  asChild>
+        <DialogTrigger asChild>
           <h3 className="text-center cursor-pointer">Set Nutrients</h3>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
