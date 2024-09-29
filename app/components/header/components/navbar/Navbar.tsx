@@ -43,7 +43,7 @@ export function NavBar() {
                   {name ? cleanedName?.charAt(0) : null}
                 </AvatarFallback>
               </Avatar>
-              <div className="text-white">{name}</div>
+              <p>{name}</p>
             </div>
             <div className="flex flex-row justify-end">
               <Button
