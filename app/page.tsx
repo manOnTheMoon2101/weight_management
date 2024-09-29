@@ -1,6 +1,6 @@
 "use client";
-import { Dashboard } from "./components/body/dashboard/Dashboard";
-import Header from "./components/title_header/Header";
+import { Body } from "./components/body/body/Body";
+import Header from "./components/header/Header";
 import { useToast } from "@/components/ui/use-toast";
 import { useSearchParams } from "next/navigation";
 import { useSession } from "next-auth/react";
@@ -11,9 +11,7 @@ export default function Home(e: any) {
   const { data: session } = useSession();
   const name = session?.user?.name || null;
   const router = useRouter();
-
   const searchParams = useSearchParams();
-
   useEffect(() => {
     if (searchParams.get("welcome")) {
       toast({
@@ -31,7 +29,7 @@ export default function Home(e: any) {
         <Header />
       </div>
       <div>
-        <Dashboard />
+        <Body />
       </div>
     </main>
   );
