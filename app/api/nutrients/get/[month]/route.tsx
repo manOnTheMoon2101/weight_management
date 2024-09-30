@@ -37,6 +37,9 @@ export const GET = async (
           },
         },
       },
+      orderBy: {
+        createdAt: "desc",
+      },
     });
 
     data.map((x: any) => (x.createdAt = x.createdAt.toDateString()));
