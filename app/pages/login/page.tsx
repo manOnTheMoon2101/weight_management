@@ -103,7 +103,7 @@ const Login = () => {
           </TooltipProvider>
           <p className="mt-10">
             Don't have an account?{" "}
-            <Link href="/register" className="text-orange-400">
+            <Link href="/pages/register" className="text-orange-400">
               Register?
             </Link>
           </p>
