@@ -80,9 +80,15 @@ export function CalorieGraph(data: any) {
     const month = months.find((month) => month.value === value);
     return month ? month.name : null;
   }
-  const chartData =
-    data?.data.map((item: any) => ({
-      createdAt: new Date(item.createdAt).getDate(),
+  const chartData = 
+  data?.data
+    .map((item: any) => ({
+      createdAt: new Date(item.createdAt).getTime(), // Store as timestamp for sorting
+      totalCalories: item.totalCalories,
+    }))
+    .sort((a : any, b : any) => a.createdAt - b.createdAt) // Sort by createdAt in ascending order
+    .map((item: { createdAt: string | number | Date; totalCalories: any; }) => ({
+      createdAt: new Date(item.createdAt).getDate(), // Convert back to date if needed
       totalCalories: item.totalCalories,
     })) || [];
 
