@@ -79,6 +79,7 @@ const ProteinGraph = (data: any) => {
       createdAt: new Date(item.createdAt).getDate(),
       protein: item.totalProtein,
     })) || [];
+    
   const title = "Protein";
   return (
     <Card className="my-5" ref={chartRef}>

@@ -76,11 +76,18 @@ const Graph = (data: any) => {
     const month = months.find((month) => month.value === value);
     return month ? month.name : null;
   }
+
   const chartData =
-    data?.data.map((item: any) => ({
-      createdAt: new Date(item.createdAt).getDate(),
-      weight: item.weight,
-    })) || [];
+    data?.data
+      .map((item: any) => ({
+        createdAt: new Date(item.createdAt).getTime(),
+        weight: item.weight,
+      }))
+      .sort((a: any, b: any) => a.createdAt - b.createdAt)
+      .map((item: { createdAt: string | number | Date; weight: any }) => ({
+        createdAt: new Date(item.createdAt).getDate(),
+        weight: item.weight,
+      })) || [];
   const title = "Weight";
   return (
     <Card className="my-5" ref={chartRef}>
