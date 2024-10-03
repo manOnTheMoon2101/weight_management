@@ -21,6 +21,7 @@ import { Badge } from "@/components/ui/badge";
 import { FaInfoCircle } from "react-icons/fa";
 import { TableMenu } from "./components/Menu/Menu";
 import { useRef } from "react";
+import Pills from "./components/CellRenderers/Pills";
 import { AgGridReact } from "ag-grid-react"; // React Data Grid Component
 import "ag-grid-community/styles/ag-grid.css"; // Mandatory CSS required by the Data Grid
 import "ag-grid-community/styles/ag-theme-quartz.css"; // Optional Theme applied to the Data Grid
@@ -40,9 +41,9 @@ export function Dashboard_table(data: any) {
     { headerName: "Fat", field: "totalFat" },
     { headerName: "Carbs", field: "totalCarbs" },
     { headerName: "Sugar", field: "totalSugar" },
-    { headerName: "L-Carnitine", field: "tookFatburner" },
-    { headerName: "CLA", field: "tookWeightmanagement" },
-    { headerName: "Vitamin", field: "tookVitamin" },
+    { headerName: "L-Carnitine", field: "tookFatburner", cellRenderer: Pills },
+    { headerName: "CLA", field: "tookWeightmanagement", cellRenderer: Pills },
+    { headerName: "Vitamin", field: "tookVitamin", cellRenderer: Pills },
   ]);
   return (
     <div style={{ height: 500 }}>
