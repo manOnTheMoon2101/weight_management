@@ -22,9 +22,9 @@ import { FaInfoCircle } from "react-icons/fa";
 import { TableMenu } from "./components/Menu/Menu";
 import { useRef } from "react";
 import Pills from "./components/CellRenderers/Pills";
-import { AgGridReact } from "ag-grid-react"; // React Data Grid Component
-import "ag-grid-community/styles/ag-grid.css"; // Mandatory CSS required by the Data Grid
-import "ag-grid-community/styles/ag-theme-quartz.css"; // Optional Theme applied to the Data Grid
+import { AgGridReact } from "ag-grid-react";
+import "ag-grid-community/styles/ag-grid.css";
+import "ag-grid-community/styles/ag-theme-quartz.css";
 import { useState } from "react";
 const cousine = Cousine({
   subsets: ["latin"],
