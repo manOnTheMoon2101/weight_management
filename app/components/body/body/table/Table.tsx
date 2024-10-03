@@ -1,7 +1,7 @@
 "use client";
 import { useMediaQuery } from "@custom-react-hooks/use-media-query";
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
-import React from "react";
+import React, { useCallback } from "react";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { AiOutlineExport } from "react-icons/ai";
 import ViewModal from "../modals/viewModal/ViewModal";
@@ -26,6 +26,7 @@ import { AgGridReact } from "ag-grid-react";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-quartz.css";
 import { useState } from "react";
+import { GetContextMenuItemsParams, MenuItemDef } from "ag-grid-community";
 const cousine = Cousine({
   subsets: ["latin"],
   weight: "400",
@@ -45,9 +46,34 @@ export function Dashboard_table(data: any) {
     { headerName: "CLA", field: "tookWeightmanagement", cellRenderer: Pills },
     { headerName: "Vitamin", field: "tookVitamin", cellRenderer: Pills },
   ]);
+  const getContextMenuItems = useCallback(
+    (params: GetContextMenuItemsParams): (string | MenuItemDef)[] => {
+      var result: (string | MenuItemDef)[] = [
+        {
+          name: "Mac",
+          action: () => {
+            console.log("Mac Item Selected");
+          },
+        },
+        "separator",
+        "copy",
+        "separator",
+        "chartRange",
+      ];
+      return result;
+    },
+    [window]
+  );
+
   return (
-    <div style={{ height: 500 }}>
-      <AgGridReact rowData={rowData} columnDefs={colDefs} />
+    <div className="ag-theme-quartz-dark" style={{ height: 500 }}>
+      <AgGridReact
+        rowData={rowData}
+        columnDefs={colDefs}
+        cellSelection={true}
+        allowContextMenuWithControlKey={true}
+        getContextMenuItems={getContextMenuItems}
+      />
     </div>
   );
 }
