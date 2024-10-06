@@ -1,40 +1,19 @@
 "use client";
 import { useMediaQuery } from "@custom-react-hooks/use-media-query";
-import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
-import React, { useCallback } from "react";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { AiOutlineExport } from "react-icons/ai";
-import ViewModal from "../modals/viewModal/ViewModal";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { Cousine } from "next/font/google";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
-import { Badge } from "@/components/ui/badge";
-import { FaInfoCircle } from "react-icons/fa";
-import { TableMenu } from "./components/Menu/Menu";
-import { useRef } from "react";
 import Pills from "./components/CellRenderers/Pills";
 import { AgGridReact } from "ag-grid-react";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-quartz.css";
-import { useState } from "react";
-import { GetContextMenuItemsParams, MenuItemDef } from "ag-grid-community";
-const cousine = Cousine({
-  subsets: ["latin"],
-  weight: "400",
-});
+import { useState, useRef, useCallback } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { IoMdRefresh } from "react-icons/io";
 export function Dashboard_table(data: any) {
   const isDesktop = useMediaQuery("(min-width: 768px)");
-  const [rowData, setRowData] = useState(data.data);
+  const initialRowData = data.data; // Store the initial data for refreshing
+  const [rowData, setRowData] = useState(initialRowData);
   const [colDefs, setColDefs] = useState<any>([
+    { headerName: "Actions", field: "id" },
     { headerName: "Date", field: "createdAt" },
     { headerName: "Weight", field: "weight" },
     { headerName: "Calories", field: "totalCalories" },
@@ -46,34 +25,72 @@ export function Dashboard_table(data: any) {
     { headerName: "CLA", field: "tookWeightmanagement", cellRenderer: Pills },
     { headerName: "Vitamin", field: "tookVitamin", cellRenderer: Pills },
   ]);
-  const getContextMenuItems = useCallback(
-    (params: GetContextMenuItemsParams): (string | MenuItemDef)[] => {
-      var result: (string | MenuItemDef)[] = [
-        {
-          name: "Mac",
-          action: () => {
-            console.log("Mac Item Selected");
-          },
-        },
-        "separator",
-        "copy",
-        "separator",
-        "chartRange",
-      ];
-      return result;
-    },
-    [window]
-  );
 
+  const gridRef = useRef<any>(null);
+
+  const exportToCSV = () => {
+    if (gridRef.current) {
+      gridRef.current.api.exportDataAsCsv();
+    }
+  };
+
+  const refreshGrid = () => {
+    setRowData(initialRowData);
+  };
+
+  const onFilterTextBoxChanged = useCallback(() => {
+    gridRef.current!.api.setGridOption(
+      "quickFilterText",
+      (document.getElementById("filter-text-box") as HTMLInputElement).value
+    );
+  }, []);
+  const [isSpinning, setIsSpinning] = useState(false);
+
+  const handleRefresh = () => {
+    setIsSpinning(true);
+    setTimeout(() => {
+      setIsSpinning(false);
+    }, 1000);
+  };
   return (
-    <div className="ag-theme-quartz-dark" style={{ height: 500 }}>
-      <AgGridReact
-        rowData={rowData}
-        columnDefs={colDefs}
-        cellSelection={true}
-        allowContextMenuWithControlKey={true}
-        getContextMenuItems={getContextMenuItems}
-      />
+    <div>
+      <div className="flex flex-row justify-end mx-5">
+        <Button
+          variant={"ghost"}
+          onClick={exportToCSV}
+          style={{ marginBottom: "10px" }}
+        >
+          Export to CSV
+        </Button>
+        <Button
+          variant={"ghost"}
+          onClick={() => {
+            handleRefresh();
+            refreshGrid();
+          }}
+          className={`flex items-center justify-center p-2 rounded-full transition-transform duration-300 ${
+            isSpinning ? "animate-spin" : ""
+          }`}
+        >
+          <IoMdRefresh />
+        </Button>
+        <div>
+          <Input
+            type="text"
+            id="filter-text-box"
+            placeholder="Search"
+            onInput={onFilterTextBoxChanged}
+          />
+        </div>
+      </div>
+      <div className="bg--background border" style={{ height: 500 }}>
+        <AgGridReact
+          ref={gridRef}
+          rowData={rowData}
+          columnDefs={colDefs}
+          cellSelection={true}
+        />
+      </div>
     </div>
   );
 }
