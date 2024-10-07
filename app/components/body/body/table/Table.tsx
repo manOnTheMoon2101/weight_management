@@ -1,6 +1,7 @@
 "use client";
 import { useMediaQuery } from "@custom-react-hooks/use-media-query";
 import Pills from "./components/CellRenderers/Pills";
+import Actions from "./components/CellRenderers/Actions";
 import { AgGridReact } from "ag-grid-react";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-quartz.css";
@@ -10,20 +11,43 @@ import { Input } from "@/components/ui/input";
 import { IoMdRefresh } from "react-icons/io";
 export function Dashboard_table(data: any) {
   const isDesktop = useMediaQuery("(min-width: 768px)");
-  const initialRowData = data.data; // Store the initial data for refreshing
+  const initialRowData = data.data;
   const [rowData, setRowData] = useState(initialRowData);
   const [colDefs, setColDefs] = useState<any>([
-    { headerName: "Actions", field: "id" },
-    { headerName: "Date", field: "createdAt" },
-    { headerName: "Weight", field: "weight" },
-    { headerName: "Calories", field: "totalCalories" },
-    { headerName: "Protein", field: "totalProtein" },
-    { headerName: "Fat", field: "totalFat" },
-    { headerName: "Carbs", field: "totalCarbs" },
-    { headerName: "Sugar", field: "totalSugar" },
-    { headerName: "L-Carnitine", field: "tookFatburner", cellRenderer: Pills },
-    { headerName: "CLA", field: "tookWeightmanagement", cellRenderer: Pills },
-    { headerName: "Vitamin", field: "tookVitamin", cellRenderer: Pills },
+    {
+      headerName: "Actions",
+      cellRenderer: Actions,
+      headerClass: "bg-purple-900 bg-opacity-50",
+      filter: false
+    },
+    { headerName: "Date", field: "createdAt", filter: true },
+    { headerName: "Weight", field: "weight",filter: true },
+    { headerName: "Calories", field: "totalCalories" ,filter: true},
+    { headerName: "Protein", field: "totalProtein" ,filter: true},
+    { headerName: "Fat", field: "totalFat" ,filter: true},
+    { headerName: "Carbs", field: "totalCarbs",filter: true },
+    { headerName: "Sugar", field: "totalSugar" ,filter: true},
+    {
+      headerName: "L-Carnitine",
+      field: "tookFatburner",
+      cellRenderer: Pills,
+      headerClass: "bg-orange-400 bg-opacity-50",
+      filter: true
+    },
+    {
+      headerName: "CLA",
+      field: "tookWeightmanagement",
+      cellRenderer: Pills,
+      headerClass: "bg-orange-400 bg-opacity-50",
+      filter: true
+    },
+    {
+      headerName: "Vitamin",
+      field: "tookVitamin",
+      cellRenderer: Pills,
+      headerClass: "bg-orange-400 bg-opacity-50",
+      filter: true
+    },
   ]);
 
   const gridRef = useRef<any>(null);
@@ -83,7 +107,7 @@ export function Dashboard_table(data: any) {
           />
         </div>
       </div>
-      <div className="bg--background border" style={{ height: 500 }}>
+      <div className={"ag-theme-quartz-dark"} style={{ height: 500 }}>
         <AgGridReact
           ref={gridRef}
           rowData={rowData}
