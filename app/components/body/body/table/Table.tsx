@@ -18,35 +18,35 @@ export function Dashboard_table(data: any) {
       headerName: "Actions",
       cellRenderer: Actions,
       headerClass: "bg-purple-900 bg-opacity-50",
-      filter: false
+      filter: false,
     },
     { headerName: "Date", field: "createdAt", filter: true },
-    { headerName: "Weight", field: "weight",filter: true },
-    { headerName: "Calories", field: "totalCalories" ,filter: true},
-    { headerName: "Protein", field: "totalProtein" ,filter: true},
-    { headerName: "Fat", field: "totalFat" ,filter: true},
-    { headerName: "Carbs", field: "totalCarbs",filter: true },
-    { headerName: "Sugar", field: "totalSugar" ,filter: true},
+    { headerName: "Weight", field: "weight", filter: true },
+    { headerName: "Calories", field: "totalCalories", filter: true },
+    { headerName: "Protein", field: "totalProtein", filter: true },
+    { headerName: "Fat", field: "totalFat", filter: true },
+    { headerName: "Carbs", field: "totalCarbs", filter: true },
+    { headerName: "Sugar", field: "totalSugar", filter: true },
     {
       headerName: "L-Carnitine",
       field: "tookFatburner",
       cellRenderer: Pills,
       headerClass: "bg-orange-400 bg-opacity-50",
-      filter: true
+      filter: true,
     },
     {
       headerName: "CLA",
       field: "tookWeightmanagement",
       cellRenderer: Pills,
       headerClass: "bg-orange-400 bg-opacity-50",
-      filter: true
+      filter: true,
     },
     {
       headerName: "Vitamin",
       field: "tookVitamin",
       cellRenderer: Pills,
       headerClass: "bg-orange-400 bg-opacity-50",
-      filter: true
+      filter: true,
     },
   ]);
 
