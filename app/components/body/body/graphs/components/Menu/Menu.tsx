@@ -20,6 +20,7 @@ import html2canvas from "html2canvas";
 import { PiFilePng } from "react-icons/pi";
 import { PiFileCsv } from "react-icons/pi";
 import { PiFilePdf } from "react-icons/pi";
+import jsPDF from "jspdf";
 export function GraphMenu(chartRef: any) {
   function getMonthName(value: any) {
     const month = months.find((month) => month.value === value);
@@ -35,6 +36,32 @@ export function GraphMenu(chartRef: any) {
       link.click();
     }
   };
+  const downloadPdf = async () => {
+    if (chartRef.chartRef.current) {
+      const canvas = await html2canvas(chartRef.chartRef.current);
+      const dataUrl = canvas.toDataURL("image/png");
+
+      const pdf = new jsPDF();
+      const imgWidth = 190;
+      const pageHeight = pdf.internal.pageSize.height;
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+      const heightLeft = imgHeight;
+
+      let position = 0;
+
+      pdf.addImage(dataUrl, "PNG", 10, position, imgWidth, imgHeight);
+      position += heightLeft;
+
+      if (heightLeft >= pageHeight) {
+        pdf.addPage();
+        pdf.addImage(dataUrl, "PNG", 10, position, imgWidth, imgHeight);
+      }
+
+      // Save the PDF
+      pdf.save("download.pdf");
+    }
+  };
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -53,7 +80,7 @@ export function GraphMenu(chartRef: any) {
           <DropdownMenuSub>
             <DropdownMenuSubTrigger>
               <CiExport className="mr-2 h-4 w-4" />
-              <span>Export Graph</span>
+              <span>Export</span>
             </DropdownMenuSubTrigger>
             <DropdownMenuPortal>
               <DropdownMenuSubContent>
@@ -67,9 +94,11 @@ export function GraphMenu(chartRef: any) {
                   <PiFileCsv className="mr-2 h-4 w-4" />
                   <span>CSV</span>
                 </DropdownMenuItem>
-                <DropdownMenuItem disabled>
-                  <PiFilePdf className="mr-2 h-4 w-4" />
-                  <span>PDF</span>
+                <DropdownMenuItem>
+                  <Button variant={"ghost"} onClick={downloadPdf}>
+                    <PiFilePdf className="mr-2 h-4 w-4" />
+                    PDF
+                  </Button>
                 </DropdownMenuItem>
               </DropdownMenuSubContent>
             </DropdownMenuPortal>

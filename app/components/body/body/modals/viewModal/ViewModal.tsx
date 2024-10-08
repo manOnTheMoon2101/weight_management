@@ -18,7 +18,7 @@ const cousine = Cousine({
 const ViewModal = (data: any) => {
   return (
     <div>
-      <div className="flex flex-row justify-start">
+      <div className="flex flex-row justify-between">
         <EditButton data={data} />
         <DeleteButton data={data.x.id} />
       </div>
