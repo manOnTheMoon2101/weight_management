@@ -64,7 +64,7 @@ export function TableMenu(csv: any) {
           <DropdownMenuSub>
             <DropdownMenuSubTrigger>
               <CiExport className="mr-2 h-4 w-4" />
-              <span>Export Dashboard</span>
+              <span>Export</span>
             </DropdownMenuSubTrigger>
             <DropdownMenuPortal>
               <DropdownMenuSubContent>
