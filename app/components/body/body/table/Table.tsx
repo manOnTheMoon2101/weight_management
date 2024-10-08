@@ -21,13 +21,33 @@ export function Dashboard_table(data: any) {
       headerClass: "bg-purple-900 bg-opacity-50",
       filter: false,
     },
-    { headerName: "Date", field: "createdAt", filter: true,unSortIcon: true  },
-    { headerName: "Weight", field: "weight", filter: true,unSortIcon: true  },
-    { headerName: "Calories", field: "totalCalories", filter: true ,unSortIcon: true },
-    { headerName: "Protein", field: "totalProtein", filter: true,unSortIcon: true  },
-    { headerName: "Fat", field: "totalFat", filter: true,unSortIcon: true  },
-    { headerName: "Carbs", field: "totalCarbs", filter: true,unSortIcon: true  },
-    { headerName: "Sugar", field: "totalSugar", filter: true ,unSortIcon: true },
+    { headerName: "Date", field: "createdAt", filter: true, unSortIcon: true },
+    { headerName: "Weight", field: "weight", filter: true, unSortIcon: true },
+    {
+      headerName: "Calories",
+      field: "totalCalories",
+      filter: true,
+      unSortIcon: true,
+    },
+    {
+      headerName: "Protein",
+      field: "totalProtein",
+      filter: true,
+      unSortIcon: true,
+    },
+    { headerName: "Fat", field: "totalFat", filter: true, unSortIcon: true },
+    {
+      headerName: "Carbs",
+      field: "totalCarbs",
+      filter: true,
+      unSortIcon: true,
+    },
+    {
+      headerName: "Sugar",
+      field: "totalSugar",
+      filter: true,
+      unSortIcon: true,
+    },
     {
       headerName: "L-Carnitine",
       field: "tookFatburner",
@@ -58,6 +78,11 @@ export function Dashboard_table(data: any) {
       gridRef.current.api.exportDataAsCsv();
     }
   };
+
+  const resetState = useCallback(() => {
+    gridRef.current!.api.resetColumnState();
+    console.log("column state reset");
+  }, []);
 
   const refreshGrid = () => {
     setRowData(initialRowData);
@@ -91,7 +116,7 @@ export function Dashboard_table(data: any) {
             variant={"ghost"}
             onClick={() => {
               handleRefresh();
-              refreshGrid();
+              resetState();
             }}
             className={`flex items-center justify-center p-2 rounded-full transition-transform duration-300 ${
               isSpinning ? "animate-spin" : ""
@@ -110,7 +135,6 @@ export function Dashboard_table(data: any) {
           rowData={rowData}
           columnDefs={colDefs}
           cellSelection={true}
-          
         />
       </div>
     </div>
