@@ -21,13 +21,13 @@ export function Dashboard_table(data: any) {
       headerClass: "bg-purple-900 bg-opacity-50",
       filter: false,
     },
-    { headerName: "Date", field: "createdAt", filter: true },
-    { headerName: "Weight", field: "weight", filter: true },
-    { headerName: "Calories", field: "totalCalories", filter: true },
-    { headerName: "Protein", field: "totalProtein", filter: true },
-    { headerName: "Fat", field: "totalFat", filter: true },
-    { headerName: "Carbs", field: "totalCarbs", filter: true },
-    { headerName: "Sugar", field: "totalSugar", filter: true },
+    { headerName: "Date", field: "createdAt", filter: true,unSortIcon: true  },
+    { headerName: "Weight", field: "weight", filter: true,unSortIcon: true  },
+    { headerName: "Calories", field: "totalCalories", filter: true ,unSortIcon: true },
+    { headerName: "Protein", field: "totalProtein", filter: true,unSortIcon: true  },
+    { headerName: "Fat", field: "totalFat", filter: true,unSortIcon: true  },
+    { headerName: "Carbs", field: "totalCarbs", filter: true,unSortIcon: true  },
+    { headerName: "Sugar", field: "totalSugar", filter: true ,unSortIcon: true },
     {
       headerName: "L-Carnitine",
       field: "tookFatburner",
@@ -110,6 +110,7 @@ export function Dashboard_table(data: any) {
           rowData={rowData}
           columnDefs={colDefs}
           cellSelection={true}
+          
         />
       </div>
     </div>

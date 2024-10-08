@@ -39,16 +39,16 @@ export function TableMenu(csv: any) {
     const month = months.find((month) => month.value === value);
     return month ? month.name : null;
   }
-  const downloadImage = async () => {
-    if (csv.month.ref.current) {
-      const canvas = await html2canvas(csv.month.ref.current);
-      const dataUrl = canvas.toDataURL("image/png");
-      const link = document.createElement("a");
-      link.href = dataUrl;
-      link.download = "calories-chart.png";
-      link.click();
-    }
-  };
+  // const downloadImage = async () => {
+  //   if (ref.ref.current) {
+  //     const canvas = await html2canvas(ref.ref.current);
+  //     const dataUrl = canvas.toDataURL("image/png");
+  //     const link = document.createElement("a");
+  //     link.href = dataUrl;
+  //     link.download = "calories-chart.png";
+  //     link.click();
+  //   }
+  // };
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -58,6 +58,7 @@ export function TableMenu(csv: any) {
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
         <DropdownMenuLabel>{getMonthName(csv.month.month)}</DropdownMenuLabel>
+        
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuSub>
@@ -69,7 +70,7 @@ export function TableMenu(csv: any) {
               <DropdownMenuSubContent>
                 <DropdownMenuItem>
                   <Mail className="mr-2 h-4 w-4" />
-                  <Button disabled onClick={downloadImage} variant={"ghost"}>
+                  <Button disabled  variant={"ghost"}>
                     PNG
                   </Button>
                 </DropdownMenuItem>
