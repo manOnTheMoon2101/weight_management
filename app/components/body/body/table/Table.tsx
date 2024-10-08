@@ -9,6 +9,7 @@ import { useState, useRef, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { IoMdRefresh } from "react-icons/io";
+import { TableMenu } from "./components/Menu/Menu";
 export function Dashboard_table(data: any) {
   const isDesktop = useMediaQuery("(min-width: 768px)");
   const initialRowData = data.data;
@@ -78,33 +79,29 @@ export function Dashboard_table(data: any) {
   };
   return (
     <div>
-      <div className="flex flex-row justify-end mx-5">
-        <Button
-          variant={"ghost"}
-          onClick={exportToCSV}
-          style={{ marginBottom: "10px" }}
-        >
-          Export to CSV
-        </Button>
-        <Button
-          variant={"ghost"}
-          onClick={() => {
-            handleRefresh();
-            refreshGrid();
-          }}
-          className={`flex items-center justify-center p-2 rounded-full transition-transform duration-300 ${
-            isSpinning ? "animate-spin" : ""
-          }`}
-        >
-          <IoMdRefresh />
-        </Button>
-        <div>
+      <div className="flex flex-row justify-between">
+        <div className="flex flex-row">
           <Input
             type="text"
             id="filter-text-box"
             placeholder="Search"
             onInput={onFilterTextBoxChanged}
           />
+          <Button
+            variant={"ghost"}
+            onClick={() => {
+              handleRefresh();
+              refreshGrid();
+            }}
+            className={`flex items-center justify-center p-2 rounded-full transition-transform duration-300 ${
+              isSpinning ? "animate-spin" : ""
+            }`}
+          >
+            <IoMdRefresh />
+          </Button>
+        </div>
+        <div>
+          <TableMenu csv={exportToCSV} month={data} ref={gridRef}/>
         </div>
       </div>
       <div className={"ag-theme-quartz-dark"} style={{ height: 500 }}>

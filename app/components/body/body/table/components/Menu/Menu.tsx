@@ -34,14 +34,14 @@ import months from "@/lib/files/months.json";
 import { CiExport } from "react-icons/ci";
 import { MdMenu } from "react-icons/md";
 import html2canvas from "html2canvas";
-export function TableMenu(data: any) {
+export function TableMenu(csv: any) {
   function getMonthName(value: any) {
     const month = months.find((month) => month.value === value);
     return month ? month.name : null;
   }
   const downloadImage = async () => {
-    if (data.chartRef.current) {
-      const canvas = await html2canvas(data.chartRef.current);
+    if (csv.month.ref.current) {
+      const canvas = await html2canvas(csv.month.ref.current);
       const dataUrl = canvas.toDataURL("image/png");
       const link = document.createElement("a");
       link.href = dataUrl;
@@ -57,7 +57,7 @@ export function TableMenu(data: any) {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
-        <DropdownMenuLabel>{getMonthName(data.data.month)}</DropdownMenuLabel>
+        <DropdownMenuLabel>{getMonthName(csv.month.month)}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuSub>
@@ -69,13 +69,15 @@ export function TableMenu(data: any) {
               <DropdownMenuSubContent>
                 <DropdownMenuItem>
                   <Mail className="mr-2 h-4 w-4" />
-                  <Button onClick={downloadImage} variant={"ghost"}>
+                  <Button disabled onClick={downloadImage} variant={"ghost"}>
                     PNG
                   </Button>
                 </DropdownMenuItem>
-                <DropdownMenuItem disabled>
+                <DropdownMenuItem>
                   <MessageSquare className="mr-2 h-4 w-4" />
-                  <span>CSV</span>
+                  <Button onClick={csv.csv} variant={"ghost"}>
+                    CSV
+                  </Button>
                 </DropdownMenuItem>
                 <DropdownMenuItem disabled>
                   <MessageSquare className="mr-2 h-4 w-4" />
