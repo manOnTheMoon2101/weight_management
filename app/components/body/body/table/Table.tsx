@@ -104,7 +104,7 @@ export function Dashboard_table(data: any) {
           <TableMenu csv={exportToCSV} month={data} ref={gridRef} />
         </div>
       </div>
-      <div className="ag-theme-quartz-dark" style={{ height: 500 }}>
+      <div className="ag-theme-quartz-dark my-2" style={{ height: 500 }}>
         <AgGridReact
           ref={gridRef}
           rowData={rowData}
