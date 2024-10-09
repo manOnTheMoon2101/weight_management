@@ -108,7 +108,7 @@ export function Dashboard_table(data: any) {
   };
   return (
     <div>
-      <div className="flex flex-row justify-between">
+      <div className="flex flex-row justify-between mx-2">
         <div className="flex flex-row">
           <Input
             type="text"
@@ -124,17 +124,18 @@ export function Dashboard_table(data: any) {
             }}
           >
             <IoMdRefresh
+              size={20}
               className={`transition-transform duration-300 ${
                 isSpinning ? "animate-spin" : ""
               }`}
             />
           </Button>
         </div>
-        <div className="mr-2">
+        <div>
           <TableMenu csv={exportToCSV} month={data} ref={gridRef} />
         </div>
       </div>
-      <div className="ag-theme-quartz-dark" style={{ height: 500 }}>
+      <div className="ag-theme-quartz-dark my-2 mx-2" style={{ height: 500 }}>
         <AgGridReact
           ref={gridRef}
           rowData={rowData}
