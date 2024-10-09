@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { IoMdRefresh } from "react-icons/io";
 import { TableMenu } from "./components/Menu/Menu";
+import { backgroundClip } from "html2canvas/dist/types/css/property-descriptors/background-clip";
 export function Dashboard_table(data: any) {
   const isDesktop = useMediaQuery("(min-width: 768px)");
   const initialRowData = data.data;
@@ -30,6 +31,7 @@ export function Dashboard_table(data: any) {
       field: "totalCalories",
       filter: true,
       unSortIcon: true,
+      // cellStyle: { textAlign: "center", justifyContent: "center" },
     },
     {
       headerName: "Protein",
@@ -90,10 +92,6 @@ export function Dashboard_table(data: any) {
     console.log("column state reset");
   }, []);
 
-  const refreshGrid = () => {
-    setRowData(initialRowData);
-  };
-
   const onFilterTextBoxChanged = useCallback(() => {
     gridRef.current!.api.setGridOption(
       "quickFilterText",
@@ -131,11 +129,11 @@ export function Dashboard_table(data: any) {
             <IoMdRefresh />
           </Button>
         </div>
-        <div>
+        <div className="mr-5">
           <TableMenu csv={exportToCSV} month={data} ref={gridRef} />
         </div>
       </div>
-      <div className="ag-theme-quartz-dark my-2" style={{ height: 500 }}>
+      <div className="ag-theme-quartz-dark" style={{ height: 500 }}>
         <AgGridReact
           ref={gridRef}
           rowData={rowData}
