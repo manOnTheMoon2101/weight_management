@@ -10,9 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { IoMdRefresh } from "react-icons/io";
 import { TableMenu } from "./components/Menu/Menu";
-import { backgroundClip } from "html2canvas/dist/types/css/property-descriptors/background-clip";
 export function Dashboard_table(data: any) {
-  const isDesktop = useMediaQuery("(min-width: 768px)");
   const initialRowData = data.data;
   const [rowData, setRowData] = useState(initialRowData);
   const [colDefs, setColDefs] = useState<any>([
