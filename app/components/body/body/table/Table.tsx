@@ -122,11 +122,12 @@ export function Dashboard_table(data: any) {
               handleRefresh();
               resetState();
             }}
-            className={`flex items-center justify-center p-2 rounded-full transition-transform duration-300 ${
-              isSpinning ? "animate-spin" : ""
-            }`}
           >
-            <IoMdRefresh />
+            <IoMdRefresh
+              className={`transition-transform duration-300 ${
+                isSpinning ? "animate-spin" : ""
+              }`}
+            />
           </Button>
         </div>
         <div className="mr-2">
