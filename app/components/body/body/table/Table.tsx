@@ -129,7 +129,7 @@ export function Dashboard_table(data: any) {
             <IoMdRefresh />
           </Button>
         </div>
-        <div className="mr-5">
+        <div className="mr-2">
           <TableMenu csv={exportToCSV} month={data} ref={gridRef} />
         </div>
       </div>
