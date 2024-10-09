@@ -51,7 +51,7 @@ const Login = () => {
         <div className="flex flex-row justify-end">
           <Info />
         </div>
-        <Label className="text-4xl text-center">Email</Label>
+        <Label className="text-4xl">Email</Label>
         <Input
           placeholder="email@example.com"
           type="email"

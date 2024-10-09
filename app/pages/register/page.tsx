@@ -62,7 +62,7 @@ const Register = () => {
     <div className="min-h-screen flex items-center justify-center">
       <div className="p-8 rounded shadow-md">
         <form>
-          <Label className="text-4xl text-center">Name</Label>
+          <Label className="text-4xl">Name</Label>
           <Input
             placeholder="First Name"
             name="name"
@@ -70,7 +70,7 @@ const Register = () => {
             onChange={handleChange}
             value={user.name}
           />
-          <Label className="text-4xl text-center">Email</Label>
+          <Label className="text-4xl">Email</Label>
           <Input
             placeholder="email@example.com"
             className="border-purple-900"
@@ -82,7 +82,7 @@ const Register = () => {
           {touched && !isValidEmail(user.email) && user.email !== "" && (
             <p className="text-red-600">Not Valid Email!</p>
           )}
-          <Label className="text-4xl text-center">Password</Label>
+          <Label className="text-4xl">Password</Label>
           <div className="flex flex-row">
             <Input
               placeholder="*****"
