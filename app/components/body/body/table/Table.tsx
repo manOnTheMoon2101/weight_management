@@ -83,6 +83,10 @@ export function Dashboard_table(data: any) {
 
   const resetState = useCallback(() => {
     gridRef.current!.api.resetColumnState();
+    gridRef.current!.api.setFilterModel(null);
+    gridRef.current!.api.setRowGroupColumns([]);
+    gridRef.current!.api.applyColumnState({ state: colDefs });
+    gridRef.current!.api.refreshCells({ force: true });
     console.log("column state reset");
   }, []);
 
