@@ -11,7 +11,6 @@ import { Input } from "@/components/ui/input";
 import { IoMdRefresh } from "react-icons/io";
 import { TableMenu } from "./components/Menu/Menu";
 export function Dashboard_table(data: any) {
-  const isDesktop = useMediaQuery("(min-width: 768px)");
   const initialRowData = data.data;
   const [rowData, setRowData] = useState(initialRowData);
   const [colDefs, setColDefs] = useState<any>([
@@ -20,6 +19,8 @@ export function Dashboard_table(data: any) {
       cellRenderer: Actions,
       headerClass: "bg-purple-900 bg-opacity-50",
       filter: false,
+      sort: false,
+      suppressMovable: true,
     },
     { headerName: "Date", field: "createdAt", filter: true, unSortIcon: true },
     { headerName: "Weight", field: "weight", filter: true, unSortIcon: true },
@@ -28,6 +29,7 @@ export function Dashboard_table(data: any) {
       field: "totalCalories",
       filter: true,
       unSortIcon: true,
+      // cellStyle: { textAlign: "center", justifyContent: "center" },
     },
     {
       headerName: "Protein",
@@ -81,12 +83,12 @@ export function Dashboard_table(data: any) {
 
   const resetState = useCallback(() => {
     gridRef.current!.api.resetColumnState();
+    gridRef.current!.api.setFilterModel(null);
+    gridRef.current!.api.setRowGroupColumns([]);
+    gridRef.current!.api.applyColumnState({ state: colDefs });
+    gridRef.current!.api.refreshCells({ force: true });
     console.log("column state reset");
   }, []);
-
-  const refreshGrid = () => {
-    setRowData(initialRowData);
-  };
 
   const onFilterTextBoxChanged = useCallback(() => {
     gridRef.current!.api.setGridOption(
@@ -104,7 +106,7 @@ export function Dashboard_table(data: any) {
   };
   return (
     <div>
-      <div className="flex flex-row justify-between">
+      <div className="flex flex-row justify-between mx-2">
         <div className="flex flex-row">
           <Input
             type="text"
@@ -118,18 +120,20 @@ export function Dashboard_table(data: any) {
               handleRefresh();
               resetState();
             }}
-            className={`flex items-center justify-center p-2 rounded-full transition-transform duration-300 ${
-              isSpinning ? "animate-spin" : ""
-            }`}
           >
-            <IoMdRefresh />
+            <IoMdRefresh
+              size={20}
+              className={`transition-transform duration-300 ${
+                isSpinning ? "animate-spin" : ""
+              }`}
+            />
           </Button>
         </div>
         <div>
           <TableMenu csv={exportToCSV} month={data} ref={gridRef} />
         </div>
       </div>
-      <div className="ag-theme-quartz-dark my-2" style={{ height: 500 }}>
+      <div className="ag-theme-quartz-dark my-2 mx-2" style={{ height: 500 }}>
         <AgGridReact
           ref={gridRef}
           rowData={rowData}

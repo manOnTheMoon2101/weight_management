@@ -42,23 +42,23 @@ export function GraphMenu(chartRef: any) {
       const dataUrl = canvas.toDataURL("image/png");
 
       const pdf = new jsPDF();
-      const imgWidth = 190;
+      const imgWidth = 100;
       const pageHeight = pdf.internal.pageSize.height;
       const imgHeight = (canvas.height * imgWidth) / canvas.width;
       const heightLeft = imgHeight;
-
       let position = 0;
+      const pageWidth = pdf.internal.pageSize.width;
+      const xOffset = (pageWidth - imgWidth) / 2;
 
-      pdf.addImage(dataUrl, "PNG", 10, position, imgWidth, imgHeight);
+      pdf.addImage(dataUrl, "PNG", xOffset, position, imgWidth, imgHeight);
       position += heightLeft;
 
       if (heightLeft >= pageHeight) {
         pdf.addPage();
-        pdf.addImage(dataUrl, "PNG", 10, position, imgWidth, imgHeight);
+        pdf.addImage(dataUrl, "PNG", xOffset, position, imgWidth, imgHeight);
       }
 
-      // Save the PDF
-      pdf.save("download.pdf");
+      pdf.save(`${getMonthName(chartRef.month) + " " + chartRef.title}`);
     }
   };
 

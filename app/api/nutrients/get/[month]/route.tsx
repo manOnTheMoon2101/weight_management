@@ -30,13 +30,13 @@ export const GET = async (
           lte: new Date(`${currentYear}-${month}-31T01:00:00.459+00:00`),
         },
       },
-      include: {
-        user: {
-          include: {
-            NutrientsLimit: true,
-          },
-        },
-      },
+      // include: {
+      //   user: {
+      //     include: {
+      //       NutrientsLimit: true,
+      //     },
+      //   },
+      // },
       orderBy: {
         createdAt: "desc",
       },
