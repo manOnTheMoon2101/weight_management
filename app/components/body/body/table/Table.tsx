@@ -20,6 +20,8 @@ export function Dashboard_table(data: any) {
       cellRenderer: Actions,
       headerClass: "bg-purple-900 bg-opacity-50",
       filter: false,
+      sort: false,
+      suppressMovable: true,
     },
     { headerName: "Date", field: "createdAt", filter: true, unSortIcon: true },
     { headerName: "Weight", field: "weight", filter: true, unSortIcon: true },
