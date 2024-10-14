@@ -22,7 +22,12 @@ export function Dashboard_table(data: any) {
       sort: false,
       suppressMovable: true,
     },
-    { headerName: "Date", field: "createdAt", filter: true, unSortIcon: true },
+    {
+      headerName: "Date",
+      field: "createdAt",
+      filter: true,
+      unSortIcon: true,
+    },
     { headerName: "Weight", field: "weight", filter: true, unSortIcon: true },
     {
       headerName: "Calories",

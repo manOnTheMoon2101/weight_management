@@ -2,6 +2,7 @@ import prisma from "@/prisma/prisma";
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/app/api/auth/options";
+import formatPrismaDate from "@/utils/dateFormater";
 // bro i swear...
 export const GET = async (
   req: any,
@@ -42,7 +43,7 @@ export const GET = async (
       },
     });
 
-    data.map((x: any) => (x.createdAt = x.createdAt.toDateString()));
+    data.map((x: any) => (x.createdAt = formatPrismaDate(x.createdAt)));
 
     return NextResponse.json(data);
   } catch (err) {
