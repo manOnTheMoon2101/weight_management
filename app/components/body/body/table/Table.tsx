@@ -17,10 +17,12 @@ export function Dashboard_table(data: any) {
     {
       headerName: "Actions",
       cellRenderer: Actions,
-      headerClass: "bg-purple-900 bg-opacity-50",
+      headerClass: "bg-purple-900 bg-opacity-50 text-center",
       filter: false,
       sort: false,
+      sortable: false,
       suppressMovable: true,
+      cellStyle: {textAlign: 'center'}
     },
     {
       headerName: "Date",
