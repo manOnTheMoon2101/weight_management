@@ -34,26 +34,45 @@ export function Dashboard_table(data: any) {
       field: "totalCalories",
       filter: true,
       unSortIcon: true,
-      // cellStyle: { textAlign: "center", justifyContent: "center" },
+      cellClassRules: {
+        "text-red-400": (params: { value: any }) => params.value > 2000,
+      },
     },
     {
       headerName: "Protein",
       field: "totalProtein",
       filter: true,
       unSortIcon: true,
+      cellClassRules: {
+        "text-red-400": (params: { value: any }) => params.value < 90,
+      },
     },
-    { headerName: "Fat", field: "totalFat", filter: true, unSortIcon: true },
+    {
+      headerName: "Fat",
+      field: "totalFat",
+      filter: true,
+      unSortIcon: true,
+      cellClassRules: {
+        "text-red-400": (params: { value: any }) => params.value > 78,
+      },
+    },
     {
       headerName: "Carbs",
       field: "totalCarbs",
       filter: true,
       unSortIcon: true,
+      cellClassRules: {
+        "text-red-400": (params: { value: any }) => params.value > 120,
+      },
     },
     {
       headerName: "Sugar",
       field: "totalSugar",
       filter: true,
       unSortIcon: true,
+      cellClassRules: {
+        "text-red-400": (params: { value: any }) => params.value > 60,
+      },
     },
     {
       headerName: "L-Carnitine",
