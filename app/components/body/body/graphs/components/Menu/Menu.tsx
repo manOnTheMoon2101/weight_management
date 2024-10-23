@@ -90,10 +90,10 @@ export function GraphMenu(chartRef: any) {
                     PNG
                   </Button>
                 </DropdownMenuItem>
-                <DropdownMenuItem disabled>
+                {/* <DropdownMenuItem disabled>
                   <PiFileCsv className="mr-2 h-4 w-4" />
                   <span>CSV</span>
-                </DropdownMenuItem>
+                </DropdownMenuItem> */}
                 <DropdownMenuItem>
                   <Button variant={"ghost"} onClick={downloadPdf}>
                     <PiFilePdf className="mr-2 h-4 w-4" />

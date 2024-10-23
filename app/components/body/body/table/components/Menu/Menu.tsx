@@ -32,6 +32,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import months from "@/lib/files/months.json";
 import { CiExport } from "react-icons/ci";
+import { PiFileCsv } from "react-icons/pi";
 import { MdMenu } from "react-icons/md";
 import html2canvas from "html2canvas";
 export function TableMenu(csv: any) {
@@ -68,22 +69,22 @@ export function TableMenu(csv: any) {
             </DropdownMenuSubTrigger>
             <DropdownMenuPortal>
               <DropdownMenuSubContent>
-                <DropdownMenuItem>
+                {/* <DropdownMenuItem>
                   <Mail className="mr-2 h-4 w-4" />
                   <Button disabled  variant={"ghost"}>
                     PNG
                   </Button>
-                </DropdownMenuItem>
+                </DropdownMenuItem> */}
                 <DropdownMenuItem>
-                  <MessageSquare className="mr-2 h-4 w-4" />
+                  <PiFileCsv className="mr-2 h-4 w-4" />
                   <Button onClick={csv.csv} variant={"ghost"}>
                     CSV
                   </Button>
                 </DropdownMenuItem>
-                <DropdownMenuItem disabled>
+                {/* <DropdownMenuItem disabled>
                   <MessageSquare className="mr-2 h-4 w-4" />
                   <span>PDF</span>
-                </DropdownMenuItem>
+                </DropdownMenuItem> */}
               </DropdownMenuSubContent>
             </DropdownMenuPortal>
           </DropdownMenuSub>

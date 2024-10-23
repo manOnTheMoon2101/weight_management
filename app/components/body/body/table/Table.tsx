@@ -10,6 +10,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { IoMdRefresh } from "react-icons/io";
 import { TableMenu } from "./components/Menu/Menu";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 export function Dashboard_table(data: any) {
   const initialRowData = data.data;
   const [rowData, setRowData] = useState(initialRowData);
@@ -22,7 +28,7 @@ export function Dashboard_table(data: any) {
       sort: false,
       sortable: false,
       suppressMovable: true,
-      cellStyle: {textAlign: 'center'}
+      cellStyle: { textAlign: "center" },
     },
     {
       headerName: "Date",
@@ -140,20 +146,27 @@ export function Dashboard_table(data: any) {
             placeholder="Search"
             onInput={onFilterTextBoxChanged}
           />
-          <Button
-            variant={"ghost"}
-            onClick={() => {
-              handleRefresh();
-              resetState();
-            }}
-          >
-            <IoMdRefresh
-              size={20}
-              className={`transition-transform duration-300 ${
-                isSpinning ? "animate-spin" : ""
-              }`}
-            />
-          </Button>
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  variant={"ghost"}
+                  onClick={() => {
+                    handleRefresh();
+                    resetState();
+                  }}
+                >
+                  <IoMdRefresh
+                    size={20}
+                    className={`transition-transform duration-300 ${
+                      isSpinning ? "animate-spin" : ""
+                    }`}
+                  />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent className="">Refresh Data</TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
         </div>
         <div>
           <TableMenu csv={exportToCSV} month={data} ref={gridRef} />

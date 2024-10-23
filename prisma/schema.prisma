@@ -18,7 +18,6 @@ model User {
   @@unique([id, name])
 }
 
-
 model Data {
   id                   String   @id @default(auto()) @map("_id") @db.ObjectId
   weight               Float
@@ -41,22 +40,17 @@ model Data {
 }
 
 model NutrientsLimit {
-  id          String   @id @default(auto()) @map("_id") @db.ObjectId
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime
-  isActive    Boolean  @default(true)
-  isDeleted   Boolean  @default(false)
-  minCalories Float    @default(0)
-  maxCalories Float    @default(0)
-  minProtein  Float    @default(0)
-  maxProtein  Float    @default(0)
-  minFat      Float    @default(0)
-  maxFat      Float    @default(0)
-  minCarbs    Float    @default(0)
-  maxCarbs    Float    @default(0)
-  minSugar    Float    @default(0)
-  maxSugar    Float    @default(0)
-  userId      String   @db.ObjectId
-  userName    String
-  user        User     @relation(fields: [userId, userName], references: [id, name])
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+  isActive  Boolean  @default(true)
+  isDeleted Boolean  @default(false)
+  calories  Float    @default(0)
+  protein   Float    @default(0)
+  fat       Float    @default(0)
+  carbs     Float    @default(0)
+  sugar     Float    @default(0)
+  userId    String   @db.ObjectId
+  userName  String
+  user      User     @relation(fields: [userId, userName], references: [id, name])
 }
