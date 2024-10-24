@@ -120,27 +120,42 @@ export function EditButton(data: any) {
               <div className="flex flex-row justify-around">
                 <div className="flex flex-col justify-center items-center m-2">
                   <div className="my-2">
-                    <Label className="text-center mb-2 text-xl">Weight</Label>
-                    <Input
-                      type="number"
-                      name="weight"
-                      value={post.weight}
-                      className="border-orange-400"
-                      step="0.01"
-                      onChange={handleChange}
-                    />
+                    <div className="group relative z-0 mb-6 w-full">
+                      <input
+                        type="number"
+                        name="weight"
+                        id="floating-input"
+                        className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-orange-400 focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-orange-400"
+                        value={post.weight}
+                        onChange={handleChange}
+                        placeholder=""
+                      />
+                      <Label
+                        htmlFor="floating-input"
+                        className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-orange-4000 dark:text-gray-400 peer-focus:dark:text-orange-400"
+                      >
+                        Weight(kg)
+                      </Label>
+                    </div>
                   </div>
                   <div className="my-2">
-                    {" "}
-                    <Label className="text-center mb-2 text-xl">Calories</Label>
-                    <Input
-                      type="number"
-                      name="totalCalories"
-                      className="border-orange-400"
-                      value={post.totalCalories}
-                      step="1"
-                      onChange={handleChange}
-                    />
+                    <div className="group relative z-0 mb-6 w-full">
+                      <input
+                        type="number"
+                        name="totalCalories"
+                        id="floating-input"
+                        className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-orange-400 focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-orange-400"
+                        value={post.totalCalories}
+                        onChange={handleChange}
+                        placeholder=""
+                      />
+                      <Label
+                        htmlFor="floating-input"
+                        className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-orange-4000 dark:text-gray-400 peer-focus:dark:text-orange-400"
+                      >
+                        Calories
+                      </Label>
+                    </div>
                   </div>
                 </div>
                 <div className="flex flex-col justify-center items-center m-2">
@@ -158,6 +173,7 @@ export function EditButton(data: any) {
                       </Tooltip>
                     </TooltipProvider>
                     <Switch
+                      className="data-[state=checked]:bg-green-400"
                       name="tookFatburner"
                       checked={post.tookFatburner}
                       onCheckedChange={(checked) =>
@@ -180,6 +196,7 @@ export function EditButton(data: any) {
                       </Tooltip>
                     </TooltipProvider>
                     <Switch
+                      className="data-[state=checked]:bg-pink-400"
                       name="tookWeightmanagement"
                       checked={post.tookWeightmanagement}
                       onCheckedChange={(checked) =>
@@ -202,6 +219,7 @@ export function EditButton(data: any) {
                       </Tooltip>
                     </TooltipProvider>
                     <Switch
+                      className="data-[state=checked]:bg-cyan-400"
                       name="tookVitamin"
                       checked={post.tookVitamin}
                       onCheckedChange={(checked) =>
@@ -212,49 +230,84 @@ export function EditButton(data: any) {
                 </div>
               </div>
               <div className="flex flex-row justify-center items-center mb-5">
-                <div className="text-center mx-2">
-                  <Label className="text-center mb-2 text-xl">Protein</Label>
-                  <Input
-                    type="number"
-                    name="totalProtein"
-                    value={post.totalProtein}
-                    step="0.01"
-                    onChange={handleChange}
-                  />
+                <div className="mx-2">
+                  <div className="group relative z-0 mb-6 w-full">
+                    <input
+                      type="number"
+                      name="totalProtein"
+                      id="floating-input"
+                      className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-orange-400 focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-orange-400"
+                      value={post.totalProtein}
+                      onChange={handleChange}
+                      placeholder=""
+                    />
+                    <Label
+                      htmlFor="floating-input"
+                      className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-orange-4000 dark:text-gray-400 peer-focus:dark:text-orange-400"
+                    >
+                      Protein
+                    </Label>
+                  </div>
                 </div>
-
-                <div className="text-center mx-2">
-                  <Label className="text-xl mb-2">Fat</Label>
-                  <Input
-                    type="number"
-                    name="totalFat"
-                    value={post.totalFat}
-                    step="0.01"
-                    onChange={handleChange}
-                  />
+                <div className="mx-2">
+                  <div className="group relative z-0 mb-6 w-full">
+                    <input
+                      type="number"
+                      name="totalFat"
+                      id="floating-input"
+                      className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-orange-400 focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-orange-400"
+                      value={post.totalFat}
+                      onChange={handleChange}
+                      placeholder=""
+                    />
+                    <Label
+                      htmlFor="floating-input"
+                      className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-orange-4000 dark:text-gray-400 peer-focus:dark:text-orange-400"
+                    >
+                      Fat
+                    </Label>
+                  </div>
                 </div>
               </div>
 
               <div className="flex flex-row justify-center items-center mb-5">
-                <div className="text-center mx-2">
-                  <Label className="text-xl">Carbs</Label>
-                  <Input
-                    type="number"
-                    name="totalCarbs"
-                    value={post.totalCarbs}
-                    step="0.01"
-                    onChange={handleChange}
-                  />
+                <div className="mx-2">
+                  <div className="group relative z-0 mb-6 w-full">
+                    <input
+                      type="number"
+                      name="totalCarbs"
+                      id="floating-input"
+                      className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-orange-400 focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-orange-400"
+                      value={post.totalCarbs}
+                      onChange={handleChange}
+                      placeholder=""
+                    />
+                    <Label
+                      htmlFor="floating-input"
+                      className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-orange-4000 dark:text-gray-400 peer-focus:dark:text-orange-400"
+                    >
+                      Carbs
+                    </Label>
+                  </div>
                 </div>
-                <div className="text-center mx-2">
-                  <Label className="text-xl">Sugar</Label>
-                  <Input
-                    type="number"
-                    name="totalSugar"
-                    value={post.totalSugar}
-                    step="0.01"
-                    onChange={handleChange}
-                  />
+                <div className="mx-2">
+                  <div className="group relative z-0 mb-6 w-full">
+                    <input
+                      type="number"
+                      name="totalSugar"
+                      id="floating-input"
+                      className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-orange-400 focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-orange-400"
+                      value={post.totalSugar}
+                      onChange={handleChange}
+                      placeholder=""
+                    />
+                    <Label
+                      htmlFor="floating-input"
+                      className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-orange-4000 dark:text-gray-400 peer-focus:dark:text-orange-400"
+                    >
+                      Sugar
+                    </Label>
+                  </div>
                 </div>
               </div>
             </form>
@@ -308,27 +361,42 @@ export function EditButton(data: any) {
             <div className="flex flex-row justify-around">
               <div className="flex flex-col justify-center items-center m-2">
                 <div className="my-2">
-                  <Label className="text-center mb-2 text-xl">Weight</Label>
-                  <Input
-                    type="number"
-                    name="weight"
-                    value={post.weight}
-                    className="border-orange-400"
-                    step="0.01"
-                    onChange={handleChange}
-                  />
+                  <div className="group relative z-0 mb-6 w-full">
+                    <input
+                      type="number"
+                      name="weight"
+                      id="floating-input"
+                      className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-orange-400 focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-orange-400"
+                      value={post.weight}
+                      onChange={handleChange}
+                      placeholder=""
+                    />
+                    <Label
+                      htmlFor="floating-input"
+                      className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-orange-4000 dark:text-gray-400 peer-focus:dark:text-orange-400"
+                    >
+                      Weight(kg)
+                    </Label>
+                  </div>
                 </div>
                 <div className="my-2">
-                  {" "}
-                  <Label className="text-center mb-2 text-xl">Calories</Label>
-                  <Input
-                    type="number"
-                    name="totalCalories"
-                    className="border-orange-400"
-                    value={post.totalCalories}
-                    step="1"
-                    onChange={handleChange}
-                  />
+                  <div className="group relative z-0 mb-6 w-full">
+                    <input
+                      type="number"
+                      name="totalCalories"
+                      id="floating-input"
+                      className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-orange-400 focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-orange-400"
+                      value={post.totalCalories}
+                      onChange={handleChange}
+                      placeholder=""
+                    />
+                    <Label
+                      htmlFor="floating-input"
+                      className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-orange-4000 dark:text-gray-400 peer-focus:dark:text-orange-400"
+                    >
+                      Calories
+                    </Label>
+                  </div>
                 </div>
               </div>
               <div className="flex flex-col justify-center items-center m-2">
@@ -346,6 +414,7 @@ export function EditButton(data: any) {
                     </Tooltip>
                   </TooltipProvider>
                   <Switch
+                    className="data-[state=checked]:bg-green-400"
                     name="tookFatburner"
                     checked={post.tookFatburner}
                     onCheckedChange={(checked) =>
@@ -368,6 +437,7 @@ export function EditButton(data: any) {
                     </Tooltip>
                   </TooltipProvider>
                   <Switch
+                    className="data-[state=checked]:bg-pink-400"
                     name="tookWeightmanagement"
                     checked={post.tookWeightmanagement}
                     onCheckedChange={(checked) =>
@@ -390,6 +460,7 @@ export function EditButton(data: any) {
                     </Tooltip>
                   </TooltipProvider>
                   <Switch
+                    className="data-[state=checked]:bg-cyan-400"
                     name="tookVitamin"
                     checked={post.tookVitamin}
                     onCheckedChange={(checked) =>
@@ -400,49 +471,85 @@ export function EditButton(data: any) {
               </div>
             </div>
             <div className="flex flex-row justify-center items-center mb-5">
-              <div className="text-center mx-2">
-                <Label className="text-center mb-2 text-xl">Protein</Label>
-                <Input
-                  type="number"
-                  name="totalProtein"
-                  value={post.totalProtein}
-                  step="0.01"
-                  onChange={handleChange}
-                />
+              <div className="mx-2">
+                <div className="group relative z-0 mb-6 w-full">
+                  <input
+                    type="number"
+                    name="totalProtein"
+                    id="floating-input"
+                    className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-orange-400 focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-orange-400"
+                    value={post.totalProtein}
+                    onChange={handleChange}
+                    placeholder=""
+                  />
+                  <Label
+                    htmlFor="floating-input"
+                    className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-orange-4000 dark:text-gray-400 peer-focus:dark:text-orange-400"
+                  >
+                    Protein
+                  </Label>
+                </div>
               </div>
 
-              <div className="text-center mx-2">
-                <Label className="text-xl mb-2">Fat</Label>
-                <Input
-                  type="number"
-                  name="totalFat"
-                  value={post.totalFat}
-                  step="0.01"
-                  onChange={handleChange}
-                />
+              <div className="mx-2">
+                <div className="group relative z-0 mb-6 w-full">
+                  <input
+                    type="number"
+                    name="totalFat"
+                    id="floating-input"
+                    className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-orange-400 focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-orange-400"
+                    value={post.totalFat}
+                    onChange={handleChange}
+                    placeholder=""
+                  />
+                  <Label
+                    htmlFor="floating-input"
+                    className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-orange-4000 dark:text-gray-400 peer-focus:dark:text-orange-400"
+                  >
+                    Fat
+                  </Label>
+                </div>
               </div>
             </div>
 
             <div className="flex flex-row justify-center items-center mb-5">
-              <div className="text-center mx-2">
-                <Label className="text-xl">Carbs</Label>
-                <Input
-                  type="number"
-                  name="totalCarbs"
-                  value={post.totalCarbs}
-                  step="0.01"
-                  onChange={handleChange}
-                />
+              <div className="mx-2">
+                <div className="group relative z-0 mb-6 w-full">
+                  <input
+                    type="number"
+                    name="totalCarbs"
+                    id="floating-input"
+                    className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-orange-400 focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-orange-400"
+                    value={post.totalCarbs}
+                    onChange={handleChange}
+                    placeholder=""
+                  />
+                  <Label
+                    htmlFor="floating-input"
+                    className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-orange-4000 dark:text-gray-400 peer-focus:dark:text-orange-400"
+                  >
+                    Carbs
+                  </Label>
+                </div>
               </div>
-              <div className="text-center mx-2">
-                <Label className="text-xl">Sugar</Label>
-                <Input
-                  type="number"
-                  name="totalSugar"
-                  value={post.totalSugar}
-                  step="0.01"
-                  onChange={handleChange}
-                />
+              <div className="mx-2">
+                <div className="group relative z-0 mb-6 w-full">
+                  <input
+                    type="number"
+                    name="totalSugar"
+                    id="floating-input"
+                    className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-orange-400 focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-orange-400"
+                    value={post.totalSugar}
+                    onChange={handleChange}
+                    placeholder=""
+                  />
+                  <Label
+                    htmlFor="floating-input"
+                    className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-orange-4000 dark:text-gray-400 peer-focus:dark:text-orange-400"
+                  >
+                    Sugar
+                  </Label>
+                </div>
               </div>
             </div>
           </form>
