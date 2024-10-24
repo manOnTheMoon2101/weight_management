@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { IoMdRefresh } from "react-icons/io";
 import { TableMenu } from "./components/Menu/Menu";
+import { useToast } from "@/components/ui/use-toast";
 import {
   Tooltip,
   TooltipContent,
@@ -17,6 +18,8 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 export function Dashboard_table(data: any) {
+  const { toast } = useToast();
+
   const initialRowData = data.data;
   const [rowData, setRowData] = useState(initialRowData);
   const [colDefs, setColDefs] = useState<any>([
@@ -154,6 +157,10 @@ export function Dashboard_table(data: any) {
                   onClick={() => {
                     handleRefresh();
                     resetState();
+                    toast({
+                      description: "Succesfully Refreshed!",
+                      className: "bg-cyan-800",
+                    });
                   }}
                 >
                   <IoMdRefresh
@@ -164,7 +171,7 @@ export function Dashboard_table(data: any) {
                   />
                 </Button>
               </TooltipTrigger>
-              <TooltipContent className="">Refresh Data</TooltipContent>
+              <TooltipContent>Refresh Data</TooltipContent>
             </Tooltip>
           </TooltipProvider>
         </div>
