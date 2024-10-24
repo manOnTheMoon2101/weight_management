@@ -94,12 +94,12 @@ export function GraphMenu(chartRef: any) {
                   <PiFileCsv className="mr-2 h-4 w-4" />
                   <span>CSV</span>
                 </DropdownMenuItem> */}
-                <DropdownMenuItem>
+                {/* <DropdownMenuItem>
                   <Button variant={"ghost"} onClick={downloadPdf}>
                     <PiFilePdf className="mr-2 h-4 w-4" />
                     PDF
                   </Button>
-                </DropdownMenuItem>
+                </DropdownMenuItem> */}
               </DropdownMenuSubContent>
             </DropdownMenuPortal>
           </DropdownMenuSub>
