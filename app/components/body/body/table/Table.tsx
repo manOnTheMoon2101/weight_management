@@ -159,7 +159,7 @@ export function Dashboard_table(data: any) {
                     resetState();
                     toast({
                       description: "Succesfully Refreshed!",
-                      className: "bg-cyan-800",
+                      className: "bg-cyan-800 text-white",
                     });
                   }}
                 >
