@@ -92,7 +92,7 @@ export function AddForm() {
     return (
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-          <Button>New Record +</Button>
+          <Button className="bg-background2 text-white">New Record +</Button>
         </DialogTrigger>
         <DialogContent>
           <form onSubmit={handleSubmit}>
