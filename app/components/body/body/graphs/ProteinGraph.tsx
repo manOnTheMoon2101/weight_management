@@ -79,10 +79,10 @@ const ProteinGraph = (data: any) => {
       createdAt: new Date(item.createdAt).getDate(),
       protein: item.totalProtein,
     })) || [];
-    
+
   const title = "Protein";
   return (
-    <Card className="my-5" ref={chartRef}>
+    <Card className="my-5  bg-background2" ref={chartRef}>
       <CardHeader>
         <div className="flex flex-row justify-between items-center">
           <CardTitle className={`${anek.className}`}>{title}</CardTitle>

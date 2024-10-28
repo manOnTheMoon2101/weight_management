@@ -96,7 +96,7 @@ export function CalorieGraph(data: any) {
 
   const title = "Calories";
   return (
-    <Card className="my-5" ref={chartRef}>
+    <Card className="my-5 bg-background2" ref={chartRef}>
       <CardHeader>
         <div className="flex flex-row justify-between items-center">
           <CardTitle className={`${anek.className}`}>{title}</CardTitle>
