@@ -19,13 +19,13 @@ export function NavBar() {
     <Menubar>
       <MenubarMenu>
         <MenubarTrigger>Theme</MenubarTrigger>
-        <MenubarContent>
+        <MenubarContent className="bg-background2">
           <ModeToggle />
         </MenubarContent>
       </MenubarMenu>
       <MenubarMenu>
         <MenubarTrigger>Account</MenubarTrigger>
-        <MenubarContent>
+        <MenubarContent className="bg-background2">
           <div>
             <div className="flex flex-row justify-around items-center">
               <Avatar>
