@@ -14,6 +14,7 @@ import { useState } from "react";
 import { AddForm } from "./modals/addform/AddForm";
 import ProteinGraph from "./graphs/ProteinGraph";
 import { Skeleton } from "@/components/ui/skeleton";
+import { MdDateRange } from "react-icons/md";
 export function Body() {
   const getCurrentMonthTwoDigit = () => {
     let date = new Date();
@@ -69,7 +70,7 @@ export function Body() {
             }}
             defaultValue={getCurrentMonthTwoDigit()}
           >
-            <SelectTrigger className="w-[180px] mx-3 border border-orange-400">
+            <SelectTrigger className="w-[180px] mx-2 border border-orange-400">
               <SelectValue placeholder="Select Month..." />
             </SelectTrigger>
             <SelectContent className="bg-background2">

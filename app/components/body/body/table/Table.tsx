@@ -32,6 +32,8 @@ export function Dashboard_table(data: any) {
       sortable: false,
       suppressMovable: true,
       cellStyle: { textAlign: "center" },
+      tooltipField: "Actions",
+      headerTooltip: "Manage Data",
     },
     {
       headerName: "Date",
@@ -48,6 +50,8 @@ export function Dashboard_table(data: any) {
       cellClassRules: {
         "text-red-400": (params: { value: any }) => params.value > 2000,
       },
+      tooltipField: "Calories",
+      headerTooltip: "Limit set to 2000",
     },
     {
       headerName: "Protein",
@@ -57,6 +61,8 @@ export function Dashboard_table(data: any) {
       cellClassRules: {
         "text-red-400": (params: { value: any }) => params.value < 90,
       },
+      tooltipField: "Protein",
+      headerTooltip: "Minimum set to 90",
     },
     {
       headerName: "Fat",
@@ -66,6 +72,8 @@ export function Dashboard_table(data: any) {
       cellClassRules: {
         "text-red-400": (params: { value: any }) => params.value > 78,
       },
+      tooltipField: "Fat",
+      headerTooltip: "Limit set to 78",
     },
     {
       headerName: "Carbs",
@@ -75,6 +83,8 @@ export function Dashboard_table(data: any) {
       cellClassRules: {
         "text-red-400": (params: { value: any }) => params.value > 120,
       },
+      tooltipField: "Carbs",
+      headerTooltip: "Limit set to 120",
     },
     {
       headerName: "Sugar",
@@ -84,6 +94,8 @@ export function Dashboard_table(data: any) {
       cellClassRules: {
         "text-red-400": (params: { value: any }) => params.value > 60,
       },
+      tooltipField: "Sugar",
+      headerTooltip: "Limit set to 60",
     },
     {
       headerName: "L-Carnitine",
@@ -91,6 +103,8 @@ export function Dashboard_table(data: any) {
       cellRenderer: Pills,
       headerClass: "bg-orange-400 bg-opacity-50",
       filter: true,
+      tooltipField: "L-Carnitine",
+      headerTooltip: "Fat Burner",
     },
     {
       headerName: "CLA",
@@ -98,6 +112,8 @@ export function Dashboard_table(data: any) {
       cellRenderer: Pills,
       headerClass: "bg-orange-400 bg-opacity-50",
       filter: true,
+      tooltipField: "CLA",
+      headerTooltip: "Weight Management",
     },
     {
       headerName: "Vitamin",
@@ -105,6 +121,8 @@ export function Dashboard_table(data: any) {
       cellRenderer: Pills,
       headerClass: "bg-orange-400 bg-opacity-50",
       filter: true,
+      tooltipField: "Vitamin",
+      headerTooltip: "Multi Vitamin",
     },
   ]);
 
@@ -183,6 +201,7 @@ export function Dashboard_table(data: any) {
       <div className="ag-theme-quartz-dark my-2 mx-2" style={{ height: 500 }}>
         <AgGridReact
           ref={gridRef}
+          tooltipShowDelay={100}
           rowData={rowData}
           columnDefs={colDefs}
           cellSelection={true}

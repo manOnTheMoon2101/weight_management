@@ -18,8 +18,6 @@ import { CiExport } from "react-icons/ci";
 import { MdMenu } from "react-icons/md";
 import html2canvas from "html2canvas";
 import { PiFilePng } from "react-icons/pi";
-import { PiFileCsv } from "react-icons/pi";
-import { PiFilePdf } from "react-icons/pi";
 import jsPDF from "jspdf";
 export function GraphMenu(chartRef: any) {
   function getMonthName(value: any) {
@@ -36,32 +34,6 @@ export function GraphMenu(chartRef: any) {
       link.click();
     }
   };
-  const downloadPdf = async () => {
-    if (chartRef.chartRef.current) {
-      const canvas = await html2canvas(chartRef.chartRef.current);
-      const dataUrl = canvas.toDataURL("image/png");
-
-      const pdf = new jsPDF();
-      const imgWidth = 100;
-      const pageHeight = pdf.internal.pageSize.height;
-      const imgHeight = (canvas.height * imgWidth) / canvas.width;
-      const heightLeft = imgHeight;
-      let position = 0;
-      const pageWidth = pdf.internal.pageSize.width;
-      const xOffset = (pageWidth - imgWidth) / 2;
-
-      pdf.addImage(dataUrl, "PNG", xOffset, position, imgWidth, imgHeight);
-      position += heightLeft;
-
-      if (heightLeft >= pageHeight) {
-        pdf.addPage();
-        pdf.addImage(dataUrl, "PNG", xOffset, position, imgWidth, imgHeight);
-      }
-
-      pdf.save(`${getMonthName(chartRef.month) + " " + chartRef.title}`);
-    }
-  };
-
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -69,37 +41,23 @@ export function GraphMenu(chartRef: any) {
           <MdMenu />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56">
+      <DropdownMenuContent className="w-56 bg-background2">
         <DropdownMenuLabel>{getMonthName(chartRef.month)}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          {/* <DropdownMenuItem>
-            <Users className="mr-2 h-4 w-4" />
-            <span>Team</span>
-          </DropdownMenuItem> */}
           <DropdownMenuSub>
             <DropdownMenuSubTrigger>
               <CiExport className="mr-2 h-4 w-4" />
               <span>Export</span>
             </DropdownMenuSubTrigger>
             <DropdownMenuPortal>
-              <DropdownMenuSubContent>
+              <DropdownMenuSubContent className="bg-background2">
                 <DropdownMenuItem>
                   <Button variant={"ghost"} onClick={downloadImage}>
                     <PiFilePng className="mr-2 h-4 w-4" />
                     PNG
                   </Button>
                 </DropdownMenuItem>
-                {/* <DropdownMenuItem disabled>
-                  <PiFileCsv className="mr-2 h-4 w-4" />
-                  <span>CSV</span>
-                </DropdownMenuItem> */}
-                {/* <DropdownMenuItem>
-                  <Button variant={"ghost"} onClick={downloadPdf}>
-                    <PiFilePdf className="mr-2 h-4 w-4" />
-                    PDF
-                  </Button>
-                </DropdownMenuItem> */}
               </DropdownMenuSubContent>
             </DropdownMenuPortal>
           </DropdownMenuSub>
