@@ -6,7 +6,6 @@ import axios from "axios";
 import { useState } from "react";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Switch } from "@/components/ui/switch";
-import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
@@ -92,7 +91,7 @@ export function AddForm() {
     return (
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-          <Button className="bg-foreground text-background">New Record</Button>
+          <Button className="bg-foreground text-background">Add Record</Button>
         </DialogTrigger>
         <DialogContent>
           <form onSubmit={handleSubmit}>
@@ -370,7 +369,7 @@ export function AddForm() {
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild>
-        <Button>New Record</Button>
+        <Button>Add Record</Button>
       </DrawerTrigger>
       <DrawerContent>
         <form onSubmit={handleSubmit}>
