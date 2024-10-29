@@ -60,7 +60,7 @@ export function Body() {
 
   return (
     <div>
-      <div className="flex flex-row justify-between">
+      <div className="flex flex-row justify-between items-baseline">
         <div className="mx-2 md:">
           <Select
             value={selectedMonth}
@@ -70,9 +70,9 @@ export function Body() {
             defaultValue={getCurrentMonthTwoDigit()}
           >
             <SelectTrigger className="w-[180px] mx-3 border border-orange-400">
-              <SelectValue placeholder="Select Month" />
+              <SelectValue placeholder="Select Month..." />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent className="bg-background2">
               <SelectItem value="01">January</SelectItem>
               <SelectItem value="02">February</SelectItem>
               <SelectItem value="03">March</SelectItem>
