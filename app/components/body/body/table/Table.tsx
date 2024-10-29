@@ -145,7 +145,7 @@ export function Dashboard_table(data: any) {
         <div className="flex flex-row">
           <Input
             type="text"
-            id="filter-text-box"
+            className="bg-foreground placeholder:text-background"
             placeholder="Search"
             onInput={onFilterTextBoxChanged}
           />
