@@ -3,8 +3,8 @@ import * as React from "react";
 import { useTheme } from "next-themes";
 import { Switch } from "@/components/ui/switch";
 import { useEffect } from "react";
-import { FaRegSun } from "react-icons/fa";
-import { FaRegMoon } from "react-icons/fa";
+import { IoMdSunny } from "react-icons/io";
+import { IoMdMoon } from "react-icons/io";
 export function ModeToggle() {
   const { theme, setTheme } = useTheme();
 
@@ -22,8 +22,13 @@ export function ModeToggle() {
   return (
     <div>
       <div className="flex flex-row justify-around items-center">
-        <Switch onCheckedChange={handleThemeToggle} />
-        <h2>{theme == "light" ? <FaRegSun /> : <FaRegMoon />}</h2>
+        <Switch
+          onCheckedChange={handleThemeToggle}
+          className="data-[state=checked]:bg-yellow-500 data-[state=unchecked]:bg-purple-900"
+        />
+        <h2>
+          {theme == "light" ? <IoMdSunny color="yellow" /> : <IoMdMoon />}
+        </h2>
       </div>
     </div>
   );
