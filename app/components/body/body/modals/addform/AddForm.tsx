@@ -92,7 +92,7 @@ export function AddForm() {
     return (
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-          <Button>New Record +</Button>
+          <Button className="bg-foreground text-background">New Record</Button>
         </DialogTrigger>
         <DialogContent>
           <form onSubmit={handleSubmit}>
@@ -370,7 +370,7 @@ export function AddForm() {
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild>
-        <Button>New Record +</Button>
+        <Button>New Record</Button>
       </DrawerTrigger>
       <DrawerContent>
         <form onSubmit={handleSubmit}>
