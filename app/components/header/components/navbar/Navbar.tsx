@@ -11,6 +11,9 @@ import { useSession } from "next-auth/react";
 import { signOut } from "next-auth/react";
 import { PiSignOut } from "react-icons/pi";
 import { ModeToggle } from "./theme/toggle";
+import { MdAccountCircle } from "react-icons/md";
+import { IoMdSunny } from "react-icons/io";
+import { IoMdMoon } from "react-icons/io";
 export function NavBar() {
   const { data: session } = useSession();
   const name = session?.user?.name || null;
@@ -18,13 +21,17 @@ export function NavBar() {
   return (
     <Menubar>
       <MenubarMenu>
-        <MenubarTrigger>Theme</MenubarTrigger>
+        <MenubarTrigger>
+          <IoMdSunny color="yellow" />/<IoMdMoon />
+        </MenubarTrigger>
         <MenubarContent className="bg-background2">
           <ModeToggle />
         </MenubarContent>
       </MenubarMenu>
       <MenubarMenu>
-        <MenubarTrigger>Account</MenubarTrigger>
+        <MenubarTrigger>
+          <MdAccountCircle />
+        </MenubarTrigger>
         <MenubarContent className="bg-background2">
           <div>
             <div className="flex flex-row justify-around items-center">
