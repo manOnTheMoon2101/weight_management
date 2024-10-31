@@ -6,7 +6,7 @@ import formatPrismaDate from "@/utils/dateFormater";
 // bro i swear...
 export const GET = async (
   req: any,
-  { params }: { params: { month: string } }
+  { params }: { params: { month: number } }
 ) => {
   try {
     const { month } = params;
@@ -21,14 +21,22 @@ export const GET = async (
         email: session?.user?.email,
       },
     });
+    const startDate = new Date(`${currentYear}-${month}-01T00:00:00.000Z`);
+    const endDate = new Date(
+      `${currentYear}-${month}-${new Date(
+        currentYear,
+        month,
+        0
+      ).getDate()}T23:59:59.999Z`
+    );
     const data = await prisma.data.findMany({
       where: {
         userId: user.id,
         isActive: true,
         isDeleted: false,
         createdAt: {
-          gte: new Date(`${currentYear}-${month}-01T01:00:00.459+00:00`),
-          lte: new Date(`${currentYear}-${month}-31T01:00:00.459+00:00`),
+          gte: startDate,
+          lte: endDate,
         },
       },
       // include: {
