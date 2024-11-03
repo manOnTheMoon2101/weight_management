@@ -24,7 +24,7 @@ export function NavBar() {
         <MenubarTrigger>
           <IoMdSunny color="yellow" />/<IoMdMoon />
         </MenubarTrigger>
-        <MenubarContent className="bg-background2">
+        <MenubarContent className="bg-background">
           <ModeToggle />
         </MenubarContent>
       </MenubarMenu>
@@ -32,7 +32,7 @@ export function NavBar() {
         <MenubarTrigger>
           <MdAccountCircle />
         </MenubarTrigger>
-        <MenubarContent className="bg-background2">
+        <MenubarContent className="bg-background">
           <div>
             <div className="flex flex-row justify-around items-center">
               <Avatar>

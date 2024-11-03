@@ -70,10 +70,10 @@ export function Body() {
             }}
             defaultValue={getCurrentMonthTwoDigit()}
           >
-            <SelectTrigger className="w-[180px] mx-2 border border-orange-400">
+            <SelectTrigger className="w-[180px] mx-2 border border-secondary">
               <SelectValue placeholder="Select Month..." />
             </SelectTrigger>
-            <SelectContent className="bg-background2">
+            <SelectContent className="bg-background">
               <SelectItem value="01">January</SelectItem>
               <SelectItem value="02">February</SelectItem>
               <SelectItem value="03">March</SelectItem>
