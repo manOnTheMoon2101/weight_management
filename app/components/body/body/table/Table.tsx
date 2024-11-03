@@ -163,7 +163,7 @@ export function Dashboard_table(data: any) {
         <div className="flex flex-row">
           <Input
             type="text"
-            className="bg-foreground placeholder:text-background text-background"
+            className="bg-background placeholder:text-foreground text-foreground"
             id="filter-text-box"
             placeholder="Search"
             onInput={onFilterTextBoxChanged}
@@ -172,13 +172,14 @@ export function Dashboard_table(data: any) {
             <Tooltip>
               <TooltipTrigger asChild>
                 <Button
+                  className="text-secondary"
                   variant={"ghost"}
                   onClick={() => {
                     handleRefresh();
                     resetState();
                     toast({
                       description: "Succesfully Refreshed!",
-                      className: "bg-cyan-800 text-white",
+                      className: "bg-background text-white",
                     });
                   }}
                 >

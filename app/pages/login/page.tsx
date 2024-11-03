@@ -46,67 +46,110 @@ const Login = () => {
     setShowPassword(!showPassword);
   };
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center">
-      <div className="p-8">
-        <div className="flex flex-row justify-end">
-          <Info />
-        </div>
-        <Label className="text-4xl">Email</Label>
-        <Input
+    <div>
+      <div className="flex flex-row justify-end">
+        <Info />
+      </div>
+      <div className="min-h-screen flex flex-col items-center justify-center">
+        <div className="p-8 rounded shadow-lg">
+          <div className="flex justify-center">
+            <h2 className="text-4xl font-bold my-8">Login</h2>
+          </div>
+          {/* <Label className="text-4xl">Email</Label> */}
+          {/* <Input
           placeholder="email@example.com"
           type="email"
-          className="border-purple-900"
+          className="border-secondary"
           value={email}
           onBlur={handleBlur}
           onChange={(e) => setEmail(e.target.value)}
-        />
-        {touched && !isValidEmail(email) && email !== "" && (
-          <p className="text-red-600">Not Valid Email!</p>
-        )}
-        <Label className="text-4xl">Password</Label>
-        <div className="flex flex-row">
-          <Input
+        /> */}
+
+          <div className="group relative z-0 mb-6 w-full">
+            <input
+              type="email"
+              name="totalCalories"
+              id="floating-input"
+              className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-secondary focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-secondary"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              onBlur={handleBlur}
+              placeholder=""
+            />
+            <Label
+              htmlFor="floating-input"
+              className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-orange-4000 dark:text-gray-400 peer-focus:dark:text-secondary"
+            >
+              Email
+            </Label>
+          </div>
+          {touched && !isValidEmail(email) && email !== "" && (
+            <p className="text-red-600">Not Valid Email!</p>
+          )}
+          {/* <Label className="text-4xl">Password</Label> */}
+          <div className="flex flex-row">
+            {/* <Input
             placeholder="*****"
             type={showPassword ? "text" : "password"}
-            className="border-purple-900"
+            className="border-secondary"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-          />
-          <Button type="button" onClick={handleTogglePassword}>
-            {showPassword ? <FaEyeSlash /> : <FaEye />}
-          </Button>
-        </div>
-        <div className="flex flex-col mt-10">
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <div>
-                  {loading ? (
-                    <AiOutlineLoading className="animate-spin text-orange-400 text-lg w-full" />
-                  ) : (
-                    <Button
-                      className={`bg-orange-400 text-slate-50 w-full`}
-                      onClick={onSubmit}
-                      disabled={!isValidEmail(email) || !password}
-                    >
-                      Login
-                    </Button>
-                  )}
-                </div>
-              </TooltipTrigger>
-              <TooltipContent className="text-red-600 text-left">
-                {!email && "Email Required"}
-                <br />
-                {!password && "Password Required"}
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-          <p className="mt-10">
-            Don't have an account?{" "}
-            <Link href="/pages/register" className="text-orange-400">
-              Register?
-            </Link>
-          </p>
+          /> */}
+
+            <div className="group relative z-0 mb-6 w-full">
+              <input
+                type={showPassword ? "text" : "password"}
+                name="totalCalories"
+                id="floating-input"
+                className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-secondary focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-secondary"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                onBlur={handleBlur}
+                placeholder=""
+              />
+              <Label
+                htmlFor="floating-input"
+                className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-orange-4000 dark:text-gray-400 peer-focus:dark:text-secondary"
+              >
+                Password
+              </Label>
+            </div>
+            <Button type="button" onClick={handleTogglePassword}>
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </Button>
+          </div>
+          <div className="flex flex-col mt-10">
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <div>
+                    {loading ? (
+                      <AiOutlineLoading className="animate-spin text-secondary text-lg w-full" />
+                    ) : (
+                      <Button
+                        className={`bg-secondary text-slate-50 w-full`}
+                        onClick={onSubmit}
+                        disabled={!isValidEmail(email) || !password}
+                      >
+                        Login
+                      </Button>
+                    )}
+                  </div>
+                </TooltipTrigger>
+                <TooltipContent className="text-red-600 text-left">
+                  {!email && "Email Required"}
+                  <br />
+                  {!password && "Password Required"}
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+            <p className="mt-10">
+              Don't have an account?{" "}
+              <Link href="/pages/register" className="text-secondary">
+                Register?
+              </Link>
+            </p>
+          </div>
         </div>
       </div>
     </div>

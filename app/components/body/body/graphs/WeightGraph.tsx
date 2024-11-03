@@ -127,40 +127,32 @@ const Graph = (data: any) => {
               name="Weight(kg)"
               type="monotoneX"
               fill="none"
-              stroke="rgb(251 146 60)"
+              stroke="rgb(106, 30, 85)"
               strokeWidth={1}
               dot={true}
             />
           </AreaChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter>
-        <div className="flex w-full items-start gap-2 text-sm">
-          <div className="grid gap-2">
-            <div className="flex items-center gap-2 leading-none text-muted-foreground">
-              <div className="m-5 text-center">
-                <h2 className="my-2">Min Weight</h2>
-                <Badge className="bg-purple-900 text-white">
-                  {getMin(data.data.map((x: any) => (x.weight ? x.weight : 0)))}
-                </Badge>
-              </div>
-              <div className="m-5 text-center">
-                <h2 className="my-2">Average Weight</h2>
-                <Badge className="bg-purple-900 text-white">
-                  {" "}
-                  {getAverage(
-                    data.data.map((x: any) => (x.weight ? x.weight : 0))
-                  )}
-                </Badge>
-              </div>
-              <div className="m-5 text-center">
-                <h2 className="my-2">Max Weight</h2>
-                <Badge className="bg-purple-900 text-white">
-                  {getMax(data.data.map((x: any) => (x.weight ? x.weight : 0)))}
-                </Badge>
-              </div>
-            </div>
-          </div>
+      <CardFooter className="flex flex-row justify-center items-center">
+        <div className="m-5 text-center">
+          <h2 className="my-2">Min</h2>
+          <Badge className="bg-secondary text-white">
+            {getMin(data.data.map((x: any) => (x.weight ? x.weight : 0)))}
+          </Badge>
+        </div>
+        <div className="m-5 text-center">
+          <h2 className="my-2">Average</h2>
+          <Badge className="bg-secondary text-white">
+            {" "}
+            {getAverage(data.data.map((x: any) => (x.weight ? x.weight : 0)))}
+          </Badge>
+        </div>
+        <div className="m-5 text-center">
+          <h2 className="my-2">Max</h2>
+          <Badge className="bg-secondary text-white">
+            {getMax(data.data.map((x: any) => (x.weight ? x.weight : 0)))}
+          </Badge>
         </div>
       </CardFooter>
     </Card>

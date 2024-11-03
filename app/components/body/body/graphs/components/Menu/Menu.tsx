@@ -37,11 +37,11 @@ export function GraphMenu(chartRef: any) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button className="bg-orange-400" variant="ghost">
+        <Button className="bg-secondary">
           <MdMenu />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56 bg-background2">
+      <DropdownMenuContent className="w-56 bg-background">
         <DropdownMenuLabel>{getMonthName(chartRef.month)}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
@@ -51,7 +51,7 @@ export function GraphMenu(chartRef: any) {
               <span>Export</span>
             </DropdownMenuSubTrigger>
             <DropdownMenuPortal>
-              <DropdownMenuSubContent className="bg-background2">
+              <DropdownMenuSubContent className="bg-background">
                 <DropdownMenuItem>
                   <Button variant={"ghost"} onClick={downloadImage}>
                     <PiFilePng className="mr-2 h-4 w-4" />

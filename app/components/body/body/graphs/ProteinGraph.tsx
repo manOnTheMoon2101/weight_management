@@ -103,7 +103,7 @@ const ProteinGraph = (data: any) => {
               name="Protein"
               fill="#fb923c"
               dot={{
-                stroke: "rgb(251 146 60)",
+                stroke: "rgb(106, 30, 85)",
                 fill: "none",
               }}
               fillOpacity={0.6}
@@ -111,13 +111,10 @@ const ProteinGraph = (data: any) => {
           </RadarChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter>
-        <div className="flex w-full items-start gap-2 text-sm">
-          <div className="grid gap-2">
-            <div className="flex items-center gap-2 leading-none text-muted-foreground">
+      <CardFooter className="flex flex-row justify-center items-center">
               <div className="m-5 text-center">
-                <h2 className="my-2">Min Protein</h2>
-                <Badge className="bg-purple-900 text-white">
+                <h2 className="my-2">Min</h2>
+                <Badge className="bg-secondary text-white">
                   {getMin(
                     data.data.map((x: any) =>
                       x.totalProtein ? x.totalProtein : 0
@@ -126,8 +123,8 @@ const ProteinGraph = (data: any) => {
                 </Badge>
               </div>
               <div className="m-5 text-center">
-                <h2 className="my-2">Average Protein</h2>
-                <Badge className="bg-purple-900 text-white">
+                <h2 className="my-2">Average</h2>
+                <Badge className="bg-secondary text-white">
                   {getAverage(
                     data.data.map((x: any) =>
                       x.totalProtein ? x.totalProtein : 0
@@ -136,8 +133,8 @@ const ProteinGraph = (data: any) => {
                 </Badge>
               </div>
               <div className="m-5 text-center">
-                <h2 className="my-2">Max Protein</h2>
-                <Badge className="bg-purple-900 text-white">
+                <h2 className="my-2">Max</h2>
+                <Badge className="bg-secondary text-white">
                   {getMax(
                     data.data.map((x: any) =>
                       x.totalProtein ? x.totalProtein : 0
@@ -145,9 +142,6 @@ const ProteinGraph = (data: any) => {
                   )}
                 </Badge>
               </div>
-            </div>
-          </div>
-        </div>
       </CardFooter>
     </Card>
   );
