@@ -37,7 +37,7 @@ export function GraphMenu(chartRef: any) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button className="bg-secondary" variant="ghost">
+        <Button className="bg-secondary">
           <MdMenu />
         </Button>
       </DropdownMenuTrigger>

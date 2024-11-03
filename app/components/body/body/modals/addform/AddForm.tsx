@@ -91,8 +91,8 @@ export function AddForm() {
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild>
-        <Button variant={"ghost"}>
-          <IoIosAddCircleOutline size={25} className="text-secondary" />
+        <Button variant={"ghost"} className="text-secondary">
+          <IoIosAddCircleOutline size={25} />
         </Button>
       </DrawerTrigger>
       <DrawerContent>
@@ -109,8 +109,9 @@ export function AddForm() {
                         disabled={!post.weight || !post.totalCalories}
                         type="submit"
                         variant={"ghost"}
+                        className="text-secondary"
                       >
-                        <FaSave size={20} className="text-secondary" />
+                        <FaSave size={20} />
                       </Button>
                     )}
                   </div>
