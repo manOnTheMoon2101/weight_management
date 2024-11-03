@@ -108,7 +108,7 @@ const Register = () => {
             <div className="group relative z-0 mb-6 w-full">
               <input
                 type="email"
-                name="name"
+                name="email"
                 id="floating-input"
                 className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-secondary focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-secondary"
                 onChange={handleChange}
