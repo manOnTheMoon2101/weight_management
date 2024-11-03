@@ -51,7 +51,7 @@ const Login = () => {
         <Info />
       </div>
       <div className="min-h-screen flex flex-col items-center justify-center">
-        <div className="p-8">
+        <div className="p-8 rounded shadow-lg">
           <div className="flex justify-center">
             <h2 className="text-4xl font-bold my-8">Login</h2>
           </div>
