@@ -26,12 +26,6 @@ export function Info() {
               This platform is designed specifically for showcasing some of my
               skills and is used by a select group of users.
               <br />
-              <br />
-              To ensure the security of your information, please avoid using
-              real-life Google passwords or any other sensitive credentials when
-              registering or logging in.
-              <br />
-              <br />
             </p>
             <p className="m-5 text-center">
               If you encounter any bugs or issues while using the site,I
