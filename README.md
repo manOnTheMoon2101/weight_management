@@ -8,18 +8,11 @@ Weight Management App that tracks important nutrients nessecary for weight loss/
 
 - [@cleveclayton](https://github.com/manOnTheMoon2101)
 
-
-## 🛠 Skills
-**Frontend:** UI DESIGN,HANDLING CRUD ROUTES
-
-**Backend:** CRUD,AUTH,SECURITY
-
-
 ## Tech Stack
 
-**Client:** React, NextJS, TailwindCSS,Shadcn
+**Client:** ReactJS, NextJS, TailwindCSS,ShadCN UI
 
-**Server:** Node, Prisma,Express,MongoDB
+**Server:** ExpressJS,Prisma ORM,MongoDB
 
 ## Color Reference
 
@@ -33,11 +26,9 @@ Weight Management App that tracks important nutrients nessecary for weight loss/
 
 ## Features
 
-- Light/dark mode toggle
-- Account Management
-- Release Notes(in app)
-- Fullscreen mode
-- Cross platform(Mobile/Tablet)
+- Theme Toggler
+- Authentication
+- Cross platform(Mobile)
 
 
 ## Documentation
