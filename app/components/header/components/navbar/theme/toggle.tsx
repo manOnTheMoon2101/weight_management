@@ -24,7 +24,7 @@ export function ModeToggle() {
       <div className="flex flex-row justify-around items-center">
         <Switch
           onCheckedChange={handleThemeToggle}
-          className="data-[state=checked]:bg-yellow-500 data-[state=unchecked]:bg-primary"
+          className="data-[state=checked]:bg-yellow-500"
         />
         <h2>
           {theme == "light" ? <IoMdSunny color="yellow" /> : <IoMdMoon />}
