@@ -103,7 +103,7 @@ const ProteinGraph = (data: any) => {
               name="Protein"
               fill="#fb923c"
               dot={{
-                stroke: "rgb(106, 30, 85)",
+                stroke: "#AB4459",
                 fill: "none",
               }}
               fillOpacity={0.6}

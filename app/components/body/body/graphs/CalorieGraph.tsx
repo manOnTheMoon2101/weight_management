@@ -125,7 +125,7 @@ export function CalorieGraph(data: any) {
             <Bar
               dataKey="totalCalories"
               name="Calories"
-              fill="rgb(106, 30, 85)"
+              fill="#AB4459"
               radius={8}
             >
               <LabelList

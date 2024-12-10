@@ -127,7 +127,7 @@ const Graph = (data: any) => {
               name="Weight(kg)"
               type="monotoneX"
               fill="none"
-              stroke="rgb(106, 30, 85)"
+              stroke="#AB4459"
               strokeWidth={1}
               dot={true}
             />
