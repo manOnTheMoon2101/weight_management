@@ -96,7 +96,7 @@ export function CalorieGraph(data: any) {
 
   const title = "Calories";
   return (
-    <Card className="my-5 bg-background2" ref={chartRef}>
+    <Card className="my-5 bg-graph" ref={chartRef}>
       <CardHeader>
         <div className="flex flex-row justify-between items-center">
           <CardTitle className={`${anek.className}`}>{title}</CardTitle>
@@ -142,7 +142,7 @@ export function CalorieGraph(data: any) {
       <CardFooter className="flex flex-row justify-center items-center">
         <div className="m-5 text-center">
           <h2 className="my-2">Min</h2>
-          <Badge className="bg-secondary text-white">
+          <Badge className="bg-primary text-white">
             {getMin(
               data.data.map((x: any) => (x.totalCalories ? x.totalCalories : 0))
             )}
@@ -150,7 +150,7 @@ export function CalorieGraph(data: any) {
         </div>
         <div className="m-5 text-center">
           <h2 className="my-2">Average</h2>
-          <Badge className="bg-secondary text-white">
+          <Badge className="bg-primary text-white">
             {getAverage(
               data.data.map((x: any) => (x.totalCalories ? x.totalCalories : 0))
             )}
@@ -158,7 +158,7 @@ export function CalorieGraph(data: any) {
         </div>
         <div className="m-5 text-center">
           <h2 className="my-2">Max</h2>
-          <Badge className="bg-secondary text-white">
+          <Badge className="bg-primary text-white">
             {getMax(
               data.data.map((x: any) => (x.totalCalories ? x.totalCalories : 0))
             )}

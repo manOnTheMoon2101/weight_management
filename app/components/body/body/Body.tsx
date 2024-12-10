@@ -70,7 +70,7 @@ export function Body() {
             }}
             defaultValue={getCurrentMonthTwoDigit()}
           >
-            <SelectTrigger className="w-[180px] mx-2 border border-secondary">
+            <SelectTrigger className="w-[180px] mx-2 border border-accent">
               <SelectValue placeholder="Select Month..." />
             </SelectTrigger>
             <SelectContent className="bg-background">

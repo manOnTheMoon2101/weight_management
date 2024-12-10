@@ -91,7 +91,7 @@ export function AddForm() {
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild>
-        <Button variant={"ghost"} className="text-secondary">
+        <Button variant={"ghost"} className="text-accent">
           <IoIosAddCircleOutline size={25} />
         </Button>
       </DrawerTrigger>
