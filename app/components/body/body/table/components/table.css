@@ -1,0 +1,39 @@
+.ag-theme-quartz-dark {
+  --ag-background-color: hsl(var(--background));
+  --ag-header-background-color: hsl(var(--background));
+  --ag-header-foreground-color: hsl(var(--foreground));
+  --ag-row-background-color: #333333;
+  --ag-row-hover-color: #555555;
+  --ag-cell-hover-color: #666666;
+  --ag-border-color: hsl(var(--secondary));
+}
+
+.ag-theme-quartz-dark .ag-header-cell {
+  font-weight: bold;
+}
+
+.ag-theme-quartz-dark .ag-row {
+  background-color: hsl(var(--background)) !important;
+}
+
+.ag-theme-quartz-dark .ag-cell {
+  color: hsl(var(--foreground));
+  border: #666666;
+}
+
+.ag-theme-quartz-dark .ag-cell:hover {
+  background-color: #444444;
+}
+
+.ag-theme-quartz-dark .ag-cell.ag-cell-range-selected {
+  background-color: hsl(var(--secondary)) !important;
+  color: hsl(var(--foreground)) !important;
+}
+
+.ag-theme-quartz-dark .ag-row-selected {
+  background-color: hsl(var(--secondary)) !important;
+}
+
+.ag-theme-quartz-dark .ag-header-cell-resize {
+  background-color: hsl(var(--secondary));
+}
