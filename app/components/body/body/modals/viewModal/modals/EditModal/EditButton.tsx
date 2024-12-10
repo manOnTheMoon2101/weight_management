@@ -84,7 +84,7 @@ export function EditButton(data: any) {
       <Drawer open={open} onOpenChange={setOpen}>
         <DrawerTrigger>
           <div className="flex flex-row justify-between items-center mx-2">
-            <Button variant={"ghost"} className="text-secondary">
+            <Button variant={"ghost"} className="text-accent">
               <MdEditNote size={30} onClick={() => setOpen(true)} />
             </Button>
           </div>
@@ -102,10 +102,10 @@ export function EditButton(data: any) {
                         <Button
                           disabled={!post.weight || !post.totalCalories}
                           type="submit"
-                          className="text-secondary" 
+                          className="text-secondary"
                           variant={"ghost"}
                         >
-                          <FaSave size={20}/>
+                          <FaSave size={20} />
                         </Button>
                       )}
                     </div>

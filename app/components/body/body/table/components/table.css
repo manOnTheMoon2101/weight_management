@@ -5,7 +5,7 @@
   --ag-row-background-color: #333333;
   --ag-row-hover-color: #555555;
   --ag-cell-hover-color: #666666;
-  --ag-border-color: hsl(var(--secondary));
+  --ag-border-color: hsl(var(--accent));
 }
 
 .ag-theme-quartz-dark .ag-header-cell {
@@ -27,7 +27,7 @@
 
 .ag-theme-quartz-dark .ag-cell.ag-cell-range-selected {
   background-color: hsl(var(--secondary)) !important;
-  color: hsl(var(--foreground)) !important;
+  color: hsl(var(--accent)) !important;
 }
 
 .ag-theme-quartz-dark .ag-row-selected {
@@ -35,5 +35,5 @@
 }
 
 .ag-theme-quartz-dark .ag-header-cell-resize {
-  background-color: hsl(var(--secondary));
+  background-color: hsl(var(--accent));
 }

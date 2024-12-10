@@ -173,7 +173,7 @@ export function Dashboard_table(data: any) {
             <Tooltip>
               <TooltipTrigger asChild>
                 <Button
-                  className="text-secondary"
+                  className="text-accent"
                   variant={"ghost"}
                   onClick={() => {
                     handleRefresh();
