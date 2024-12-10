@@ -97,12 +97,12 @@ export function EditButton(data: any) {
                   <TooltipTrigger asChild>
                     <div>
                       {loading ? (
-                        <AiOutlineLoading className="animate-spin text-secondary text-lg" />
+                        <AiOutlineLoading className="animate-spin text-accent text-lg" />
                       ) : (
                         <Button
                           disabled={!post.weight || !post.totalCalories}
                           type="submit"
-                          className="text-secondary"
+                          className="text-accent"
                           variant={"ghost"}
                         >
                           <FaSave size={20} />
@@ -122,14 +122,14 @@ export function EditButton(data: any) {
                       type="number"
                       name="weight"
                       id="floating-input"
-                      className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-secondary focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-secondary"
+                      className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-accent focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-accent"
                       value={post.weight}
                       onChange={handleChange}
                       placeholder=""
                     />
                     <Label
                       htmlFor="floating-input"
-                      className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-orange-4000 dark:text-gray-400 peer-focus:dark:text-secondary"
+                      className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-orange-4000 dark:text-gray-400 peer-focus:dark:text-accent"
                     >
                       Weight(kg)
                     </Label>
@@ -141,14 +141,14 @@ export function EditButton(data: any) {
                       type="number"
                       name="totalCalories"
                       id="floating-input"
-                      className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-secondary focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-secondary"
+                      className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-accent focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-accent"
                       value={post.totalCalories}
                       onChange={handleChange}
                       placeholder=""
                     />
                     <Label
                       htmlFor="floating-input"
-                      className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-orange-4000 dark:text-gray-400 peer-focus:dark:text-secondary"
+                      className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-orange-4000 dark:text-gray-400 peer-focus:dark:text-accent"
                     >
                       Calories
                     </Label>
@@ -233,14 +233,14 @@ export function EditButton(data: any) {
                     type="number"
                     name="totalProtein"
                     id="floating-input"
-                    className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-secondary focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-secondary"
+                    className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-accent focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-accent"
                     value={post.totalProtein}
                     onChange={handleChange}
                     placeholder=""
                   />
                   <Label
                     htmlFor="floating-input"
-                    className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-orange-4000 dark:text-gray-400 peer-focus:dark:text-secondary"
+                    className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-orange-4000 dark:text-gray-400 peer-focus:dark:text-accent"
                   >
                     Protein
                   </Label>
@@ -253,14 +253,14 @@ export function EditButton(data: any) {
                     type="number"
                     name="totalFat"
                     id="floating-input"
-                    className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-secondary focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-secondary"
+                    className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-accent focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-accent"
                     value={post.totalFat}
                     onChange={handleChange}
                     placeholder=""
                   />
                   <Label
                     htmlFor="floating-input"
-                    className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-orange-4000 dark:text-gray-400 peer-focus:dark:text-secondary"
+                    className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-orange-4000 dark:text-gray-400 peer-focus:dark:text-accent"
                   >
                     Fat
                   </Label>
@@ -275,14 +275,14 @@ export function EditButton(data: any) {
                     type="number"
                     name="totalCarbs"
                     id="floating-input"
-                    className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-secondary focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-secondary"
+                    className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-accent focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-accent"
                     value={post.totalCarbs}
                     onChange={handleChange}
                     placeholder=""
                   />
                   <Label
                     htmlFor="floating-input"
-                    className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-orange-4000 dark:text-gray-400 peer-focus:dark:text-secondary"
+                    className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-orange-4000 dark:text-gray-400 peer-focus:dark:text-accent"
                   >
                     Carbs
                   </Label>
@@ -294,14 +294,14 @@ export function EditButton(data: any) {
                     type="number"
                     name="totalSugar"
                     id="floating-input"
-                    className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-secondary focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-secondary"
+                    className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-accent focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-accent"
                     value={post.totalSugar}
                     onChange={handleChange}
                     placeholder=""
                   />
                   <Label
                     htmlFor="floating-input"
-                    className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-orange-4000 dark:text-gray-400 peer-focus:dark:text-secondary"
+                    className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-orange-4000 dark:text-gray-400 peer-focus:dark:text-accent"
                   >
                     Sugar
                   </Label>
