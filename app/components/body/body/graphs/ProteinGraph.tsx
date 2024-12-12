@@ -82,7 +82,7 @@ const ProteinGraph = (data: any) => {
 
   const title = "Protein";
   return (
-    <Card className="my-5  bg-background2" ref={chartRef}>
+    <Card className="my-5  bg-graph" ref={chartRef}>
       <CardHeader>
         <div className="flex flex-row justify-between items-center">
           <CardTitle className={`${anek.className}`}>{title}</CardTitle>
@@ -96,14 +96,14 @@ const ProteinGraph = (data: any) => {
         <ChartContainer config={chartConfig}>
           <RadarChart data={chartData}>
             <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
-            <PolarAngleAxis dataKey="createdAt" />
+            <PolarAngleAxis dataKey="createdAt" tick={{ stroke: '#c9c9c9'}}  />
             <PolarGrid />
             <Radar
               dataKey="protein"
               name="Protein"
               fill="#fb923c"
               dot={{
-                stroke: "rgb(106, 30, 85)",
+                stroke: "#AB4459",
                 fill: "none",
               }}
               fillOpacity={0.6}
@@ -114,7 +114,7 @@ const ProteinGraph = (data: any) => {
       <CardFooter className="flex flex-row justify-center items-center">
               <div className="m-5 text-center">
                 <h2 className="my-2">Min</h2>
-                <Badge className="bg-secondary text-white">
+                <Badge className="bg-primary text-white">
                   {getMin(
                     data.data.map((x: any) =>
                       x.totalProtein ? x.totalProtein : 0
@@ -124,7 +124,7 @@ const ProteinGraph = (data: any) => {
               </div>
               <div className="m-5 text-center">
                 <h2 className="my-2">Average</h2>
-                <Badge className="bg-secondary text-white">
+                <Badge className="bg-primary text-white">
                   {getAverage(
                     data.data.map((x: any) =>
                       x.totalProtein ? x.totalProtein : 0
@@ -134,7 +134,7 @@ const ProteinGraph = (data: any) => {
               </div>
               <div className="m-5 text-center">
                 <h2 className="my-2">Max</h2>
-                <Badge className="bg-secondary text-white">
+                <Badge className="bg-primary text-white">
                   {getMax(
                     data.data.map((x: any) =>
                       x.totalProtein ? x.totalProtein : 0

@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { IoMdRefresh } from "react-icons/io";
 import { TableMenu } from "./components/Menu/Menu";
+import './components/table.css'
 import { useToast } from "@/components/ui/use-toast";
 import {
   Tooltip,
@@ -172,7 +173,7 @@ export function Dashboard_table(data: any) {
             <Tooltip>
               <TooltipTrigger asChild>
                 <Button
-                  className="text-secondary"
+                  className="text-accent"
                   variant={"ghost"}
                   onClick={() => {
                     handleRefresh();

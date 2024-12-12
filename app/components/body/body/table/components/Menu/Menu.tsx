@@ -25,7 +25,7 @@ export function TableMenu(csv: any) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button className="bg-secondary" variant="ghost">
+        <Button className="bg-accent" variant="ghost">
           <MdMenu />
         </Button>
       </DropdownMenuTrigger>

@@ -1,5 +1,4 @@
-"use client";
-import useSWR from "swr";
+import { useState, useEffect } from "react";
 import { Dashboard_table } from "./table/Table";
 import {
   Select,
@@ -10,11 +9,10 @@ import {
 } from "@/components/ui/select";
 import WeightGraph from "./graphs/WeightGraph";
 import { CalorieGraph } from "./graphs/CalorieGraph";
-import { useState } from "react";
 import { AddForm } from "./modals/addform/AddForm";
 import ProteinGraph from "./graphs/ProteinGraph";
 import { Skeleton } from "@/components/ui/skeleton";
-import { MdDateRange } from "react-icons/md";
+
 export function Body() {
   const getCurrentMonthTwoDigit = () => {
     let date = new Date();
@@ -27,14 +25,37 @@ export function Body() {
       return "" + month;
     }
   };
+
   const [selectedMonth, setSelectedMonth] = useState(
     `${getCurrentMonthTwoDigit()}`
   );
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const fetcher = (url: string) => fetch(url).then((res) => res.json());
-  const url = `/api/nutrients/get/${selectedMonth}`;
-  const { data, error, isLoading } = useSWR(url, fetcher);
-  if (error) return <div>failed to load</div>;
+  const fetchData = async (month: string) => {
+    setIsLoading(true);
+    setError(null);
+    try {
+      const response = await fetch(`/api/nutrients/get/${month}`);
+      if (!response.ok) {
+        throw new Error("Failed to fetch data");
+      }
+      const result = await response.json();
+      setData(result);
+    } catch (err: any) {
+      setError(err.message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchData(selectedMonth);
+  }, [selectedMonth]);
+
+  if (error) return <div>failed to load: {error}</div>;
+
   if (isLoading)
     return (
       <div>
@@ -46,7 +67,7 @@ export function Body() {
             <Skeleton className="w-[180px] h-[50px] mx-3 border" />
           </div>
         </div>
-        <div className="flex flex-col md:flex-col justify-around  h-full">
+        <div className="flex flex-col md:flex-col justify-around h-full">
           <div className="w-full my-5 md:flex flex-row justify-around overflow-auto">
             <Skeleton className="w-full h-[400px] sm:w-[360px]" />
             <Skeleton className="w-full h-[400px] sm:w-[360px]" />
@@ -70,7 +91,7 @@ export function Body() {
             }}
             defaultValue={getCurrentMonthTwoDigit()}
           >
-            <SelectTrigger className="w-[180px] mx-2 border border-secondary">
+            <SelectTrigger className="w-[180px] mx-2 border border-accent">
               <SelectValue placeholder="Select Month..." />
             </SelectTrigger>
             <SelectContent className="bg-background">
@@ -94,7 +115,7 @@ export function Body() {
         </div>
       </div>
       <div className="flex flex-col md:flex-col justify-around  h-full">
-        <div className="w-full my-5  md:flex flex-row justify-around overflow-auto">
+        <div className="w-full my-5 md:flex flex-row justify-around overflow-auto">
           <ProteinGraph data={data} month={selectedMonth} />
           <WeightGraph data={data} month={selectedMonth} />
           <CalorieGraph data={data} month={selectedMonth} />

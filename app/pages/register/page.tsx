@@ -83,7 +83,7 @@ const Register = () => {
                 type="text"
                 name="name"
                 id="floating-input"
-                className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-secondary focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-secondary"
+                className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-accent focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-accent"
                 onChange={handleChange}
                 value={user.name}
                 onBlur={handleBlur}
@@ -91,7 +91,7 @@ const Register = () => {
               />
               <Label
                 htmlFor="floating-input"
-                className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-orange-4000 dark:text-gray-400 peer-focus:dark:text-secondary"
+                className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-orange-4000 dark:text-gray-400 peer-focus:dark:text-accent"
               >
                 Name
               </Label>
@@ -110,7 +110,7 @@ const Register = () => {
                 type="email"
                 name="email"
                 id="floating-input"
-                className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-secondary focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-secondary"
+                className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-accent focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-accent"
                 onChange={handleChange}
                 value={user.email}
                 onBlur={handleBlur}
@@ -118,7 +118,7 @@ const Register = () => {
               />
               <Label
                 htmlFor="floating-input"
-                className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-orange-4000 dark:text-gray-400 peer-focus:dark:text-secondary"
+                className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-orange-4000 dark:text-gray-400 peer-focus:dark:text-accent"
               >
                 Email
               </Label>
@@ -142,7 +142,7 @@ const Register = () => {
                   type={showPassword ? "text" : "password"}
                   name="password"
                   id="floating-input"
-                  className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-secondary focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-secondary"
+                  className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-accent focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-accent"
                   onChange={handleChange}
                   value={user.password}
                   onBlur={handleBlur}
@@ -150,7 +150,7 @@ const Register = () => {
                 />
                 <Label
                   htmlFor="floating-input"
-                  className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-orange-4000 dark:text-gray-400 peer-focus:dark:text-secondary"
+                  className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-orange-4000 dark:text-gray-400 peer-focus:dark:text-accent"
                 >
                   Name
                 </Label>
@@ -162,10 +162,10 @@ const Register = () => {
             </div>
             <div className="flex flex-col mt-10">
               {loading ? (
-                <AiOutlineLoading className="animate-spin text-secondary text-lg w-full" />
+                <AiOutlineLoading className="animate-spin text-accent text-lg w-full" />
               ) : (
                 <Button
-                  className="bg-secondary text-slate-50 w-full"
+                  className="bg-accent text-slate-50 w-full"
                   onClick={handleSubmit}
                   disabled={
                     !isValidEmail(user.email) || !user.password || !user.name
@@ -176,7 +176,7 @@ const Register = () => {
               )}
               <p className="mt-10">
                 Already have a account?
-                <Link href="/pages/login" className="text-secondary">
+                <Link href="/pages/login" className="text-accent">
                   {" "}
                   Log In?
                 </Link>
