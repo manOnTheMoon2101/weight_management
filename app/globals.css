@@ -22,13 +22,13 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --graph: 0 0% 100%;
+    --graph: 0 0% 97%;
     --foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 348, 43%, 47%;
 
     --secondary: 330, 37%, 48%;
 
-    --accent: 210 40% 96.1%;
+    --accent: 28, 86%, 65%;
 
     --radius: 0.5rem;
   }
