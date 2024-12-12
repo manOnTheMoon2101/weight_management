@@ -35,7 +35,6 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 import React from "react";
-import { Skeleton } from "@/components/ui/skeleton";
 import { GraphMenu } from "./components/Menu/Menu";
 const Graph = (data: any) => {
   const chartRef = useRef(null);
@@ -115,13 +114,14 @@ const Graph = (data: any) => {
               dataKey="createdAt"
               tickLine={false}
               axisLine={false}
+              tick={{ stroke: '#c9c9c9'}} 
               tickMargin={10}
             />
             <ChartTooltip
               cursor={false}
               content={<ChartTooltipContent hideLabel />}
             />
-            <YAxis domain={[60, 100]} />
+            <YAxis domain={[60, 100]} tick={{ stroke: '#c9c9c9'}} />
             <Area
               dataKey="weight"
               name="Weight(kg)"

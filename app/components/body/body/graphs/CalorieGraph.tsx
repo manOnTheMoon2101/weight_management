@@ -115,8 +115,9 @@ export function CalorieGraph(data: any) {
               tickLine={false}
               tickMargin={10}
               axisLine={false}
+              tick={{ stroke: '#c9c9c9'}} 
             />
-            <YAxis domain={[0]} />
+            <YAxis domain={[0]} tick={{ stroke: '#c9c9c9'}}  />
             <ChartTooltip
               cursor={false}
               content={<ChartTooltipContent hideLabel />}

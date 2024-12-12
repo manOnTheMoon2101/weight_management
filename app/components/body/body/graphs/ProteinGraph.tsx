@@ -96,7 +96,7 @@ const ProteinGraph = (data: any) => {
         <ChartContainer config={chartConfig}>
           <RadarChart data={chartData}>
             <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
-            <PolarAngleAxis dataKey="createdAt" />
+            <PolarAngleAxis dataKey="createdAt" tick={{ stroke: '#c9c9c9'}}  />
             <PolarGrid />
             <Radar
               dataKey="protein"
