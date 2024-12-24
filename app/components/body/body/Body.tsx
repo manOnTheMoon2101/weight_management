@@ -69,9 +69,9 @@ export function Body() {
         </div>
         <div className="flex flex-col md:flex-col justify-around h-full">
           <div className="w-full my-5 md:flex flex-row justify-around overflow-auto">
-            <Skeleton className="w-full h-[400px] sm:w-[360px]" />
-            <Skeleton className="w-full h-[400px] sm:w-[360px]" />
-            <Skeleton className="w-full h-[400px] sm:w-[360px]" />
+            {/* <Skeleton className="w-full h-[400px] sm:w-[360px] bg-red-400" /> */}
+            <Skeleton className="w-full h-[400px] sm:w-[1/2] bg-accent mx-2" />
+            <Skeleton className="w-full h-[400px] sm:w-[1/2]  bg-accent mx-2" />
           </div>
           <div className="w-full my-5 flex-1">
             <Skeleton className="w-full h-96 mx-3 " />
@@ -116,7 +116,7 @@ export function Body() {
       </div>
       <div className="flex flex-col md:flex-col justify-around  h-full">
         <div className="w-full my-5 md:flex flex-row justify-around overflow-auto">
-          <ProteinGraph data={data} month={selectedMonth} />
+          {/* <ProteinGraph data={data} month={selectedMonth} /> */}
           <WeightGraph data={data} month={selectedMonth} />
           <CalorieGraph data={data} month={selectedMonth} />
         </div>

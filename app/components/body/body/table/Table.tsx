@@ -178,10 +178,10 @@ export function Dashboard_table(data: any) {
                   onClick={() => {
                     handleRefresh();
                     resetState();
-                    toast({
-                      description: "Succesfully Refreshed!",
-                      className: "bg-background text-white",
-                    });
+                    // toast({
+                    //   description: "Succesfully Refreshed!",
+                    //   className: "bg-background text-white",
+                    // });
                   }}
                 >
                   <IoMdRefresh
