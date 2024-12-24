@@ -89,7 +89,7 @@ const Graph = (data: any) => {
       })) || [];
   const title = "Weight";
   return (
-    <Card className="my-5  bg-graph" ref={chartRef}>
+    <Card className="my-5 mx-2 w-full" ref={chartRef}>
       <CardHeader>
         <div className="flex flex-row justify-between items-center">
           <CardTitle className={`${anek.className}`}>{title}</CardTitle>
@@ -114,20 +114,20 @@ const Graph = (data: any) => {
               dataKey="createdAt"
               tickLine={false}
               axisLine={false}
-              tick={{ stroke: '#c9c9c9'}} 
+              tick={{ stroke: '#C4DAD2'}} 
               tickMargin={10}
             />
             <ChartTooltip
               cursor={false}
               content={<ChartTooltipContent hideLabel />}
             />
-            <YAxis domain={[60, 100]} tick={{ stroke: '#c9c9c9'}} />
+            <YAxis domain={[60, 100]} tick={{ stroke: '#C4DAD2'}} />
             <Area
               dataKey="weight"
               name="Weight(kg)"
               type="monotoneX"
-              fill="none"
-              stroke="#AB4459"
+              fill="#E9EFEC"
+              stroke="#E9EFEC"
               strokeWidth={1}
               dot={true}
             />

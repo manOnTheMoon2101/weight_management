@@ -96,7 +96,7 @@ export function CalorieGraph(data: any) {
 
   const title = "Calories";
   return (
-    <Card className="my-5 bg-graph" ref={chartRef}>
+    <Card className="my-5 mx-2 w-full" ref={chartRef}>
       <CardHeader>
         <div className="flex flex-row justify-between items-center">
           <CardTitle className={`${anek.className}`}>{title}</CardTitle>
@@ -115,9 +115,9 @@ export function CalorieGraph(data: any) {
               tickLine={false}
               tickMargin={10}
               axisLine={false}
-              tick={{ stroke: '#c9c9c9'}} 
+              tick={{ stroke: '#C4DAD2'}} 
             />
-            <YAxis domain={[0]} tick={{ stroke: '#c9c9c9'}}  />
+            <YAxis domain={[0]} tick={{ stroke: '#C4DAD2'}}  />
             <ChartTooltip
               cursor={false}
               content={<ChartTooltipContent hideLabel />}
@@ -126,14 +126,14 @@ export function CalorieGraph(data: any) {
             <Bar
               dataKey="totalCalories"
               name="Calories"
-              fill="#AB4459"
+              fill="#E9EFEC"
               radius={8}
             >
               <LabelList
                 position={"center"}
                 angle={270}
                 offset={0}
-                className="fill-foreground"
+                className="fill-black"
                 fontSize={12}
               />
             </Bar>
