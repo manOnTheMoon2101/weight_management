@@ -16,7 +16,7 @@
 
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background: hsl(28, 86%, 65%);
+  background: hsl(157, 20%, 51%);
 }
 
 @layer base {
@@ -24,11 +24,11 @@
     --background: 0 0% 100%;
     --graph: 0 0% 97%;
     --foreground: 222.2 84% 4.9%;
-    --primary: 348, 43%, 47%;
+    --primary: 172, 50%, 17%;
 
-    --secondary: 330, 37%, 48%;
+    --secondary: 150, 16%, 93%;
 
-    --accent: 28, 86%, 65%;
+    --accent: 157, 20%, 51%;
 
     --radius: 0.5rem;
   }
@@ -40,7 +40,7 @@
 
     --primary: 172, 50%, 17%;
 
-    --secondary: 330, 37%, 48%;
+    --secondary: 150, 16%, 93%;
 
     --accent: 157, 20%, 51%;
   }
