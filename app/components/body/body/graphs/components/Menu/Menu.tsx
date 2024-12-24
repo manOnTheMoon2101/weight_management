@@ -42,13 +42,11 @@ export function GraphMenu(chartRef: any) {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56 bg-background">
-        <DropdownMenuLabel>{getMonthName(chartRef.month)}</DropdownMenuLabel>
-        <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem>
             <Button
               variant={"ghost"}
-              className="w-full"
+              className="w-full flex justify-start"
               onClick={downloadImage}
             >
               <PiFilePng className="mr-2 h-4 w-4" />
