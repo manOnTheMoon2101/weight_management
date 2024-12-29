@@ -90,7 +90,7 @@ const config = {
   					opacity: '1'
   				}
   			},
-  			'accordion-down': {
+  			'accordion-down2': {
   				from: {
   					height: '0'
   				},
@@ -98,7 +98,7 @@ const config = {
   					height: 'var(--radix-accordion-content-height)'
   				}
   			},
-  			'accordion-up': {
+  			'accordion-up2': {
   				from: {
   					height: 'var(--radix-accordion-content-height)'
   				},
@@ -111,8 +111,8 @@ const config = {
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out',
   			'ping-long': 'ping-long 4s linear infinite',
-  			'accordion-down': 'accordion-down 0.2s ease-out',
-  			'accordion-up': 'accordion-up 0.2s ease-out'
+  			'accordion-down2': 'accordion-down 0.2s ease-out',
+  			'accordion-up2': 'accordion-up 0.2s ease-out'
   		}
   	}
   },
