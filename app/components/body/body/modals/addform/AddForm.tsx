@@ -11,6 +11,12 @@ import { Button } from "@/components/ui/button";
 import { AiOutlineLoading } from "react-icons/ai";
 import { FaSave } from "react-icons/fa";
 import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
@@ -23,7 +29,7 @@ const cousine = Cousine({
   subsets: ["latin"],
   weight: "400",
 });
-export function AddForm(props:any) {
+export function AddForm(props: any) {
   const isDesktop = useMediaQuery("(min-width: 768px)");
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
@@ -40,7 +46,7 @@ export function AddForm(props:any) {
   });
   const [open, setOpen] = useState(false);
   const handleRefresh = () => {
-    props.refresh()
+    props.refresh();
   };
   const handleSubmit = (e: any) => {
     setLoading(true);
@@ -168,84 +174,91 @@ export function AddForm(props:any) {
               </div>
             </div>
 
-            <div className="flex flex-col justify-center items-center m-2">
-              <div className="flex flex-col justify-center items-center">
-                <TooltipProvider>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <Label
-                        className={`text-center mb-2 text-xl ${cousine.className}`}
-                      >
-                        L-C
-                      </Label>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p>Fat Burner</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
-                <Switch
-                  className="data-[state=checked]:bg-green-400"
-                  name="tookFatburner"
-                  checked={post.tookFatburner}
-                  onCheckedChange={(checked) =>
-                    handleSwitchChange("tookFatburner", checked)
-                  }
-                />
-              </div>
+            <Accordion type="single" collapsible>
+              <AccordionItem value="item-1">
+                <AccordionTrigger>Supplements</AccordionTrigger>
+                <AccordionContent>
+                  <div className="flex flex-col justify-center items-center m-2">
+                    <div className="flex flex-col justify-center items-center">
+                      <TooltipProvider>
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                            <Label
+                              className={`text-center mb-2 text-xl ${cousine.className}`}
+                            >
+                              L-C
+                            </Label>
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p>Fat Burner</p>
+                          </TooltipContent>
+                        </Tooltip>
+                      </TooltipProvider>
+                      <Switch
+                        className="data-[state=checked]:bg-green-400"
+                        name="tookFatburner"
+                        checked={post.tookFatburner}
+                        onCheckedChange={(checked) =>
+                          handleSwitchChange("tookFatburner", checked)
+                        }
+                      />
+                    </div>
 
-              <div className="flex flex-col justify-center items-center">
-                <div className="flex flex-col justify-center items-center">
-                  <TooltipProvider>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <Label
-                          className={`text-center mb-2 text-xl ${cousine.className}`}
-                        >
-                          CLA
-                        </Label>
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>(Conjugated linoleic acid)</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                  <Switch
-                    className="data-[state=checked]:bg-pink-400"
-                    name="tookWeightmanagement"
-                    checked={post.tookWeightmanagement}
-                    onCheckedChange={(checked) =>
-                      handleSwitchChange("tookWeightmanagement", checked)
-                    }
-                  />
-                </div>
+                    <div className="flex flex-col justify-center items-center">
+                      <div className="flex flex-col justify-center items-center">
+                        <TooltipProvider>
+                          <Tooltip>
+                            <TooltipTrigger asChild>
+                              <Label
+                                className={`text-center mb-2 text-xl ${cousine.className}`}
+                              >
+                                CLA
+                              </Label>
+                            </TooltipTrigger>
+                            <TooltipContent>
+                              <p>(Conjugated linoleic acid)</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                        <Switch
+                          className="data-[state=checked]:bg-pink-400"
+                          name="tookWeightmanagement"
+                          checked={post.tookWeightmanagement}
+                          onCheckedChange={(checked) =>
+                            handleSwitchChange("tookWeightmanagement", checked)
+                          }
+                        />
+                      </div>
 
-                <div className="flex flex-col justify-center items-center">
-                  <TooltipProvider>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <Label
-                          className={`text-center mb-2 text-xl ${cousine.className}`}
-                        >
-                          VIT
-                        </Label>
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>Vitamin</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                  <Switch
-                    className="data-[state=checked]:bg-cyan-400"
-                    name="tookVitamin"
-                    checked={post.tookVitamin}
-                    onCheckedChange={(checked) =>
-                      handleSwitchChange("tookVitamin", checked)
-                    }
-                  />
-                </div>
-              </div>
-            </div>
+                      <div className="flex flex-col justify-center items-center">
+                        <TooltipProvider>
+                          <Tooltip>
+                            <TooltipTrigger asChild>
+                              <Label
+                                className={`text-center mb-2 text-xl ${cousine.className}`}
+                              >
+                                VIT
+                              </Label>
+                            </TooltipTrigger>
+                            <TooltipContent>
+                              <p>Vitamin</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                        <Switch
+                          className="data-[state=checked]:bg-cyan-400"
+                          name="tookVitamin"
+                          checked={post.tookVitamin}
+                          onCheckedChange={(checked) =>
+                            handleSwitchChange("tookVitamin", checked)
+                          }
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </div>
           <div className="flex flex-row justify-center items-center mb-5">
             <div className="mx-2">

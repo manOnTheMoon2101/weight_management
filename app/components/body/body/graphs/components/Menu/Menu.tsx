@@ -18,7 +18,6 @@ import { CiExport } from "react-icons/ci";
 import { MdMenu } from "react-icons/md";
 import html2canvas from "html2canvas";
 import { PiFilePng } from "react-icons/pi";
-import jsPDF from "jspdf";
 export function GraphMenu(chartRef: any) {
   function getMonthName(value: any) {
     const month = months.find((month) => month.value === value);
