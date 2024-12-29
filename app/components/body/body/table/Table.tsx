@@ -11,6 +11,7 @@ import { Input } from "@/components/ui/input";
 import { IoMdRefresh } from "react-icons/io";
 import { TableMenu } from "./components/Menu/Menu";
 import "./components/table.css";
+import { IoMdDownload } from "react-icons/io";
 import { useToast } from "@/components/ui/use-toast";
 import {
   Tooltip,
@@ -168,15 +169,14 @@ export function Dashboard_table(data: any) {
   };
   return (
     <div>
-      <div className="flex flex-row justify-between mx-2">
+      <div className="flex flex-row justify-end mx-2">
         <div className="flex flex-row">
-          <Input
-            type="text"
-            className="bg-background placeholder:text-foreground text-foreground"
-            id="filter-text-box"
-            placeholder="Search"
-            onInput={onFilterTextBoxChanged}
-          />
+          <div>
+            {/* <TableMenu csv={exportToCSV} month={data} ref={gridRef} /> */}
+            <Button onClick={exportToCSV} variant="ghost">
+              <IoMdDownload />
+            </Button>
+          </div>
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
@@ -203,9 +203,13 @@ export function Dashboard_table(data: any) {
               <TooltipContent>Refresh Data</TooltipContent>
             </Tooltip>
           </TooltipProvider>
-        </div>
-        <div>
-          <TableMenu csv={exportToCSV} month={data} ref={gridRef} />
+          <Input
+            type="text"
+            className="bg-background placeholder:text-foreground text-foreground"
+            id="filter-text-box"
+            placeholder="Search"
+            onInput={onFilterTextBoxChanged}
+          />
         </div>
       </div>
       <div className="ag-theme-quartz-dark my-2 mx-2" style={{ height: 500 }}>

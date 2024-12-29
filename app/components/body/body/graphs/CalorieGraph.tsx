@@ -100,7 +100,7 @@ export function CalorieGraph(data: any) {
       <CardHeader>
         <div className="flex flex-row justify-between items-center">
           <CardTitle className={`${anek.className}`}>{title}</CardTitle>
-          <GraphMenu month={data.month} chartRef={chartRef} title={title} />
+          {/* <GraphMenu month={data.month} chartRef={chartRef} title={title} /> */}
         </div>
         <CardDescription className={`${acme.className}`}>
           {getMonthName(data.month)}
