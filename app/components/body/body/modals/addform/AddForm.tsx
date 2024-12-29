@@ -4,7 +4,6 @@ import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 import React from "react";
 import axios from "axios";
 import { useState } from "react";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Switch } from "@/components/ui/switch";
 import { useToast } from "@/components/ui/use-toast";
 import { Label } from "@/components/ui/label";
@@ -24,7 +23,7 @@ const cousine = Cousine({
   subsets: ["latin"],
   weight: "400",
 });
-export function AddForm() {
+export function AddForm(props:any) {
   const isDesktop = useMediaQuery("(min-width: 768px)");
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
@@ -40,6 +39,9 @@ export function AddForm() {
     totalSugar: null,
   });
   const [open, setOpen] = useState(false);
+  const handleRefresh = () => {
+    props.refresh()
+  };
   const handleSubmit = (e: any) => {
     setLoading(true);
     e.preventDefault();
@@ -50,7 +52,7 @@ export function AddForm() {
           description: "Data has been saved.",
           className: "bg-lime-800",
         });
-        window.location.reload();
+        handleRefresh();
       })
       .catch((err: any) => {
         console.log(err);
