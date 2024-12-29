@@ -13,20 +13,28 @@ import { PiSignOut } from "react-icons/pi";
 import { ModeToggle } from "./theme/toggle";
 import { MdAccountCircle } from "react-icons/md";
 import { IoMdSunny } from "react-icons/io";
+import { useEffect } from "react";
+import { useState } from "react";
 import { IoMdMoon } from "react-icons/io";
 export function NavBar() {
   const { data: session } = useSession();
   const name = session?.user?.name || null;
   const cleanedName = name ? name.replace(/^"(.*)"$/, "$1") : null;
+  const [theme, setTheme] = useState('');
+
+  useEffect(() => {
+    // Ensure that localStorage is accessed only on the client-side
+    if (typeof window !== 'undefined') {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        setTheme(savedTheme);
+      }
+    }
+  }, []);
   return (
     <Menubar>
       <MenubarMenu>
-        <MenubarTrigger>
-          <IoMdSunny color="yellow" />/<IoMdMoon />
-        </MenubarTrigger>
-        <MenubarContent className="bg-background">
-          <ModeToggle />
-        </MenubarContent>
+<ModeToggle/>
       </MenubarMenu>
       <MenubarMenu>
         <MenubarTrigger>
