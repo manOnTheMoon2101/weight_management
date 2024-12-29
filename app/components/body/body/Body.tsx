@@ -111,7 +111,7 @@ export function Body() {
           </Select>
         </div>
         <div className="mx-2 md:">
-          <AddForm />
+          <AddForm refresh={() => fetchData(selectedMonth)} />
         </div>
       </div>
       <div className="flex flex-col md:flex-col justify-around  h-full">
