@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { IoMdRefresh } from "react-icons/io";
 import { TableMenu } from "./components/Menu/Menu";
-import './components/table.css'
+import "./components/table.css";
 import { useToast } from "@/components/ui/use-toast";
 import {
   Tooltip,
@@ -34,6 +34,8 @@ export function Dashboard_table(data: any) {
       suppressMovable: true,
       cellStyle: { textAlign: "center" },
       tooltipField: "Actions",
+      pinned: "left",
+      lockPosition: true,
       headerTooltip: "Manage Data",
     },
     {
@@ -99,31 +101,37 @@ export function Dashboard_table(data: any) {
       headerTooltip: "Limit set to 60",
     },
     {
-      headerName: "L-Carnitine",
-      field: "tookFatburner",
-      cellRenderer: Pills,
+      headerName: "Supplements",
       headerClass: "bg-orange-400 bg-opacity-50",
-      filter: true,
-      tooltipField: "L-Carnitine",
-      headerTooltip: "Fat Burner",
-    },
-    {
-      headerName: "CLA",
-      field: "tookWeightmanagement",
-      cellRenderer: Pills,
-      headerClass: "bg-orange-400 bg-opacity-50",
-      filter: true,
-      tooltipField: "CLA",
-      headerTooltip: "Weight Management",
-    },
-    {
-      headerName: "Vitamin",
-      field: "tookVitamin",
-      cellRenderer: Pills,
-      headerClass: "bg-orange-400 bg-opacity-50",
-      filter: true,
-      tooltipField: "Vitamin",
-      headerTooltip: "Multi Vitamin",
+      children: [
+        {
+          headerName: "L-Carnitine",
+          field: "tookFatburner",
+          cellRenderer: Pills,
+          headerClass: "bg-green-400 bg-opacity-50",
+          filter: true,
+          tooltipField: "L-Carnitine",
+          headerTooltip: "Fat Burner",
+        },
+        {
+          headerName: "CLA",
+          field: "tookWeightmanagement",
+          cellRenderer: Pills,
+          headerClass: "bg-pink-400 bg-opacity-50",
+          filter: true,
+          tooltipField: "CLA",
+          headerTooltip: "Weight Management",
+        },
+        {
+          headerName: "Vitamin",
+          field: "tookVitamin",
+          cellRenderer: Pills,
+          headerClass: "bg-cyan-400 bg-opacity-50",
+          filter: true,
+          tooltipField: "Vitamin",
+          headerTooltip: "Multi Vitamin",
+        },
+      ],
     },
   ]);
 
