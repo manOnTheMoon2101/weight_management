@@ -27,7 +27,7 @@ export function Dashboard_table(data: any) {
     {
       headerName: "Actions",
       cellRenderer: Actions,
-      headerClass: "bg-purple-900 bg-opacity-50 text-center",
+      headerClass: "bg-emerald-900 bg-opacity-50 text-center",
       filter: false,
       sort: false,
       sortable: false,
