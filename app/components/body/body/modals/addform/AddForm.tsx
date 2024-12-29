@@ -25,6 +25,7 @@ import {
 import { Cousine } from "next/font/google";
 import { Badge } from "@/components/ui/badge";
 import { IoIosAddCircleOutline } from "react-icons/io";
+import RandomTip from "./Qoutes/Qoutes";
 const cousine = Cousine({
   subsets: ["latin"],
   weight: "400",
@@ -173,7 +174,10 @@ export function AddForm(props: any) {
                 </div>
               </div>
             </div>
-
+{/* 
+            <div  className="flex flex-col justify-center items-center">
+            <RandomTip/>
+          </div> */}
             <Accordion type="single" collapsible>
               <AccordionItem value="item-1">
                 <AccordionTrigger>Supplements</AccordionTrigger>
