@@ -8,6 +8,7 @@ import "ag-grid-community/styles/ag-theme-quartz.css";
 import { useState, useRef, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import Sugar from "./components/CellRenderers/Sugar";
 import { IoMdRefresh } from "react-icons/io";
 import { TableMenu } from "./components/Menu/Menu";
 import "./components/table.css";
@@ -19,6 +20,9 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import Carbs from "./components/CellRenderers/Carbs";
+import Fat from "./components/CellRenderers/Fat";
+import Calories from "./components/CellRenderers/Calories";
 export function Dashboard_table(data: any) {
   const { toast } = useToast();
 
@@ -51,9 +55,7 @@ export function Dashboard_table(data: any) {
       field: "totalCalories",
       filter: true,
       unSortIcon: true,
-      cellClassRules: {
-        "text-red-400": (params: { value: any }) => params.value > 2000,
-      },
+      cellRenderer: Calories,
       tooltipField: "Calories",
       headerTooltip: "Limit set to 2000",
     },
@@ -62,32 +64,24 @@ export function Dashboard_table(data: any) {
       field: "totalProtein",
       filter: true,
       unSortIcon: true,
-      cellClassRules: {
-        "text-red-400": (params: { value: any }) => params.value < 90,
-      },
       tooltipField: "Protein",
-      headerTooltip: "Minimum set to 90",
     },
     {
       headerName: "Fat",
       field: "totalFat",
       filter: true,
       unSortIcon: true,
-      cellClassRules: {
-        "text-red-400": (params: { value: any }) => params.value > 78,
-      },
+      cellRenderer: Fat,
       tooltipField: "Fat",
       headerTooltip: "Limit set to 78",
     },
     {
       headerName: "Carbs",
       field: "totalCarbs",
+      tooltipField: "Sugar",
+      cellRenderer: Carbs,
       filter: true,
       unSortIcon: true,
-      cellClassRules: {
-        "text-red-400": (params: { value: any }) => params.value > 120,
-      },
-      tooltipField: "Carbs",
       headerTooltip: "Limit set to 120",
     },
     {
@@ -95,10 +89,8 @@ export function Dashboard_table(data: any) {
       field: "totalSugar",
       filter: true,
       unSortIcon: true,
-      cellClassRules: {
-        "text-red-400": (params: { value: any }) => params.value > 60,
-      },
       tooltipField: "Sugar",
+      cellRenderer: Sugar,
       headerTooltip: "Limit set to 60",
     },
     {

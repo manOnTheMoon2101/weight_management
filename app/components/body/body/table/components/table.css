@@ -20,6 +20,9 @@
   color: hsl(var(--foreground));
   border: #666666;
 }
+.ag-theme-quartz-dark .ag-header-cell.ag-header-cell-filtered {
+  color: rgb(251 146 60) !important;  /* Change to yellow when filtered */
+}
 
 .ag-theme-quartz-dark .ag-cell:hover {
   background-color: #444444;
