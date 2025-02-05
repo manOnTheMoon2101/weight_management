@@ -27,6 +27,7 @@ import { Badge } from "@/components/ui/badge";
 import { Acme } from "next/font/google";
 import { Anek_Devanagari } from "next/font/google";
 import { GraphMenu } from "./components/Menu/Menu";
+import { FaBolt } from "react-icons/fa6";
 const anek = Anek_Devanagari({
   subsets: ["latin"],
   weight: "400",
@@ -94,7 +95,11 @@ export function CalorieGraph(data: any) {
         })
       ) || [];
 
-  const title = "Calories";
+  const title = (
+    <>
+      <FaBolt className="inline-block" size={19} /> Calories
+    </>
+  );
   return (
     <Card className="my-5 mx-2 w-full" ref={chartRef}>
       <CardHeader>
@@ -103,7 +108,7 @@ export function CalorieGraph(data: any) {
           {/* <GraphMenu month={data.month} chartRef={chartRef} title={title} /> */}
         </div>
         <CardDescription className={`${acme.className}`}>
-          {getMonthName(data.month)}
+          <Badge className="bg-primary">{getMonthName(data.month)}</Badge>
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -115,9 +120,9 @@ export function CalorieGraph(data: any) {
               tickLine={false}
               tickMargin={10}
               axisLine={false}
-              tick={{ stroke: '#C4DAD2'}} 
+              tick={{ stroke: "#C4DAD2" }}
             />
-            <YAxis domain={[0]} tick={{ stroke: '#C4DAD2'}}  />
+            <YAxis domain={[0]} tick={{ stroke: "#C4DAD2" }} />
             <ChartTooltip
               cursor={false}
               content={<ChartTooltipContent hideLabel />}
