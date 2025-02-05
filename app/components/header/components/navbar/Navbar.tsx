@@ -43,9 +43,9 @@ export function NavBar() {
         <MenubarContent className="bg-background">
           <div>
             <div className="flex flex-row justify-around items-center">
-              <Avatar>
+              <Avatar className="bg-secondary">
                 <AvatarFallback>
-                  {name ? cleanedName?.charAt(0) : null}
+                  <span className="text-primary">{name ? cleanedName?.charAt(0) : null}</span>
                 </AvatarFallback>
               </Avatar>
               <p>{name}</p>
