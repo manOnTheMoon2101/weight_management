@@ -1,5 +1,4 @@
 "use client";
-import { useMediaQuery } from "@custom-react-hooks/use-media-query";
 import Pills from "./components/CellRenderers/Pills";
 import Actions from "./components/CellRenderers/Actions";
 import { AgGridReact } from "ag-grid-react";
@@ -10,7 +9,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Sugar from "./components/CellRenderers/Sugar";
 import { IoMdRefresh } from "react-icons/io";
-import { TableMenu } from "./components/Menu/Menu";
 import "./components/table.css";
 import { IoMdDownload } from "react-icons/io";
 import { useToast } from "@/components/ui/use-toast";
@@ -210,7 +208,6 @@ export function Dashboard_table(data: any) {
           tooltipShowDelay={100}
           rowData={rowData}
           columnDefs={colDefs}
-          cellSelection={true}
         />
       </div>
     </div>

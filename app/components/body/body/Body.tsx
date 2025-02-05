@@ -12,7 +12,7 @@ import { CalorieGraph } from "./graphs/CalorieGraph";
 import { AddForm } from "./modals/addform/AddForm";
 import ProteinGraph from "./graphs/ProteinGraph";
 import { Skeleton } from "@/components/ui/skeleton";
-
+import { FiCalendar } from "react-icons/fi";
 export function Body() {
   const getCurrentMonthTwoDigit = () => {
     let date = new Date();
@@ -92,6 +92,7 @@ export function Body() {
             defaultValue={getCurrentMonthTwoDigit()}
           >
             <SelectTrigger className="w-[180px] mx-2 border border-accent">
+              <FiCalendar size={21} />
               <SelectValue placeholder="Select Month..." />
             </SelectTrigger>
             <SelectContent className="bg-background">
