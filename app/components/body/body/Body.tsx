@@ -11,8 +11,15 @@ import WeightGraph from "./graphs/WeightGraph";
 import { CalorieGraph } from "./graphs/CalorieGraph";
 import { AddForm } from "./modals/addform/AddForm";
 import ProteinGraph from "./graphs/ProteinGraph";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { Skeleton } from "@/components/ui/skeleton";
 import { FiCalendar } from "react-icons/fi";
+import React from "react";
 export function Body() {
   const getCurrentMonthTwoDigit = () => {
     let date = new Date();
@@ -112,7 +119,16 @@ export function Body() {
           </Select>
         </div>
         <div className="mx-2 md:">
-          <AddForm refresh={() => fetchData(selectedMonth)} />
+         <TooltipProvider>
+         <Tooltip>
+            <TooltipTrigger >
+            <AddForm refresh={() => fetchData(selectedMonth)} />
+            </TooltipTrigger>
+             <TooltipContent side="bottom"  className="bg-background">
+                  <span>Add Data</span>
+                </TooltipContent>
+          </Tooltip>
+         </TooltipProvider>
         </div>
       </div>
       <div className="flex flex-col md:flex-col justify-around  h-full">
