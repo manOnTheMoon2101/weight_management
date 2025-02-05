@@ -9,6 +9,7 @@ import {
   CardFooter,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { FaWeightScale } from "react-icons/fa6";
 import months from "@/lib/files/months.json";
 import {
   ChartConfig,
@@ -87,7 +88,11 @@ const Graph = (data: any) => {
         createdAt: new Date(item.createdAt).getDate(),
         weight: item.weight,
       })) || [];
-  const title = "Weight";
+      const title = (
+        <>
+          <FaWeightScale className="inline-block" size={19} /> Weight
+        </>
+      );
   return (
     <Card className="my-5 mx-2 w-full" ref={chartRef}>
       <CardHeader>
@@ -96,7 +101,7 @@ const Graph = (data: any) => {
           {/* <GraphMenu month={data.month} chartRef={chartRef} title={title} /> */}
         </div>
         <CardDescription className={`${acme.className}`}>
-          {getMonthName(data.month)}
+        <Badge className="bg-primary">{getMonthName(data.month)}</Badge>
         </CardDescription>
       </CardHeader>
       <CardContent>

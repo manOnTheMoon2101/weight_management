@@ -1,5 +1,4 @@
 "use client";
-import { useMediaQuery } from "@custom-react-hooks/use-media-query";
 import Pills from "./components/CellRenderers/Pills";
 import Actions from "./components/CellRenderers/Actions";
 import { AgGridReact } from "ag-grid-react";
@@ -8,9 +7,7 @@ import "ag-grid-community/styles/ag-theme-quartz.css";
 import { useState, useRef, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import Sugar from "./components/CellRenderers/Sugar";
 import { IoMdRefresh } from "react-icons/io";
-import { TableMenu } from "./components/Menu/Menu";
 import "./components/table.css";
 import { IoMdDownload } from "react-icons/io";
 import { useToast } from "@/components/ui/use-toast";
@@ -20,9 +17,6 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import Carbs from "./components/CellRenderers/Carbs";
-import Fat from "./components/CellRenderers/Fat";
-import Calories from "./components/CellRenderers/Calories";
 export function Dashboard_table(data: any) {
   const { toast } = useToast();
 
@@ -55,9 +49,11 @@ export function Dashboard_table(data: any) {
       field: "totalCalories",
       filter: true,
       unSortIcon: true,
-      cellRenderer: Calories,
       tooltipField: "Calories",
       headerTooltip: "Limit set to 2000",
+      cellClass: (params: any) => {
+        return params.value > 2000 ? 'bg-red-400' : '';
+      },
     },
     {
       headerName: "Protein",
@@ -71,18 +67,22 @@ export function Dashboard_table(data: any) {
       field: "totalFat",
       filter: true,
       unSortIcon: true,
-      cellRenderer: Fat,
       tooltipField: "Fat",
       headerTooltip: "Limit set to 78",
+      cellClass: (params: any) => {
+        return params.value > 78 ? 'bg-red-400' : '';
+      },
     },
     {
       headerName: "Carbs",
       field: "totalCarbs",
       tooltipField: "Sugar",
-      cellRenderer: Carbs,
       filter: true,
       unSortIcon: true,
       headerTooltip: "Limit set to 120",
+      cellClass: (params: any) => {
+        return params.value > 120 ? 'bg-red-400' : '';
+      },
     },
     {
       headerName: "Sugar",
@@ -90,8 +90,10 @@ export function Dashboard_table(data: any) {
       filter: true,
       unSortIcon: true,
       tooltipField: "Sugar",
-      cellRenderer: Sugar,
       headerTooltip: "Limit set to 60",
+      cellClass: (params: any) => {
+        return params.value > 60 ? 'bg-red-400' : '';
+      },
     },
     {
       headerName: "Supplements",
@@ -210,7 +212,6 @@ export function Dashboard_table(data: any) {
           tooltipShowDelay={100}
           rowData={rowData}
           columnDefs={colDefs}
-          cellSelection={true}
         />
       </div>
     </div>

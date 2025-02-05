@@ -4,6 +4,9 @@ import React from "react";
 
 export default (params: CustomCellRendererProps) => {
   return (
-    <p className={params.value > 2000 ? "text-red-500" : ""}>{params.value}</p>
+    <div>
+    {params.value}
+    </div>
+ 
   );
 };

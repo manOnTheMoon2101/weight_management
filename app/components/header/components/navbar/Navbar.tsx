@@ -20,12 +20,11 @@ export function NavBar() {
   const { data: session } = useSession();
   const name = session?.user?.name || null;
   const cleanedName = name ? name.replace(/^"(.*)"$/, "$1") : null;
-  const [theme, setTheme] = useState('');
+  const [theme, setTheme] = useState("");
 
   useEffect(() => {
-    // Ensure that localStorage is accessed only on the client-side
-    if (typeof window !== 'undefined') {
-      const savedTheme = localStorage.getItem('theme');
+    if (typeof window !== "undefined") {
+      const savedTheme = localStorage.getItem("theme");
       if (savedTheme) {
         setTheme(savedTheme);
       }
@@ -34,7 +33,7 @@ export function NavBar() {
   return (
     <Menubar>
       <MenubarMenu>
-<ModeToggle/>
+        <ModeToggle />
       </MenubarMenu>
       <MenubarMenu>
         <MenubarTrigger>
@@ -43,9 +42,11 @@ export function NavBar() {
         <MenubarContent className="bg-background">
           <div>
             <div className="flex flex-row justify-around items-center">
-              <Avatar>
+              <Avatar className="bg-secondary">
                 <AvatarFallback>
-                  {name ? cleanedName?.charAt(0) : null}
+                  <span className="text-primary">
+                    {name ? cleanedName?.charAt(0) : null}
+                  </span>
                 </AvatarFallback>
               </Avatar>
               <p>{name}</p>
