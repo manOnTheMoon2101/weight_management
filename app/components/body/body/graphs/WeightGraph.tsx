@@ -119,20 +119,20 @@ const Graph = (data: any) => {
               dataKey="createdAt"
               tickLine={false}
               axisLine={false}
-              tick={{ stroke: '#C4DAD2'}} 
+              tick={{ stroke: '#E9EFEC'}} 
               tickMargin={10}
             />
             <ChartTooltip
               cursor={false}
               content={<ChartTooltipContent hideLabel />}
             />
-            <YAxis domain={[60, 100]} tick={{ stroke: '#C4DAD2'}} />
+            <YAxis domain={[60, 100]} tick={{ stroke: '#E9EFEC'}} />
             <Area
               dataKey="weight"
               name="Weight(kg)"
               type="monotoneX"
-              fill="#E9EFEC"
-              stroke="#E9EFEC"
+              fill="#7E6363"
+              stroke="#A87C7C"
               strokeWidth={1}
               dot={true}
             />

@@ -47,9 +47,9 @@ const Login = () => {
   };
   return (
     <div>
-      <div className="flex flex-row justify-end">
+      {/* <div className="flex flex-row justify-end">
         <Info />
-      </div>
+      </div> */}
       <div className="min-h-screen flex flex-col items-center justify-center">
         <div className="p-8 rounded shadow-lg">
           <div className="flex justify-center">

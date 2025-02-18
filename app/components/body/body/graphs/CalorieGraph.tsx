@@ -120,9 +120,9 @@ export function CalorieGraph(data: any) {
               tickLine={false}
               tickMargin={10}
               axisLine={false}
-              tick={{ stroke: "#C4DAD2" }}
+              tick={{ stroke: "#E9EFEC" }}
             />
-            <YAxis domain={[0]} tick={{ stroke: "#C4DAD2" }} />
+            <YAxis domain={[0]} tick={{ stroke: "#E9EFEC" }} />
             <ChartTooltip
               cursor={false}
               content={<ChartTooltipContent hideLabel />}
@@ -131,14 +131,15 @@ export function CalorieGraph(data: any) {
             <Bar
               dataKey="totalCalories"
               name="Calories"
-              className="fill-secondary"
+              className="fill-accent"
+              stroke="#A87C7C"
               radius={8}
             >
               <LabelList
                 position={"center"}
                 angle={270}
                 offset={0}
-                className="fill-black"
+                className="fill-white"
                 fontSize={12}
               />
             </Bar>
