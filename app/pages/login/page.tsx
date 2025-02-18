@@ -9,7 +9,6 @@ import { AiOutlineLoading } from "react-icons/ai";
 import { Label } from "@/components/ui/label";
 import { useRouter } from "next/navigation";
 import isValidEmail from "@/utils/emailValidation";
-import { Londrina_Shadow } from "next/font/google";
 import { Info } from "./components/info/Info";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import {
@@ -18,12 +17,6 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-
-const lodrina = Londrina_Shadow({
-  subsets: ["latin"],
-  weight: "400",
-});
-
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -60,7 +53,7 @@ const Login = () => {
       <div className="min-h-screen flex flex-col items-center justify-center">
         <div className="p-8 rounded shadow-lg">
           <div className="flex justify-center">
-            <h2 className={`${lodrina.className} text-4xl my-4`} >Belly Buster!!!</h2>
+            <h2 className="text-4xl font-bold my-8">Login</h2>
           </div>
           {/* <Label className="text-4xl">Email</Label> */}
           {/* <Input
