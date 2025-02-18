@@ -13,7 +13,7 @@
 }
 
 .ag-theme-quartz-dark .ag-row {
-  background-color: hsl(var(--background)) !important;
+  background-color: hsl(var(--accent)) !important;
 }
 
 .ag-theme-quartz-dark .ag-cell {

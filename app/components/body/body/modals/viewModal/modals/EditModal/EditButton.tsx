@@ -91,7 +91,7 @@ export function EditButton(data: any) {
       <Drawer open={open} onOpenChange={setOpen}>
         <DrawerTrigger>
           <div className="flex flex-row justify-between items-center mx-2">
-            <Button variant={"ghost"} className="text-accent">
+            <Button variant={"ghost"} className="text-white">
               <MdEditNote size={30} onClick={() => setOpen(true)} />
             </Button>
           </div>
