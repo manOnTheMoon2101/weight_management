@@ -26,7 +26,6 @@ import { Cousine } from "next/font/google";
 import { Badge } from "@/components/ui/badge";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import RandomTip from "./Qoutes/Qoutes";
-import { postNutrients } from "@/app/routes/route";
 const cousine = Cousine({
   subsets: ["latin"],
   weight: "400",
@@ -38,7 +37,7 @@ export function AddForm(props: any) {
   const [post, postData] = useState<any>({
     weight: null,
     tookFatburner: false,
-    totalCalories: 1,
+    totalCalories: null,
     tookWeightmanagement: false,
     tookVitamin: false,
     totalProtein: null,
@@ -51,7 +50,7 @@ export function AddForm(props: any) {
     setLoading(true);
     e.preventDefault();
     axios
-      .post( await postNutrients(post))
+      .post('/api/nutrients/post', post)
       .then((res: any) => {
         toast({
           description: "Succesfully saves data.",

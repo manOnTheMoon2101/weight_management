@@ -19,7 +19,6 @@ import {
 } from "@/components/ui/tooltip";
 import { Skeleton } from "@/components/ui/skeleton";
 import { FiCalendar } from "react-icons/fi";
-import { getNutrients } from "@/app/routes/route";
 import React from "react";
 export function Body() {
   const getCurrentMonthTwoDigit = () => {
@@ -45,7 +44,7 @@ export function Body() {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await fetch(await getNutrients(month));
+      const response = await fetch(`/api/nutrients/get/${month}`);
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }
