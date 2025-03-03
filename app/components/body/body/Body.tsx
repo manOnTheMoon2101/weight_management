@@ -38,7 +38,7 @@ export function Body() {
   );
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const fetchData = async (month: string) => {
     setIsLoading(true);
@@ -122,7 +122,7 @@ export function Body() {
          <TooltipProvider>
          <Tooltip>
             <TooltipTrigger >
-            <AddForm refresh={() => fetchData(selectedMonth)} />
+            <AddForm data={data} />
             </TooltipTrigger>
              <TooltipContent side="bottom"  className="bg-background">
                   <span>Add Data</span>

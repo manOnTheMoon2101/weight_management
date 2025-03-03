@@ -46,25 +46,22 @@ export function AddForm(props: any) {
     totalSugar: null,
   });
   const [open, setOpen] = useState(false);
-  const handleRefresh = () => {
-    props.refresh();
-  };
-  const handleSubmit = (e: any) => {
+  const  handleSubmit = async (e: any) => {
     setLoading(true);
     e.preventDefault();
     axios
-      .post("/api/nutrients/post", post)
+      .post('/api/nutrients/post', post)
       .then((res: any) => {
         toast({
-          description: "Data has been saved.",
+          description: "Succesfully saves data.",
           className: "bg-lime-800",
         });
-        handleRefresh();
+
       })
       .catch((err: any) => {
         console.log(err);
         toast({
-          description: "Error",
+          description: `${err}`,
           className: "bg-red-800",
         });
       })
