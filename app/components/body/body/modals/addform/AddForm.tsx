@@ -37,7 +37,7 @@ export function AddForm(props: any) {
   const [post, postData] = useState<any>({
     weight: null,
     tookFatburner: false,
-    totalCalories: null,
+    totalCalories: 1,
     tookWeightmanagement: false,
     tookVitamin: false,
     totalProtein: null,
