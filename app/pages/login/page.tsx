@@ -50,7 +50,7 @@ const Login = () => {
     <div>
       <div className="min-h-screen flex flex-row  items-center">
         <Hero/>
-        <div className="p-8 bg-yellow-100 w-1/2">
+        <div className="p-8 w-1/2">
           <div className="flex justify-center">
             <h2 className="text-4xl font-bold my-8">Login</h2>
           </div>
