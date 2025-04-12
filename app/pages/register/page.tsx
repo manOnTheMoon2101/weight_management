@@ -11,7 +11,6 @@ import { AiOutlineLoading } from "react-icons/ai";
 import { toast } from "@/components/ui/use-toast";
 import isValidEmail from "@/utils/emailValidation";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Info } from "../login/components/info/Info";
 const Register = () => {
   const [loading, setLoading] = useState(false);
   const [user, postUser] = useState<any>({});
@@ -61,9 +60,6 @@ const Register = () => {
 
   return (
     <div>
-      <div className="flex flex-row justify-end">
-        <Info />
-      </div>
       <div className="min-h-screen flex items-center justify-center">
         <div className="p-8 rounded shadow-lg">
           <div className="flex justify-center">
