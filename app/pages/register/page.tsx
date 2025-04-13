@@ -176,7 +176,7 @@ const Register = () => {
                 Already have a account?
                 <Link href="/pages/login" className="text-accent">
                   {" "}
-                  Log In?
+                  Log In...
                 </Link>
               </p>
             </div>
