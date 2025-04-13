@@ -30,7 +30,7 @@ function Demo() {
                 </div>
                 <div className="flex flex-row justify-end">
                   <Button className="bg-red-900 text-slate-50 cursor-pointer">
-                    <Link href="/" className="text-accent">
+                    <Link href="/">
                       Log Out
                     </Link>
                     <PiSignOut />
