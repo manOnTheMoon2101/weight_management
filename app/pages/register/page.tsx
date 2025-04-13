@@ -11,6 +11,7 @@ import { AiOutlineLoading } from "react-icons/ai";
 import { toast } from "@/components/ui/use-toast";
 import isValidEmail from "@/utils/emailValidation";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import Hero from "@/app/components/Hero/hero";
 const Register = () => {
   const [loading, setLoading] = useState(false);
   const [user, postUser] = useState<any>({});
@@ -61,7 +62,8 @@ const Register = () => {
   return (
     <div>
       <div className="min-h-screen flex items-center justify-center">
-        <div className="p-8 rounded shadow-lg">
+        <Hero/>
+        <div className="p-8 w-1/2">
           <div className="flex justify-center">
             <h2 className="text-4xl font-bold my-8">Register</h2>
           </div>
@@ -148,7 +150,7 @@ const Register = () => {
                   htmlFor="floating-input"
                   className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-orange-4000 dark:text-gray-400 peer-focus:dark:text-accent"
                 >
-                  Name
+                  Password
                 </Label>
               </div>
 

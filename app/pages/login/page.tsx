@@ -49,7 +49,7 @@ const Login = () => {
   return (
     <div>
       <div className="min-h-screen flex flex-row  items-center">
-        <Hero/>
+        <Hero />
         <div className="p-8 w-1/2">
           <div className="flex justify-center">
             <h2 className="text-4xl font-bold my-8">Login</h2>
@@ -101,7 +101,7 @@ const Login = () => {
           <div className="flex flex-col mt-10">
             <div className="text-end my-2">
               <Badge className="bg-lime-600">
-                See how John's Progressing...
+                <Link href="/demo">See how John's Progressing...</Link>
               </Badge>
             </div>
             <TooltipProvider>
