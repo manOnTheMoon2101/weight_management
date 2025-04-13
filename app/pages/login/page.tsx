@@ -105,7 +105,7 @@ const Login = () => {
               </Badge>
             </div>
             <TooltipProvider>
-              <Tooltip>
+              <Tooltip delayDuration={100}>
                 <TooltipTrigger asChild>
                   <div>
                     {loading ? (
@@ -121,7 +121,7 @@ const Login = () => {
                     )}
                   </div>
                 </TooltipTrigger>
-                <TooltipContent className="text-red-600 text-left">
+                <TooltipContent className="text-left">
                   {!email && "Email Required"}
                   <br />
                   {!password && "Password Required"}
