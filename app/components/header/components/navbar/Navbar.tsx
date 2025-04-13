@@ -32,9 +32,9 @@ export function NavBar() {
   }, []);
   return (
     <Menubar>
-      <MenubarMenu>
+      {/* <MenubarMenu>
         <ModeToggle />
-      </MenubarMenu>
+      </MenubarMenu> */}
       <MenubarMenu>
         <MenubarTrigger>
           <MdAccountCircle />
