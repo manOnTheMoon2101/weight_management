@@ -19,13 +19,15 @@ import {
 } from "@/components/ui/tooltip";
 export function Dashboard_table(data: any) {
   const { toast } = useToast();
-
   const initialRowData = data.data;
   const [rowData, setRowData] = useState(initialRowData);
   const [colDefs, setColDefs] = useState<any>([
     {
       headerName: "Actions",
       cellRenderer: Actions,
+      cellRendererParams: {
+        demo : data.demo
+      },
       headerClass: "bg-emerald-900 bg-opacity-50 text-center",
       filter: false,
       sort: false,
