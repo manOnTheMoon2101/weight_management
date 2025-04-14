@@ -88,9 +88,9 @@ const ProteinGraph = (data: any) => {
           <CardTitle className={`${anek.className}`}>{title}</CardTitle>
           <GraphMenu month={data.month} chartRef={chartRef} title={title} />
         </div>
-        <CardDescription className={`${acme.className}`}>
+        <div className={`${acme.className}`}>
           {getMonthName(data.month)}
-        </CardDescription>
+        </div>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>

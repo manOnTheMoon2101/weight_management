@@ -103,13 +103,8 @@ export function CalorieGraph(data: any) {
   return (
     <Card className="my-5 mx-2 w-full" ref={chartRef}>
       <CardHeader>
-        <div className="flex flex-row justify-between items-center">
-          <CardTitle className={`${anek.className}`}>{title}</CardTitle>
-          {/* <GraphMenu month={data.month} chartRef={chartRef} title={title} /> */}
-        </div>
-        <CardDescription className={`${acme.className}`}>
-          <Badge className="bg-primary">{getMonthName(data.month)}</Badge>
-        </CardDescription>
+          <CardTitle className={`${anek.className} flex flex-row justify-between items-center`}>{title}</CardTitle>
+          <Badge className={`${acme.className} bg-primary`} >{getMonthName(data.month)}</Badge>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>

@@ -12,49 +12,11 @@ import { MdAccountCircle } from "react-icons/md";
 import WeightGraph from "@/app/components/body/body/graphs/WeightGraph";
 import {CalorieGraph} from "@/app/components/body/body/graphs/CalorieGraph";
 import { Dashboard_table } from "../components/body/body/table/Table";
+import json from "@/utils/demo_data.json"
 import Link from "next/link";
 
 function Demo() {
-  const data = [
-    {
-      id: 1,
-      weight: 100,
-      createdAt: "Monday, April 14, 2025",
-      updatedAt: "2025-04-14T06:46:07.847Z",
-      isActive: true,
-      isDeleted: false,
-      tookFatburner: false,
-      tookWeightmanagement: false,
-      tookVitamin: false,
-      totalCalories: 789,
-      totalProtein: null,
-      totalFat: null,
-      totalCarbs: null,
-      workoutTime: null,
-      totalSugar: null,
-      userId: "66ba131c28cab4e56202b716",
-      userName: "Cleve",
-    },
-    {
-      id: 2,
-      weight: 103,
-      createdAt: "Monday, April 15, 2025",
-      updatedAt: "2025-04-15T06:46:07.847Z",
-      isActive: true,
-      isDeleted: false,
-      tookFatburner: false,
-      tookWeightmanagement: false,
-      tookVitamin: false,
-      totalCalories: 1091,
-      totalProtein: null,
-      totalFat: null,
-      totalCarbs: null,
-      workoutTime: null,
-      totalSugar: null,
-      userId: "66ba131c28cab4e56202b716",
-      userName: "Cleve",
-    },
-  ];
+  const data = json;
   return (
     <div>
       <div className="flex flex-row justify-end items-baseline bg-accent">
