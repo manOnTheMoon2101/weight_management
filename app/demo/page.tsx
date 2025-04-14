@@ -29,9 +29,9 @@ function Demo() {
               <div>
                 <div className="flex flex-row justify-around items-center">
                   <Avatar className="bg-accent">
-                    <AvatarFallback>D</AvatarFallback>
+                    <AvatarFallback>J</AvatarFallback>
                   </Avatar>
-                  <span>Demo</span>
+                  <span>John</span>
                 </div>
                 <div className="flex flex-row justify-end">
                   <Button className="bg-red-900 text-slate-50 cursor-pointer">
