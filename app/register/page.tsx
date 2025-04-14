@@ -38,7 +38,7 @@ const Register = () => {
       .finally(() => {
         postUser({});
         setLoading(false);
-        router.push("/pages/login");
+        router.push("/login");
 
         toast({
           description: "User Successfully Created ",
@@ -174,7 +174,7 @@ const Register = () => {
               )}
               <p className="mt-10">
                 Already have a account?
-                <Link href="/pages/login" className="text-accent">
+                <Link href="/login" className="text-accent">
                   {" "}
                   Log In...
                 </Link>
