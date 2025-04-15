@@ -20,7 +20,12 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Badge } from "@/components/ui/badge";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { Cousine } from "next/font/google";
 
 const cousine = Cousine({
@@ -98,7 +103,7 @@ export function EditButton(data: any) {
         </DrawerTrigger>
         <DrawerContent>
           <form onSubmit={handleSubmit}>
-            <div className="flex flex-row justify-start">
+            <div className="flex flex-row justify-end">
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
@@ -117,7 +122,9 @@ export function EditButton(data: any) {
                       )}
                     </div>
                   </TooltipTrigger>
-                  <TooltipContent>Save Data</TooltipContent>
+                  <TooltipContent className="bg-accent">
+                    Save Data
+                  </TooltipContent>
                 </Tooltip>
               </TooltipProvider>
             </div>
@@ -163,92 +170,94 @@ export function EditButton(data: any) {
                 </div>
               </div>
               <div className="flex flex-col justify-center items-center m-2">
+                <Accordion type="single" collapsible>
+                  <AccordionItem value="item-1">
+                    <AccordionTrigger>Supplements</AccordionTrigger>
+                    <AccordionContent>
+                      <div className="flex flex-col justify-center items-center m-2">
+                        <div className="flex flex-col justify-center items-center">
+                          <TooltipProvider>
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <Label
+                                  className={`text-center mb-2 text-xl ${cousine.className}`}
+                                >
+                                  L-C
+                                </Label>
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p>Fat Burner</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                          <Switch
+                            className="data-[state=checked]:bg-green-400"
+                            name="tookFatburner"
+                            checked={post.tookFatburner}
+                            onCheckedChange={(checked) =>
+                              handleSwitchChange("tookFatburner", checked)
+                            }
+                          />
+                        </div>
 
-              <Accordion type="single" collapsible>
-              <AccordionItem value="item-1">
-                <AccordionTrigger>Supplements</AccordionTrigger>
-                <AccordionContent>
-                  <div className="flex flex-col justify-center items-center m-2">
-                    <div className="flex flex-col justify-center items-center">
-                      <TooltipProvider>
-                        <Tooltip>
-                          <TooltipTrigger asChild>
-                            <Label
-                              className={`text-center mb-2 text-xl ${cousine.className}`}
-                            >
-                              L-C
-                            </Label>
-                          </TooltipTrigger>
-                          <TooltipContent>
-                            <p>Fat Burner</p>
-                          </TooltipContent>
-                        </Tooltip>
-                      </TooltipProvider>
-                      <Switch
-                    className="data-[state=checked]:bg-green-400"
-                    name="tookFatburner"
-                    checked={post.tookFatburner}
-                    onCheckedChange={(checked) =>
-                      handleSwitchChange("tookFatburner", checked)
-                    }
-                  />
-                    </div>
+                        <div className="flex flex-col justify-center items-center">
+                          <div className="flex flex-col justify-center items-center">
+                            <TooltipProvider>
+                              <Tooltip>
+                                <TooltipTrigger asChild>
+                                  <Label
+                                    className={`text-center mb-2 text-xl ${cousine.className}`}
+                                  >
+                                    CLA
+                                  </Label>
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                  <p>(Conjugated linoleic acid)</p>
+                                </TooltipContent>
+                              </Tooltip>
+                            </TooltipProvider>
+                            <Switch
+                              className="data-[state=checked]:bg-pink-400"
+                              name="tookWeightmanagement"
+                              checked={post.tookWeightmanagement}
+                              onCheckedChange={(checked) =>
+                                handleSwitchChange(
+                                  "tookWeightmanagement",
+                                  checked
+                                )
+                              }
+                            />
+                          </div>
 
-                    <div className="flex flex-col justify-center items-center">
-                      <div className="flex flex-col justify-center items-center">
-                        <TooltipProvider>
-                          <Tooltip>
-                            <TooltipTrigger asChild>
-                              <Label
-                                className={`text-center mb-2 text-xl ${cousine.className}`}
-                              >
-                                CLA
-                              </Label>
-                            </TooltipTrigger>
-                            <TooltipContent>
-                              <p>(Conjugated linoleic acid)</p>
-                            </TooltipContent>
-                          </Tooltip>
-                        </TooltipProvider>
-                        <Switch
-                    className="data-[state=checked]:bg-pink-400"
-                    name="tookWeightmanagement"
-                    checked={post.tookWeightmanagement}
-                    onCheckedChange={(checked) =>
-                      handleSwitchChange("tookWeightmanagement", checked)
-                    }
-                  />
+                          <div className="flex flex-col justify-center items-center">
+                            <TooltipProvider>
+                              <Tooltip>
+                                <TooltipTrigger asChild>
+                                  <Label
+                                    className={`text-center mb-2 text-xl ${cousine.className}`}
+                                  >
+                                    VIT
+                                  </Label>
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                  <p>Vitamin</p>
+                                </TooltipContent>
+                              </Tooltip>
+                            </TooltipProvider>
+                            <Switch
+                              className="data-[state=checked]:bg-cyan-400"
+                              name="tookVitamin"
+                              checked={post.tookVitamin}
+                              onCheckedChange={(checked) =>
+                                handleSwitchChange("tookVitamin", checked)
+                              }
+                            />
+                          </div>
+                        </div>
                       </div>
-
-                      <div className="flex flex-col justify-center items-center">
-                        <TooltipProvider>
-                          <Tooltip>
-                            <TooltipTrigger asChild>
-                              <Label
-                                className={`text-center mb-2 text-xl ${cousine.className}`}
-                              >
-                                VIT
-                              </Label>
-                            </TooltipTrigger>
-                            <TooltipContent>
-                              <p>Vitamin</p>
-                            </TooltipContent>
-                          </Tooltip>
-                        </TooltipProvider>
-                        <Switch
-                    className="data-[state=checked]:bg-cyan-400"
-                    name="tookVitamin"
-                    checked={post.tookVitamin}
-                    onCheckedChange={(checked) =>
-                      handleSwitchChange("tookVitamin", checked)
-                    }
-                  />
-                      </div>
-                    </div>
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
                 {/* <div className="flex flex-col justify-center items-center">
                   <TooltipProvider>
                     <Tooltip>
@@ -271,7 +280,7 @@ export function EditButton(data: any) {
                     }
                   />
                 </div> */}
-{/* 
+                {/* 
                 <div className="flex flex-col justify-center items-center">
                   <TooltipProvider>
                     <Tooltip>
