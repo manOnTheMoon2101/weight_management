@@ -27,6 +27,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Cousine } from "next/font/google";
+import { Edit } from "lucide-react";
 
 const cousine = Cousine({
   subsets: ["latin"],
@@ -97,7 +98,7 @@ export function EditButton(data: any) {
         <DrawerTrigger>
           <div className="flex flex-row justify-between items-center mx-2">
             <Button variant={"ghost"} className="text-white">
-              <MdEditNote size={30} onClick={() => setOpen(true)} />
+              <Edit size={24} onClick={() => setOpen(true)} />
             </Button>
           </div>
         </DrawerTrigger>

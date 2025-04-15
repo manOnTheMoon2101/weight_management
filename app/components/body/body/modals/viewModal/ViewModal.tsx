@@ -15,6 +15,8 @@ import { Badge } from "@/components/ui/badge";
 import { Cousine } from "next/font/google";
 import { MdDelete } from "react-icons/md";
 import { useToast } from "@/components/ui/use-toast";
+import { Edit } from "lucide-react";
+import { Delete } from "lucide-react";
 const cousine = Cousine({
   subsets: ["latin"],
   weight: "400",
@@ -36,7 +38,7 @@ const ViewModal = (data: any) => {
                 });
               }}
             >
-              <MdEditNote size={30} />
+              <Edit size={24} />
             </Button>
           </div>
         ) : (
@@ -54,7 +56,7 @@ const ViewModal = (data: any) => {
                 });
               }}
             >
-              <MdDelete className="text-red-500 mx-2" size={30} />
+              <Delete className="text-red-500 mx-2" size={30} />
             </Button>
           </div>
         ) : (
