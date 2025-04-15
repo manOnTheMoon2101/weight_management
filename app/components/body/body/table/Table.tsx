@@ -140,14 +140,12 @@ export function Dashboard_table(data: any) {
       gridRef.current.api.exportDataAsCsv();
     }
   };
-
   const resetState = useCallback(() => {
     gridRef.current!.api.resetColumnState();
     gridRef.current!.api.setFilterModel(null);
     gridRef.current!.api.setRowGroupColumns([]);
     gridRef.current!.api.applyColumnState({ state: colDefs });
     gridRef.current!.api.refreshCells({ force: true });
-    console.log("column state reset");
   }, []);
 
   const onFilterTextBoxChanged = useCallback(() => {
@@ -169,7 +167,6 @@ export function Dashboard_table(data: any) {
       <div className="flex flex-row justify-end mx-2">
         <div className="flex flex-row">
           <div>
-            {/* <TableMenu csv={exportToCSV} month={data} ref={gridRef} /> */}
             <Button onClick={exportToCSV} variant="ghost">
               <Download size={20}/>
             </Button>
