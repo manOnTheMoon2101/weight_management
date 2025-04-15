@@ -29,12 +29,12 @@
 }
 
 .ag-theme-quartz-dark .ag-cell.ag-cell-range-selected {
-  background-color: hsl(var(--secondary)) !important;
+  background-color: hsl(var(--accent)) !important;
   color: hsl(var(--accent)) !important;
 }
 
 .ag-theme-quartz-dark .ag-row-selected {
-  background-color: hsl(var(--secondary)) !important;
+  background-color: hsl(var(--accent)) !important;
 }
 
 .ag-theme-quartz-dark .ag-header-cell-resize {
