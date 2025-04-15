@@ -96,7 +96,7 @@ const Graph = (data: any) => {
     </div>
   );
   return (
-    <Card className="my-5 mx-2 w-full" ref={chartRef}>
+    <Card className="my-5 mx-2 w-full shadow-lg" ref={chartRef}>
       <CardHeader className="flex flex-row justify-between items-center">
         {title}
         <Badge className={`${acme.className} bg-primary`}>
