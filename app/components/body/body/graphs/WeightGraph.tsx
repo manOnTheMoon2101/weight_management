@@ -19,6 +19,7 @@ import {
 } from "@/components/ui/chart";
 import { Acme } from "next/font/google";
 import { Anek_Devanagari } from "next/font/google";
+import { Weight } from "lucide-react";
 import { useRef } from "react";
 const anek = Anek_Devanagari({
   subsets: ["latin"],
@@ -88,16 +89,19 @@ const Graph = (data: any) => {
         createdAt: new Date(item.createdAt).getDate(),
         weight: item.weight,
       })) || [];
-      const title = (
-        <>
-          <FaWeightScale className="inline-block" size={19} /> Weight
-        </>
-      );
+  const title = (
+    <div className="items-center">
+      <Weight className="inline-block mx-2" size={19} />
+      <span>Weight</span>
+    </div>
+  );
   return (
     <Card className="my-5 mx-2 w-full" ref={chartRef}>
-      <CardHeader>
-          <CardTitle className={`${anek.className} flex flex-row justify-between items-center`}>{title}</CardTitle>
-        <Badge className={`${acme.className} bg-primary`} >{getMonthName(data.month)}</Badge>
+      <CardHeader className="flex flex-row justify-between items-center">
+        {title}
+        <Badge className={`${acme.className} bg-primary`}>
+          {getMonthName(data.month)}
+        </Badge>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
@@ -114,14 +118,14 @@ const Graph = (data: any) => {
               dataKey="createdAt"
               tickLine={false}
               axisLine={false}
-              tick={{ stroke: '#E9EFEC'}} 
+              tick={{ stroke: "#E9EFEC" }}
               tickMargin={10}
             />
             <ChartTooltip
               cursor={false}
               content={<ChartTooltipContent hideLabel />}
             />
-            <YAxis domain={[60, 100]} tick={{ stroke: '#E9EFEC'}} />
+            <YAxis domain={[60, 100]} tick={{ stroke: "#E9EFEC" }} />
             <Area
               dataKey="weight"
               name="Weight(kg)"

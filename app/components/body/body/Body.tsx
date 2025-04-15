@@ -89,7 +89,7 @@ export function Body() {
 
   return (
     <div>
-      <div className="flex flex-row justify-between items-baseline">
+      <div className="flex flex-row justify-between items-center">
         <div className="mx-2 md:">
           <Select
             value={selectedMonth}
@@ -102,7 +102,7 @@ export function Body() {
               <FiCalendar size={21} />
               <SelectValue placeholder="Select Month..." />
             </SelectTrigger>
-            <SelectContent className="bg-background">
+            <SelectContent className="bg-accent">
               <SelectItem value="01">January</SelectItem>
               <SelectItem value="02">February</SelectItem>
               <SelectItem value="03">March</SelectItem>
@@ -119,16 +119,7 @@ export function Body() {
           </Select>
         </div>
         <div className="mx-2 md:">
-         <TooltipProvider>
-         <Tooltip>
-            <TooltipTrigger >
             <AddForm data={data} />
-            </TooltipTrigger>
-             <TooltipContent side="bottom"  className="bg-background">
-                  <span>Add Data</span>
-                </TooltipContent>
-          </Tooltip>
-         </TooltipProvider>
         </div>
       </div>
       <div className="flex flex-col md:flex-col justify-around  h-full">
