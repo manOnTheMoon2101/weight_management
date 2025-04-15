@@ -11,6 +11,7 @@ import { IoMdRefresh } from "react-icons/io";
 import "./components/table.css";
 import { IoMdDownload } from "react-icons/io";
 import { useToast } from "@/components/ui/use-toast";
+import { Download } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
@@ -170,7 +171,7 @@ export function Dashboard_table(data: any) {
           <div>
             {/* <TableMenu csv={exportToCSV} month={data} ref={gridRef} /> */}
             <Button onClick={exportToCSV} variant="ghost">
-              <IoMdDownload />
+              <Download size={20}/>
             </Button>
           </div>
           <TooltipProvider>
@@ -182,10 +183,6 @@ export function Dashboard_table(data: any) {
                   onClick={() => {
                     handleRefresh();
                     resetState();
-                    // toast({
-                    //   description: "Succesfully Refreshed!",
-                    //   className: "bg-background text-white",
-                    // });
                   }}
                 >
                   <IoMdRefresh
