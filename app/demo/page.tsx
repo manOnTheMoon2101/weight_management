@@ -38,7 +38,7 @@ function Demo() {
             </MenubarTrigger>
             <MenubarContent className="bg-background">
               <div>
-                <div className="flex flex-row justify-end">
+                <div className="flex flex-row justify-center">
                   <Button className="bg-red-900 text-slate-50 cursor-pointer">
                     <Link href="/">Log Out</Link>
                     <PiSignOut />
