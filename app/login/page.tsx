@@ -100,7 +100,7 @@ const Login = () => {
           </div>
           <div className="flex flex-col mt-10">
             <div className="text-end my-2">
-              <Badge className="bg-lime-600">
+              <Badge className="bg-orange-600">
                 <Link href="/demo">See how John's Progressing...</Link>
               </Badge>
             </div>
