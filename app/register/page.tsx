@@ -61,9 +61,9 @@ const Register = () => {
 
   return (
     <div>
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen flex flex-col md:flex-row items-center">
         <Hero/>
-        <div className="p-8 w-1/2">
+        <div className="p-8 w-full md:w-1/2 shadow-lg">
           <div className="flex justify-center">
             <h2 className="text-4xl font-bold my-8">Register</h2>
           </div>
