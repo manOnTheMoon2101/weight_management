@@ -2,10 +2,10 @@
 import { CustomCellRendererProps } from "ag-grid-react";
 import React from "react";
 import ViewModal from "../../../modals/viewModal/ViewModal";
-export default (params: CustomCellRendererProps) => {
+export default (params: any) => {
   return (
     <div>
-      <ViewModal x={params.data} />
+      <ViewModal x={params.data} demo={params.demo} />
     </div>
   );
 };

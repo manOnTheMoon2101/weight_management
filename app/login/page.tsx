@@ -9,7 +9,6 @@ import { AiOutlineLoading } from "react-icons/ai";
 import { Label } from "@/components/ui/label";
 import { useRouter } from "next/navigation";
 import isValidEmail from "@/utils/emailValidation";
-import { Info } from "./components/info/Info";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import {
   Tooltip,
@@ -17,6 +16,8 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { Badge } from "@/components/ui/badge";
+import Hero from "@/app/components/Hero/hero";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -47,24 +48,12 @@ const Login = () => {
   };
   return (
     <div>
-      {/* <div className="flex flex-row justify-end">
-        <Info />
-      </div> */}
-      <div className="min-h-screen flex flex-col items-center justify-center">
-        <div className="p-8 rounded shadow-lg">
+      <div className="min-h-screen flex flex-col md:flex-row items-center">
+        <Hero />
+        <div className="p-8 w-full md:w-1/2 shadow-lg">
           <div className="flex justify-center">
             <h2 className="text-4xl font-bold my-8">Login</h2>
           </div>
-          {/* <Label className="text-4xl">Email</Label> */}
-          {/* <Input
-          placeholder="email@example.com"
-          type="email"
-          className="border-accent"
-          value={email}
-          onBlur={handleBlur}
-          onChange={(e) => setEmail(e.target.value)}
-        /> */}
-
           <div className="group relative z-0 mb-6 w-full">
             <input
               type="email"
@@ -86,16 +75,7 @@ const Login = () => {
           {touched && !isValidEmail(email) && email !== "" && (
             <p className="text-red-600">Not Valid Email!</p>
           )}
-          {/* <Label className="text-4xl">Password</Label> */}
           <div className="flex flex-row">
-            {/* <Input
-            placeholder="*****"
-            type={showPassword ? "text" : "password"}
-            className="border-accent"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          /> */}
-
             <div className="group relative z-0 mb-6 w-full">
               <input
                 type={showPassword ? "text" : "password"}
@@ -119,8 +99,13 @@ const Login = () => {
             </Button>
           </div>
           <div className="flex flex-col mt-10">
+            <div className="text-end my-2">
+              <Badge className="bg-orange-600">
+                <Link href="/demo">See how John's Progressing...</Link>
+              </Badge>
+            </div>
             <TooltipProvider>
-              <Tooltip>
+              <Tooltip delayDuration={100}>
                 <TooltipTrigger asChild>
                   <div>
                     {loading ? (
@@ -136,7 +121,7 @@ const Login = () => {
                     )}
                   </div>
                 </TooltipTrigger>
-                <TooltipContent className="text-red-600 text-left">
+                <TooltipContent className="text-left">
                   {!email && "Email Required"}
                   <br />
                   {!password && "Password Required"}
@@ -145,8 +130,8 @@ const Login = () => {
             </TooltipProvider>
             <p className="mt-10">
               Don't have an account?{" "}
-              <Link href="/pages/register" className="text-accent">
-                Register?
+              <Link href="/register" className="text-accent">
+                Register...
               </Link>
             </p>
           </div>

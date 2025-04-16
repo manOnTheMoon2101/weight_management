@@ -24,7 +24,7 @@ import {
 } from "@/components/ui/tooltip";
 import { Cousine } from "next/font/google";
 import { Badge } from "@/components/ui/badge";
-import { IoIosAddCircleOutline } from "react-icons/io";
+import { Plus } from "lucide-react";
 import RandomTip from "./Qoutes/Qoutes";
 const cousine = Cousine({
   subsets: ["latin"],
@@ -97,8 +97,8 @@ export function AddForm(props: any) {
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild>
-        <Button variant={"ghost"} className="text-accent">
-          <IoIosAddCircleOutline size={25} />
+        <Button variant={"outline"} className="bg-accent">
+          Add Data <Plus className="mx-2"/>
         </Button>
       </DrawerTrigger>
       <DrawerContent>

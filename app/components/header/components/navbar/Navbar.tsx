@@ -37,29 +37,25 @@ export function NavBar() {
       </MenubarMenu>
       <MenubarMenu>
         <MenubarTrigger>
-          <MdAccountCircle />
+          <div className="flex flex-row items-center cursor-pointer">
+            <Avatar className="bg-secondary w-8 h-8">
+              <AvatarFallback>
+                <span className="text-primary">
+                  {name ? cleanedName?.charAt(0) : null}
+                </span>
+              </AvatarFallback>
+            </Avatar>
+            <span className="mx-2">{name}</span>
+          </div>
         </MenubarTrigger>
-        <MenubarContent className="bg-background">
-          <div>
-            <div className="flex flex-row justify-around items-center">
-              <Avatar className="bg-secondary">
-                <AvatarFallback>
-                  <span className="text-primary">
-                    {name ? cleanedName?.charAt(0) : null}
-                  </span>
-                </AvatarFallback>
-              </Avatar>
-              <p>{name}</p>
-            </div>
-            <div className="flex flex-row justify-end">
-              <Button
-                className="bg-red-900 text-slate-50 cursor-pointer"
-                onClick={() => signOut()}
-              >
-                Log Out
-                <PiSignOut />
-              </Button>
-            </div>
+        <MenubarContent className="bg-accent">
+          <div className="flex flex-row items-center justify-center ">
+            <Button
+              className="bg-red-600 text-slate-50 cursor-pointer"
+              onClick={() => signOut()}
+            >
+              Log Out
+            </Button>
           </div>
         </MenubarContent>
       </MenubarMenu>

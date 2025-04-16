@@ -16,7 +16,7 @@
 
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background: hsl(157, 20%, 51%);
+  background: hsl(0 20% 57%);
 }
 
 @layer base {
@@ -24,25 +24,24 @@
     --background: 0 0% 100%;
     --graph: 0 0% 97%;
     --foreground: 222.2 84% 4.9%;
-    --primary: 172, 50%, 17%;
+    --primary: 172 50% 17%;
+    --secondary: 150 16% 93%;
 
-    --secondary: 150, 16%, 93%;
-
-    --accent: 157, 20%, 51%;
+    --accent: 157 20% 51%;
 
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 0, 11%, 22%;
-    --graph: 247, 36%, 12%;
+    --background: 0 11% 22%;
+    --graph: 247 36% 12%;
     --foreground: 210 40% 98%;
 
-    --primary: 0, 20%, 57%;
+    --primary: 0 20% 57%;
 
-    --secondary: 150, 16%, 93%;
+    --secondary: 150 16% 93%;
 
-    --accent: 0, 12%, 44%;
+    --accent: 0 12% 44%;
     --radius: 0.5rem;
   }
 }

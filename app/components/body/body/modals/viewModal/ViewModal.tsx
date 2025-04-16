@@ -3,24 +3,65 @@ import React from "react";
 import DeleteButton from "./modals/DeleteModal/DeleteButton";
 import { EditButton } from "./modals/EditModal/EditButton";
 import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { MdEditNote } from "react-icons/md";
 import { Badge } from "@/components/ui/badge";
 import { Cousine } from "next/font/google";
+import { MdDelete } from "react-icons/md";
+import { useToast } from "@/components/ui/use-toast";
+import { Edit } from "lucide-react";
+import { Delete } from "lucide-react";
 const cousine = Cousine({
   subsets: ["latin"],
   weight: "400",
 });
 const ViewModal = (data: any) => {
+  const { toast } = useToast();
   return (
     <div>
       <div className="flex flex-row justify-between">
-        <EditButton data={data} />
-        <DeleteButton data={data.x.id} />
+        {data.demo == "demo" ? (
+          <div className="flex flex-row justify-between items-center mx-2">
+            <Button
+              variant={"ghost"}
+              className="text-white"
+              onClick={() => {
+                toast({
+                  description: "Feature not Available.",
+                  className: "bg-orange-800",
+                });
+              }}
+            >
+              <Edit size={24} />
+            </Button>
+          </div>
+        ) : (
+          <EditButton data={data} demo={data.demo} />
+        )}
+        {data.demo == "demo" ? (
+          <div className="flex flex-row justify-between items-center mx-2">
+            <Button
+              variant={"ghost"}
+              className="text-white"
+              onClick={() => {
+                toast({
+                  description: "Feature not Available.",
+                  className: "bg-orange-800",
+                });
+              }}
+            >
+              <Delete className="text-red-500 mx-2" size={30} />
+            </Button>
+          </div>
+        ) : (
+          <DeleteButton data={data.x.id} />
+        )}
       </div>
       <form>
         <div className="flex flex-row justify-around">

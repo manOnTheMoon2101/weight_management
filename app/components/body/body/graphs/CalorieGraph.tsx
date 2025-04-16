@@ -16,6 +16,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import months from "@/lib/files/months.json";
+import { Zap } from "lucide-react";
 import {
   ChartConfig,
   ChartContainer,
@@ -96,20 +97,18 @@ export function CalorieGraph(data: any) {
       ) || [];
 
   const title = (
-    <>
-      <FaBolt className="inline-block" size={19} /> Calories
-    </>
+    <div className="items-center">
+      <Zap className="inline-block mx-2" size={19} /> 
+      <span>Calories</span>
+    </div>
   );
   return (
-    <Card className="my-5 mx-2 w-full" ref={chartRef}>
-      <CardHeader>
-        <div className="flex flex-row justify-between items-center">
-          <CardTitle className={`${anek.className}`}>{title}</CardTitle>
-          {/* <GraphMenu month={data.month} chartRef={chartRef} title={title} /> */}
-        </div>
-        <CardDescription className={`${acme.className}`}>
-          <Badge className="bg-primary">{getMonthName(data.month)}</Badge>
-        </CardDescription>
+    <Card className="my-5 mx-2 w-full shadow-lg" ref={chartRef}>
+     <CardHeader className="flex flex-row justify-between items-center">
+        {title}
+        <Badge className={`${acme.className} bg-primary`}>
+          {getMonthName(data.month)}
+        </Badge>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>

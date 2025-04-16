@@ -15,6 +15,7 @@ import { MdDelete } from "react-icons/md";
 import { useToast } from "@/components/ui/use-toast";
 import axios from "axios";
 import { Button } from "@/components/ui/button";
+import { Delete } from "lucide-react";
 const DeleteButton = (id: any) => {
   const { toast } = useToast();
   const handleDeletePost = (id: any) => {
@@ -37,7 +38,7 @@ const DeleteButton = (id: any) => {
       <AlertDialog>
         <AlertDialogTrigger>
           <Button variant="ghost">
-            <MdDelete className="text-red-500 mx-2" size={30} />
+            <Delete className="text-red-500 mx-2" size={24} />
           </Button>
         </AlertDialogTrigger>
         <AlertDialogContent>

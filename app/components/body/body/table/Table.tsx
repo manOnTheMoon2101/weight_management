@@ -11,6 +11,7 @@ import { IoMdRefresh } from "react-icons/io";
 import "./components/table.css";
 import { IoMdDownload } from "react-icons/io";
 import { useToast } from "@/components/ui/use-toast";
+import { Download } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
@@ -19,13 +20,15 @@ import {
 } from "@/components/ui/tooltip";
 export function Dashboard_table(data: any) {
   const { toast } = useToast();
-
   const initialRowData = data.data;
   const [rowData, setRowData] = useState(initialRowData);
   const [colDefs, setColDefs] = useState<any>([
     {
       headerName: "Actions",
       cellRenderer: Actions,
+      cellRendererParams: {
+        demo : data.demo
+      },
       headerClass: "bg-emerald-900 bg-opacity-50 text-center",
       filter: false,
       sort: false,
@@ -137,14 +140,12 @@ export function Dashboard_table(data: any) {
       gridRef.current.api.exportDataAsCsv();
     }
   };
-
   const resetState = useCallback(() => {
     gridRef.current!.api.resetColumnState();
     gridRef.current!.api.setFilterModel(null);
     gridRef.current!.api.setRowGroupColumns([]);
     gridRef.current!.api.applyColumnState({ state: colDefs });
     gridRef.current!.api.refreshCells({ force: true });
-    console.log("column state reset");
   }, []);
 
   const onFilterTextBoxChanged = useCallback(() => {
@@ -166,9 +167,8 @@ export function Dashboard_table(data: any) {
       <div className="flex flex-row justify-end mx-2">
         <div className="flex flex-row">
           <div>
-            {/* <TableMenu csv={exportToCSV} month={data} ref={gridRef} /> */}
             <Button onClick={exportToCSV} variant="ghost">
-              <IoMdDownload />
+              <Download size={20}/>
             </Button>
           </div>
           <TooltipProvider>
@@ -180,10 +180,6 @@ export function Dashboard_table(data: any) {
                   onClick={() => {
                     handleRefresh();
                     resetState();
-                    // toast({
-                    //   description: "Succesfully Refreshed!",
-                    //   className: "bg-background text-white",
-                    // });
                   }}
                 >
                   <IoMdRefresh
