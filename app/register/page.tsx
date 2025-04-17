@@ -64,7 +64,7 @@ const Register = () => {
       <div className="min-h-screen flex flex-col md:flex-row items-center">
         <Hero/>
         <div className="p-8 w-full md:w-1/2 shadow-lg">
-          <div className="flex justify-center">
+          <div className="flex justify-between">
             <h2 className="text-4xl font-bold my-8">Register</h2>
           </div>
           <form>
@@ -172,13 +172,11 @@ const Register = () => {
                   Register
                 </Button>
               )}
-              <p className="mt-10">
-                Already have a account?
-                <Link href="/login" className="text-accent">
-                  {" "}
-                  Log In...
-                </Link>
-              </p>
+              <Button className="bg-primary mt-5">
+              <Link href="/login" className="text-white">
+                Go Back
+              </Link>
+              </Button>
             </div>
           </form>
         </div>

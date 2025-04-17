@@ -46,17 +46,16 @@ export function AddForm(props: any) {
     totalSugar: null,
   });
   const [open, setOpen] = useState(false);
-  const  handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: any) => {
     setLoading(true);
     e.preventDefault();
     axios
-      .post('/api/nutrients/post', post)
+      .post("/api/nutrients/post", post)
       .then((res: any) => {
         toast({
           description: "Succesfully saves data.",
           className: "bg-lime-800",
         });
-
       })
       .catch((err: any) => {
         console.log(err);
@@ -98,12 +97,13 @@ export function AddForm(props: any) {
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild>
         <Button variant={"outline"} className="bg-accent">
-          Add Data <Plus className="mx-2"/>
+          Add Data <Plus className="mx-2" />
         </Button>
       </DrawerTrigger>
       <DrawerContent>
         <form onSubmit={handleSubmit}>
-          <div className="flex flex-row justify-start">
+          <div className="flex flex-row justify-between items-center">
+            <Badge className="h-6">{formattedDate}</Badge>
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
@@ -115,14 +115,18 @@ export function AddForm(props: any) {
                         disabled={!post.weight || !post.totalCalories}
                         type="submit"
                         variant={"ghost"}
-                        className="text-accent"
+                        className={`${
+                          !post.weight || !post.totalCalories
+                            ? "text-gray-500"
+                            : "text-accent"
+                        }`}
                       >
                         <FaSave size={20} />
                       </Button>
                     )}
                   </div>
                 </TooltipTrigger>
-                <TooltipContent className="text-red-600 text-left">
+                <TooltipContent className="bg-accent">
                   {!post.weight && "Weight Required"}
                   <br />
                   {!post.totalCalories && "Calories Required"}
@@ -171,7 +175,7 @@ export function AddForm(props: any) {
                 </div>
               </div>
             </div>
-{/* 
+            {/* 
             <div  className="flex flex-col justify-center items-center">
             <RandomTip/>
           </div> */}
@@ -376,9 +380,6 @@ export function AddForm(props: any) {
               </div>
             </div> */}
         </form>
-        <div className="flex flex-row justify-end">
-          <Badge>{formattedDate}</Badge>
-        </div>
       </DrawerContent>
     </Drawer>
   );

@@ -51,8 +51,11 @@ const Login = () => {
       <div className="min-h-screen flex flex-col md:flex-row items-center">
         <Hero />
         <div className="p-8 w-full md:w-1/2 shadow-lg">
-          <div className="flex justify-center">
+          <div className="flex justify-between items-center">
             <h2 className="text-4xl font-bold my-8">Login</h2>
+            <Badge className="bg-gradient-to-r from-orange-500 to-yellow-500 font-bold h-8">
+              <Link href="/demo">See How John's Progressing...</Link>
+            </Badge>
           </div>
           <div className="group relative z-0 mb-6 w-full">
             <input
@@ -99,11 +102,6 @@ const Login = () => {
             </Button>
           </div>
           <div className="flex flex-col mt-10">
-            <div className="text-end my-2">
-              <Badge className="bg-orange-600">
-                <Link href="/demo">See how John's Progressing...</Link>
-              </Badge>
-            </div>
             <TooltipProvider>
               <Tooltip delayDuration={100}>
                 <TooltipTrigger asChild>
@@ -116,7 +114,7 @@ const Login = () => {
                         onClick={onSubmit}
                         disabled={!isValidEmail(email) || !password}
                       >
-                        Login
+                        Sign In
                       </Button>
                     )}
                   </div>
@@ -128,12 +126,12 @@ const Login = () => {
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>
-            <p className="mt-10">
-              Don't have an account?{" "}
-              <Link href="/register" className="text-accent">
-                Register...
+
+              <Button className="bg-primary mt-5">
+              <Link href="/register" className="text-white">
+                Register 
               </Link>
-            </p>
+              </Button>
           </div>
         </div>
       </div>
