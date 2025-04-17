@@ -172,13 +172,11 @@ const Register = () => {
                   Register
                 </Button>
               )}
-              <p className="mt-10">
-                Already have a account?
-                <Link href="/login" className="text-accent">
-                  {" "}
-                  Log In...
-                </Link>
-              </p>
+              <Button className="bg-primary mt-5">
+              <Link href="/login" className="text-white">
+                Go Back
+              </Link>
+              </Button>
             </div>
           </form>
         </div>

@@ -114,7 +114,7 @@ const Login = () => {
                         onClick={onSubmit}
                         disabled={!isValidEmail(email) || !password}
                       >
-                        Login
+                        Sign In
                       </Button>
                     )}
                   </div>
@@ -126,12 +126,12 @@ const Login = () => {
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>
-            <p className="mt-10">
-              Don't have an account?{" "}
-              <Link href="/register" className="text-accent">
-                Register...
+
+              <Button className="bg-primary mt-5">
+              <Link href="/register" className="text-white">
+                Register 
               </Link>
-            </p>
+              </Button>
           </div>
         </div>
       </div>
