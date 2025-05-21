@@ -30,11 +30,11 @@ const ViewModal = (data: any) => {
           <div className="flex flex-row justify-between items-center mx-2">
             <Button
               variant={"ghost"}
-              className="text-white"
+              className="text-foreground"
               onClick={() => {
                 toast({
                   description: "Feature not Available.",
-                  className: "bg-orange-800",
+                  className: "bg-orange-800 text-white",
                 });
               }}
             >
@@ -52,7 +52,7 @@ const ViewModal = (data: any) => {
               onClick={() => {
                 toast({
                   description: "Feature not Available.",
-                  className: "bg-orange-800",
+                  className: "bg-orange-800 text-white",
                 });
               }}
             >

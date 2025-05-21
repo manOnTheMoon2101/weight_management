@@ -9,7 +9,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { IoMdRefresh } from "react-icons/io";
 import "./components/table.css";
-import { IoMdDownload } from "react-icons/io";
 import { useToast } from "@/components/ui/use-toast";
 import { Download } from "lucide-react";
 import {
@@ -29,7 +28,7 @@ export function Dashboard_table(data: any) {
       cellRendererParams: {
         demo : data.demo
       },
-      headerClass: "bg-emerald-900 bg-opacity-50 text-center",
+      headerClass: "bg-accent bg-opacity-50 text-center",
       filter: false,
       sort: false,
       sortable: false,
