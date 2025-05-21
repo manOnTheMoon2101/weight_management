@@ -118,14 +118,14 @@ const Graph = (data: any) => {
               dataKey="createdAt"
               tickLine={false}
               axisLine={false}
-              tick={{ stroke: "#E9EFEC" }}
+              tick={{ stroke: "hsl(var(--foreground))" }}
               tickMargin={10}
             />
             <ChartTooltip
               cursor={false}
               content={<ChartTooltipContent hideLabel />}
             />
-            <YAxis domain={[60, 100]} tick={{ stroke: "#E9EFEC" }} />
+            <YAxis domain={[60, 100]} tick={{ stroke: "hsl(var(--foreground))" }} />
             <Area
               dataKey="weight"
               name="Weight(kg)"
