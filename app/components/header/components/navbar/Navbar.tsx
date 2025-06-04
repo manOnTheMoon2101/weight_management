@@ -49,7 +49,7 @@ export function NavBar() {
           </div>
         </MenubarTrigger>
         <MenubarContent className="bg-accent">
-          <div className="flex flex-row items-center justify-center ">
+          <div className="flex flex-row items-center justify-center">
             <Button
               className="bg-red-600 text-slate-50 cursor-pointer"
               onClick={() => signOut()}

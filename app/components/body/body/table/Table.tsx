@@ -29,7 +29,7 @@ export function Dashboard_table(data: any) {
       cellRendererParams: {
         demo: data.demo,
       },
-      headerClass: "bg-accent bg-opacity-50 text-center",
+      headerClass: "bg-accent text-white bg-opacity-50 text-center",
       filter: false,
       sort: false,
       sortable: false,
@@ -170,7 +170,7 @@ export function Dashboard_table(data: any) {
             <TooltipProvider delayDuration={100}>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Button onClick={exportToCSV} variant="ghost">
+                  <Button onClick={exportToCSV} variant="ghost" className="text-accent hover:text-white hover:bg-primary">
                     <Download size={20} />
                   </Button>
                 </TooltipTrigger>
@@ -193,7 +193,7 @@ export function Dashboard_table(data: any) {
             <Tooltip>
               <TooltipTrigger asChild>
                 <Button
-                  className="text-accent"
+                  className="text-accent hover:text-white hover:bg-primary"
                   variant={"ghost"}
                   onClick={() => {
                     handleRefresh();
@@ -202,7 +202,7 @@ export function Dashboard_table(data: any) {
                 >
                   <IoMdRefresh
                     size={20}
-                    className={`transition-transform duration-300 ${
+                    className={`transition-transform duration-300  ${
                       isSpinning ? "animate-spin" : ""
                     }`}
                   />
