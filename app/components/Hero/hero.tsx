@@ -12,7 +12,7 @@ function Hero() {
       <span className={`${tienne.className} text-6xl font-bold`}>Welcome!</span> <br />
       <span className="text-2xl italic">
         Let’s turn those extra cookies into <span className="text-primary">sweat</span> and sass.🍪🔥😎<br/>
-        <Badge className="bg-gradient-to-r from-orange-500 to-yellow-500 font-bold h-8">
+        <Badge className="bg-gradient-to-r from-orange-500 to-yellow-500 font-bold h-8 text-white">
               <Link href="/demo">See How John's Progressing...</Link>
             </Badge>
       </span>
