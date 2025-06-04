@@ -62,7 +62,7 @@ const Register = () => {
   return (
     <div>
       <div className="min-h-screen flex flex-col md:flex-row items-center">
-        <Hero/>
+        <Hero />
         <div className="p-8 w-full md:w-1/2 shadow-lg">
           <div className="flex justify-between">
             <h2 className="text-4xl font-bold my-8">Register</h2>
@@ -172,11 +172,9 @@ const Register = () => {
                   Register
                 </Button>
               )}
-              <Button className="bg-primary mt-5">
               <Link href="/login" className="text-white">
-                Go Back
+                <Button className="bg-primary mt-5 w-full">Go Back</Button>
               </Link>
-              </Button>
             </div>
           </form>
         </div>
