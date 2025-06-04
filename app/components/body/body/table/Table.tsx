@@ -11,6 +11,7 @@ import { IoMdRefresh } from "react-icons/io";
 import "./components/table.css";
 import { useToast } from "@/components/ui/use-toast";
 import { Download } from "lucide-react";
+import { Search } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
@@ -26,9 +27,9 @@ export function Dashboard_table(data: any) {
       headerName: "Actions",
       cellRenderer: Actions,
       cellRendererParams: {
-        demo : data.demo
+        demo: data.demo,
       },
-      headerClass: "bg-accent bg-opacity-50 text-center",
+      headerClass: "bg-accent text-white bg-opacity-50 text-center",
       filter: false,
       sort: false,
       sortable: false,
@@ -54,7 +55,7 @@ export function Dashboard_table(data: any) {
       tooltipField: "Calories",
       headerTooltip: "Limit set to 2000",
       cellClass: (params: any) => {
-        return params.value > 2000 ? 'bg-red-400' : '';
+        return params.value > 2000 ? "bg-red-400" : "";
       },
     },
     {
@@ -72,7 +73,7 @@ export function Dashboard_table(data: any) {
       tooltipField: "Fat",
       headerTooltip: "Limit set to 78",
       cellClass: (params: any) => {
-        return params.value > 78 ? 'bg-red-400' : '';
+        return params.value > 78 ? "bg-red-400" : "";
       },
     },
     {
@@ -83,7 +84,7 @@ export function Dashboard_table(data: any) {
       unSortIcon: true,
       headerTooltip: "Limit set to 120",
       cellClass: (params: any) => {
-        return params.value > 120 ? 'bg-red-400' : '';
+        return params.value > 120 ? "bg-red-400" : "";
       },
     },
     {
@@ -94,7 +95,7 @@ export function Dashboard_table(data: any) {
       tooltipField: "Sugar",
       headerTooltip: "Limit set to 60",
       cellClass: (params: any) => {
-        return params.value > 60 ? 'bg-red-400' : '';
+        return params.value > 60 ? "bg-red-400" : "";
       },
     },
     {
@@ -166,15 +167,33 @@ export function Dashboard_table(data: any) {
       <div className="flex flex-row justify-end mx-2">
         <div className="flex flex-row">
           <div>
-            <Button onClick={exportToCSV} variant="ghost">
-              <Download size={20}/>
-            </Button>
+            <TooltipProvider delayDuration={100}>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button onClick={exportToCSV} variant="ghost" className="text-accent hover:text-white hover:bg-primary">
+                    <Download size={20} />
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>Export</TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
           </div>
-          <TooltipProvider>
+          <div className="relative flex items-center">
+            <div className="absolute left-2">
+              <Search className="h-4 w-4 text-muted-foreground" />
+            </div>
+            <Input
+              type="text"
+              className="bg-background placeholder:text-foreground text-foreground pl-8"
+              id="filter-text-box"
+              placeholder="Search"
+              onInput={onFilterTextBoxChanged}
+            />
+                      <TooltipProvider delayDuration={100}>
             <Tooltip>
               <TooltipTrigger asChild>
                 <Button
-                  className="text-accent"
+                  className="text-accent hover:text-white hover:bg-primary"
                   variant={"ghost"}
                   onClick={() => {
                     handleRefresh();
@@ -183,22 +202,16 @@ export function Dashboard_table(data: any) {
                 >
                   <IoMdRefresh
                     size={20}
-                    className={`transition-transform duration-300 ${
+                    className={`transition-transform duration-300  ${
                       isSpinning ? "animate-spin" : ""
                     }`}
                   />
                 </Button>
               </TooltipTrigger>
-              <TooltipContent>Refresh Data</TooltipContent>
+              <TooltipContent>Refresh</TooltipContent>
             </Tooltip>
           </TooltipProvider>
-          <Input
-            type="text"
-            className="bg-background placeholder:text-foreground text-foreground"
-            id="filter-text-box"
-            placeholder="Search"
-            onInput={onFilterTextBoxChanged}
-          />
+          </div>
         </div>
       </div>
       <div className="ag-theme-quartz-dark my-2 mx-2" style={{ height: 500 }}>

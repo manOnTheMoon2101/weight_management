@@ -34,7 +34,7 @@ const ViewModal = (data: any) => {
               onClick={() => {
                 toast({
                   description: "Feature not Available.",
-                  className: "bg-orange-800 text-white",
+                  className: "bg-red-800 text-white",
                 });
               }}
             >
@@ -52,7 +52,7 @@ const ViewModal = (data: any) => {
               onClick={() => {
                 toast({
                   description: "Feature not Available.",
-                  className: "bg-orange-800 text-white",
+                  className: "bg-red-800 text-white",
                 });
               }}
             >

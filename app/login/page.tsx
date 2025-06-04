@@ -53,9 +53,6 @@ const Login = () => {
         <div className="p-8 w-full md:w-1/2 shadow-lg">
           <div className="flex justify-between items-center">
             <h2 className="text-4xl font-bold my-8">Login</h2>
-            <Badge className="bg-gradient-to-r from-orange-500 to-yellow-500 font-bold h-8">
-              <Link href="/demo">See How John's Progressing...</Link>
-            </Badge>
           </div>
           <div className="group relative z-0 mb-6 w-full">
             <input
@@ -128,7 +125,7 @@ const Login = () => {
             </TooltipProvider>
 
               <Button className="bg-primary mt-5">
-              <Link href="/register" className="text-white">
+              <Link href="/register">
                 Register 
               </Link>
               </Button>
