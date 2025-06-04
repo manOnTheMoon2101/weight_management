@@ -11,6 +11,7 @@ import { IoMdRefresh } from "react-icons/io";
 import "./components/table.css";
 import { useToast } from "@/components/ui/use-toast";
 import { Download } from "lucide-react";
+import { Search } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
@@ -166,11 +167,21 @@ export function Dashboard_table(data: any) {
       <div className="flex flex-row justify-end mx-2">
         <div className="flex flex-row">
           <div>
-            <Button onClick={exportToCSV} variant="ghost">
+            
+
+
+            <TooltipProvider delayDuration={100}>
+            <Tooltip>
+              <TooltipTrigger asChild>
+              <Button onClick={exportToCSV} variant="ghost">
               <Download size={20}/>
             </Button>
+              </TooltipTrigger>
+              <TooltipContent>Export</TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
           </div>
-          <TooltipProvider>
+          <TooltipProvider delayDuration={100}>
             <Tooltip>
               <TooltipTrigger asChild>
                 <Button
@@ -189,16 +200,21 @@ export function Dashboard_table(data: any) {
                   />
                 </Button>
               </TooltipTrigger>
-              <TooltipContent>Refresh Data</TooltipContent>
+              <TooltipContent>Refresh</TooltipContent>
             </Tooltip>
           </TooltipProvider>
-          <Input
-            type="text"
-            className="bg-background placeholder:text-foreground text-foreground"
-            id="filter-text-box"
-            placeholder="Search"
-            onInput={onFilterTextBoxChanged}
-          />
+          <div className="relative flex items-center">
+            <div className="absolute left-2">
+              <Search className="h-4 w-4 text-muted-foreground" />
+            </div>
+            <Input
+              type="text"
+              className="bg-background placeholder:text-foreground text-foreground pl-8"
+              id="filter-text-box"
+              placeholder="Search"
+              onInput={onFilterTextBoxChanged}
+            />
+          </div>
         </div>
       </div>
       <div className="ag-theme-quartz-dark my-2 mx-2" style={{ height: 500 }}>

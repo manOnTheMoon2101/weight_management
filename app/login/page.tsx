@@ -125,7 +125,7 @@ const Login = () => {
             </TooltipProvider>
 
               <Button className="bg-primary mt-5">
-              <Link href="/register" className="text-white">
+              <Link href="/register">
                 Register 
               </Link>
               </Button>
