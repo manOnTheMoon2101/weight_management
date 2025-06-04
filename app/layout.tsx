@@ -6,6 +6,7 @@ import { Providers } from "./providers";
 import { ThemeProvider } from "./components/lib/theme_provider/theme_provider";
 import { Toaster } from "@/components/ui/toaster";
 import { Suspense } from "react";
+import Footer from "./components/body/body/footer/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -35,10 +36,11 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <Providers>{children}</Providers>
+            <Providers>{children} <Footer/></Providers>
             <Toaster />
           </ThemeProvider>
         </Suspense>
+        
       </body>
     </html>
   );
