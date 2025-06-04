@@ -124,11 +124,13 @@ const Login = () => {
               </Tooltip>
             </TooltipProvider>
 
-              <Button className="bg-primary mt-5">
+              
               <Link href="/register">
+              <Button className="bg-primary mt-5 w-full">
                 Register 
+                </Button>
               </Link>
-              </Button>
+     
           </div>
         </div>
       </div>
