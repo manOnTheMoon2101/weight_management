@@ -27,7 +27,7 @@ export function Dashboard_table(data: any) {
       headerName: "Actions",
       cellRenderer: Actions,
       cellRendererParams: {
-        demo : data.demo
+        demo: data.demo,
       },
       headerClass: "bg-accent bg-opacity-50 text-center",
       filter: false,
@@ -55,7 +55,7 @@ export function Dashboard_table(data: any) {
       tooltipField: "Calories",
       headerTooltip: "Limit set to 2000",
       cellClass: (params: any) => {
-        return params.value > 2000 ? 'bg-red-400' : '';
+        return params.value > 2000 ? "bg-red-400" : "";
       },
     },
     {
@@ -73,7 +73,7 @@ export function Dashboard_table(data: any) {
       tooltipField: "Fat",
       headerTooltip: "Limit set to 78",
       cellClass: (params: any) => {
-        return params.value > 78 ? 'bg-red-400' : '';
+        return params.value > 78 ? "bg-red-400" : "";
       },
     },
     {
@@ -84,7 +84,7 @@ export function Dashboard_table(data: any) {
       unSortIcon: true,
       headerTooltip: "Limit set to 120",
       cellClass: (params: any) => {
-        return params.value > 120 ? 'bg-red-400' : '';
+        return params.value > 120 ? "bg-red-400" : "";
       },
     },
     {
@@ -95,7 +95,7 @@ export function Dashboard_table(data: any) {
       tooltipField: "Sugar",
       headerTooltip: "Limit set to 60",
       cellClass: (params: any) => {
-        return params.value > 60 ? 'bg-red-400' : '';
+        return params.value > 60 ? "bg-red-400" : "";
       },
     },
     {
@@ -167,21 +167,29 @@ export function Dashboard_table(data: any) {
       <div className="flex flex-row justify-end mx-2">
         <div className="flex flex-row">
           <div>
-            
-
-
             <TooltipProvider delayDuration={100}>
-            <Tooltip>
-              <TooltipTrigger asChild>
-              <Button onClick={exportToCSV} variant="ghost">
-              <Download size={20}/>
-            </Button>
-              </TooltipTrigger>
-              <TooltipContent>Export</TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button onClick={exportToCSV} variant="ghost">
+                    <Download size={20} />
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>Export</TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
           </div>
-          <TooltipProvider delayDuration={100}>
+          <div className="relative flex items-center">
+            <div className="absolute left-2">
+              <Search className="h-4 w-4 text-muted-foreground" />
+            </div>
+            <Input
+              type="text"
+              className="bg-background placeholder:text-foreground text-foreground pl-8"
+              id="filter-text-box"
+              placeholder="Search"
+              onInput={onFilterTextBoxChanged}
+            />
+                      <TooltipProvider delayDuration={100}>
             <Tooltip>
               <TooltipTrigger asChild>
                 <Button
@@ -203,17 +211,6 @@ export function Dashboard_table(data: any) {
               <TooltipContent>Refresh</TooltipContent>
             </Tooltip>
           </TooltipProvider>
-          <div className="relative flex items-center">
-            <div className="absolute left-2">
-              <Search className="h-4 w-4 text-muted-foreground" />
-            </div>
-            <Input
-              type="text"
-              className="bg-background placeholder:text-foreground text-foreground pl-8"
-              id="filter-text-box"
-              placeholder="Search"
-              onInput={onFilterTextBoxChanged}
-            />
           </div>
         </div>
       </div>
